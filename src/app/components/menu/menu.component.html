@@ -1,1 +1,5 @@
 Левое Меню
+
+<div *ngFor="let list of menuList" style="color:white;cursor: pointer">
+  <div [routerLink]="'/section'">{{list.name}}</div>
+</div>

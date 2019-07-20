@@ -14,6 +14,13 @@ import {MessageAlertComponent} from './components/message_alert/message_alert.co
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {GlobalParamsMessage} from './components/message_alert/global-params-message';
+import {SectionComponent} from './components/section/section.component';
+import {SubsectionComponent} from './components/subsection/subsection.component';
+import {WorkComponent} from './components/work/work.component';
+import {WorkDetailsComponent} from './components/workDetails/workDetails.component';
+import {ReviewsComponent} from './components/reviews/reviews.component';
+import {BlogComponent} from './components/blog/blog.component';
+import {InstructionComponent} from './components/instruction/instruction.component';
 
 
 @NgModule({
@@ -24,6 +31,13 @@ import {GlobalParamsMessage} from './components/message_alert/global-params-mess
     MessageAlertComponent,
     HeaderComponent,
     FooterComponent,
+    SectionComponent,
+    SubsectionComponent,
+    WorkComponent,
+    WorkDetailsComponent,
+    ReviewsComponent,
+    BlogComponent,
+    InstructionComponent
   ],
   imports: [
     BrowserModule,
