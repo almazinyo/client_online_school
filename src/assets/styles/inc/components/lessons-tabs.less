@@ -1,0 +1,194 @@
+.---lessons-tabs {
+
+	.---tabs-switchers {
+		margin-bottom: 40px;
+
+		a {
+			font-size: 20px;
+			padding: 20px 0;
+			margin-right: 35px;
+			position: relative;
+			color: fadeout(@color-text, 70%);
+
+			&.---is-active {
+				color: @color-text;
+
+				&:after {
+					content: '';
+					border-radius: 10px;
+					background: @color-acent;
+				    height: 5px;
+				    left: 0;
+				    right: 0;
+				    bottom: -2px;
+				    z-index: 1;
+				    position: absolute;
+				}
+
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			height: 1px;
+			background: #d6dfe4;
+			position: absolute;
+			left: 0;
+			right: -1000%;
+		}
+
+		&:before {
+			top: 0;
+		}
+
+		&:after {
+			bottom: 0;
+		}
+
+	}
+
+	.---tab {
+		display: none;
+
+		&.---is-visible {
+			display: block;
+		}
+
+	}
+
+	.---subject {
+		margin-bottom: 75px;
+
+		.---course {
+			line-height: 1;
+			margin-left: 150px;
+			color: #fff;
+			font-size: 18px;
+			border-radius: 10px;
+			width: 230px;
+			position: relative;
+			padding: 18px 15px 18px 64px;
+			box-shadow: 6.364px 6.364px 37px 0px rgba(48, 33, 83, 0.19);
+
+			img {
+				width: 30px;
+				left: 17px;
+			}
+
+			&:after {
+				content: '';
+				width: 4px;
+				background: #d3d8de;
+				left: calc(50% - 4px);
+				bottom: -20px;
+				height: 20px;
+				position: absolute;
+			}
+
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+	}
+
+	.---lessons {
+		margin-top: 40px;
+
+		&:before {
+			content: '';
+			height: 4px;
+			background: #d3d8de;
+			left: 85px;
+			right: 85px;
+			top: -20px;
+			position: absolute;
+		}
+
+		.---lesson {
+			padding: 10px 10px 10px 65px;
+			margin-right: 10px;
+			width: 170px;
+			border-radius: 10px;
+			font-size: 14px;
+			line-height: 1.3;
+			color: @color-text;
+			background: #fff;
+			position: relative;
+			font-weight: 400;
+
+			&:before {
+				content: '';
+				width: 4px;
+				background: #d3d8de;
+				left: calc(50% - 4px);
+				top: -20px;
+				height: 20px;
+				position: absolute;
+			}
+
+			.---icon {
+				left: 14px;
+				width: 30px;
+				height: 30px;
+				background: @color-bg;
+				border-radius: 5px;
+				color: @color-acent;
+				font-size: 16px;
+
+				.---svg-img {
+					width: 18px;
+					height: 18px;
+				}
+
+				path {
+					fill: @color-acent;
+				}
+
+			}
+
+			&.---is-ended {
+				background: @color-acent;
+				color: #fff;
+
+				.---icon {
+					background: #4075ff;
+				
+					path {
+						fill: #fff;
+					}
+
+				}
+
+			}
+
+			&.---is-curent {
+				color: @color-acent;
+
+				.---icon {
+					background: @color-acent;
+
+					path {
+						fill: #fff;
+					}
+
+				}
+				
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,249 @@
+.---block-course-in {
+
+	.---breadcrumbs {
+		margin-bottom: 10px;
+	}
+
+	.---course-theme {
+		font-size: 36px;
+		line-height: 1.3;
+		margin-bottom: -50px;
+	}
+
+	.---course-name {
+		margin-top: -40px;
+		font-size: 38px;
+		line-height: 1.3;
+	}
+
+	.---video {
+		height: 430px;
+		margin: 40px 0 20px;
+		border-radius: 20px;
+		overflow: hidden;
+
+		.---play-button {
+			cursor: pointer;
+			left: 93px;
+			width: 124px;
+			height: 124px;
+			background: @color-acent-orange;
+			box-shadow: 8.485px 8.485px 46px 0px rgba(46, 51, 73, 0.32);
+			border-radius: 20px;
+
+			svg {
+				width: 40px;
+				height: 40px;
+			}
+		
+			path {
+				fill: #fff;
+			}
+
+		}
+
+		.---bg {
+			filter: blur(2px);
+		}
+
+		.---man {
+			position: absolute;
+			bottom: 0;
+			right: 96px;
+		}
+
+	}
+
+	.---teacher {
+		font-size: 16px;
+		color: fadeout(@color-text, 50%);
+	
+		.---name {
+			margin-right: 20px;
+		}
+
+	}
+
+	.---course-theory {
+		margin-top: 70px;
+
+		.---block-title {
+			margin-bottom: 25px;
+		}
+
+		.---theory-wrap {
+			background: @color-bg;
+			border-radius: 20px;
+			padding: 15px;
+		}
+
+		.---theory {
+			height: 700px;
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
+
+			img {
+				width: calc(100% - 15px);
+				border-radius: 8px;
+				margin-bottom: 15px;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+				
+			}
+
+			&::-webkit-scrollbar {
+			    width: 11px;
+			    background-color: #e0e9ed;
+			    border-radius: 10px;
+			}
+
+			&::-webkit-scrollbar-thumb {
+			    background-color: @color-text;
+			    border-radius: 10px;
+			}
+
+			&::-webkit-scrollbar-track {
+			}
+
+		}
+
+	}
+
+	.---period {
+		font-size: 16px;
+		width: 160px;
+		margin-bottom: 36px;
+		background: #fff;
+		border-radius: 20px;
+		padding: 15px 25px 8px;
+		box-shadow: 8.485px 8.485px 46px 0px rgba(46, 51, 73, 0.11);
+
+		span {
+			font-size: 32px;
+		}
+
+	}
+
+	.---lessons {
+
+		.---lesson {
+			width: 160px;
+			padding: 15px 50px 15px 25px;
+			border-radius: 50px;
+			display: block;
+			font-size: 16px;
+			position: relative;
+			margin-bottom: 13px;
+			box-shadow: inset 0 0 0 1px @color-bg;
+			color: fadeout(@color-text, 40%);
+
+			.---svg-img {
+				right: 16px;
+			}
+
+			&.---is-ended {
+				color: @color-text;
+				background: @color-bg;
+			}
+
+			&.---is-curent {
+				padding-top: 20px;
+				padding-bottom: 20px;
+				background: @color-acent;
+				color: #fff;
+				font-size: 20px;
+				border-radius: 20px;
+			}
+
+		}
+
+	}
+
+	.---test-wrap {
+		border-radius: 20px 20px 38px 20px;
+		background: @color-bg;
+		padding: 15px 0;
+
+		.h3 {
+			margin-bottom: 30px;
+		}
+
+		p {
+			color: fadeout(@color-text, 30%);
+			font-size: 16px;
+		}
+
+		.---task {
+			background: #fff;
+			border-radius: 8px;
+			padding: 20px;
+		}
+
+		.---answers {
+			padding-top: 20px;
+
+			.---answer {
+				font-size: 15px;
+				font-weight: 600;
+				color: #5f6d74;
+
+				.---indicator {
+					left: 12px;
+					width: 28px;
+					height: 28px;
+					border-radius: 5px;
+					padding: 3px;
+					border: 2px solid #d9deea;
+				}
+
+				.---input-wrap {
+					color: fadeout(@color-text, 50%);
+					margin-top: 10px;
+					border: 2px solid #d9deea;
+					border-radius: 8px;
+					min-height: 48px;
+					padding-left: 60px;
+
+					.---input {
+						padding: 16px 15px 14px 0;
+						width: 100%;
+					}
+
+				}
+
+				&.---is-active {
+					color: @color-acent;
+
+					.---indicator {
+
+						&:before {
+							content: '';
+							display: block;
+							width: 18px;
+							height: 18px;
+							border-radius: 3px;
+							background: @color-acent;
+						}
+
+					}
+
+					.---input-wrap {
+						border: none;
+						background: #fff;
+					}
+
+				}
+
+			}
+
+		}
+
+		.---button {
+			margin: 8px 8px 0 0;
+		}
+
+	}
+
+}

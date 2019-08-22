@@ -1,0 +1,74 @@
+.---block-work-step {
+
+	.---tab {
+		height: 440px;
+		overflow: hidden;
+		display: none;
+		border-radius: 20px;
+
+		.---play-button {
+			cursor: pointer;
+			left: 93px;
+			width: 124px;
+			height: 124px;
+			background: @color-acent-orange;
+			box-shadow: 8.485px 8.485px 46px 0px rgba(46, 51, 73, 0.32);
+			border-radius: 20px;
+
+			svg {
+				width: 40px;
+				height: 40px;
+			}
+		
+			path {
+				fill: #fff;
+			}
+
+		}
+
+		.---bg {
+			filter: blur(6px);
+		}
+
+		.---man {
+			position: absolute;
+			bottom: 0;
+			right: 96px;
+			max-height: 355px;
+		}
+
+		&.---is-visible {display: block;}
+
+	}
+
+	.---tab-switcher {
+		border-radius: 20px;
+		font-size: 20px;
+		color: fadeout(@color-text, 40%);
+		padding: 30px 15px 30px 112px;
+		margin-bottom: 24px;
+		box-shadow: inset 0 0 0 1px fadeout(#b3c6ce, 72%);
+	
+		.---svg-img {
+			left: 26px;
+			width: 62px;
+		}
+
+		path {
+			fill: #95b6c7;
+		}
+
+		&.---is-active {
+			background: #fff;
+			box-shadow: 8.485px 8.485px 46px 0px rgba(46, 51, 73, 0.11);
+			color: @color-acent;
+
+			path {
+				fill: @color-acent;
+			}
+
+		}
+
+	}
+
+}

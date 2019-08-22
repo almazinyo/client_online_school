@@ -1,0 +1,47 @@
+.---main-menu {
+	width: 10%;
+	padding: 25px 10px 0 0;
+
+	.---bg {
+		position: absolute;
+		border-radius: 0 20px 0 0;
+		background: @color-bg;
+		top: 0;
+		left: -1000%;
+		bottom: 0;
+		right: 0;
+	}
+
+	.---item {
+		min-width: 100px;
+		color: #737f9b;
+		font-size: 13px;
+		margin-bottom: 25px;
+
+		.---img {
+			width: 60px;
+			height: 32px;
+			border-radius: 8px;
+			background: #fff;
+			margin-bottom: 10px;
+			font-size: 20px;
+			color: @color-acent;
+		}
+
+		.---text {
+			display: block;
+		}
+
+		&.---is-curent {
+
+			.---img {
+				font-size: 16px;
+				background: @color-acent;
+				color: #fff;
+			}
+
+		}
+
+	}
+
+}
