@@ -4,7 +4,6 @@ import {AuthComponent} from './components/auth/auth.component';
 import {SectionComponent} from './components/section/section.component';
 import {SubsectionComponent} from './components/subsection/subsection.component';
 import {WorkComponent} from './components/work/work.component';
-import {WorkDetailsComponent} from './components/workDetails/workDetails.component';
 import {ReviewsComponent} from './components/reviews/reviews.component';
 import {BlogComponent} from './components/blog/blog.component';
 import {InstructionComponent} from './components/instruction/instruction.component';
@@ -25,10 +24,6 @@ const routes: Routes = [
   {
     path: 'work',
     component: WorkComponent
-  },
-  {
-    path: 'work-details',
-    component: WorkDetailsComponent
   },
   {
     path: 'reviews',

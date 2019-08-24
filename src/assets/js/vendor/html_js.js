@@ -90,7 +90,7 @@ if (sessionStorage.fontsLoaded) {
     html.classList.add('---is-font-loaded');
 } else {
     var script = document.createElement('script');
-    script.src = '/static/js/font_face_observer.min.js';
+    script.src = '/assets/js/vendor/font_face_observer.min.js';
     script.async = true;
 
     script.onload = function() {

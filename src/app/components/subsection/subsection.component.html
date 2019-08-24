@@ -1,3 +1,376 @@
-<div *ngFor="let list of menuList" style="color:black;cursor: pointer">
-  <div [routerLink]="list.link">{{list.name}}</div>
+<div class="---block-course-header ---pos-rel">
+  <div class="---bg ---z-index-under" style="background: #ec407a;"></div>
+
+  <img lazyLoad="assets/imgs/course-in/bg/mechanic.svg" alt="" class="---bg-img ---z-index-under">
+
+  <div class="---block-title">
+    Курсы по физике
+    <div class="---font-800">Механика</div>
+  </div>
+
+  <p>
+    Слушатели ознакомятся с основными механическими<br>
+    явлениями и методами их теоретического описания.
+  </p>
+  <a routerLink="/work" class="---button ---button--acent_orange ---button--shadow">Начать учиться</a>
+
+  <img lazyLoad="assets/imgs/illustrations/course-in.svg" alt="" class="---icon">
+</div>
+<div class="---block-course-in-nav ---d-flex">
+  <a href="#" class="---js-goto-anchor" data-anchor=".---block-course-about">О курсах</a>
+  <a href="#" class="---js-goto-anchor" data-anchor=".---block-work-step">Формат</a>
+  <a href="#" class="---js-goto-anchor" data-anchor=".---block-courses">Курсы</a>
+  <a href="#" class="---js-goto-anchor" data-anchor=".---block-reviews">Отзывы</a>
+  <a href="#" class="---js-goto-anchor" data-anchor=".---block-course-teacher">Преподаватель</a>
+</div>
+
+<div class="---block-course-about">
+  <div class="---row">
+
+    <div class="col-xl-6">
+      <div class="---block-title">О курсах</div>
+      <p>
+        Построение курса традиционно. Курс охватывает классический материал по курсу общей физики, раздел «Механика», читающийся на первом курсе физического факультета МГУ в первом семестре. В курсе будут представлены разделы «Кинематика и динамика материальной точки и простейших систем», «Законы сохранения», «Движение материальной точки в неинерциальных системах отсчета», «Основы релятивистской механики», «Кинематика и динамика твердого тела» «Основы механики деформируемых сред», «Основы гидромеханики и аэромеханики», «Механические колебания и волны».
+      </p>
+    </div>
+
+    <div class="col-xl-6">
+      <img lazyLoad="assets/imgs/illustrations/bg2.svg" alt="" class="---bg ---z-index-under">
+
+      <div class="---img ---img-1"><img lazyLoad="assets/imgs/course-in/2.png" alt="" class="---img-cover"></div>
+      <div class="---img ---img-2"><img lazyLoad="assets/imgs/course-in/1.png" alt="" class="---img-cover"></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="---devider"></div>
+
+<div class="---block-work-step ---tabs">
+  <div class="---row">
+
+    <div class="col-12 ---block-title">
+      Как проходит <span class="---acent">обучение?</span>
+      <p>
+        Наш опыт говорит о том, что в обучении должны участвовать реальные люди, а не обезличенные тренажеры.<br>
+        После каждого урока будет практическое задание, которое проверит и прокомментирует преподаватель.
+      </p>
+    </div>
+
+    <div class="col-md-9">
+      <div class="---tab ---pos-rel ---is-visible">
+        <div class="---play-button ---y-pos-abs ---z-index-over">
+          <img lazyLoad="assets/imgs/icons/play-button.svg" alt="" class="---svg-img ---pos-abs">
+        </div>
+
+        <img lazyLoad="assets/imgs/work_step/1.png" alt="" class="---bg ---img-cover">
+
+        <img lazyLoad="assets/imgs/man.png" alt="" class="---man">
+      </div>
+      <div class="---tab ---pos-rel">
+        <div class="---play-button ---y-pos-abs ---z-index-over">
+          <img lazyLoad="assets/imgs/icons/play-button.svg" alt="" class="---svg-img ---pos-abs">
+        </div>
+
+        <img lazyLoad="assets/imgs/work_step/1.png" alt="" class="---bg ---img-cover">
+
+        <img lazyLoad="assets/imgs/man.png" alt="" class="---man">
+      </div>
+      <div class="---tab ---pos-rel">
+        <div class="---play-button ---y-pos-abs ---z-index-over">
+          <img lazyLoad="assets/imgs/icons/play-button.svg" alt="" class="---svg-img ---pos-abs">
+        </div>
+
+        <img lazyLoad="assets/imgs/work_step/1.png" alt="" class="---bg ---img-cover">
+
+        <img lazyLoad="assets/imgs/man.png" alt="" class="---man">
+      </div>
+      <div class="---tab ---pos-rel">
+        <div class="---play-button ---y-pos-abs ---z-index-over">
+          <img lazyLoad="assets/imgs/icons/play-button.svg" alt="" class="---svg-img ---pos-abs">
+        </div>
+
+        <img lazyLoad="assets/imgs/work_step/1.png" alt="" class="---bg ---img-cover">
+
+        <img lazyLoad="assets/imgs/man.png" alt="" class="---man">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="---tabs-switchers ---font-800 ---cursor-pointer">
+        <div class="---tab-switcher ---is-active ---pos-rel">
+          <img lazyLoad="assets/imgs/icons/work-step/1.svg" alt="" class="---svg-img ---y-pos-abs">
+          Обучение
+        </div>
+        <div class="---tab-switcher ---pos-rel">
+          <img lazyLoad="assets/imgs/icons/work-step/2.svg" alt="" class="---svg-img ---y-pos-abs">
+          Курсы
+        </div>
+        <div class="---tab-switcher ---pos-rel">
+          <img lazyLoad="assets/imgs/icons/work-step/3.svg" alt="" class="---svg-img ---y-pos-abs">
+          Вебинары
+        </div>
+        <div class="---tab-switcher ---pos-rel">
+          <img lazyLoad="assets/imgs/icons/work-step/4.svg" alt="" class="---svg-img ---y-pos-abs">
+          Тесты
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="---block-courses">
+  <div class="---free-course ---pos-rel ---d-flex ---align-items-center">
+    <div>
+      <div class="---title"><span class="---font-800">3 урока беслплатно!</span> Попробуйте</div>
+      <p>Вы можете выбрать любой курс и пройти 3 урока бесплатно после <a href="#">регитсрации</a></p>
+    </div>
+
+    <i class="---icon-font ---icon-arrow-down"></i>
+
+    <img lazyLoad="assets/imgs/illustrations/course-free.svg" alt="" class="---icon">
+  </div>
+
+  <div class="---block-title">Выберите <span class="---acent">курс</span></div>
+
+  <div class="---row">
+    <div class="col-md-6 col-xl-3">
+      <div class="---course">
+        <div class="---top" style="background: #ec407a;">
+          <div class="---d-flex">
+            <div class="---play-button ---pos-rel">
+              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#ec407a" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
+            </div>
+            <div class="---icon ---icon-font ---icon-menu-course"></div>
+          </div>
+
+          <div class="---title">
+            Кинематика<br>
+            и динамика<br>
+            простейших<br>
+            систем
+          </div>
+          <div class="---count">20 видео уроков</div>
+        </div>
+        <ul>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Закон сохранения импульса
+          </li>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Пространство и время в теории относительности
+          </li>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Пространство и время в теории относительности
+          </li>
+        </ul>
+
+        <div class="---price ---font-800 ---text-center">800 ₽</div>
+
+        <a href="#" class="---button ---button--acent_orange">Начать беслатно</a>
+      </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+      <div class="---course">
+        <div class="---top" style="background: #ec407a;">
+          <div class="---d-flex">
+            <div class="---play-button ---pos-rel">
+              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#ec407a" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
+            </div>
+            <div class="---icon ---icon-font ---icon-menu-physics"></div>
+          </div>
+
+          <div class="---title">
+            Законы<br>
+            сохранения<br>
+            в простейших<br>
+            системах
+          </div>
+          <div class="---count">20 видео уроков</div>
+        </div>
+        <ul>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Закон сохранения импульса
+          </li>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Пространство и время в теории относительности
+          </li>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Пространство и время в теории относительности
+          </li>
+        </ul>
+
+        <div class="---price ---font-800 ---text-center">800 ₽</div>
+
+        <a href="#" class="---button ---button--acent_orange">Начать беслатно</a>
+      </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+      <div class="---course">
+        <div class="---top" style="background: #29b6f6;">
+          <div class="---d-flex">
+            <div class="---play-button ---pos-rel">
+              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#29b6f6" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
+            </div>
+            <div class="---icon ---icon-font ---icon-menu-russian"></div>
+          </div>
+
+          <div class="---title">
+            Неинерциальные<br>
+            системы отсчета
+          </div>
+          <div class="---count">20 видео уроков</div>
+        </div>
+        <ul>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Закон сохранения импульса
+          </li>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Пространство и время в теории относительности
+          </li>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Пространство и время в теории относительности
+          </li>
+        </ul>
+
+        <div class="---price ---font-800 ---text-center">800 ₽</div>
+
+        <a href="#" class="---button ---button--acent_orange">Начать беслатно</a>
+      </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+      <div class="---course">
+        <div class="---top" style="background: #9e9e9e;">
+          <div class="---d-flex">
+            <div class="---play-button ---pos-rel">
+              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#9e9e9e" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
+            </div>
+            <div class="---icon ---icon-font ---icon-menu-social"></div>
+          </div>
+
+          <div class="---title">
+            Основы<br>
+            релятивистской<br>
+            механики
+          </div>
+          <div class="---count">20 видео уроков</div>
+        </div>
+        <ul>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Закон сохранения импульса
+          </li>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Пространство и время в теории относительности
+          </li>
+          <li>
+            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
+            Пространство и время в теории относительности
+          </li>
+        </ul>
+
+        <div class="---price ---font-800 ---text-center">800 ₽</div>
+
+        <a href="#" class="---button ---button--acent_orange">Начать беслатно</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="---free-course ---free-course--acent ---pos-rel">
+    <div class="---title">
+      <span class="---font-800">Все курсы по механике со скидкой 30%!</span>
+      <span class="---old-price">4,200</span> - 3,300 ₽
+    </div>
+    <p>Покупая несколько курсов вы сильно экономите и получаете больше баллов</p>
+
+    <a href="#" class="---button ---button--acent_orange">Купить весе курсы</a>
+  </div>
+</div>
+
+<div class="---devider"></div>
+
+<div class="---block-course-teacher">
+
+  <div class="---row">
+
+    <div class="col-xl-6">
+      <div class="---block-title">Преподаватель <span class="---acent">курса</span></div>
+      <div class="---name">
+        <div class="---font-800">Борис Добродеев</div>
+        Доктор физико-математических наук, профессор
+      </div>
+
+      <p class="---pos-rel">
+        Заместитель заведующего кафедрой общей физики<br>
+        физического факультета МГУ имени М.В. Ломоносова
+      </p>
+    </div>
+
+    <div class="col-xl-6">
+      <img lazyLoad="assets/imgs/teachers/1.png" alt="" >
+    </div>
+
+  </div>
+</div>
+
+<div class="---devider"></div>
+
+<div class="---block-reviews">
+  <div class="---block-title ---d-flex ---align-items-center ---justify-content-between">
+    <div>Отзывы <span class="---acent">о курсах</span></div>
+
+    <a href="#" class="---button ---button--border_bg ---button--color-acent">Все отзывы</a>
+  </div>
+
+  <div class="---owl-carousel">
+    <div class="---item">
+      <div class="---item-header ---pos-rel">
+        <img lazyLoad="assets/imgs/users/1.svg" alt="" class="---img">
+        <div class="---name">Максим Мироненко</div>
+        <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
+      </div>
+      <p>
+        Курс отличный, очень полезный. Я считаю, что обязателен для всех, кто хочет развиваться в этой сфере. Сложен для понимаю, почти каждый вебинар пересматривал, бывало, и не один раз. Отдельная благодарность преподавателю Сергею!
+      </p>
+    </div>
+    <div class="---item">
+      <div class="---item-header ---pos-rel">
+        <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
+        <div class="---name">Александр Баль</div>
+        <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
+      </div>
+      <p>
+        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
+      </p>
+    </div>
+    <div class="---item">
+      <div class="---item-header ---pos-rel">
+        <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
+        <div class="---name">Александр Баль</div>
+        <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
+      </div>
+      <p>
+        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
+      </p>
+    </div>
+    <div class="---item">
+      <div class="---item-header ---pos-rel">
+        <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
+        <div class="---name">Александр Баль</div>
+        <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
+      </div>
+      <p>
+        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
+      </p>
+    </div>
+  </div>
 </div>

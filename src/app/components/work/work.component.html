@@ -1,3 +1,87 @@
-<div *ngFor="let list of menuList" style="color:black;cursor: pointer">
-  <div [routerLink]="list.link">{{list.name}}</div>
+<div class="---block-course-in">
+  <div class="---course-theme ---font-800">Кинематика и динамика простейших систем</div>
+  <div class="---devider"></div>
+
+  <div class="---row">
+
+    <div class="col-xl-9">
+      <div class="---course-name">Кинематика материальной точки и простейших систем</div>
+
+      <div class="---video ---pos-rel">
+        <div class="---play-button ---y-pos-abs ---z-index-over">
+          <img data-src="/static/imgs/icons/play-button.svg" alt="" class="---svg-img ---pos-abs">
+        </div>
+
+        <img data-src="/static/imgs/course-in/bg.png" alt="" class="---bg ---img-cover">
+
+        <img data-src="/static/imgs/course-in/man.png" alt="" class="---man">
+      </div>
+
+      <div class="---teacher">
+        <span class="---name ---font-800">Борис Добродеев</span>
+        Доктор физико-математических наук, профессор
+      </div>
+
+      <div class="---course-theory">
+        <div class="---block-title">Теория по курсу</div>
+
+        <div class="---theory-wrap">
+          <div class="---theory">
+            <img data-src="/static/imgs/theory/1.jpg" alt="" >
+          </div>
+        </div>
+      </div>
+
+      <div class="---devider"></div>
+
+      <div class="---block-title">Пройдите тест <span class="---acent">для завершения</span></div>
+      <div class="---test-wrap ---d-flex ---flex-wrap">
+        <div class="col-xl-5">
+          <div class="---task">
+            <div class="h3">Задание</div>
+            <p>
+              Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш тек
+            </p>
+          </div>
+        </div>
+
+        <div class="col-xl-7">
+          <div class="---answers">
+            <div class="h3">Ваш ответ</div>
+            <div class="---answer ---is-active">
+              <div class="---input-wrap ---pos-rel ---d-flex ---align-items-center">
+                <div class="---indicator ---y-pos-abs"></div>
+                <input class="---input" placeholder="Впишите ответ">
+              </div>
+            </div>
+            <div class="---answer">
+              <div class="---input-wrap ---pos-rel ---d-flex ---align-items-center">
+                <div class="---indicator ---y-pos-abs"></div>
+                Выбрать
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 ---d-flex ---flex-column ---align-items-end">
+      <div class="---period">
+        Период
+        <span class="---d-block">36 %</span>
+      </div>
+
+      <div class="---lessons">
+        <a href="#" class="---lesson">
+          1 урок
+          <img data-src="/static/imgs/icons/lesson-success.svg" alt="" class="---svg-img ---y-pos-abs">
+        </a>
+        <a href="#" class="---lesson ---is-curent">
+          2 урок
+          <img data-src="/static/imgs/icons/lesson-period.svg" alt="" class="---svg-img ---y-pos-abs">
+        </a>
+        <a href="#" class="---lesson ---is-ended">3 урок</a>
+      </div>
+    </div>
+
+  </div>
 </div>

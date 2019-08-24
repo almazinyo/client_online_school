@@ -17,10 +17,11 @@ import {GlobalParamsMessage} from './components/message_alert/global-params-mess
 import {SectionComponent} from './components/section/section.component';
 import {SubsectionComponent} from './components/subsection/subsection.component';
 import {WorkComponent} from './components/work/work.component';
-import {WorkDetailsComponent} from './components/workDetails/workDetails.component';
 import {ReviewsComponent} from './components/reviews/reviews.component';
 import {BlogComponent} from './components/blog/blog.component';
 import {InstructionComponent} from './components/instruction/instruction.component';
+import {BreadcrumbsComponent} from './components/breadcrumbs/breadcrumbs.component';
+import {intersectionObserverPreset, LazyLoadImageModule} from 'ng-lazyload-image';
 
 
 @NgModule({
@@ -34,10 +35,10 @@ import {InstructionComponent} from './components/instruction/instruction.compone
     SectionComponent,
     SubsectionComponent,
     WorkComponent,
-    WorkDetailsComponent,
     ReviewsComponent,
     BlogComponent,
-    InstructionComponent
+    InstructionComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +47,10 @@ import {InstructionComponent} from './components/instruction/instruction.compone
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    LazyLoadImageModule.forRoot({
+      preset: intersectionObserverPreset // <-- tell LazyLoadImage that you want to use IntersectionObserver
+    })
+
   ],
   providers: [
     GlobalParams,
