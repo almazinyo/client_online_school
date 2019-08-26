@@ -4,7 +4,7 @@ import {HttpService} from '../../utils/http/http.service';
 @Injectable()
 export class SectionService {
   sectionCurrent = '';
-  sectionsCurrent = '';
+  sectionsCurrent = [];
 
   constructor(private httpService: HttpService) {
   }
