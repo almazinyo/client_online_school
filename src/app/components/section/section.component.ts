@@ -7,9 +7,15 @@ import {SectionService} from './section.service';
 })
 export class SectionComponent {
 
+  sections: any;
+  tests: any;
+
   constructor(private sectionService: SectionService) {
     this.sectionService.getSection().then((data: any) => {
-        console.log(1, data);
+        this.sections = data.sections;
+        this.tests = data.tests;
+
+        console.log(1, this.sections);
       },
       (error) => {
         console.log('Ошибка при получении списка полей заявки: ', error);
