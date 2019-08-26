@@ -22,6 +22,8 @@ import {BlogComponent} from './components/blog/blog.component';
 import {InstructionComponent} from './components/instruction/instruction.component';
 import {BreadcrumbsComponent} from './components/breadcrumbs/breadcrumbs.component';
 import {intersectionObserverPreset, LazyLoadImageModule} from 'ng-lazyload-image';
+import {HttpService} from './utils/http/http.service';
+import {SectionService} from './components/section/section.service';
 
 
 @NgModule({
@@ -55,7 +57,9 @@ import {intersectionObserverPreset, LazyLoadImageModule} from 'ng-lazyload-image
   providers: [
     GlobalParams,
     AuthService,
-    GlobalParamsMessage
+    GlobalParamsMessage,
+    HttpService,
+    SectionService
   ],
   bootstrap: [AppComponent]
 })

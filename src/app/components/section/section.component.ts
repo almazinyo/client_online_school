@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {SectionService} from './section.service';
 
 @Component({
   selector: 'app-section',
@@ -6,13 +7,12 @@ import {Component} from '@angular/core';
 })
 export class SectionComponent {
 
-  menuList = [];
-
-  constructor() {
-    this.menuList = [
-      {'name': 'Механик', 'link': '/subsection'},
-      {'name': 'МКТ', 'link': '/subsection'},
-      {'name': 'Электр', 'link': '/subsection'}
-    ];
+  constructor(private sectionService: SectionService) {
+    this.sectionService.getSection().then((data: any) => {
+        console.log(1, data);
+      },
+      (error) => {
+        console.log('Ошибка при получении списка полей заявки: ', error);
+      });
   }
 }
