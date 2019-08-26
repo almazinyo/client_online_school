@@ -1,12 +1,14 @@
 import {Component} from '@angular/core';
 import {SectionService} from '../section/section.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
 })
 export class MenuComponent {
-  constructor(private sectionService: SectionService) {
+  constructor(private sectionService: SectionService,
+              private router: Router) {
 
   }
 
@@ -17,5 +19,6 @@ export class MenuComponent {
     }
 
     this.sectionService.sectionCurrent = param;
+    this.router.navigate(['section']);
   }
 }
