@@ -15,7 +15,128 @@
 	
 
 
+	/* Components */
+	.---lessons-tabs {
+
+		.---tabs-switchers {
+			overflow-y: hidden;
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+			border-top: 1px solid #d6dfe4;
+			border-bottom: 1px solid #d6dfe4;
+
+			&:before,
+			&:after {
+				display: none;
+			}
+		
+			a {
+				font-size: 18px;
+				padding: 13px 0;
+				margin-right: 15px;
+			}
+
+		}
+
+		.---subject {
+			margin-bottom: 40px;
+
+			.---course {
+				padding: 13px 15px 13px 48px;
+			
+				img {
+					width: 26px;
+					left: 10px;
+				}
+
+			}
+
+		}
+
+		.---lessons {
+			margin-top: 30px;
+
+			&:before {
+				top: -16px;
+			}
+
+			.---lesson {
+				padding: 10px 10px 10px 46px;
+
+				&:before {
+				    top: -16px;
+				    height: 16px;
+				}
+
+				.---icon {
+					left: 10px;
+					width: 26px;
+					height: 26px;
+
+					svg {
+					    width: 16px;
+					    height: 16px;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
 	/* Blocks */
+	.---block-profile {
+	    margin-left: -52px;
+	    width: calc(100% + 52px);
+
+		.---profile-menu {
+		    width: 250px;
+		    padding: 30px 0 60px 40px;
+
+			.---user {
+			    margin-bottom: 50px;
+			    font-size: 14px;
+			    padding-left: 60px;
+
+			    .---avatar {
+			    	left: 0;
+			    }
+
+			    .---level {
+			    	font-size: 13px;
+			    }
+
+			}
+
+			nav {
+
+				a {
+					font-size: 14px;
+					padding: 10px 20px;
+					
+					.---svg-img {display: none;}
+
+					&.---is-active {
+						border-radius: 10px 0 0 10px;
+					}
+
+				}
+
+			}
+
+		}
+
+		.---rside {
+		    width: calc(100% - 250px);
+			padding: 25px 0 100px 30px;
+		}
+
+	}
+
 	.---block-course-in {
 
 		.---video {
@@ -332,6 +453,14 @@
 
 		}
 
+	}
+
+	.---block-blog--in {
+
+		.---content {
+			padding-right: 0;
+		}
+		
 	}
 	
 
