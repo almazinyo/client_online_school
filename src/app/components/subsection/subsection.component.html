@@ -7,14 +7,11 @@
     
     <div class="col-lg-8">
       <div class="---block-title">
-        Курсы по физике
-        <div class="---font-800">Механика</div>
+        Курсы по {{subsection.thing}}
+        <div class="---font-800">{{subsection.section}}</div>
       </div>
 
-      <p>
-        Слушатели ознакомятся с основными механическими<br>
-        явлениями и методами их теоретического описания.
-      </p>
+      <p>{{subsection.description}}</p>
       <a routerLink="/work" class="---button ---button--acent_orange ---button--shadow">Начать учиться</a>
     </div>
 
@@ -148,9 +145,9 @@
   <div class="---block-title">Выберите <span class="---acent">курс</span></div>
 
   <div class="---row">
-    <div class="col-xs-6 col-lg-4 col-xl-3">
+    <div class="col-xs-6 col-lg-4 col-xl-3" *ngFor="let cource of subsection.sections.courses">
       <div class="---course">
-        <div class="---top" style="background: #ec407a;">
+        <div class="---top" [style.backgroundColor]="cource.background">
           <div class="---d-flex">
             <div class="---play-button ---pos-rel">
               <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#ec407a" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
@@ -159,140 +156,18 @@
           </div>
 
           <div class="---title">
-            Кинематика<br>
-            и динамика<br>
-            простейших<br>
-            систем
+            {{cource.name}}
           </div>
-          <div class="---count">20 видео уроков</div>
+          <div class="---count">{{cource.description}}</div>
         </div>
         <ul>
-          <li>
+          <li  *ngFor="let lesson of cource.lessons">
             <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Закон сохранения импульса
-          </li>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Пространство и время в теории относительности
-          </li>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Пространство и время в теории относительности
+            {{lesson.name}}
           </li>
         </ul>
 
-        <div class="---price ---font-800 ---text-center">800 ₽</div>
-
-        <a href="#" class="---button ---button--acent_orange">Начать беслатно</a>
-      </div>
-    </div>
-    <div class="col-xs-6 col-lg-4 col-xl-3">
-      <div class="---course">
-        <div class="---top" style="background: #ec407a;">
-          <div class="---d-flex">
-            <div class="---play-button ---pos-rel">
-              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#ec407a" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
-            </div>
-            <div class="---icon ---icon-font ---icon-menu-physics"></div>
-          </div>
-
-          <div class="---title">
-            Законы<br>
-            сохранения<br>
-            в простейших<br>
-            системах
-          </div>
-          <div class="---count">20 видео уроков</div>
-        </div>
-        <ul>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Закон сохранения импульса
-          </li>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Пространство и время в теории относительности
-          </li>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Пространство и время в теории относительности
-          </li>
-        </ul>
-
-        <div class="---price ---font-800 ---text-center">800 ₽</div>
-
-        <a href="#" class="---button ---button--acent_orange">Начать беслатно</a>
-      </div>
-    </div>
-    <div class="col-xs-6 col-lg-4 col-xl-3">
-      <div class="---course">
-        <div class="---top" style="background: #29b6f6;">
-          <div class="---d-flex">
-            <div class="---play-button ---pos-rel">
-              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#29b6f6" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
-            </div>
-            <div class="---icon ---icon-font ---icon-menu-russian"></div>
-          </div>
-
-          <div class="---title">
-            Неинерциальные<br>
-            системы отсчета
-          </div>
-          <div class="---count">20 видео уроков</div>
-        </div>
-        <ul>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Закон сохранения импульса
-          </li>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Пространство и время в теории относительности
-          </li>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Пространство и время в теории относительности
-          </li>
-        </ul>
-
-        <div class="---price ---font-800 ---text-center">800 ₽</div>
-
-        <a href="#" class="---button ---button--acent_orange">Начать беслатно</a>
-      </div>
-    </div>
-    <div class="col-xs-6 col-lg-4 col-xl-3">
-      <div class="---course">
-        <div class="---top" style="background: #9e9e9e;">
-          <div class="---d-flex">
-            <div class="---play-button ---pos-rel">
-              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#9e9e9e" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
-            </div>
-            <div class="---icon ---icon-font ---icon-menu-social"></div>
-          </div>
-
-          <div class="---title">
-            Основы<br>
-            релятивистской<br>
-            механики
-          </div>
-          <div class="---count">20 видео уроков</div>
-        </div>
-        <ul>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Закон сохранения импульса
-          </li>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Пространство и время в теории относительности
-          </li>
-          <li>
-            <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
-            Пространство и время в теории относительности
-          </li>
-        </ul>
-
-        <div class="---price ---font-800 ---text-center">800 ₽</div>
+        <div class="---price ---font-800 ---text-center">{{cource.price}} ₽</div>
 
         <a href="#" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>

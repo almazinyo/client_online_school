@@ -47,19 +47,19 @@ export class SectionService {
                     'lesson_id': 1,
                     'background': '#1f5af4',
                     'logo': 'lesson-success.svg',
-                    'lesson_name': 'Урок 1'
+                    'lesson_name': 'Кинематика'
                   },
                   {
                     'lesson_id': 2,
                     'background': '#1f5af4',
                     'logo': 'lesson-period.svg',
-                    'lesson_name': 'Урок 2'
+                    'lesson_name': 'Динамика'
                   },
                   {
                     'lesson_id': 3,
                     'background': '#fff',
                     'logo': 'arrow-right.svg',
-                    'lesson_name': 'Урок 3'
+                    'lesson_name': 'Электростатика'
                   }
                 ]
               },

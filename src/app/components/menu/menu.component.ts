@@ -7,9 +7,16 @@ import {Router} from '@angular/router';
   templateUrl: './menu.component.html',
 })
 export class MenuComponent {
+  things: any;
+
   constructor(private sectionService: SectionService,
               private router: Router) {
 
+    this.things = [
+      {name: 'Физика', link: 'physics', logo: '---icon-menu-map'},
+      {name: 'Математика', link: 'maths', logo: '---icon-menu-physics'},
+      {name: 'Химия', link: 'chemistry', logo: '---icon-menu-russian'},
+    ];
   }
 
   // переход на ссылку

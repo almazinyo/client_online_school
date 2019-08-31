@@ -24,6 +24,7 @@ import {BreadcrumbsComponent} from './components/breadcrumbs/breadcrumbs.compone
 import {intersectionObserverPreset, LazyLoadImageModule} from 'ng-lazyload-image';
 import {HttpService} from './utils/http/http.service';
 import {SectionService} from './components/section/section.service';
+import {SubsectionService} from './components/subsection/subsection.service';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import {SectionService} from './components/section/section.service';
     AuthService,
     GlobalParamsMessage,
     HttpService,
-    SectionService
+    SectionService,
+    SubsectionService
   ],
   bootstrap: [AppComponent]
 })

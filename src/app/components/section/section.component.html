@@ -1,157 +1,60 @@
-
 <div class="---block-catalog">
-
   <div class="---course-wrap">
-    <div class="---block-title">Видео курсы по <span class="---acent ---font-800">физике</span></div>
-
+    <div class="---block-title">Видео курсы по <span class="---acent ---font-800">{{sections.label}}</span></div>
     <div class="---course-list ---lessons-tabs">
-
-      <div class="---subject">
-        <a href="#" class="---course ---font-800 ---d-flex ---align-items-center" style="background: #ff8a65;">
+      <div class="---subject" *ngFor="let section of sections.sections">
+        <div (click)="getSubsection(section.section_id)" class="---course ---font-800 ---d-flex ---align-items-center" [style.backgroundColor]="section.background">
                         <span class="---play-button ---pos-rel">
                             <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#ff8a65" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
                         </span>
           <span class="---icon ---pos-rel">
-                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg"><path d="M4.629 15.004a10.38 10.38 0 0 0 12.977 10.044 1.172 1.172 0 0 0-.588-2.27 8.03 8.03 0 1 1 .692-15.334 1.172 1.172 0 0 0 .791-2.207 10.378 10.378 0 0 0-13.872 9.767zM8.2 1.756a1.172 1.172 0 1 1-1.172 1.172A1.172 1.172 0 0 1 8.2 1.756zM2.94 18.864A12.69 12.69 0 0 1 5.451 6.689a1.172 1.172 0 1 0-1.767-1.54A15.03 15.03 0 0 0 .708 19.578a1.173 1.173 0 1 0 2.235-.711zM21.97 7.851a1.172 1.172 0 1 1-1.172 1.172 1.172 1.172 0 0 1 1.175-1.167zm3.634-3.459A14.9 14.9 0 0 0 14.997-.003a15.184 15.184 0 0 0-2.541.215 1.172 1.172 0 0 0 .394 2.311 12.82 12.82 0 0 1 2.147-.181 12.661 12.661 0 0 1 9.74 20.744l-1.625-1.625a10.3 10.3 0 0 0 2.256-6.46 10.5 10.5 0 0 0-.189-1.981 1.172 1.172 0 1 0-2.3.446 8.114 8.114 0 0 1 .146 1.535 7.983 7.983 0 0 1-1.582 4.789l-1.684-1.685a5.683 5.683 0 1 0-6.68 2.249 1.172 1.172 0 0 0 .791-2.207 3.342 3.342 0 1 1 4.168-1.763l-2.211-2.211a1.172 1.172 0 0 0-1.658 1.657l9.674 9.677a1.107 1.107 0 0 0 .1.11 1.163 1.163 0 0 0 .829.344h.014a1.168 1.168 0 0 0 .829-.343 1.2 1.2 0 0 0 .1-.122 15 15 0 0 0-.108-21.101zm-5.265 22.09a12.675 12.675 0 0 1-12.259-.877 1.172 1.172 0 1 0-1.283 1.962 15.019 15.019 0 0 0 14.533 1.039 1.172 1.172 0 1 0-.988-2.121zm-16.3-4.272a1.173 1.173 0 1 1-1.172 1.172 1.172 1.172 0 0 1 1.176-1.169z"/></svg>
+                            <img lazyLoad="assets/imgs/icons/{{section.icon}}" alt="" class="---svg-img ---pos-abs">
                         </span>
 
           <span class="---text-wrap">
-                            <span class="---font-800">Механика</span>
-                            <span class="---course-count ---font-400 ---d-block">6 видео курсов</span>
+                            <span class="---font-800">{{section.section_name}}</span>
+                            <span class="---course-count ---font-400 ---d-block">{{section.description}}</span>
                         </span>
-        </a>
+        </div>
 
-        <div class="---lessons ---d-inline-flex ---pos-rel">
-          <a routerLink="/subsection" class="---lesson ---is-ended">
+        <div class="---lessons ---d-inline-flex ---pos-rel" >
+          <div class="---lesson" *ngFor="let lesson of section.lessons" [style.backgroundColor]="lesson.background">
                             <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg>
+                                <img lazyLoad="assets/imgs/icons/{{lesson.logo}}" alt="" class="---svg-img ---pos-abs">
                             </span>
-            Название курса
-          </a>
-          <a href="#" class="---lesson ---is-curent">
-                            <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg"><path d="M14.91 6.09A6.044 6.044 0 0 0 10.5 4.2v6.3l-4.41 4.41a6.4 6.4 0 0 0 8.92 0 6.176 6.176 0 0 0-.1-8.82zM10.5 0A10.5 10.5 0 1 0 21 10.5 10.528 10.528 0 0 0 10.5 0zm0 18.9a8.4 8.4 0 1 1 8.4-8.4 8.425 8.425 0 0 1-8.4 8.4z"/></svg>
-                            </span>
-            Название курса
-          </a>
-          <a href="#" class="---lesson">
-                            <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.1 491.1"><path d="M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z"/></svg>
-                            </span>
-            Название курса
-          </a>
+            {{lesson.lesson_name}}
+          </div>
         </div>
       </div>
-      <div class="---subject">
-        <a href="#" class="---course ---font-800 ---d-flex ---align-items-center" style="background: #29b6f6;">
-                        <span class="---play-button ---pos-rel">
-                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#29b6f6" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
-                        </span>
-          <span class="---icon ---pos-rel">
-                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg"><path d="M4.629 15.004a10.38 10.38 0 0 0 12.977 10.044 1.172 1.172 0 0 0-.588-2.27 8.03 8.03 0 1 1 .692-15.334 1.172 1.172 0 0 0 .791-2.207 10.378 10.378 0 0 0-13.872 9.767zM8.2 1.756a1.172 1.172 0 1 1-1.172 1.172A1.172 1.172 0 0 1 8.2 1.756zM2.94 18.864A12.69 12.69 0 0 1 5.451 6.689a1.172 1.172 0 1 0-1.767-1.54A15.03 15.03 0 0 0 .708 19.578a1.173 1.173 0 1 0 2.235-.711zM21.97 7.851a1.172 1.172 0 1 1-1.172 1.172 1.172 1.172 0 0 1 1.175-1.167zm3.634-3.459A14.9 14.9 0 0 0 14.997-.003a15.184 15.184 0 0 0-2.541.215 1.172 1.172 0 0 0 .394 2.311 12.82 12.82 0 0 1 2.147-.181 12.661 12.661 0 0 1 9.74 20.744l-1.625-1.625a10.3 10.3 0 0 0 2.256-6.46 10.5 10.5 0 0 0-.189-1.981 1.172 1.172 0 1 0-2.3.446 8.114 8.114 0 0 1 .146 1.535 7.983 7.983 0 0 1-1.582 4.789l-1.684-1.685a5.683 5.683 0 1 0-6.68 2.249 1.172 1.172 0 0 0 .791-2.207 3.342 3.342 0 1 1 4.168-1.763l-2.211-2.211a1.172 1.172 0 0 0-1.658 1.657l9.674 9.677a1.107 1.107 0 0 0 .1.11 1.163 1.163 0 0 0 .829.344h.014a1.168 1.168 0 0 0 .829-.343 1.2 1.2 0 0 0 .1-.122 15 15 0 0 0-.108-21.101zm-5.265 22.09a12.675 12.675 0 0 1-12.259-.877 1.172 1.172 0 1 0-1.283 1.962 15.019 15.019 0 0 0 14.533 1.039 1.172 1.172 0 1 0-.988-2.121zm-16.3-4.272a1.173 1.173 0 1 1-1.172 1.172 1.172 1.172 0 0 1 1.176-1.169z"/></svg>
-                        </span>
-
-          <span class="---text-wrap">
-                            <span class="---font-800">Электродинамика</span>
-                            <span class="---course-count ---font-400 ---d-block">6 видео курсов</span>
-                        </span>
-        </a>
-
-        <div class="---lessons ---d-inline-flex ---pos-rel">
-          <a href="#" class="---lesson ---is-ended">
-                            <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg>
-                            </span>
-            Название курса
-          </a>
-          <a href="#" class="---lesson ---is-curent">
-                            <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg"><path d="M14.91 6.09A6.044 6.044 0 0 0 10.5 4.2v6.3l-4.41 4.41a6.4 6.4 0 0 0 8.92 0 6.176 6.176 0 0 0-.1-8.82zM10.5 0A10.5 10.5 0 1 0 21 10.5 10.528 10.528 0 0 0 10.5 0zm0 18.9a8.4 8.4 0 1 1 8.4-8.4 8.425 8.425 0 0 1-8.4 8.4z"/></svg>
-                            </span>
-            Название курса
-          </a>
-          <a href="#" class="---lesson">
-                            <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.1 491.1"><path d="M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z"/></svg>
-                            </span>
-            Название курса
-          </a>
-        </div>
-      </div>
-
     </div>
   </div>
 
   <div class="---devider"></div>
 
   <div class="---course-wrap">
-    <div class="---block-title">Тесты по <span class="---acent ---font-800">физике</span></div>
-
+    <div class="---block-title">Тесты по <span class="---acent ---font-800">{{tests.label}}</span></div>
     <div class="---course-list ---lessons-tabs">
-
-      <div class="---subject">
-        <a href="#" class="---course ---font-800 ---d-flex ---align-items-center" style="color: #2e3349;">
-                        <span class="---icon ---pos-rel" style="background: #ec407a;">
-                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg"><path d="M4.629 15.004a10.38 10.38 0 0 0 12.977 10.044 1.172 1.172 0 0 0-.588-2.27 8.03 8.03 0 1 1 .692-15.334 1.172 1.172 0 0 0 .791-2.207 10.378 10.378 0 0 0-13.872 9.767zM8.2 1.756a1.172 1.172 0 1 1-1.172 1.172A1.172 1.172 0 0 1 8.2 1.756zM2.94 18.864A12.69 12.69 0 0 1 5.451 6.689a1.172 1.172 0 1 0-1.767-1.54A15.03 15.03 0 0 0 .708 19.578a1.173 1.173 0 1 0 2.235-.711zM21.97 7.851a1.172 1.172 0 1 1-1.172 1.172 1.172 1.172 0 0 1 1.175-1.167zm3.634-3.459A14.9 14.9 0 0 0 14.997-.003a15.184 15.184 0 0 0-2.541.215 1.172 1.172 0 0 0 .394 2.311 12.82 12.82 0 0 1 2.147-.181 12.661 12.661 0 0 1 9.74 20.744l-1.625-1.625a10.3 10.3 0 0 0 2.256-6.46 10.5 10.5 0 0 0-.189-1.981 1.172 1.172 0 1 0-2.3.446 8.114 8.114 0 0 1 .146 1.535 7.983 7.983 0 0 1-1.582 4.789l-1.684-1.685a5.683 5.683 0 1 0-6.68 2.249 1.172 1.172 0 0 0 .791-2.207 3.342 3.342 0 1 1 4.168-1.763l-2.211-2.211a1.172 1.172 0 0 0-1.658 1.657l9.674 9.677a1.107 1.107 0 0 0 .1.11 1.163 1.163 0 0 0 .829.344h.014a1.168 1.168 0 0 0 .829-.343 1.2 1.2 0 0 0 .1-.122 15 15 0 0 0-.108-21.101zm-5.265 22.09a12.675 12.675 0 0 1-12.259-.877 1.172 1.172 0 1 0-1.283 1.962 15.019 15.019 0 0 0 14.533 1.039 1.172 1.172 0 1 0-.988-2.121zm-16.3-4.272a1.173 1.173 0 1 1-1.172 1.172 1.172 1.172 0 0 1 1.176-1.169z"/></svg>
+      <div class="---subject" *ngFor="let test of tests.tests">
+        <a href="#" class="---course ---font-800 ---d-flex ---align-items-center" [style.backgroundColor]="test.background">
+                        <span class="---play-button ---pos-rel">
+                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#ff8a65" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
+                        </span>
+          <span class="---icon ---pos-rel">
+                            <img lazyLoad="assets/imgs/icons/{{test.icon}}" alt="" class="---svg-img ---pos-abs">
                         </span>
 
           <span class="---text-wrap">
-                            <span class="---font-800">Механика</span>
-                            <span class="---course-count ---font-400 ---d-block">6 видео курсов</span>
+                            <span class="---font-800">{{test.section_name}}</span>
+                            <span class="---course-count ---font-400 ---d-block">{{test.description}}</span>
                         </span>
         </a>
 
-        <div class="---lessons ---d-inline-flex ---pos-rel">
-          <a href="#" class="---lesson ---is-ended">
+        <div class="---lessons ---d-inline-flex ---pos-rel" >
+          <a routerLink="/subsection" class="---lesson" *ngFor="let lesson of test.lessons" [style.backgroundColor]="lesson.background">
                             <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg>
+                                <img lazyLoad="assets/imgs/icons/{{lesson.logo}}" alt="" class="---svg-img ---pos-abs">
                             </span>
-            Название курса
-          </a>
-          <a href="#" class="---lesson ---is-curent">
-                            <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg"><path d="M14.91 6.09A6.044 6.044 0 0 0 10.5 4.2v6.3l-4.41 4.41a6.4 6.4 0 0 0 8.92 0 6.176 6.176 0 0 0-.1-8.82zM10.5 0A10.5 10.5 0 1 0 21 10.5 10.528 10.528 0 0 0 10.5 0zm0 18.9a8.4 8.4 0 1 1 8.4-8.4 8.425 8.425 0 0 1-8.4 8.4z"/></svg>
-                            </span>
-            Название курса
-          </a>
-          <a href="#" class="---lesson">
-                            <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.1 491.1"><path d="M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z"/></svg>
-                            </span>
-            Название курса
-          </a>
-        </div>
-      </div>
-      <div class="---subject">
-        <a href="#" class="---course ---font-800 ---d-flex ---align-items-center" style="color: #2e3349;">
-                        <span class="---icon ---pos-rel" style="background: #ff8a65;">
-                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg"><path d="M4.629 15.004a10.38 10.38 0 0 0 12.977 10.044 1.172 1.172 0 0 0-.588-2.27 8.03 8.03 0 1 1 .692-15.334 1.172 1.172 0 0 0 .791-2.207 10.378 10.378 0 0 0-13.872 9.767zM8.2 1.756a1.172 1.172 0 1 1-1.172 1.172A1.172 1.172 0 0 1 8.2 1.756zM2.94 18.864A12.69 12.69 0 0 1 5.451 6.689a1.172 1.172 0 1 0-1.767-1.54A15.03 15.03 0 0 0 .708 19.578a1.173 1.173 0 1 0 2.235-.711zM21.97 7.851a1.172 1.172 0 1 1-1.172 1.172 1.172 1.172 0 0 1 1.175-1.167zm3.634-3.459A14.9 14.9 0 0 0 14.997-.003a15.184 15.184 0 0 0-2.541.215 1.172 1.172 0 0 0 .394 2.311 12.82 12.82 0 0 1 2.147-.181 12.661 12.661 0 0 1 9.74 20.744l-1.625-1.625a10.3 10.3 0 0 0 2.256-6.46 10.5 10.5 0 0 0-.189-1.981 1.172 1.172 0 1 0-2.3.446 8.114 8.114 0 0 1 .146 1.535 7.983 7.983 0 0 1-1.582 4.789l-1.684-1.685a5.683 5.683 0 1 0-6.68 2.249 1.172 1.172 0 0 0 .791-2.207 3.342 3.342 0 1 1 4.168-1.763l-2.211-2.211a1.172 1.172 0 0 0-1.658 1.657l9.674 9.677a1.107 1.107 0 0 0 .1.11 1.163 1.163 0 0 0 .829.344h.014a1.168 1.168 0 0 0 .829-.343 1.2 1.2 0 0 0 .1-.122 15 15 0 0 0-.108-21.101zm-5.265 22.09a12.675 12.675 0 0 1-12.259-.877 1.172 1.172 0 1 0-1.283 1.962 15.019 15.019 0 0 0 14.533 1.039 1.172 1.172 0 1 0-.988-2.121zm-16.3-4.272a1.173 1.173 0 1 1-1.172 1.172 1.172 1.172 0 0 1 1.176-1.169z"/></svg>
-                        </span>
-
-          <span class="---text-wrap">
-                            <span class="---font-800">Электродинамика</span>
-                            <span class="---course-count ---font-400 ---d-block">6 видео курсов</span>
-                        </span>
-        </a>
-
-        <div class="---lessons ---d-inline-flex ---pos-rel">
-          <a href="#" class="---lesson ---is-ended">
-                            <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg>
-                            </span>
-            Название курса
-          </a>
-          <a href="#" class="---lesson ---is-curent">
-                            <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg"><path d="M14.91 6.09A6.044 6.044 0 0 0 10.5 4.2v6.3l-4.41 4.41a6.4 6.4 0 0 0 8.92 0 6.176 6.176 0 0 0-.1-8.82zM10.5 0A10.5 10.5 0 1 0 21 10.5 10.528 10.528 0 0 0 10.5 0zm0 18.9a8.4 8.4 0 1 1 8.4-8.4 8.425 8.425 0 0 1-8.4 8.4z"/></svg>
-                            </span>
-            Название курса
-          </a>
-          <a href="#" class="---lesson">
-                            <span class="---icon ---y-pos-abs">
-                              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.1 491.1"><path d="M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z"/></svg>
-                            </span>
-            Название курса
+            {{lesson.lesson_name}}
           </a>
         </div>
       </div>
