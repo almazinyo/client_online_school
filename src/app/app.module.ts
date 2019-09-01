@@ -25,6 +25,7 @@ import {intersectionObserverPreset, LazyLoadImageModule} from 'ng-lazyload-image
 import {HttpService} from './utils/http/http.service';
 import {SectionService} from './components/section/section.service';
 import {SubsectionService} from './components/subsection/subsection.service';
+import {WorkService} from './components/work/work.service';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import {SubsectionService} from './components/subsection/subsection.service';
     GlobalParamsMessage,
     HttpService,
     SectionService,
-    SubsectionService
+    SubsectionService,
+    WorkService
   ],
   bootstrap: [AppComponent]
 })

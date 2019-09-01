@@ -44,19 +44,19 @@ export class SectionService {
                 'section_name': 'Механика',
                 'lessons': [
                   {
-                    'lesson_id': 1,
+                    'id': 1,
                     'background': '#1f5af4',
                     'logo': 'lesson-success.svg',
                     'lesson_name': 'Кинематика'
                   },
                   {
-                    'lesson_id': 2,
+                    'id': 2,
                     'background': '#1f5af4',
                     'logo': 'lesson-period.svg',
                     'lesson_name': 'Динамика'
                   },
                   {
-                    'lesson_id': 3,
+                    'id': 3,
                     'background': '#fff',
                     'logo': 'arrow-right.svg',
                     'lesson_name': 'Электростатика'
@@ -71,19 +71,19 @@ export class SectionService {
                 'section_name': 'Электродинамика',
                 'lessons': [
                   {
-                    'lesson_id': 1,
+                    'id': 1,
                     'background': '#1f5af4',
                     'logo': 'arrow-right.svg',
                     'lesson_name': 'Урок 1'
                   },
                   {
-                    'lesson_id': 2,
+                    'id': 2,
                     'background': '#fff',
                     'logo': 'lesson-success.svg',
                     'lesson_name': 'Урок 2'
                   },
                   {
-                    'lesson_id': 3,
+                    'id': 3,
                     'background': '#1f5af4',
                     'logo': 'lesson-period.svg',
                     'lesson_name': 'Урок 3'
@@ -103,19 +103,19 @@ export class SectionService {
                 'section_name': 'Механика',
                 'lessons': [
                   {
-                    'lesson_id': 1,
+                    'id': 1,
                     'background': '#1f5af4',
                     'logo': 'lesson-success.svg',
                     'lesson_name': 'Урок 1'
                   },
                   {
-                    'lesson_id': 2,
+                    'id': 2,
                     'background': '#1f5af4',
                     'logo': 'lesson-period.svg',
                     'lesson_name': 'Урок 2'
                   },
                   {
-                    'lesson_id': 3,
+                    'id': 3,
                     'background': '#fff',
                     'logo': 'arrow-right.svg',
                     'lesson_name': 'Урок 3'
@@ -130,19 +130,19 @@ export class SectionService {
                 'section_name': 'Электродинамика',
                 'lessons': [
                   {
-                    'lesson_id': 1,
+                    'id': 1,
                     'background': '#1f5af4',
                     'logo': 'arrow-right.svg',
                     'lesson_name': 'Урок 1'
                   },
                   {
-                    'lesson_id': 2,
+                    'id': 2,
                     'background': '#fff',
                     'logo': 'lesson-success.svg',
                     'lesson_name': 'Урок 2'
                   },
                   {
-                    'lesson_id': 3,
+                    'id': 3,
                     'background': '#1f5af4',
                     'logo': 'lesson-period.svg',
                     'lesson_name': 'Урок 3'

@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {SubsectionService} from '../subsection/subsection.service';
 import {SectionService} from './section.service';
+import {WorkService} from '../work/work.service';
 
 @Component({
   selector: 'app-section',
@@ -14,25 +15,32 @@ export class SectionComponent {
 
   constructor(private sectionService: SectionService,
               private subsectionService: SubsectionService,
+              private workService: WorkService,
               private router: Router) {
     this.sectionService.getSection().then((data: any) => {
         this.sections = data.sections;
         this.tests = data.tests;
-
-        console.log(1, this.sections);
       },
       (error) => {
         console.log('Ошибка при получении списка полей заявки: ', error);
       });
   }
 
+  // переход в разделы
   getSubsection(param) {
-    console.log(1, param);
     if (param === '') {
-       return false;
-     }
-
-     this.subsectionService.courseCurrent = param;
+      return false;
+    }
+    this.subsectionService.courseCurrent = param;
     this.router.navigate(['subsection']);
+  }
+
+  // переход на урок
+  getWork(param) {
+    if (param === '') {
+      return false;
+    }
+    this.workService.currentWork = param;
+    this.router.navigate(['work']);
   }
 }

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {WorkService} from './work.service';
 
 @Component({
   selector: 'app-work',
@@ -6,13 +7,14 @@ import {Component} from '@angular/core';
 })
 export class WorkComponent {
 
-  menuList = [];
+  work = {};
 
-  constructor() {
-    this.menuList = [
-      {'name': 'Первый урок', 'link': '/work-details'},
-      {'name': 'Второй урок', 'link': '/work-details'},
-      {'name': 'Третий урок', 'link': '/work-details'}
-    ];
+  constructor(private workService: WorkService) {
+    this.workService.getWork().then((data: any) => {
+        this.work = data;
+      },
+      (error) => {
+        console.log('Ошибка при получении информации об уроке: ', error);
+      });
   }
 }

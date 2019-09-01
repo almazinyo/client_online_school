@@ -18,7 +18,8 @@
         </div>
 
         <div class="---lessons ---d-inline-flex ---pos-rel" >
-          <div class="---lesson" *ngFor="let lesson of section.lessons" [style.backgroundColor]="lesson.background">
+          <div class="---lesson" *ngFor="let lesson of section.lessons" [style.backgroundColor]="lesson.background"
+               (click)="getWork(lesson.id)">
                             <span class="---icon ---y-pos-abs">
                                 <img lazyLoad="assets/imgs/icons/{{lesson.logo}}" alt="" class="---svg-img ---pos-abs">
                             </span>
