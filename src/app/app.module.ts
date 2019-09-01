@@ -26,6 +26,7 @@ import {HttpService} from './utils/http/http.service';
 import {SectionService} from './components/section/section.service';
 import {SubsectionService} from './components/subsection/subsection.service';
 import {WorkService} from './components/work/work.service';
+import {ReviewsService} from './components/reviews/reviews.service';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import {WorkService} from './components/work/work.service';
     HttpService,
     SectionService,
     SubsectionService,
-    WorkService
+    WorkService,
+    ReviewsService
   ],
   bootstrap: [AppComponent]
 })
