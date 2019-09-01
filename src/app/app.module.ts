@@ -27,6 +27,9 @@ import {SectionService} from './components/section/section.service';
 import {SubsectionService} from './components/subsection/subsection.service';
 import {WorkService} from './components/work/work.service';
 import {ReviewsService} from './components/reviews/reviews.service';
+import {BlogService} from './components/blog/blog.service';
+import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
+import {BlogDetailsService} from './components/blogDetails/blogDetails.service';
 
 
 @NgModule({
@@ -43,7 +46,8 @@ import {ReviewsService} from './components/reviews/reviews.service';
     ReviewsComponent,
     BlogComponent,
     InstructionComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    BlogDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,9 @@ import {ReviewsService} from './components/reviews/reviews.service';
     SectionService,
     SubsectionService,
     WorkService,
-    ReviewsService
+    ReviewsService,
+    BlogService,
+    BlogDetailsService
   ],
   bootstrap: [AppComponent]
 })

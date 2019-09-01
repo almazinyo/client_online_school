@@ -7,6 +7,7 @@ import {WorkComponent} from './components/work/work.component';
 import {ReviewsComponent} from './components/reviews/reviews.component';
 import {BlogComponent} from './components/blog/blog.component';
 import {InstructionComponent} from './components/instruction/instruction.component';
+import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'blog',
     component: BlogComponent
+  },
+  {
+    path: 'blog-details',
+    component: BlogDetailsComponent
   },
   {
     path: 'instruction',

@@ -2,79 +2,35 @@
   <div class="---block-title">Блог. Интересное. Важное.</div>
 
   <div class="---row">
-    <div class="col-sm-6">
-      <a href="/blog-in.php" class="---blog-item ---d-flex ---flex-column">
+    <div class="col-sm-6" *ngFor="let blog of blogs">
+      <div (click)="getBlog(blog.id)" class="---blog-item ---d-flex ---flex-column">
           <span class="---img">
-            <img lazyLoad="assets/imgs/blog/1.jpg" alt="" class="---img-cover">
+            <img lazyLoad="assets/imgs/blog/{{blog.img}}" alt="" class="---img-cover">
           </span>
-          <span class="---title ---font-600">Сверхпроводимость муаровой сверхрешетки из графена оказалась настраиваемой</span>
+          <span class="---title ---font-600">{{blog.title}}</span>
           <span class="---d-flex ---align-items-center ---justify-content-between">
           <span class="---date ---d-flex ---align-items-center">
             <i class="---icon-font ---icon-arrow-right"></i>
-            14 октября 2019
+            {{blog.date}}
           </span>
-          <span class="---subject ---font-600 ---font-uppercase">Физика</span>
+          <span class="---subject ---font-600 ---font-uppercase">{{blog.course}}</span>
         </span>
-      </a>
+      </div>
     </div>
-    <div class="col-sm-6">
-      <a href="/blog-in.php" class="---blog-item ---d-flex ---flex-column">
-          <span class="---img">
-            <img lazyLoad="assets/imgs/blog/1.jpg" alt="" class="---img-cover">
-          </span>
-          <span class="---title ---font-600">Сверхпроводимость муаровой сверхрешетки из графена оказалась настраиваемой</span>
-          <span class="---d-flex ---align-items-center ---justify-content-between">
-          <span class="---date ---d-flex ---align-items-center">
-            <i class="---icon-font ---icon-arrow-right"></i>
-            14 октября 2019
-          </span>
-          <span class="---subject ---font-600 ---font-uppercase">Физика</span>
-        </span>
-      </a>
-    </div>
-    <div class="col-sm-6">
-      <a href="/blog-in.php" class="---blog-item ---d-flex ---flex-column">
-          <span class="---img">
-            <img lazyLoad="assets/imgs/blog/1.jpg" alt="" class="---img-cover">
-          </span>
-          <span class="---title ---font-600">Сверхпроводимость муаровой сверхрешетки из графена оказалась настраиваемой</span>
-          <span class="---d-flex ---align-items-center ---justify-content-between">
-          <span class="---date ---d-flex ---align-items-center">
-            <i class="---icon-font ---icon-arrow-right"></i>
-            14 октября 2019
-          </span>
-          <span class="---subject ---font-600 ---font-uppercase">Физика</span>
-        </span>
-      </a>
-    </div>
-    <div class="col-sm-6">
-      <a href="/blog-in.php" class="---blog-item ---d-flex ---flex-column">
-          <span class="---img">
-            <img lazyLoad="assets/imgs/blog/1.jpg" alt="" class="---img-cover">
-          </span>
-          <span class="---title ---font-600">Сверхпроводимость муаровой сверхрешетки из графена оказалась настраиваемой</span>
-          <span class="---d-flex ---align-items-center ---justify-content-between">
-          <span class="---date ---d-flex ---align-items-center">
-            <i class="---icon-font ---icon-arrow-right"></i>
-            14 октября 2019
-          </span>
-          <span class="---subject ---font-600 ---font-uppercase">Физика</span>
-        </span>
-      </a>
-    </div>
+
   </div>
 
-  <div class="---pagination ---d-flex ---justify-content-between ---align-items-center">
-    <div class="---nums">
-      <a href="#" class="---is-active">1</a>
+  <!--<div class="-&#45;&#45;pagination -&#45;&#45;d-flex -&#45;&#45;justify-content-between -&#45;&#45;align-items-center">
+    <div class="-&#45;&#45;nums">
+      <a href="#" class="-&#45;&#45;is-active">1</a>
       <a href="#">2</a>
       <a href="#">3</a>
       <a href="#">4</a>
       <a href="#">5</a>
       <a href="#">6</a>
     </div>
-    <a href="#" class="---button ---button--acent_orange">Далее</a>
-  </div>
+    <a href="#" class="-&#45;&#45;button -&#45;&#45;button&#45;&#45;acent_orange">Далее</a>
+  </div>-->
 </div>
 
 <div class="---devider ---devider--sm"></div>
