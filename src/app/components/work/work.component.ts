@@ -6,11 +6,13 @@ import {WorkService} from './work.service';
   templateUrl: './work.component.html',
 })
 export class WorkComponent {
-
-  work = {};
+  work: InterFaceWork = {
+    title: '',
+    description: ''
+  };
 
   constructor(private workService: WorkService) {
-    this.workService.getWork().then((data: any) => {
+    this.workService.getWork().then((data: InterFaceWork) => {
         this.work = data;
       },
       (error) => {

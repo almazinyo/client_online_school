@@ -6,10 +6,10 @@ import {ReviewsService} from './reviews.service';
   templateUrl: './reviews.component.html',
 })
 export class ReviewsComponent {
-  reviews = [];
+  reviews: InterFaceReviews[] = [];
 
   constructor(private reviewsService: ReviewsService) {
-    this.reviewsService.getReviews().then((data: any) => {
+    this.reviewsService.getReviews().then((data: InterFaceReviews[]) => {
         this.reviews = data;
       },
       (error) => {

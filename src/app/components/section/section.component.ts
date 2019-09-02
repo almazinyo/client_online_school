@@ -10,8 +10,8 @@ import {WorkService} from '../work/work.service';
 })
 export class SectionComponent {
 
-  sections: any;
-  tests: any;
+  sections: InterFaceSection;
+  tests: InterFaceTest;
 
   constructor(private sectionService: SectionService,
               private subsectionService: SubsectionService,

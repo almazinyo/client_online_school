@@ -7,10 +7,23 @@ import {SubsectionService} from './subsection.service';
 })
 export class SubsectionComponent {
 
-  subsection: any = [];
+  subsection: InterFaceSubSection = {
+    thing: '',
+    section: '',
+    description: '',
+    courses: [{
+      background: '',
+      name: '',
+      description: '',
+      lessons: [{
+        name: '',
+        price: '',
+      }]
+    }]
+  };
 
   constructor(private subsectionService: SubsectionService) {
-    this.subsectionService.getSubSection().then((data: any) => {
+    this.subsectionService.getSubSection().then((data: InterFaceSubSection) => {
         this.subsection = data;
       },
       (error) => {

@@ -6,10 +6,17 @@ import {BlogDetailsService} from './blogDetails.service';
   templateUrl: './blogDetails.component.html',
 })
 export class BlogDetailsComponent {
-  blog = [];
+  blog: InterFaceBlogDetails = {
+    img: '',
+    author: '',
+    title: '',
+    date: '',
+    course: '',
+    text: '',
+  };
 
   constructor(private blogService: BlogDetailsService) {
-    this.blogService.getReviews().then((data: any) => {
+    this.blogService.getReviews().then((data: InterFaceBlogDetails) => {
         this.blog = data;
       },
       (error) => {

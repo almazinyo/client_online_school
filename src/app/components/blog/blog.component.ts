@@ -8,12 +8,12 @@ import {Router} from '@angular/router';
   templateUrl: './blog.component.html',
 })
 export class BlogComponent {
-  blogs = [];
+  blogs: InterFaceBlog[] = [];
 
   constructor(private blogService: BlogService,
               private blogDetailsService: BlogDetailsService,
               private router: Router) {
-    this.blogService.getReviews().then((data: any) => {
+    this.blogService.getReviews().then((data: InterFaceBlog[]) => {
         this.blogs = data;
       },
       (error) => {
