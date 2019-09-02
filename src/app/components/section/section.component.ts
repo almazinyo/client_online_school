@@ -19,10 +19,11 @@ export class SectionComponent {
               private workService: WorkService,
               private router: Router,
               private breadcrumbsService: BreadcrumbsService) {
+    this.breadcrumbsService.title = '';
+
     this.sectionService.getSection().then((data: any) => {
         this.sections = data.sections;
         this.tests = data.tests;
-        //this.breadcrumbsService.title = 'asd';
       },
       (error) => {
         console.log('Ошибка при получении списка полей заявки: ', error);

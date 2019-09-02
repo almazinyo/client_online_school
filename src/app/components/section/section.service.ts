@@ -22,7 +22,7 @@ export class SectionService {
     const data = {param: this.sectionCurrent};
     return new Promise((resolve, reject) => {
       if (this.sectionsCurrent.length === 0) {
-        /*this.httpService.prepareQuery('api/get-section', data)
+        /*this.httpService.prepareQuery('api/section', {param:this.sectionCurrent})
           .then((result: any) => {
               this.sectionsCurrent = result;
               resolve(result);

@@ -31,6 +31,7 @@ import {BlogService} from './components/blog/blog.service';
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
 import {BlogDetailsService} from './components/blogDetails/blogDetails.service';
 import {BreadcrumbsService} from './components/breadcrumbs/breadcrumbs.service';
+import {MenuService} from './components/menu/menu.service';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import {BreadcrumbsService} from './components/breadcrumbs/breadcrumbs.service';
     ReviewsService,
     BlogService,
     BlogDetailsService,
-    BreadcrumbsService
+    BreadcrumbsService,
+    MenuService
   ],
   bootstrap: [AppComponent]
 })
