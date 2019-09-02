@@ -30,6 +30,7 @@ import {ReviewsService} from './components/reviews/reviews.service';
 import {BlogService} from './components/blog/blog.service';
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
 import {BlogDetailsService} from './components/blogDetails/blogDetails.service';
+import {BreadcrumbsService} from './components/breadcrumbs/breadcrumbs.service';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import {BlogDetailsService} from './components/blogDetails/blogDetails.service';
     WorkService,
     ReviewsService,
     BlogService,
-    BlogDetailsService
+    BlogDetailsService,
+    BreadcrumbsService
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {BlogService} from './blog.service';
 import {BlogDetailsService} from '../blogDetails/blogDetails.service';
 import {Router} from '@angular/router';
+import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
 
 @Component({
   selector: 'app-blog',
@@ -12,7 +13,10 @@ export class BlogComponent {
 
   constructor(private blogService: BlogService,
               private blogDetailsService: BlogDetailsService,
-              private router: Router) {
+              private router: Router,
+              private breadcrumbsService: BreadcrumbsService) {
+    this.breadcrumbsService.title = 'Блог';
+
     this.blogService.getReviews().then((data: InterFaceBlog[]) => {
         this.blogs = data;
       },

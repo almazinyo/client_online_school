@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {SubsectionService} from '../subsection/subsection.service';
 import {SectionService} from './section.service';
 import {WorkService} from '../work/work.service';
+import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
 
 @Component({
   selector: 'app-section',
@@ -16,10 +17,12 @@ export class SectionComponent {
   constructor(private sectionService: SectionService,
               private subsectionService: SubsectionService,
               private workService: WorkService,
-              private router: Router) {
+              private router: Router,
+              private breadcrumbsService: BreadcrumbsService) {
     this.sectionService.getSection().then((data: any) => {
         this.sections = data.sections;
         this.tests = data.tests;
+        //this.breadcrumbsService.title = 'asd';
       },
       (error) => {
         console.log('Ошибка при получении списка полей заявки: ', error);
