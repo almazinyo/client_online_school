@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
 
 @Component({
   selector: 'app-instruction',
@@ -6,6 +7,7 @@ import {Component} from '@angular/core';
 })
 export class InstructionComponent {
 
-  constructor() {
+  constructor(private breadcrumbsService: BreadcrumbsService) {
+    this.breadcrumbsService.title = '';
   }
 }

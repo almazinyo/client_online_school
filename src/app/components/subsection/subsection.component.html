@@ -20,18 +20,18 @@
   <img lazyLoad="assets/imgs/illustrations/course-in.svg" alt="" class="---icon ---d-none ---sm-d-block">
 </div>
 <div class="---block-course-in-nav ---d-flex ---flex-wrap">
-  <a href="#" class="---js-goto-anchor" data-anchor=".---block-course-about">О курсах</a>
-  <a href="#" class="---js-goto-anchor" data-anchor=".---block-work-step">Формат</a>
-  <a href="#" class="---js-goto-anchor" data-anchor=".---block-courses">Курсы</a>
-  <a href="#" class="---js-goto-anchor" data-anchor=".---block-reviews">Отзывы</a>
-  <a href="#" class="---js-goto-anchor" data-anchor=".---block-course-teacher">Преподаватель</a>
+  <a [routerLink]="['/subsection/']" fragment="courses" class="---js-goto-anchor" data-anchor=".---block-course-about">О курсах</a>
+  <a [routerLink]="['/subsection/']" fragment="format" class="---js-goto-anchor" data-anchor=".---block-work-step">Формат</a>
+  <a [routerLink]="['/subsection/']" fragment="courses-details" class="---js-goto-anchor" data-anchor=".---block-courses">Курсы</a>
+  <a [routerLink]="['/subsection/']" fragment="reviews" class="---js-goto-anchor" data-anchor=".---block-reviews">Отзывы</a>
+  <a [routerLink]="['/subsection/']" fragment="teacher" class="---js-goto-anchor" data-anchor=".---block-course-teacher">Преподаватель</a>
 </div>
 
 <div class="---block-course-about">
   <div class="---row">
 
     <div class="col-xl-6">
-      <div class="---block-title">О курсах</div>
+      <div class="---block-title" id="courses">О курсах</div>
       <p>
         Построение курса традиционно. Курс охватывает классический материал по курсу общей физики, раздел «Механика», читающийся на первом курсе физического факультета МГУ в первом семестре. В курсе будут представлены разделы «Кинематика и динамика материальной точки и простейших систем», «Законы сохранения», «Движение материальной точки в неинерциальных системах отсчета», «Основы релятивистской механики», «Кинематика и динамика твердого тела» «Основы механики деформируемых сред», «Основы гидромеханики и аэромеханики», «Механические колебания и волны».
       </p>
@@ -49,7 +49,7 @@
 
 <div class="---devider"></div>
 
-<div class="---block-work-step ---tabs">
+<div class="---block-work-step ---tabs" id="format">
   <div class="---row">
 
     <div class="col-12 ---block-title">
@@ -130,7 +130,7 @@
   </div>
 </div>
 
-<div class="---block-courses">
+<div class="---block-courses" id="courses-details">
   <div class="---free-course ---pos-rel ---d-flex ---align-items-center">
     <div>
       <div class="---title"><span class="---font-800">3 урока бесплатно!</span> Попробуйте</div>
@@ -185,7 +185,7 @@
   </div>
 </div>
 
-<div class="---devider"></div>
+<div class="---devider" id="teacher"></div>
 
 <div class="---block-course-teacher">
 
@@ -211,7 +211,7 @@
   </div>
 </div>
 
-<div class="---devider"></div>
+<div class="---devider" id="reviews"></div>
 
 <div class="---block-reviews">
   <div class="---block-title ---d-flex ---align-items-center ---justify-content-between">
