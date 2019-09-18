@@ -12,7 +12,7 @@ export class MenuService {
   public getMenu() {
     return new Promise((resolve, reject) => {
       if (this.menu.length === 0) {
-        /*this.httpService.prepareQuery('api/section', {param:this.sectionCurrent})
+        /*this.httpService.prepareQuery('api/menu', {param:this.sectionCurrent})
           .then((result: any) => {
               this.sectionsCurrent = result;
               resolve(result);

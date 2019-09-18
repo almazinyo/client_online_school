@@ -38,8 +38,8 @@ export class HttpService {
   public prepareQuery(url: string = 'noUrl', data = {}) {
     if (data !== '') {
       console.log('Отправляем данные: ', data);
-      data = JSON.stringify(data);
-      data = Base64.encode(data);
+      //data = JSON.stringify(data);
+      //data = Base64.encode(data);
     }
 
     return new Promise((resolve, reject) => {
@@ -77,11 +77,11 @@ export class HttpService {
 
   private sendPostQuery(api, data: any) {
     const request = {
-      prBlock: data
+      data: data
     };
     const headers = new HttpHeaders();
 
-    return this.http.post('http://localhost:8001/' + api, request, {headers: headers})
+    return this.http.post('http://localhost:8004/' + api, request, {headers: headers})
     // return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
     // return this.http.post('http://artdekor-kzn.ru/' + api, request, {headers: headers})
       .pipe(

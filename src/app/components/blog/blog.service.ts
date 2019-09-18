@@ -8,22 +8,21 @@ export class BlogService {
   constructor(private httpService: HttpService) {
   }
 
-  // получение списка активных полей
+  // получение блога
   public getReviews() {
 
     return new Promise((resolve, reject) => {
 
-      /*this.httpService.prepareQuery('api/get-section', data)
+      this.httpService.prepareQuery('api/blog', {})
         .then((result: any) => {
-            this.coursesCurrent = result;
             resolve(result);
           },
           (error) => {
-            console.log('Ошибка при получении списка разделов предмета', error);
+            console.log('Ошибка при получении списка разделов блогов', error);
             reject();
           }
-        );*/
-      const result = [
+        );
+      /*const result = [
         {
           id: 1,
           title: 'Сверхпроводимость муаровой сверхрешетки из графена оказалась настраиваемой',
@@ -46,7 +45,7 @@ export class BlogService {
           img: '2.jpg'
         }
       ];
-      resolve(result);
+      resolve(result);*/
     });
   }
 
