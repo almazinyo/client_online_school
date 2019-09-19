@@ -29,7 +29,6 @@ import {WorkService} from './components/work/work.service';
 import {ReviewsService} from './components/reviews/reviews.service';
 import {BlogService} from './components/blog/blog.service';
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
-import {BlogDetailsService} from './components/blogDetails/blogDetails.service';
 import {BreadcrumbsService} from './components/breadcrumbs/breadcrumbs.service';
 import {MenuService} from './components/menu/menu.service';
 
@@ -73,7 +72,6 @@ import {MenuService} from './components/menu/menu.service';
     WorkService,
     ReviewsService,
     BlogService,
-    BlogDetailsService,
     BreadcrumbsService,
     MenuService
   ],

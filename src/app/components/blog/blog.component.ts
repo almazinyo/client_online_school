@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {BlogService} from './blog.service';
-import {BlogDetailsService} from '../blogDetails/blogDetails.service';
 import {Router} from '@angular/router';
 import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
 
@@ -12,7 +11,6 @@ export class BlogComponent {
   blogs: InterFaceBlog[] = [];
 
   constructor(private blogService: BlogService,
-              private blogDetailsService: BlogDetailsService,
               private router: Router,
               private breadcrumbsService: BreadcrumbsService) {
     this.breadcrumbsService.title = 'Блог';
@@ -25,11 +23,7 @@ export class BlogComponent {
       });
   }
 
-  getBlog(param) {
-    if (param === '') {
-      return false;
-    }
-    this.blogDetailsService.blogCurrent = param;
-    this.router.navigate(['blog-details']);
+  getBlog(id) {
+    this.router.navigate(['blog-details/' + id]);
   }
 }

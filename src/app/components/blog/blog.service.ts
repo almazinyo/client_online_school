@@ -22,31 +22,21 @@ export class BlogService {
             reject();
           }
         );
-      /*const result = [
-        {
-          id: 1,
-          title: 'Сверхпроводимость муаровой сверхрешетки из графена оказалась настраиваемой',
-          date: '14 октября 2019',
-          course: 'Физика',
-          img: '2.jpg'
-        },
-        {
-          id: 2,
-          title: 'Сверхпроводимость муаровой сверхрешетки из графена оказалась настраиваемой',
-          date: '15 октября 2019',
-          course: 'Математика',
-          img: '2.jpg'
-        },
-        {
-          id: 3,
-          title: 'Сверхпроводимость муаровой сверхрешетки из графена оказалась настраиваемой',
-          date: '16 октября 2019',
-          course: 'Химия',
-          img: '2.jpg'
-        }
-      ];
-      resolve(result);*/
     });
   }
 
+  // получение детальной информации о блоге
+  public getReviewsDetails(data) {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/blog-details', data)
+        .then((result: any) => {
+            resolve(result);
+          },
+          (error) => {
+            console.log('Ошибка при получении детальной информации о блоге', error);
+            reject();
+          }
+        );
+    });
+  }
 }

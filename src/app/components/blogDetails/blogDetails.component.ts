@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {BlogDetailsService} from './blogDetails.service';
+import {ActivatedRoute, Params} from '@angular/router';
+import {BlogService} from '../blog/blog.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,6 +8,7 @@ import {BlogDetailsService} from './blogDetails.service';
 })
 export class BlogDetailsComponent {
   blog: InterFaceBlogDetails = {
+    id: null,
     img: '',
     author: '',
     title: '',
@@ -15,8 +17,18 @@ export class BlogDetailsComponent {
     text: '',
   };
 
-  constructor(private blogService: BlogDetailsService) {
-    this.blogService.getReviews().then((data: InterFaceBlogDetails) => {
+  constructor(private blogService: BlogService,
+              private activatedRoute: ActivatedRoute) {
+
+    this.activatedRoute.params.subscribe(
+      (params: Params): void => {
+        this.getReviewsDetails(params.id);
+      }
+    );
+  }
+
+  getReviewsDetails(id) {
+    this.blogService.getReviewsDetails({id: id}).then((data: InterFaceBlogDetails) => {
         this.blog = data;
       },
       (error) => {

@@ -1,4 +1,5 @@
 interface InterFaceBlogDetails {
+  id: number;
   img: string;
   author: string;
   title: string;
