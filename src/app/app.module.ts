@@ -33,10 +33,18 @@ import {BreadcrumbsService} from './components/breadcrumbs/breadcrumbs.service';
 import {MenuService} from './components/menu/menu.service';
 import {ProfilePromotionService} from './components/profile_promotion/profile_promotion.service';
 import {ProfilePromotionComponent} from './components/profile_promotion/profile_promotion.component';
+import {ProfileDetailsComponent} from './components/profile_details/profile_details.component';
+import {ProfileDetailsService} from './components/profile_details/profile_details.service';
+import {IConfig, NgxMaskModule} from 'ngx-mask';
+import {TelephoneNumberPipe} from './pipes/telephone_number.pipe';
+import {DigitsNumbersPipe} from './pipes/digits_numbers.pipe';
 
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
+    DigitsNumbersPipe,
+    TelephoneNumberPipe,
     AppComponent,
     AuthComponent,
     MenuComponent,
@@ -51,7 +59,8 @@ import {ProfilePromotionComponent} from './components/profile_promotion/profile_
     InstructionComponent,
     BreadcrumbsComponent,
     BlogDetailsComponent,
-    ProfilePromotionComponent
+    ProfilePromotionComponent,
+    ProfileDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +71,8 @@ import {ProfilePromotionComponent} from './components/profile_promotion/profile_
     FormsModule,
     LazyLoadImageModule.forRoot({
       preset: intersectionObserverPreset // <-- tell LazyLoadImage that you want to use IntersectionObserver
-    })
+    }),
+    NgxMaskModule.forRoot(options)
 
   ],
   providers: [
@@ -78,6 +88,7 @@ import {ProfilePromotionComponent} from './components/profile_promotion/profile_
     BreadcrumbsService,
     MenuService,
     ProfilePromotionService,
+    ProfileDetailsService
   ],
   bootstrap: [AppComponent]
 })

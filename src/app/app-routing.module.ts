@@ -9,6 +9,7 @@ import {BlogComponent} from './components/blog/blog.component';
 import {InstructionComponent} from './components/instruction/instruction.component';
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
 import {ProfilePromotionComponent} from './components/profile_promotion/profile_promotion.component';
+import {ProfileDetailsComponent} from './components/profile_details/profile_details.component';
 
 const routes: Routes = [
   {
@@ -44,8 +45,12 @@ const routes: Routes = [
     component: InstructionComponent
   },
   {
-    path: 'profile',
+    path: 'profile-promotion',
     component: ProfilePromotionComponent
+  },
+  {
+    path: 'profile-details',
+    component: ProfileDetailsComponent
   }
 ];
 
