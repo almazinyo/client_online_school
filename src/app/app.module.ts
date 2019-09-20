@@ -42,6 +42,8 @@ import {ProfileBuyComponent} from './components/profile_buy/profile_buy.componen
 import {ProfileBuyService} from './components/profile_buy/profile_buy.service';
 import {ProfilePointsService} from './components/profile_points/profile_points.service';
 import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
+import {CallbackComponent} from './components/callback/callback.component';
+import {CallbackService} from './components/callback/callback.service';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -66,7 +68,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfilePromotionComponent,
     ProfileDetailsComponent,
     ProfileBuyComponent,
-    ProfilePointsComponent
+    ProfilePointsComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +99,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfilePromotionService,
     ProfileDetailsService,
     ProfileBuyService,
-    ProfilePointsService
+    ProfilePointsService,
+    CallbackService
   ],
   bootstrap: [AppComponent]
 })

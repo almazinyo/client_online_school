@@ -13,6 +13,7 @@ import {ProfileDetailsComponent} from './components/profile_details/profile_deta
 import {ProfileBuyComponent} from './components/profile_buy/profile_buy.component';
 import {ProfilePointsService} from './components/profile_points/profile_points.service';
 import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
+import {CallbackComponent} from './components/callback/callback.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'instruction',
     component: InstructionComponent
+  },
+  {
+    path: 'callback',
+    component: CallbackComponent
   },
   {
     path: 'profile-promotion',
