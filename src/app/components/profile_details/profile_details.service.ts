@@ -12,6 +12,7 @@ export class ProfileDetailsService {
     return new Promise((resolve, reject) => {
 
       const result = {
+        id: 1,
         name: 'Иван',
         firstName: 'Петров',
         email: 'admin@admin.ru',
@@ -35,7 +36,6 @@ export class ProfileDetailsService {
   }
 
   save(data) {
-
 
 
     return new Promise((resolve, reject) => {

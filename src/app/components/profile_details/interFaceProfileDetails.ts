@@ -1,4 +1,5 @@
 interface InterFaceProfileDetails {
+  id: number;
   name: string;
   firstName: string;
   email: string;

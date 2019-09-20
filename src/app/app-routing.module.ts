@@ -10,6 +10,7 @@ import {InstructionComponent} from './components/instruction/instruction.compone
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
 import {ProfilePromotionComponent} from './components/profile_promotion/profile_promotion.component';
 import {ProfileDetailsComponent} from './components/profile_details/profile_details.component';
+import {ProfileBuyComponent} from './components/profile_buy/profile_buy.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'profile-details',
     component: ProfileDetailsComponent
+  },
+  {
+    path: 'profile-buy',
+    component: ProfileBuyComponent
   }
 ];
 

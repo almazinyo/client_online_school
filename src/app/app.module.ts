@@ -38,6 +38,8 @@ import {ProfileDetailsService} from './components/profile_details/profile_detail
 import {IConfig, NgxMaskModule} from 'ngx-mask';
 import {TelephoneNumberPipe} from './pipes/telephone_number.pipe';
 import {DigitsNumbersPipe} from './pipes/digits_numbers.pipe';
+import {ProfileBuyComponent} from './components/profile_buy/profile_buy.component';
+import {ProfileBuyService} from './components/profile_buy/profile_buy.service';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -60,7 +62,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     BreadcrumbsComponent,
     BlogDetailsComponent,
     ProfilePromotionComponent,
-    ProfileDetailsComponent
+    ProfileDetailsComponent,
+    ProfileBuyComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     BreadcrumbsService,
     MenuService,
     ProfilePromotionService,
-    ProfileDetailsService
+    ProfileDetailsService,
+    ProfileBuyService
   ],
   bootstrap: [AppComponent]
 })

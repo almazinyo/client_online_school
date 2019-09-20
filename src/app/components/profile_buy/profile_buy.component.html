@@ -1,0 +1,24 @@
+<div class="---block-profile ---d-flex">
+  <div class="---rside ---pos-rel">
+    <div class="---block-title ---block-title--sm">Ваши покупки</div>
+
+    <div class="---devider"></div>
+
+    <div class="---t-wrap">
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Курс</th>
+          <th>Дата</th>
+          <th>Сумма</th>
+        </tr>
+        <tr *ngFor="let buy of buyList">
+          <td>{{buy.id}}</td>
+          <td class="---font-600">{{buy.name}}</td>
+          <td class="---date">{{buy.date}}</td>
+          <td>{{buy.sum | digitsNumbers}} ₽</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
