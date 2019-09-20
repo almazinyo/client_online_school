@@ -19,6 +19,7 @@ export class ProfilePromotionService {
             id: 1,
             name: 'Кинематика',
             background: '#ec407a',
+            img: 'course.svg',
             lessons: [
               {
                 id: 1,
@@ -41,6 +42,7 @@ export class ProfilePromotionService {
             id: 2,
             name: 'Динамика',
             background: '#eca532',
+            img: 'course.svg',
             lessons: [
               {
                 id: 3,
@@ -69,6 +71,7 @@ export class ProfilePromotionService {
               id: 3,
               name: 'Алгебра',
               background: '#69ec44',
+              img: 'course.svg',
               lessons: [
                 {
                   id: 5,
@@ -86,6 +89,7 @@ export class ProfilePromotionService {
               id: 4,
               name: 'Геометрия',
               background: '#2829ec',
+              img: 'course.svg',
               lessons: [
                 {
                   id: 7,

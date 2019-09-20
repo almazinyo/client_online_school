@@ -11,7 +11,7 @@
       <div class="---tab ---is-visible">
         <div *ngFor="let section of sections" class="---subject">
           <div class="---course ---font-800"  [style.backgroundColor]="section.background">
-            <img data-src="/static/imgs/icons/course.svg" alt="" class="---lazyload ---y-pos-abs">
+            <img data-src="/assets/imgs/icons/{{section.img}}" alt="" class="---lazyload ---y-pos-abs">
             {{section.name}}
           </div>
 
@@ -27,6 +27,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
