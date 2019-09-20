@@ -40,6 +40,8 @@ import {TelephoneNumberPipe} from './pipes/telephone_number.pipe';
 import {DigitsNumbersPipe} from './pipes/digits_numbers.pipe';
 import {ProfileBuyComponent} from './components/profile_buy/profile_buy.component';
 import {ProfileBuyService} from './components/profile_buy/profile_buy.service';
+import {ProfilePointsService} from './components/profile_points/profile_points.service';
+import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -63,7 +65,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     BlogDetailsComponent,
     ProfilePromotionComponent,
     ProfileDetailsComponent,
-    ProfileBuyComponent
+    ProfileBuyComponent,
+    ProfilePointsComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     MenuService,
     ProfilePromotionService,
     ProfileDetailsService,
-    ProfileBuyService
+    ProfileBuyService,
+    ProfilePointsService
   ],
   bootstrap: [AppComponent]
 })

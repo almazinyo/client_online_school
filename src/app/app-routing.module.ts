@@ -11,6 +11,8 @@ import {BlogDetailsComponent} from './components/blogDetails/blogDetails.compone
 import {ProfilePromotionComponent} from './components/profile_promotion/profile_promotion.component';
 import {ProfileDetailsComponent} from './components/profile_details/profile_details.component';
 import {ProfileBuyComponent} from './components/profile_buy/profile_buy.component';
+import {ProfilePointsService} from './components/profile_points/profile_points.service';
+import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
 
 const routes: Routes = [
   {
@@ -56,6 +58,10 @@ const routes: Routes = [
   {
     path: 'profile-buy',
     component: ProfileBuyComponent
+  },
+  {
+    path: 'profile-points',
+    component: ProfilePointsComponent
   }
 ];
 
