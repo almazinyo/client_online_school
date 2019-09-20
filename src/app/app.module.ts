@@ -31,6 +31,8 @@ import {BlogService} from './components/blog/blog.service';
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
 import {BreadcrumbsService} from './components/breadcrumbs/breadcrumbs.service';
 import {MenuService} from './components/menu/menu.service';
+import {ProfilePromotionService} from './components/profile_promotion/profile_promotion.service';
+import {ProfilePromotionComponent} from './components/profile_promotion/profile_promotion.component';
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import {MenuService} from './components/menu/menu.service';
     BlogComponent,
     InstructionComponent,
     BreadcrumbsComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    ProfilePromotionComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import {MenuService} from './components/menu/menu.service';
     ReviewsService,
     BlogService,
     BreadcrumbsService,
-    MenuService
+    MenuService,
+    ProfilePromotionService,
   ],
   bootstrap: [AppComponent]
 })
