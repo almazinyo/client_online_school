@@ -79,9 +79,13 @@ export class HttpService {
     const request = {
       data: data
     };
-    const headers = new HttpHeaders();
+    const headers = new HttpHeaders(
+      {
+        'Access-Control-Allow-Origin': '*',
+      }
+    );
 
-    return this.http.post('http://localhost:8004/' + api, request, {headers: headers})
+    return this.http.get('http://localhost:8004/' + api, request, {headers: headers})
     // return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
     // return this.http.post('http://artdekor-kzn.ru/' + api, request, {headers: headers})
       .pipe(
