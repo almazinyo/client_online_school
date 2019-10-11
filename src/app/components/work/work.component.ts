@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {WorkService} from './work.service';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-work',
@@ -8,11 +9,23 @@ import {WorkService} from './work.service';
 export class WorkComponent {
   work: InterFaceWork = {
     title: '',
-    description: ''
+    id: null,
+    description: '',
+    works: []
   };
 
-  constructor(private workService: WorkService) {
-    this.workService.getWork().then((data: InterFaceWork) => {
+  constructor(private workService: WorkService,
+              private activatedRoute: ActivatedRoute,) {
+
+    this.activatedRoute.params.subscribe(
+      (params: Params): void => {
+        this.getWork(params.id);
+      }
+    );
+  }
+
+  getWork(slug) {
+    this.workService.getWork(slug).then((data: InterFaceWork) => {
         this.work = data;
       },
       (error) => {
