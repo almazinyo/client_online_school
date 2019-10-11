@@ -5,6 +5,7 @@ interface InterFaceSubSection {
   courses: [{
     background: string;
     name: string;
+    slug: string;
     description: string;
     lessons: [{
       name: string;

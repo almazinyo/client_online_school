@@ -37,17 +37,17 @@ export class SectionService {
                   {
                     'id': 1,
                     'slug': '1',
-                    'lesson_name': 'Кинематика'
+                    'lesson_name': 'Кинематика и динамика простейших систем'
                   },
                   {
                     'id': 2,
                     'slug': '2',
-                    'lesson_name': 'Динамика'
+                    'lesson_name': 'Законы сохранения в простейших системах'
                   },
                   {
                     'id': 3,
                     'slug': '3',
-                    'lesson_name': 'Электростатика'
+                    'lesson_name': 'Неинерциальные системы отсчета'
                   }
                 ]
               },

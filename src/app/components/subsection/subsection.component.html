@@ -12,7 +12,8 @@
       </div>
 
       <p>{{subsection.description}}</p>
-      <a routerLink="/work" class="---button ---button--acent_orange ---button--shadow">Начать учиться</a>
+      <a [routerLink]="[]" fragment="start_work" class="---button ---button--acent_orange ---button--shadow">Начать
+        учиться</a>
     </div>
 
   </div>
@@ -32,7 +33,7 @@
     <img lazyLoad="assets/imgs/illustrations/course-free.svg" alt="" class="---icon ---d-none ---md-d-block">
   </div>
 
-  <div class="---block-title">Выберите <span class="---acent">курс</span></div>
+  <div id="start_work" class="---block-title">Выберите <span class="---acent">курс</span></div>
 
   <div class="---row">
     <div class="col-xs-6 col-lg-4 col-xl-3" *ngFor="let cource of subsection.courses">
@@ -40,7 +41,10 @@
         <div class="---top" [style.backgroundColor]="cource.background">
           <div class="---d-flex">
             <div class="---play-button ---pos-rel">
-              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#ec407a" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
+              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861">
+                <path fill="#ec407a"
+                      d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/>
+              </svg>
             </div>
             <div class="---icon ---icon-font ---icon-menu-course"></div>
           </div>
@@ -51,7 +55,7 @@
           <div class="---count">{{cource.description}}</div>
         </div>
         <ul>
-          <li  *ngFor="let lesson of cource.lessons">
+          <li *ngFor="let lesson of cource.lessons">
             <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
             {{lesson.name}}
           </li>
@@ -59,7 +63,7 @@
 
         <div class="---price ---font-800 ---text-center">{{cource.price}} ₽</div>
 
-        <a href="#" class="---button ---button--acent_orange">Начать беслатно</a>
+        <a [routerLink]="'/work/'+cource.slug" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>
     </div>
   </div>
@@ -81,7 +85,12 @@
     <div class="col-xl-6">
       <div class="---block-title" id="courses">О курсах</div>
       <p>
-        Построение курса традиционно. Курс охватывает классический материал по курсу общей физики, раздел «Механика», читающийся на первом курсе физического факультета МГУ в первом семестре. В курсе будут представлены разделы «Кинематика и динамика материальной точки и простейших систем», «Законы сохранения», «Движение материальной точки в неинерциальных системах отсчета», «Основы релятивистской механики», «Кинематика и динамика твердого тела» «Основы механики деформируемых сред», «Основы гидромеханики и аэромеханики», «Механические колебания и волны».
+        Построение курса традиционно. Курс охватывает классический материал по курсу общей физики, раздел «Механика»,
+        читающийся на первом курсе физического факультета МГУ в первом семестре. В курсе будут представлены разделы
+        «Кинематика и динамика материальной точки и простейших систем», «Законы сохранения», «Движение материальной
+        точки в неинерциальных системах отсчета», «Основы релятивистской механики», «Кинематика и динамика твердого
+        тела» «Основы механики деформируемых сред», «Основы гидромеханики и аэромеханики», «Механические колебания и
+        волны».
       </p>
     </div>
 

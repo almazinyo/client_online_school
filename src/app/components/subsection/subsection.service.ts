@@ -18,11 +18,10 @@ export class SubsectionService {
   }
 
   // получение списка активных полей
-  public getSubSection() {
-    console.log(1, this.coursesCurrent.length);
+  public getSubSection(slug) {
     return new Promise((resolve, reject) => {
       if (this.coursesCurrent.length === 0) {
-        /*this.httpService.prepareQuery('api/get-section', data)
+        /*this.httpService.prepareQuery('api/get-section'+slug)
           .then((result: any) => {
               this.coursesCurrent = result;
               resolve(result);
@@ -40,7 +39,7 @@ export class SubsectionService {
           'courses': [
             {
               'id': 1,
-              'logo': '',
+              'slug': '1',
               'background': '#ec407a',
               'name': 'Кинематика и динамика простейших систем',
               'description': '20 видео уроков',
@@ -53,7 +52,7 @@ export class SubsectionService {
             },
             {
               'id': 2,
-              'logo': '',
+              'slug': '2',
               'background': '#ec407a',
               'name': 'Законы сохранения в простейших системах',
               'description': '21 видео уроков',
@@ -66,7 +65,7 @@ export class SubsectionService {
             },
             {
               'id': 3,
-              'logo': '',
+              'slug': '3',
               'background': '#29b6f6',
               'name': 'Неинерциальные системы отсчета',
               'description': '22 видео уроков',
