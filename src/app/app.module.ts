@@ -44,6 +44,8 @@ import {ProfilePointsService} from './components/profile_points/profile_points.s
 import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
 import {CallbackComponent} from './components/callback/callback.component';
 import {CallbackService} from './components/callback/callback.service';
+import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
+import {EmbedVideo, EmbedVideoService} from 'ngx-embed-video/dist';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -76,8 +78,11 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     HttpClientModule,
     ClarityModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    EmbedVideo.forRoot(),
+    AppRoutingModule,
+    NgxExtendedPdfViewerModule,
     LazyLoadImageModule.forRoot({
       preset: intersectionObserverPreset // <-- tell LazyLoadImage that you want to use IntersectionObserver
     }),

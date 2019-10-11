@@ -11,11 +11,12 @@ export class WorkComponent {
     title: '',
     id: null,
     description: '',
-    works: []
+    work: [],
+    allWorks: []
   };
 
   constructor(private workService: WorkService,
-              private activatedRoute: ActivatedRoute,) {
+              private activatedRoute: ActivatedRoute) {
 
     this.activatedRoute.params.subscribe(
       (params: Params): void => {

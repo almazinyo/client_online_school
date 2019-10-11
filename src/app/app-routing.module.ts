@@ -47,7 +47,7 @@ const routes: Routes = [
     path: 'instruction',
     component: InstructionComponent
   },
-  {
+  /*{
     path: 'callback',
     component: CallbackComponent
   },
@@ -66,7 +66,7 @@ const routes: Routes = [
   {
     path: 'profile-points',
     component: ProfilePointsComponent
-  }
+  }*/
 ];
 
 @NgModule({

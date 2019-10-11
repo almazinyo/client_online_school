@@ -15,6 +15,7 @@ export class SubsectionComponent {
     courses: [{
       background: '',
       name: '',
+      slug: '',
       description: '',
       lessons: [{
         name: '',
