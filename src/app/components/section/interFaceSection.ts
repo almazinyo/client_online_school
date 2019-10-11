@@ -4,14 +4,13 @@ interface InterFaceSection {
     {
       'section_id': number;
       'background': string;
-      'icon': string;
+      'slug': string;
       'description': string;
       'section_name': string;
       'lessons': [
         {
           'id': number;
-          'background': string;
-          'logo': string;
+          'slug': string;
           'lesson_name': string;
         }
         ]

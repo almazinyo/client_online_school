@@ -1,6 +1,6 @@
 <div class="---bg ---z-index-under"></div>
 
-<div *ngFor="let currentMenu of menu" (click)="getSection(currentMenu.id)" class="---item">
-  <span class="---img ---icon-font" [ngClass]="currentMenu.logo"></span>
+<div *ngFor="let currentMenu of menu" (click)="getSection(currentMenu.slug)" class="---item">
+  <span class="---img ---icon-font" [ngClass]="'---icon-menu-'+currentMenu.logo"></span>
   <span class="---text">{{currentMenu.name}}</span>
 </div>

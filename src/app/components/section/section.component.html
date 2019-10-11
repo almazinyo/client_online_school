@@ -3,12 +3,15 @@
     <div class="---block-title">Видео курсы по <span class="---acent ---font-800">{{sections.label}}</span></div>
     <div class="---course-list ---lessons-tabs">
       <div class="---subject" *ngFor="let section of sections.sections">
-        <div (click)="getSubsection(section.section_id)" class="---course ---font-800 ---d-flex ---align-items-center" [style.backgroundColor]="section.background">
+        <div [routerLink]="'/subsection/'+section.slug" class="---course ---font-800 ---d-flex ---align-items-center"
+             [style.backgroundColor]="section.background">
                         <span class="---play-button ---pos-rel">
-                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#ff8a65" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
+                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path
+                              fill="#ff8a65"
+                              d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
                         </span>
           <span class="---icon ---pos-rel">
-                            <img lazyLoad="assets/imgs/icons/{{section.icon}}" alt="" class="---svg-img ---pos-abs">
+                            <img data-src="assets/imgs/icons/course.svg" alt="" class="---svg-img ---pos-abs">
                         </span>
 
           <span class="---text-wrap">
@@ -17,11 +20,11 @@
                         </span>
         </div>
 
-        <div class="---lessons ---d-inline-flex ---pos-rel" >
-          <div class="---lesson" *ngFor="let lesson of section.lessons" [style.backgroundColor]="lesson.background"
-               (click)="getWork(lesson.id)">
+        <div class="---lessons ---d-inline-flex ---pos-rel">
+          <div class="---lesson" *ngFor="let lesson of section.lessons" style="background-color:#1f5af4" [routerLink]="'/work/'+lesson.slug">
                             <span class="---icon ---y-pos-abs">
-                                <img lazyLoad="assets/imgs/icons/{{lesson.logo}}" alt="" class="---svg-img ---pos-abs">
+                                <img lazyLoad="assets/imgs/icons/lesson-success.svg" alt=""
+                                     class="---svg-img ---pos-abs">
                             </span>
             {{lesson.lesson_name}}
           </div>
@@ -36,27 +39,31 @@
     <div class="---block-title">Тесты по <span class="---acent ---font-800">{{tests.label}}</span></div>
     <div class="---course-list ---lessons-tabs">
       <div class="---subject" *ngFor="let test of tests.tests">
-        <a href="#" class="---course ---font-800 ---d-flex ---align-items-center" [style.backgroundColor]="test.background">
+        <div class="---course ---font-800 ---d-flex ---align-items-center"
+             [style.backgroundColor]="test.background">
                         <span class="---play-button ---pos-rel">
-                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#ff8a65" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
+                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path
+                              fill="#ff8a65"
+                              d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
                         </span>
           <span class="---icon ---pos-rel">
-                            <img lazyLoad="assets/imgs/icons/{{test.icon}}" alt="" class="---svg-img ---pos-abs">
+                            <img data-src="assets/imgs/icons/course.svg" alt="" class="---svg-img ---pos-abs">
                         </span>
 
           <span class="---text-wrap">
                             <span class="---font-800">{{test.section_name}}</span>
                             <span class="---course-count ---font-400 ---d-block">{{test.description}}</span>
                         </span>
-        </a>
+        </div>
 
-        <div class="---lessons ---d-inline-flex ---pos-rel" >
-          <a routerLink="/subsection" class="---lesson" *ngFor="let lesson of test.lessons" [style.backgroundColor]="lesson.background">
+        <div class="---lessons ---d-inline-flex ---pos-rel">
+          <div class="---lesson" *ngFor="let lesson of test.lessons" style="background-color:#1f5af4">
                             <span class="---icon ---y-pos-abs">
-                                <img lazyLoad="assets/imgs/icons/{{lesson.logo}}" alt="" class="---svg-img ---pos-abs">
+                                <img lazyLoad="assets/imgs/icons/lesson-success.svg" alt=""
+                                     class="---svg-img ---pos-abs">
                             </span>
             {{lesson.lesson_name}}
-          </a>
+          </div>
         </div>
       </div>
 
