@@ -45,7 +45,8 @@ export class WorkService {
           {id: 1, name: 'Урок 1', slug: 1, checked: '1'},
           {id: 2, name: 'Урок 2', slug: 1, checked: ''},
           {id: 3, name: 'Урок 3', slug: 1, checked: '0'}
-        ]
+        ],
+        test: {id: 1, url: 'https://s00.yaplakal.com/pics/pics_original/8/8/1/7094188.jpg'}
       };
       resolve(result);
     });

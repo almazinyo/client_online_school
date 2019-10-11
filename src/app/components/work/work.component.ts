@@ -12,7 +12,8 @@ export class WorkComponent {
     id: null,
     description: '',
     work: [],
-    allWorks: []
+    allWorks: [],
+    test: {id: null, url: ''}
   };
 
   constructor(private workService: WorkService,
