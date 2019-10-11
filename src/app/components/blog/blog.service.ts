@@ -13,6 +13,7 @@ export class BlogService {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/blog', {})
         .then((result: any) => {
+            console.log(result);
             resolve(result);
           },
           (error) => {
