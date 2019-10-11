@@ -27,9 +27,9 @@ export class BlogDetailsComponent {
     );
   }
 
-  getReviewsDetails(id) {
-    this.blogService.getReviewsDetails({id: id}).then((data: InterFaceBlogDetails) => {
-        this.blog = data;
+  getReviewsDetails(slug) {
+    this.blogService.getReviewsDetails(slug).then((data: InterFaceBlogDetails) => {
+        this.blog = data[0];
       },
       (error) => {
         console.log('Ошибка при получении детальной информации по блогу: ', error);

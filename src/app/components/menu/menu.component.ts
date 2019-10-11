@@ -23,12 +23,12 @@ export class MenuComponent {
   }
 
   // переход на ссылку
-  getSection(link) {
-    if (link === '') {
+  getSection(id) {
+    if (id === '') {
       return false;
     }
 
-    this.sectionService.sectionCurrent = link;
+    this.sectionService.sectionCurrent = id;
     this.router.navigate(['section']);
   }
 }

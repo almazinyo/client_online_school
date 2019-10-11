@@ -23,7 +23,7 @@ export class BlogComponent {
       });
   }
 
-  getBlog(id) {
-    this.router.navigate(['blog-details/' + id]);
+  getBlog(slug) {
+    this.router.navigate(['blog/' + slug]);
   }
 }

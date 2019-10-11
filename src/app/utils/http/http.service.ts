@@ -38,24 +38,24 @@ export class HttpService {
   public prepareQuery(url: string = 'noUrl', data = {}) {
     if (data !== '') {
       console.log('Отправляем данные: ', data);
-      //data = JSON.stringify(data);
-      //data = Base64.encode(data);
+      // data = JSON.stringify(data);
+      // data = Base64.encode(data);
     }
 
     return new Promise((resolve, reject) => {
 
-      this.sendPostQuery(url, data).subscribe((result: { status: string, msg: string, session_id: string, data: string, code: string }) => {
+      this.sendPostQuery(url, data).subscribe((result: { status: number, msg: string, session_id: string, data: string, code: string }) => {
           console.log('HttpService Ответ получен: ', result);
-          if (result.status === 'OK') {
+          if (result.status === 200) {
             if (typeof result.data !== 'undefined') {
-              let rez = atob(result.data);
+              /*let rez = atob(result.data);
               rez = JSON.parse(rez);
-              console.log('Результат ответа: ', rez);
-              resolve(rez);
+              console.log('Результат ответа: ', rez);*/
+              resolve(result.data);
             } else {
               resolve(result);
             }
-          } else if (result.status === 'ERROR') {
+          } else if (result.status !== 200) {
             if (typeof result.code !== 'undefined' && result.code === 'NEED SESSION') {
               this.globalParamsMessage.data = {title: 'Ошибка', body: 'Истек срок сессии', type: 'error'};
             } else {
@@ -81,9 +81,8 @@ export class HttpService {
     };
     const headers = new HttpHeaders();
 
-    return this.http.post('http://localhost:8004/' + api, request, {headers: headers})
-    // return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
-    // return this.http.post('http://artdekor-kzn.ru/' + api, request, {headers: headers})
+    // return this.http.post('http://cx50269-wordpress-3.tw1.ru/' + api, {headers: headers})
+    return this.http.post('http://localhost:8005/' + api, {headers: headers})
       .pipe(
         catchError(HttpService.handlerError)
       );

@@ -1,5 +1,5 @@
 interface InterFaceMenu {
-  link: string;
+  id: number;
   name: string;
   logo: string;
 }

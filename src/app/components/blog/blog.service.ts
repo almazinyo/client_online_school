@@ -24,9 +24,9 @@ export class BlogService {
   }
 
   // получение детальной информации о блоге
-  public getReviewsDetails(data) {
+  public getReviewsDetails(slug) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/blog-details', data)
+      this.httpService.prepareQuery('api/blog/details/' + slug)
         .then((result: any) => {
             resolve(result);
           },
