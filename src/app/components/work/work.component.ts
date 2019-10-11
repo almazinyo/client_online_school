@@ -13,8 +13,13 @@ export class WorkComponent {
     description: '',
     work: [],
     allWorks: [],
-    test: {id: null, url: ''}
+    test: []
   };
+
+  currentTest: { id: number, url: string } = {id: null, url: ''};
+  answerTest: { id: number, answer: string }[] = [];
+  answer = '';
+  countAnswer = 0;
 
   constructor(private workService: WorkService,
               private activatedRoute: ActivatedRoute) {
@@ -29,9 +34,26 @@ export class WorkComponent {
   getWork(slug) {
     this.workService.getWork(slug).then((data: InterFaceWork) => {
         this.work = data;
+        this.currentTest = this.work.test[0];
       },
       (error) => {
         console.log('Ошибка при получении информации об уроке: ', error);
+      });
+  }
+
+  nextQuestion() {
+    this.answerTest.push({id: this.currentTest.id, answer: this.answer});
+    this.countAnswer++;
+    this.currentTest = this.work.test[this.countAnswer];
+    this.answer = '';
+  }
+
+  sendAnswer() {
+    this.workService.sendAnswer({data: this.answer}).then(() => {
+        console.log('Тест пройден');
+      },
+      (error) => {
+        console.log('Ошибка при отправке тестов: ', error);
       });
   }
 }

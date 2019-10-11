@@ -65,7 +65,7 @@
           <div class="---task">
             <div class="h3">Задание</div>
             <div class="---theory" >
-              <img [src]='work.test.url' alt="">
+              <img [src]='currentTest.url' alt="">
             </div>
           </div>
         </div>
@@ -74,14 +74,14 @@
           <div class="---answers">
             <div class="h3">Ваш ответ</div>
             <div class="---answer ---is-active">
-              <div class="---input-wrap ---pos-rel ---d-flex ---align-items-center">
-                <input class="---input" placeholder="Впишите ответ">
-              </div>
+                <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
             </div>
             <div class="---answer">
-              <div class="---input-wrap ---pos-rel ---d-flex ---align-items-center">Ответить</div>
+              <div *ngIf="answerTest.length+1!==work.test.length" (click)="nextQuestion()" class="btn btn-link">Ответить</div>
+              <div *ngIf="answerTest.length+1===work.test.length" (click)="sendAnswer()" class="btn btn-link">Завершить тест</div>
             </div>
           </div>
+          Вопрос {{countAnswer+1}} из {{work.test.length}}
         </div>
       </div>
     </div>
