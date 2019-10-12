@@ -1,11 +1,13 @@
 <div class="---block-blog--in">
   <article class="---content">
-    <img lazyLoad="assets/imgs/blog/{{blog.img}}" alt="" class="---main-img">
+    <img lazyLoad="http://cx50269-wordpress-3.tw1.ru/images/blog/{{blog.img_name}}" alt="" class="---main-img">
 
-    <div class="---date">{{blog.author}}, {{blog.date}}</div>
+    <div class="---date">{{blog.author}}, {{blog.created_at}}</div>
 
     <h1 class="---font-600">{{blog.title}}</h1>
-    {{blog.text}}
+    <div innerHTML="{{blog.description}}">
+    </div>
+
   </article>
 
   <div class="---share ---d-flex ---font-uppercase ---font-600">
