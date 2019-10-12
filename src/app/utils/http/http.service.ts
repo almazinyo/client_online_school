@@ -79,14 +79,10 @@ export class HttpService {
     const request = {
       data: data
     };
-    const headers = new HttpHeaders(
-      {
-        'Access-Control-Allow-Origin': '*',
-      }
-    );
+    const headers = new HttpHeaders();
 
     // return this.http.post('http://cx50269-wordpress-3.tw1.ru/' + api, {headers: headers})
-    return this.http.post('http://localhost:8005/' + api, {headers: headers})
+    return this.http.get('http://cx50269-wordpress-3.tw1.ru/' + api, {headers: headers})
       .pipe(
         catchError(HttpService.handlerError)
       );

@@ -5,15 +5,15 @@
     <div class="col-sm-6" *ngFor="let blog of blogs">
       <div (click)="getBlog(blog.slug)" class="---blog-item ---d-flex ---flex-column">
           <span class="---img">
-            <img lazyLoad="assets/imgs/blog/{{blog.img_name}}" alt="" class="---img-cover">
+            <img lazyLoad="http://cx50269-wordpress-3.tw1.ru/images/blog/{{blog.img_name}}" alt="" class="---img-cover">
           </span>
           <span class="---title ---font-600">{{blog.title}}</span>
           <span class="---d-flex ---align-items-center ---justify-content-between">
           <span class="---date ---d-flex ---align-items-center">
             <i class="---icon-font ---icon-arrow-right"></i>
-            {{blog.date}}
+            {{blog.created_at}}
           </span>
-          <span class="---subject ---font-600 ---font-uppercase">{{blog.course}}</span>
+          <span class="---subject ---font-600 ---font-uppercase">{{blog.subject_name}}</span>
         </span>
       </div>
     </div>
