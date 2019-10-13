@@ -1,12 +1,12 @@
 interface InterFaceSection {
-  'label': string;
-  'sections': [
+  'title': string;
+  'sectionSubjects': [
     {
       'section_id': number;
       'background': string;
       'slug': string;
       'description': string;
-      'section_name': string;
+      'name': string;
       'lessons': [
         {
           'id': number;

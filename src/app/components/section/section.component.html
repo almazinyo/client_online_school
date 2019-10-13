@@ -1,8 +1,8 @@
 <div class="---block-catalog">
   <div class="---course-wrap">
-    <div class="---block-title">Видео курсы по <span class="---acent ---font-800">{{sections.label}}</span></div>
+    <div class="---block-title">Видео курсы по <span class="---acent ---font-800">{{sections.title}}</span></div>
     <div class="---course-list ---lessons-tabs">
-      <div class="---subject" *ngFor="let section of sections.sections">
+      <div class="---subject" *ngFor="let section of sections.sectionSubjects">
         <div [routerLink]="'/subsection/'+section.slug" class="---course ---font-800 ---d-flex ---align-items-center"
              [style.backgroundColor]="section.background">
                         <span class="---play-button ---pos-rel">
@@ -15,60 +15,60 @@
                         </span>
 
           <span class="---text-wrap">
-                            <span class="---font-800">{{section.section_name}}</span>
-                            <span class="---course-count ---font-400 ---d-block">{{section.description}}</span>
+                            <span class="---font-800">{{section.name}}</span>
+                            <span class="---course-count ---font-400 ---d-block">{{section.short_description}}</span>
                         </span>
         </div>
 
-        <div class="---lessons ---d-inline-flex ---pos-rel">
-          <div class="---lesson" *ngFor="let lesson of section.lessons" style="background-color:#1f5af4" [routerLink]="'/work/'+lesson.slug">
-                            <span class="---icon ---y-pos-abs">
-                                <img lazyLoad="assets/imgs/icons/lesson-success.svg" alt=""
-                                     class="---svg-img ---pos-abs">
-                            </span>
-            {{lesson.lesson_name}}
-          </div>
-        </div>
+                <div class="---lessons ---d-inline-flex ---pos-rel">
+                  <div class="---lesson" *ngFor="let lesson of section.lessons" style="background-color:#1f5af4" [routerLink]="'/work/'+lesson.slug">
+                                    <span class="---icon ---y-pos-abs">
+                                        <img lazyLoad="assets/imgs/icons/lesson-success.svg" alt=""
+                                             class="---svg-img ---pos-abs">
+                                    </span>
+                    {{lesson.name}}
+                  </div>
+                </div>
       </div>
     </div>
   </div>
 
   <div class="---devider"></div>
 
-  <div class="---course-wrap">
-    <div class="---block-title">Тесты по <span class="---acent ---font-800">{{tests.label}}</span></div>
-    <div class="---course-list ---lessons-tabs">
-      <div class="---subject" *ngFor="let test of tests.tests">
-        <div class="---course ---font-800 ---d-flex ---align-items-center"
-             [style.backgroundColor]="test.background">
-                        <span class="---play-button ---pos-rel">
-                            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path
-                              fill="#ff8a65"
-                              d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
-                        </span>
-          <span class="---icon ---pos-rel">
-                            <img data-src="assets/imgs/icons/course.svg" alt="" class="---svg-img ---pos-abs">
-                        </span>
+<!--  <div class="-&#45;&#45;course-wrap">-->
+<!--    <div class="-&#45;&#45;block-title">Тесты по <span class="-&#45;&#45;acent -&#45;&#45;font-800">{{tests.label}}</span></div>-->
+<!--    <div class="-&#45;&#45;course-list -&#45;&#45;lessons-tabs">-->
+<!--      <div class="-&#45;&#45;subject" *ngFor="let test of tests.tests">-->
+<!--        <div class="-&#45;&#45;course -&#45;&#45;font-800 -&#45;&#45;d-flex -&#45;&#45;align-items-center"-->
+<!--             [style.backgroundColor]="test.background">-->
+<!--                        <span class="-&#45;&#45;play-button -&#45;&#45;pos-rel">-->
+<!--                            <svg class="-&#45;&#45;pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path-->
+<!--                              fill="#ff8a65"-->
+<!--                              d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>-->
+<!--                        </span>-->
+<!--          <span class="-&#45;&#45;icon -&#45;&#45;pos-rel">-->
+<!--                            <img data-src="assets/imgs/icons/course.svg" alt="" class="-&#45;&#45;svg-img -&#45;&#45;pos-abs">-->
+<!--                        </span>-->
 
-          <span class="---text-wrap">
-                            <span class="---font-800">{{test.section_name}}</span>
-                            <span class="---course-count ---font-400 ---d-block">{{test.description}}</span>
-                        </span>
-        </div>
+<!--          <span class="-&#45;&#45;text-wrap">-->
+<!--                            <span class="-&#45;&#45;font-800">{{test.section_name}}</span>-->
+<!--                            <span class="-&#45;&#45;course-count -&#45;&#45;font-400 -&#45;&#45;d-block">{{test.description}}</span>-->
+<!--                        </span>-->
+<!--        </div>-->
 
-        <div class="---lessons ---d-inline-flex ---pos-rel">
-          <div class="---lesson" *ngFor="let lesson of test.lessons" style="background-color:#1f5af4">
-                            <span class="---icon ---y-pos-abs">
-                                <img lazyLoad="assets/imgs/icons/lesson-success.svg" alt=""
-                                     class="---svg-img ---pos-abs">
-                            </span>
-            {{lesson.lesson_name}}
-          </div>
-        </div>
-      </div>
+<!--        <div class="-&#45;&#45;lessons -&#45;&#45;d-inline-flex -&#45;&#45;pos-rel">-->
+<!--          <div class="-&#45;&#45;lesson" *ngFor="let lesson of test.lessons" style="background-color:#1f5af4">-->
+<!--                            <span class="-&#45;&#45;icon -&#45;&#45;y-pos-abs">-->
+<!--                                <img lazyLoad="assets/imgs/icons/lesson-success.svg" alt=""-->
+<!--                                     class="-&#45;&#45;svg-img -&#45;&#45;pos-abs">-->
+<!--                            </span>-->
+<!--            {{lesson.lesson_name}}-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </div>
-  </div>
+<!--    </div>-->
+<!--  </div>-->
 
 </div>
 

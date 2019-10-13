@@ -10,8 +10,8 @@ import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
   templateUrl: './section.component.html',
 })
 export class SectionComponent {
-  sections: InterFaceSection;
-  tests: InterFaceTest;
+  sections: InterFaceSection[] = [];
+  tests: InterFaceTest[] = [];
 
   constructor(private sectionService: SectionService,
               private subsectionService: SubsectionService,
@@ -30,7 +30,7 @@ export class SectionComponent {
 
   getSection(slug) {
     this.sectionService.getSection(slug).then((data: any) => {
-        this.sections = data.sections;
+        this.sections = data[0];
         this.tests = data.tests;
       },
       (error) => {
