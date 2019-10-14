@@ -20,10 +20,8 @@ export class SubsectionService {
   // получение списка активных полей
   public getSubSection(slug) {
     return new Promise((resolve, reject) => {
-      if (this.coursesCurrent.length === 0) {
      this.httpService.prepareQuery('api/sections/details/' + slug)
           .then((result: any) => {
-              this.coursesCurrent = result.data;
               resolve(result);
             },
             (error) => {
@@ -79,9 +77,6 @@ export class SubsectionService {
         //   ]
         // };
         // resolve(result);
-      } else {
-        resolve(this.coursesCurrent);
-      }
     });
   }
 
