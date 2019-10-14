@@ -36,6 +36,8 @@ export class SubsectionComponent {
   getSubsection(slug) {
     this.subsectionService.getSubSection(slug).then((data: InterFaceSubSection) => {
         this.subsection = data;
+        console.log('hello');
+        console.log(this.subsection);
       },
       (error) => {
         console.log('Ошибка при получении информации о разделе: ', error);
