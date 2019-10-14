@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {SubsectionService} from '../subsection/subsection.service';
 import {SectionService} from './section.service';
@@ -9,7 +9,7 @@ import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
   selector: 'app-section',
   templateUrl: './section.component.html',
 })
-export class SectionComponent {
+export class SectionComponent implements OnInit {
   sections: InterFaceSection[] = [];
   tests: InterFaceTest[] = [];
 
@@ -20,22 +20,18 @@ export class SectionComponent {
               private activatedRoute: ActivatedRoute,
               private breadcrumbsService: BreadcrumbsService) {
     this.breadcrumbsService.title = '';
-
-    this.activatedRoute.params.subscribe(
-      (params: Params): void => {
-        this.getSection(params.id);
-      }
-    );
   }
 
-  getSection(slug) {
-    this.sectionService.getSection(slug).then((data: any) => {
-        this.sections = data[0];
-        this.tests = data.tests;
-      },
-      (error) => {
-        console.log('Ошибка при получении списка полей заявки: ', error);
-      });
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(routeParams => {
+      this.sectionService.getSection(routeParams.id).then((data: any) => {
+          this.sections = data[0];
+          this.tests = data.tests;
+        },
+        (error) => {
+          console.log('Ошибка при получении списка полей заявки: ', error);
+        });
+    });
   }
 
   /* // переход в разделы
