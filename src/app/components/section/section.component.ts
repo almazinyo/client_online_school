@@ -30,6 +30,8 @@ export class SectionComponent implements OnInit {
         },
         (error) => {
           console.log('Ошибка при получении списка полей заявки: ', error);
+          this.sections = [];
+          this.tests = [];
         });
     });
   }
