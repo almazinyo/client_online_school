@@ -28,7 +28,7 @@ export class WorkComponent {
     this.workService.getWork(slug).then((data: InterFaceWork) => {
         this.work = data;
         console.log(this.work);
-        this.currentTest = this.work.quizzes[0];
+        this.currentTest = this.work;
       },
       (error) => {
         console.log('Ошибка при получении информации об уроке: ', error);
