@@ -11,7 +11,7 @@ export class AuthComponent {
   constructor(private authService: AuthService) {
 
     this.authService.getData().then((data: any) => {
-        this.data = data;
+        this.data = data.mainSection;
         console.log(data);
       },
       (error) => {
