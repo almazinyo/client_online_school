@@ -6,13 +6,12 @@ import {AuthService} from './auth.service';
   templateUrl: './auth.component.html',
 })
 export class AuthComponent {
-  data: any = [];
+  data: InterFaceMain[] = [];
 
   constructor(private authService: AuthService) {
 
-    this.authService.getData().then((data: any) => {
+    this.authService.getData().then((data: { mainSection: InterFaceMain[] }) => {
         this.data = data.mainSection;
-        console.log(data);
       },
       (error) => {
         console.log('Ошибка при получении информации на гавный экран: ', error);
