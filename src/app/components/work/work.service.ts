@@ -5,6 +5,7 @@ import {HttpService} from '../../utils/http/http.service';
 export class WorkService {
   currentWork = '';
   work = {};
+  coursesCurrent: any;
 
   constructor(private httpService: HttpService) {
   }

@@ -7,7 +7,8 @@ import {ActivatedRoute, Params} from '@angular/router';
   templateUrl: './work.component.html',
 })
 export class WorkComponent {
-  work: InterFaceWork[] = [];
+  // work: InterFaceWork[] = [];
+  work: any;
 
   currentTest: { id: number, url: string } = {id: null, url: ''};
   answerTest: { id: number, answer: string }[] = [];
