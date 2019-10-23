@@ -1,5 +1,5 @@
 interface InterFaceMain {
   name: string;
   description: string;
-  image: string;
+  img_name: string;
 }
