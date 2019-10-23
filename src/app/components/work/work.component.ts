@@ -7,8 +7,25 @@ import {ActivatedRoute, Params} from '@angular/router';
   templateUrl: './work.component.html',
 })
 export class WorkComponent {
-  // work: InterFaceWork[] = [];
-  work: any;
+  work: InterFaceWork = {
+    background: '',
+    created_at: '',
+    description: '',
+    id: '',
+    is_status: '',
+    logo: '',
+    name: '',
+    quizzes: [],
+    section: {id: '', subject_id: '', parent_id: null, name: '', slug: ''},
+    section_id: '',
+    seo_description: '',
+    seo_keywords: '',
+    short_description: '',
+    slug: '',
+    sort_lessons: '',
+    storageLessons: [],
+    updated_at: '',
+  };
 
   currentTest: { id: number, url: string } = {id: null, url: ''};
   answerTest: { id: number, answer: string }[] = [];
@@ -27,9 +44,8 @@ export class WorkComponent {
 
   getWork(slug) {
     this.workService.getWork(slug).then((data: InterFaceWork) => {
+        console.log(1, data);
         this.work = data;
-        console.log(this.work);
-        this.currentTest = this.work;
       },
       (error) => {
         console.log('Ошибка при получении информации об уроке: ', error);
@@ -39,7 +55,7 @@ export class WorkComponent {
   nextQuestion() {
     this.answerTest.push({id: this.currentTest.id, answer: this.answer});
     this.countAnswer++;
-    this.currentTest = this.work.test[this.countAnswer];
+    // this.currentTest = this.work.test[this.countAnswer];
     this.answer = '';
   }
 

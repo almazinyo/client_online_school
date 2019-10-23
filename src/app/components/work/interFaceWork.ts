@@ -1,8 +1,19 @@
 interface InterFaceWork {
-  title: string;
-  id: number;
+  background: string;
+  created_at: string;
   description: string;
-  work: { 'order': number, type: string, url: string }[];
-  allWorks: { id: number, name: string, slug: string, checked: string }[];
-  test: { id: number, url: string}[];
+  id: string;
+  is_status: string;
+  logo: string;
+  name: string;
+  quizzes: any;
+  section: { id: string, subject_id: string, parent_id: number, name: string, slug: string };
+  section_id: string;
+  seo_description: string;
+  seo_keywords: string;
+  short_description: string;
+  slug: string;
+  sort_lessons: string;
+  storageLessons: any;
+  updated_at: string;
 }
