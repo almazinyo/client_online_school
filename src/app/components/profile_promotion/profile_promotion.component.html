@@ -1,0 +1,31 @@
+<div class="---block-profile ---d-flex">
+  <div class="---rside ---pos-rel">
+    <div class="---block-title ---block-title--sm">Карта вашего продвижения</div>
+
+    <div class="---tabs ---lessons-tabs ---font-800 ---pos-rel">
+      <div class="---tabs-switchers ---pos-rel ---d-flex">
+        <div *ngFor="let lesson of lessons" (click)="changeLessons(lesson)" class="---tab-switcher">{{lesson.name}}
+        </div>
+      </div>
+
+      <div class="---tab ---is-visible">
+        <div *ngFor="let section of sections" class="---subject">
+          <div class="---course ---font-800"  [style.backgroundColor]="section.background">
+            <img data-src="/assets/imgs/icons/{{section.img}}" alt="" class="---lazyload ---y-pos-abs">
+            {{section.name}}
+          </div>
+
+          <div class="---lessons ---d-inline-flex ---pos-rel">
+            <div *ngFor="let lesson of section.lessons" class="---lesson ---is-ended">
+                                <span class="---icon ---y-pos-abs">
+                                    <img data-src="/assets/imgs/icons/{{lesson.img}}" alt=""
+                                         class="---svg-img ---pos-abs">
+                                </span>
+              {{lesson.name}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

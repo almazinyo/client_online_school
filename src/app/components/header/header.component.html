@@ -23,14 +23,9 @@
             </a>
 
             <div class="---subject-list ---font-600 ---z-index-under">
-              <a href="/math.php">Математика</a>
-              <a href="/physics.php">Физика</a>
-              <a href="/russian.php">Русский</a>
-              <a href="/social.php">Общество</a>
-              <a href="/history.php">История</a>
-              <a href="/chemistry.php">Химия</a>
-              <a href="/biology.php">Биология</a>
+              <div *ngFor="let currentMenu of menu" (click)="getSection(currentMenu.slug)">{{currentMenu.title}}</div>
             </div>
+
           </div>
         </div>
 

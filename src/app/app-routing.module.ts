@@ -8,6 +8,11 @@ import {ReviewsComponent} from './components/reviews/reviews.component';
 import {BlogComponent} from './components/blog/blog.component';
 import {InstructionComponent} from './components/instruction/instruction.component';
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
+import {ProfilePromotionComponent} from './components/profile_promotion/profile_promotion.component';
+import {ProfileDetailsComponent} from './components/profile_details/profile_details.component';
+import {ProfileBuyComponent} from './components/profile_buy/profile_buy.component';
+import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
+import {CallbackComponent} from './components/callback/callback.component';
 
 const routes: Routes = [
   {
@@ -15,15 +20,15 @@ const routes: Routes = [
     component: AuthComponent
   },
   {
-    path: 'section',
+    path: 'section/:id',
     component: SectionComponent
   },
   {
-    path: 'subsection',
+    path: 'subsection/:id',
     component: SubsectionComponent
   },
   {
-    path: 'work',
+    path: 'work/:id',
     component: WorkComponent
   },
   {
@@ -35,13 +40,33 @@ const routes: Routes = [
     component: BlogComponent
   },
   {
-    path: 'blog-details',
+    path: 'blog/:id',
     component: BlogDetailsComponent
   },
   {
     path: 'instruction',
     component: InstructionComponent
-  }
+  },
+  /*{
+    path: 'callback',
+    component: CallbackComponent
+  },
+  {
+    path: 'profile-promotion',
+    component: ProfilePromotionComponent
+  },
+  {
+    path: 'profile-details',
+    component: ProfileDetailsComponent
+  },
+  {
+    path: 'profile-buy',
+    component: ProfileBuyComponent
+  },
+  {
+    path: 'profile-points',
+    component: ProfilePointsComponent
+  }*/
 ];
 
 @NgModule({

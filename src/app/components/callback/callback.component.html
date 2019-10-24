@@ -1,0 +1,34 @@
+<div class="---block-profile ---d-flex">
+  <div class="---rside ---pos-rel">
+    <div class="---block-title ---block-title--sm">У вас появился вопрос?</div>
+
+    <form action="#" class="---row ---support-form">
+      <p class="col-12">Напишите нам если у вас какие то затруднения с курсами<br>или вопросы по каким либо моментам</p>
+
+      <div class="---input-wrap col-md-6">
+        <div class="---input-label">Электронная почта</div>
+        <input [(ngModel)]="data.email" type="email" class="---input" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="---input-wrap col-md-6">
+        <div class="---input-label">Номер телефона</div>
+        <input [(ngModel)]="data.tel" type="tel" class="---input" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="---input-wrap col-12">
+        <div class="---input-label">Вопрос</div>
+        <textarea [(ngModel)]="data.text" type="text" rows="4" class="---input"></textarea>
+      </div>
+
+      <div class="col-12 ---d-flex ---align-items-center">
+        <button (click)="sendCallback()" class="---button ---button--xl ---button--acent_orange">Отправить</button>
+        <div class="---agree ---pos-rel">
+          <img data-src="/assets/imgs/agree.png" alt="" class="---lazyload ---y-pos-abs">
+          <input type="checkbox" [(ngModel)]="checkCondition" id="checkCondition"/>
+          <label for="checkCondition">
+          Принимаю <a href="#">условия</a><br>
+          обработки данных
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

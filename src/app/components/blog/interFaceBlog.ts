@@ -1,7 +1,8 @@
 interface InterFaceBlog {
   id: number;
-  img: string;
+  img_name: string;
   title: string;
   date: string;
   course: string;
+  slug: string;
 }

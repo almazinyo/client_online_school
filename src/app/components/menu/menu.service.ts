@@ -12,23 +12,16 @@ export class MenuService {
   public getMenu() {
     return new Promise((resolve, reject) => {
       if (this.menu.length === 0) {
-        /*this.httpService.prepareQuery('api/section', {param:this.sectionCurrent})
+        this.httpService.prepareQuery('api/subjects/menu', {})
           .then((result: any) => {
-              this.sectionsCurrent = result;
+              this.menu = result;
               resolve(result);
             },
             (error) => {
               console.log('Ошибка при получении списка разделов предмета', error);
               reject();
             }
-          );*/
-        const result = [
-          {name: 'Физика', link: 'physics', logo: '---icon-menu-map'},
-          {name: 'Математика', link: 'maths', logo: '---icon-menu-physics'},
-          {name: 'Химия', link: 'chemistry', logo: '---icon-menu-russian'},
-        ];
-
-        resolve(result);
+          );
       } else {
         resolve(this.menu);
       }

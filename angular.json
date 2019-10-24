@@ -26,14 +26,16 @@
               "src/assets/styles/inc/system.less",
               "src/assets/styles/html_styles.less",
               "src/assets/styles/main.less"
-
             ],
             "scripts": [
               "src/assets/js/vendor/jquery-3.4.0.js",
               "src/assets/js/vendor/jquery.owl-carousel.js",
               "src/assets/js/vendor/jquery.mask.js",
               "src/assets/js/vendor/html_js.js",
-              "src/assets/js/script.js"
+              "src/assets/js/script.js",
+              "node_modules/ngx-extended-pdf-viewer/assets/pdf.js",
+              "node_modules/ngx-extended-pdf-viewer/assets/pdf.worker.js",
+              "node_modules/ngx-extended-pdf-viewer/assets/viewer.js"
             ]
           },
           "configurations": {

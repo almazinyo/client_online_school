@@ -29,13 +29,30 @@ import {WorkService} from './components/work/work.service';
 import {ReviewsService} from './components/reviews/reviews.service';
 import {BlogService} from './components/blog/blog.service';
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
-import {BlogDetailsService} from './components/blogDetails/blogDetails.service';
 import {BreadcrumbsService} from './components/breadcrumbs/breadcrumbs.service';
 import {MenuService} from './components/menu/menu.service';
+import {ProfilePromotionService} from './components/profile_promotion/profile_promotion.service';
+import {ProfilePromotionComponent} from './components/profile_promotion/profile_promotion.component';
+import {ProfileDetailsComponent} from './components/profile_details/profile_details.component';
+import {ProfileDetailsService} from './components/profile_details/profile_details.service';
+import {IConfig, NgxMaskModule} from 'ngx-mask';
+import {TelephoneNumberPipe} from './pipes/telephone_number.pipe';
+import {DigitsNumbersPipe} from './pipes/digits_numbers.pipe';
+import {ProfileBuyComponent} from './components/profile_buy/profile_buy.component';
+import {ProfileBuyService} from './components/profile_buy/profile_buy.service';
+import {ProfilePointsService} from './components/profile_points/profile_points.service';
+import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
+import {CallbackComponent} from './components/callback/callback.component';
+import {CallbackService} from './components/callback/callback.service';
+import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
+import {EmbedVideo, EmbedVideoService} from 'ngx-embed-video/dist';
 
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
   declarations: [
+    DigitsNumbersPipe,
+    TelephoneNumberPipe,
     AppComponent,
     AuthComponent,
     MenuComponent,
@@ -49,18 +66,27 @@ import {MenuService} from './components/menu/menu.service';
     BlogComponent,
     InstructionComponent,
     BreadcrumbsComponent,
-    BlogDetailsComponent
+    BlogDetailsComponent,
+    ProfilePromotionComponent,
+    ProfileDetailsComponent,
+    ProfileBuyComponent,
+    ProfilePointsComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ClarityModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     FormsModule,
+    HttpClientModule,
+    EmbedVideo.forRoot(),
+    AppRoutingModule,
+    NgxExtendedPdfViewerModule,
     LazyLoadImageModule.forRoot({
       preset: intersectionObserverPreset // <-- tell LazyLoadImage that you want to use IntersectionObserver
-    })
+    }),
+    NgxMaskModule.forRoot(options)
 
   ],
   providers: [
@@ -73,9 +99,13 @@ import {MenuService} from './components/menu/menu.service';
     WorkService,
     ReviewsService,
     BlogService,
-    BlogDetailsService,
     BreadcrumbsService,
-    MenuService
+    MenuService,
+    ProfilePromotionService,
+    ProfileDetailsService,
+    ProfileBuyService,
+    ProfilePointsService,
+    CallbackService
   ],
   bootstrap: [AppComponent]
 })
