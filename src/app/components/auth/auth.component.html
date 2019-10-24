@@ -10,7 +10,8 @@
 
     <div class="col-lg-8 col-xl-9">
       <div class="---tab ---pos-rel ---is-visible">
-        <img src="http://api.examator.ru/frontend/web/images/options/{{item.img_name}}" alt="" class="---bg ---img-cover">
+        <img src="http://api.examator.ru/frontend/web/images/options/{{item.img_name}}" alt=""
+             class="---bg ---img-cover">
       </div>
     </div>
 
@@ -25,95 +26,18 @@
 
     <div class="col-12 ---block-title">Выбери <span class="---acent">нужный предмет</span></div>
 
-    <div class="col-xs-6 col-md-4 col-lg-3">
-      <a href="#" class="---item ---item--math ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start">
+    <div class="col-xs-6 col-md-4 col-lg-3 spec-block-lesson" *ngFor="let item of menu">
+      <a routerLink="/section/{{item.slug}}"
+         class="---item ---item--math ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start">
         <div class="---item__icon ---pos-rel">
-          <i class="---icon-font ---icon-menu-math ---pos-abs"></i>
+          <i class="---icon-font ---pos-abs" [ngClass]="'---icon-menu-'+item.icon"></i>
         </div>
         <div>
-          <div class="---item__title">Математика</div>
-          <div class="---item__thumb">56 курсов  /  28 вебинаров</div>
+          <div class="---item__title">{{item.title}}</div>
+          <div class="---item__thumb">56 курсов / 28 вебинаров</div>
         </div>
       </a>
     </div>
-    <div class="col-xs-6 col-md-4 col-lg-3">
-      <a href="#" class="---item ---item--physics ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start">
-        <div class="---item__icon ---pos-rel">
-          <i class="---icon-font ---icon-menu-physics ---pos-abs"></i>
-        </div>
-        <div>
-          <div class="---item__title">Физика</div>
-          <div class="---item__thumb">56 курсов  /  28 вебинаров</div>
-        </div>
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-4 col-lg-3">
-      <a href="#" class="---item ---item--russian ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start">
-        <div class="---item__icon ---pos-rel">
-          <i class="---icon-font ---icon-menu-russian ---pos-abs"></i>
-        </div>
-        <div>
-          <div class="---item__title">Русский язык</div>
-          <div class="---item__thumb">56 курсов  /  28 вебинаров</div>
-        </div>
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-4 col-lg-3">
-      <a href="#" class="---item ---item--social ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start">
-        <div class="---item__icon ---pos-rel">
-          <i class="---icon-font ---icon-menu-social ---pos-abs"></i>
-        </div>
-        <div>
-          <div class="---item__title">Обществознание</div>
-          <div class="---item__thumb">56 курсов  /  28 вебинаров</div>
-        </div>
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-4 col-lg-3">
-      <a href="#" class="---item ---item--history ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start">
-        <div class="---item__icon ---pos-rel">
-          <i class="---icon-font ---icon-menu-history ---pos-abs"></i>
-        </div>
-        <div>
-          <div class="---item__title">История</div>
-          <div class="---item__thumb">56 курсов  /  28 вебинаров</div>
-        </div>
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-4 col-lg-3">
-      <a href="#" class="---item ---item--chemistry ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start">
-        <div class="---item__icon ---pos-rel">
-          <i class="---icon-font ---icon-menu-chemistry ---pos-abs"></i>
-        </div>
-        <div>
-          <div class="---item__title">Химия</div>
-          <div class="---item__thumb">56 курсов  /  28 вебинаров</div>
-        </div>
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-4 col-lg-3">
-      <a href="#" class="---item ---item--biology ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start">
-        <div class="---item__icon ---pos-rel">
-          <i class="---icon-font ---icon-menu-biology ---pos-abs"></i>
-        </div>
-        <div>
-          <div class="---item__title">Биология</div>
-          <div class="---item__thumb">56 курсов  /  28 вебинаров</div>
-        </div>
-      </a>
-    </div>
-    <div class="col-xs-6 col-md-4 col-lg-3">
-      <a href="#" class="---item ---item--pack ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start">
-        <div class="---item__icon ---pos-rel">
-          <i class="---icon-font ---icon-menu-math ---pos-abs"></i>
-        </div>
-        <div>
-          <div class="---item__title">Наборы курсов</div>
-          <div class="---item__thumb">8 комплексных крсов</div>
-        </div>
-      </a>
-    </div>
-
   </div>
 </div>
 
@@ -134,7 +58,9 @@
         <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
       </div>
       <p>
-        Курс отличный, очень полезный. Я считаю, что обязателен для всех, кто хочет развиваться в этой сфере. Сложен для понимаю, почти каждый вебинар пересматривал, бывало, и не один раз. Отдельная благодарность преподавателю Сергею!
+        Курс отличный, очень полезный. Я считаю, что обязателен для всех, кто хочет развиваться в этой сфере. Сложен для
+        понимаю, почти каждый вебинар пересматривал, бывало, и не один раз. Отдельная благодарность преподавателю
+        Сергею!
       </p>
     </div>
     <div class="---item">
@@ -144,7 +70,8 @@
         <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
       </div>
       <p>
-        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
+        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать
+        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
       </p>
     </div>
     <div class="---item">
@@ -154,7 +81,8 @@
         <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
       </div>
       <p>
-        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
+        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать
+        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
       </p>
     </div>
     <div class="---item">
@@ -164,7 +92,8 @@
         <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
       </div>
       <p>
-        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
+        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать
+        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
       </p>
     </div>
   </div>

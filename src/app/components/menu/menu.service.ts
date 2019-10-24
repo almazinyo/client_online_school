@@ -22,13 +22,6 @@ export class MenuService {
               reject();
             }
           );
-        /* const result = [
-           {name: 'Физика', link: 'physics', logo: '---icon-menu-map'},
-           {name: 'Математика', link: 'maths', logo: '---icon-menu-physics'},
-           {name: 'Химия', link: 'chemistry', logo: '---icon-menu-russian'},
-         ];
-
-         resolve(result);*/
       } else {
         resolve(this.menu);
       }

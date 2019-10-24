@@ -1,6 +1,6 @@
 interface InterFaceMenu {
   id: number;
-  name: string;
-  logo: string;
+  title: string;
+  icon: string;
   slug: string;
 }
