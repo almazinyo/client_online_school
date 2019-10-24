@@ -1,21 +1,17 @@
-<div class="---block-work-step ---tabs">
-  <div class="---row" *ngFor="let item of data">
-
-    <div class="col-12 ---block-title">
-      {{item.name}}
-      <p>
-        {{item.description}}
-      </p>
-    </div>
-
-    <div class="col-lg-8 col-xl-9">
-      <div class="---tab ---pos-rel ---is-visible">
-        <img src="http://api.examator.ru/frontend/web/images/options/{{item.img_name}}" alt=""
-             class="---bg ---img-cover">
+<div class="---block-auth-des ---tabs">
+  <div class="col-xl-10">
+    <div class="---row ---item ---justify-content-between ---align-items-center" *ngFor="let item of data">
+      
+      <div class="---item--text">
+        <div class="---item-title h2 ---font-800">{{item.name}}</div>
+        <p class="---item-des">{{item.description}}</p>
       </div>
-    </div>
+      
+      <div class="---item--img">
+        <img lazyLoad="http://api.examator.ru/frontend/web/images/options/{{item.img_name}}">
+      </div>
 
-    <div class="---devider"></div>
+    </div>
   </div>
 </div>
 
