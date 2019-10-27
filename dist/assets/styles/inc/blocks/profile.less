@@ -1,0 +1,262 @@
+.---block-profile {
+	margin-left: -72px;
+	margin-bottom: -50px;
+	width: calc(100% + 72px);
+
+	p {
+		font-size: 16px;
+	}
+
+	.---profile-menu {
+		width: 320px;
+		background: #fff;
+		padding: 50px 0 100px 50px;
+
+		.---user {
+			margin-bottom: 70px;
+			font-size: 14px;
+			padding-left: 88px;
+
+			.---avatar {
+				left: 28px;
+				width: 44px;
+				height: 44px;
+				border-radius: 100%;
+				overflow: hidden;
+			}
+
+			.---name {
+
+			}
+
+			.---level {
+				color: fadeout(@color-text, 50%);
+			}
+
+		}
+
+		nav {
+
+			a {
+				position: relative;
+				color: fadeout(@color-text, 40%);
+				padding: 25px 15px 25px 70px;
+
+				.---svg-img {
+					left: 28px;
+					width: 20px;
+					height: 20px;
+				}
+
+				path {
+					fill: #b5c4cb;
+				}
+
+				.---points {
+					color: #fff;
+					background: #b5c4cb;
+					font-size: 11px;
+					margin-left: 20px;
+					padding: 2px 10px;
+					border-radius: 20px;
+				}
+
+				&.---is-active {
+					border-radius: 20px 0 0 20px;
+					box-shadow: 15px 0px 38px 0px rgba(36, 42, 55, 0.15);
+					color: @color-text;
+
+					path {
+						fill: @color-acent;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	.---breadcrumbs {
+		margin-top: 0;
+	}
+
+	.---rside {
+		width: calc(100% - 320px);
+		padding: 25px 0 200px 60px;
+
+		.---block-title {
+			margin-bottom: 40px;
+		}
+
+		.---devider {
+			margin: 40px 0;
+
+			&:before {
+				left: 0;
+			}
+
+		}
+
+		.---underform-devider {
+			margin-top: 5px;
+		}
+
+		&:before {
+			content: '';
+			background: @color-bg;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: -1000%;
+			z-index: -1;
+		}
+
+	}
+
+	.---birthdate {
+
+		.---select {
+			width: 28%;
+			cursor: pointer;
+
+			&:nth-child(1) {
+				border-radius: 30px 0 0 30px;
+			}
+
+			&:nth-child(2) {
+				width: 42%;
+				border-radius: 0;
+			}
+
+			&:nth-child(3) {
+				border-radius: 0 30px 30px 0;
+			}
+
+		}
+
+	}
+
+	.---acent-block {
+		background: @color-acent;
+		border-radius: 15px;
+		max-width: 700px;
+		line-height: 1;
+		color: #fff;
+
+		.---title {
+			margin-bottom: 15px;
+			font-size: 18px;
+			color: fadeout(#fff, 50%);
+		}
+
+	}
+
+	.---promocode-block {
+		margin-top: 30px;
+		padding: 30px;
+		font-size: 36px;
+
+		.---code {
+			margin-right: 15px;
+		}
+
+		.---button {
+			margin-left: 15px;
+		}
+
+	}
+
+	.---enter-code-wrap {
+
+		.---block-title {
+			margin-bottom: 10px;
+		}
+
+		p {
+			margin-bottom: 18px;
+		}
+
+	}
+
+	.---enter-code-input {
+		width: 200px;
+		margin-right: 15px;
+	}
+
+	.---support-form {
+
+		p {
+			color: fadeout(@color-text, 40%);
+			margin-bottom: 45px;
+		}
+
+		.---agree {
+			margin-left: 40px;
+			padding-left: 30px;
+			font-size: 13px;
+			color: fadeout(@color-text, 50%);
+
+			a {
+				text-decoration: underline;
+			}
+		
+			img {
+				width: 18px;
+				left: 0;
+			}
+
+		}
+
+	}
+
+}
+
+.---points-wrap {
+
+	.---points-block {
+		font-size: 42px;
+
+		.---p-item {
+			padding: 30px;
+
+			.---svg-img {
+				right: -60px;
+				width: 50px;
+				height: 50px;
+			}
+
+			path {
+				fill: #fff;
+			}
+
+		}
+
+		.---acent {
+			min-width: 200px;
+			padding: 0 30px;
+			background: #2d67fc;
+			border-radius: 15px;
+			font-size: 18px;
+			color: fadeout(#fff, 50%);
+		}
+
+	}
+
+	.---level {
+		margin-top: 50px;
+
+		p {
+			margin-top: 30px;
+			color: fadeout(@color-text, 40%);
+		}
+		
+		.---font-600 {
+			color: @color-acent;
+		}
+
+	}
+
+}
