@@ -25,7 +25,7 @@ export class SectionComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(routeParams => {
       this.sectionService.getSection(routeParams.id).then((data: any) => {
-          this.sections = data[0];
+          this.sections = data;
           this.tests = data.tests;
         },
         (error) => {

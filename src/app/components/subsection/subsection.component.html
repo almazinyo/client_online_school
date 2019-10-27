@@ -36,9 +36,9 @@
   <div id="start_work" class="---block-title">Выберите <span class="---acent">курс</span></div>
 
   <div class="---row">
-    <div class="col-xs-6 col-lg-4 col-xl-3" *ngFor="let cource of subsection.courses">
+    <div class="col-xs-6 col-lg-4 col-xl-3" *ngFor="let section of subsection.sections">
       <div class="---course">
-        <div class="---top" [style.backgroundColor]="cource.background">
+        <div class="---top" [style.backgroundColor]="section.background">
           <div class="---d-flex">
             <div class="---play-button ---pos-rel">
               <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861">
@@ -50,20 +50,20 @@
           </div>
 
           <div class="---title">
-            {{cource.name}}
+            {{section.name}}
           </div>
-          <div class="---count">{{cource.description}}</div>
+          <div class="---count">{{section.sort_description}}</div>
         </div>
         <ul>
-          <li *ngFor="let lesson of cource.lessons">
+          <li *ngFor="let lesson of section.lessons">
             <img lazyLoad="assets/imgs/icons/circle-check.svg" alt="" class="---y-pos-abs">
             {{lesson.name}}
           </li>
         </ul>
 
-        <div class="---price ---font-800 ---text-center">{{cource.price}} ₽</div>
+        <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
 
-        <a [routerLink]="'/work/'+cource.slug" class="---button ---button--acent_orange">Начать беслатно</a>
+        <a [routerLink]="'/work/'+section.slug" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>
     </div>
   </div>
