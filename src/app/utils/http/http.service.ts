@@ -81,8 +81,8 @@ export class HttpService {
     };
     const headers = new HttpHeaders();
 
-    // return this.http.post('http://cx50269-wordpress-3.tw1.ru/' + api, {headers: headers})
-    return this.http.get('http://online-school/' + api, {headers: headers})
+    return this.http.post('http://cx50269-wordpress-3.tw1.ru/' + api, {headers: headers})
+    // return this.http.get('http://online-school/' + api, {headers: headers})
       .pipe(
         catchError(HttpService.handlerError)
       );
