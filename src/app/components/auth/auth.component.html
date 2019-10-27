@@ -1,12 +1,12 @@
 <div class="---block-auth-des ---tabs">
   <div class="col-xl-10">
     <div class="---row ---item ---justify-content-between ---align-items-center" *ngFor="let item of data">
-      
+
       <div class="---item--text">
         <div class="---item-title h2 ---font-800">{{item.name}}</div>
         <p class="---item-des">{{item.description}}</p>
       </div>
-      
+
       <div class="---item--img">
         <img lazyLoad="http://api.examator.ru/frontend/web/images/options/{{item.img_name}}">
       </div>
@@ -24,7 +24,8 @@
 
     <div class="col-xs-6 col-md-4 col-lg-3 spec-block-lesson" *ngFor="let item of menu">
       <a routerLink="/section/{{item.slug}}"
-         class="---item ---item--math ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start">
+         class="---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start"
+         [style.backgroundColor]="item.color">
         <div class="---item__icon ---pos-rel">
           <i class="---icon-font ---pos-abs" [ngClass]="'---icon-menu-'+item.icon"></i>
         </div>
