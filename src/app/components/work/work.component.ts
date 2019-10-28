@@ -7,7 +7,7 @@ import {ActivatedRoute, Params} from '@angular/router';
   templateUrl: './work.component.html',
 })
 export class WorkComponent {
-  work: InterFaceWork = {
+  section: InterFaceWork = {
     background: '',
     created_at: '',
     description: '',
@@ -45,7 +45,7 @@ export class WorkComponent {
   getWork(slug) {
     this.workService.getWork(slug).then((data: InterFaceWork) => {
         console.log(1, data);
-        this.work = data;
+        this.section = data;
       },
       (error) => {
         console.log('Ошибка при получении информации об уроке: ', error);

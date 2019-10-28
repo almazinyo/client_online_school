@@ -4,14 +4,14 @@
       уроков</a>
   </div>
 
-  <div class="---course-theme ---font-800">{{work.section.name}}</div>
+  <div class="---course-theme ---font-800">{{section.name}}</div>
   <div class="---devider"></div>
 
   <div class="---row">
 
     <div class="col-lg-9">
 
-      <div class="---course-name">{{work.name}}</div>
+      <div class="---course-name">{{section.name}}</div>
 
       <div class="---video ---pos-rel">
         <div class="---play-button ---y-pos-abs ---z-index-over">
@@ -34,10 +34,10 @@
       <div class="---course-theory">
         <div class="---block-title">Теория по курсу</div>
 
-        <div *ngFor="let currentWork of work.storageLessons">
+        <div *ngFor="let currentWork of section.storageLessons">
           <div class="---theory-wrap" *ngIf="currentWork.type==='image'">
             <div class="---theory">
-              <img src='http://api.examator.ru/frontend/web/images/lessons/{{currentWork.name}}' alt="">
+              <img src='http://api.examator.ru/images/lessons/{{currentWork.name}}' alt="">
             </div>
           </div>
 
@@ -58,7 +58,7 @@
         </div>
       </div>
 
-<!--      <div class="---devider"></div>
+     <div class="---devider"></div>
 
       <div class="---block-title">Пройдите тест <span class="---acent">для завершения</span></div>
       <div class="---test-wrap ---d-flex ---flex-wrap">
@@ -69,41 +69,41 @@
               <img [src]='currentTest.url' alt="">
             </div>
           </div>
-        </div>-->
+        </div>
 
-        <!--        <div class="col-xl-7">-->
-        <!--          <div class="---answers">-->
-        <!--            <div class="h3">Ваш ответ</div>-->
-        <!--            <div class="---answer ---is-active">-->
-        <!--                <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">-->
-        <!--            </div>-->
-        <!--            <div class="---answer">-->
-        <!--              <div *ngIf="answerTest.length+1!==work.test.length" (click)="nextQuestion()" class="btn btn-link">Ответить</div>-->
-        <!--              <div *ngIf="answerTest.length+1===work.test.length" (click)="sendAnswer()" class="btn btn-link">Завершить тест</div>-->
-        <!--            </div>-->
-        <!--          </div>-->
-        <!--          Вопрос {{countAnswer+1}} из {{work.test.length}}-->
-        <!--        </div>-->
-        <!--      </div>-->
-        <!--    </div>-->
-        <!--    <div class="col-lg-3 ---lesson-list ---d-flex ---flex-column ---align-items-start ---lg-align-items-end">-->
-        <!--      <svg class="---js-close ---d-block ---lg-d-none" data-close-block=".---main-menu"-->
-        <!--           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.171 241.171" width="512" height="512">-->
-        <!--        <path-->
-        <!--          d="M138.138 120.754l99.118-98.576a11.931 11.931 0 0 0 0-17.011c-4.74-4.704-12.439-4.704-17.179 0l-99.033 98.492-99.949-99.96c-4.74-4.752-12.439-4.752-17.179 0-4.74 4.764-4.74 12.475 0 17.227l99.876 99.888L3.555 220.497c-4.74 4.704-4.74 12.319 0 17.011 4.74 4.704 12.439 4.704 17.179 0l100.152-99.599 99.551 99.563c4.74 4.752 12.439 4.752 17.179 0 4.74-4.764 4.74-12.475 0-17.227l-99.478-99.491z"-->
-        <!--          fill="#FFF"/>-->
-        <!--      </svg>-->
+                <div class="col-xl-7">
+                  <div class="---answers">
+                    <div class="h3">Ваш ответ</div>
+                    <div class="---answer ---is-active">
+                        <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
+                    </div>
+                    <div class="---answer">
+                      <div *ngIf="answerTest.length+1!==section.test.length" (click)="nextQuestion()" class="btn btn-link">Ответить</div>
+                      <div *ngIf="answerTest.length+1===section.test.length" (click)="sendAnswer()" class="btn btn-link">Завершить тест</div>
+                    </div>
+                  </div>
+                  Вопрос {{countAnswer+1}} из {{section.test.length}}
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 ---lesson-list ---d-flex ---flex-column ---align-items-start ---lg-align-items-end">
+              <svg class="---js-close ---d-block ---lg-d-none" data-close-block=".---main-menu"
+                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.171 241.171" width="512" height="512">
+                <path
+                  d="M138.138 120.754l99.118-98.576a11.931 11.931 0 0 0 0-17.011c-4.74-4.704-12.439-4.704-17.179 0l-99.033 98.492-99.949-99.96c-4.74-4.752-12.439-4.752-17.179 0-4.74 4.764-4.74 12.475 0 17.227l99.876 99.888L3.555 220.497c-4.74 4.704-4.74 12.319 0 17.011 4.74 4.704 12.439 4.704 17.179 0l100.152-99.599 99.551 99.563c4.74 4.752 12.439 4.752 17.179 0 4.74-4.764 4.74-12.475 0-17.227l-99.478-99.491z"
+                  fill="#FFF"/>
+              </svg>
 
-        <!--      <div class="---lessons">-->
-        <!--        <div [ngClass]="{'---is-curent':work.id===currentWork.id}" (click)="getWork(currentWork.slug)"-->
-        <!--             *ngFor="let currentWork of work.works" class="---lesson">-->
-        <!--          {{currentWork.name}}-->
-        <!--          <span *ngIf="currentWork.checked==='1'"><svg class="---y-pos-abs" xmlns="http://www.w3.org/2000/svg"-->
-        <!--                                                       viewBox="0 0 32 32"><path-->
-        <!--            d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg></span>-->
-        <!--        </div>-->
-        <!--      </div>-->
-        <!--    </div>-->
+              <div class="---lessons">
+                <div [ngClass]="{'---is-curent':section.id===currentWork.id}" (click)="getWork(currentWork.slug)"
+                     *ngFor="let currentWork of section.works" class="---lesson">
+                  {{currentWork.name}}
+                  <span *ngIf="currentWork.checked==='1'"><svg class="---y-pos-abs" xmlns="http://www.w3.org/2000/svg"
+                                                               viewBox="0 0 32 32"><path
+                    d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg></span>
+                </div>
+              </div>
+            </div>
 
       </div>
     </div>
