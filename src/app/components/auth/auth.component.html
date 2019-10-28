@@ -40,58 +40,24 @@
 
 <div class="---devider"></div>
 
-<div class="---block-reviews">
+<div class="---block-reviews" *ngFor="let item of user">
   <div class="---block-title ---d-flex ---align-items-center ---justify-content-between">
-    <div>Отзывы <span class="---acent">о курсах</span></div>
+    <div>{{item.output}} <span class="---acent">{{item.aboutCourses}}</span></div>
 
-    <a href="#" class="---button ---button--border_bg ---button--color-acent">Все отзывы</a>
+    <a href="#" class="---button ---button--border_bg ---button--color-acent">{{item.allReviews}}</a>
   </div>
 
   <div class="---owl-carousel">
-    <div class="---item">
+    <div class="---item"  *ngFor="let items of output">
       <div class="---item-header ---pos-rel">
-        <img lazyLoad="assets/imgs/users/1.svg" alt="" class="---img">
-        <div class="---name">Максим Мироненко</div>
-        <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
+        <img lazyLoad="{{items.img}}" alt="" class="---img">
+        <div class="---name">{{items.name}}</div>
+        <div class="---thumb">{{items.thumb}}<b class="---font-800">{{items.rating}}</b></div>
       </div>
       <p>
-        Курс отличный, очень полезный. Я считаю, что обязателен для всех, кто хочет развиваться в этой сфере. Сложен для
-        понимаю, почти каждый вебинар пересматривал, бывало, и не один раз. Отдельная благодарность преподавателю
-        Сергею!
+        {{items.text}}
       </p>
     </div>
-    <div class="---item">
-      <div class="---item-header ---pos-rel">
-        <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
-        <div class="---name">Александр Баль</div>
-        <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
-      </div>
-      <p>
-        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать
-        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
-      </p>
-    </div>
-    <div class="---item">
-      <div class="---item-header ---pos-rel">
-        <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
-        <div class="---name">Александр Баль</div>
-        <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
-      </div>
-      <p>
-        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать
-        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
-      </p>
-    </div>
-    <div class="---item">
-      <div class="---item-header ---pos-rel">
-        <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
-        <div class="---name">Александр Баль</div>
-        <div class="---thumb">Курс Математики / Оценка <b class="---font-800">5</b></div>
-      </div>
-      <p>
-        Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать
-        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.
-      </p>
-    </div>
+
   </div>
 </div>
