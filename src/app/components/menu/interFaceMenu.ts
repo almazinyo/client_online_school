@@ -3,4 +3,5 @@ interface InterFaceMenu {
   title: string;
   icon: string;
   slug: string;
+  color: string;
 }
