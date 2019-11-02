@@ -8,11 +8,13 @@ import {ReviewsComponent} from './components/reviews/reviews.component';
 import {BlogComponent} from './components/blog/blog.component';
 import {InstructionComponent} from './components/instruction/instruction.component';
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
+import {TeacherComponent} from './components/teacher/teacher.component';
 import {ProfilePromotionComponent} from './components/profile_promotion/profile_promotion.component';
 import {ProfileDetailsComponent} from './components/profile_details/profile_details.component';
 import {ProfileBuyComponent} from './components/profile_buy/profile_buy.component';
 import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
 import {CallbackComponent} from './components/callback/callback.component';
+import {TeacherService} from './components/teacher/teacher.service';
 
 const routes: Routes = [
   {
@@ -46,6 +48,10 @@ const routes: Routes = [
   {
     path: 'instruction',
     component: InstructionComponent
+  },
+  {
+    path: 'teacher',
+    component: TeacherComponent
   },
   /*{
     path: 'callback',
