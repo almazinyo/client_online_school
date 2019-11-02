@@ -46,6 +46,8 @@ import {CallbackComponent} from './components/callback/callback.component';
 import {CallbackService} from './components/callback/callback.service';
 import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
 import {EmbedVideo, EmbedVideoService} from 'ngx-embed-video/dist';
+import { TeacherComponent } from './components/teacher/teacher.component';
+import {TeacherService} from './components/teacher/teacher.service';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -71,7 +73,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfileDetailsComponent,
     ProfileBuyComponent,
     ProfilePointsComponent,
-    CallbackComponent
+    CallbackComponent,
+    TeacherComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,6 +104,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     BlogService,
     BreadcrumbsService,
     MenuService,
+    TeacherService,
     ProfilePromotionService,
     ProfileDetailsService,
     ProfileBuyService,
