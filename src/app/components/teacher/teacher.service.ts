@@ -9,7 +9,7 @@ export class TeacherService {
   }
 
   // получение Teacher
-  public getReviews() {
+  public getTeachers() {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/subjects/teachers', {})
         .then((result: any) => {
@@ -25,7 +25,7 @@ export class TeacherService {
   }
 
   // получение детальной информации о Teacher
-  public getReviewsDetails(slug) {
+  public getTeacherDetails(slug) {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/subjects/teachers' + slug)
         .then((result: any) => {

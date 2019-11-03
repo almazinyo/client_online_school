@@ -16,7 +16,7 @@ export class TeacherComponent {
               private breadcrumbsService: BreadcrumbsService) {
     this.breadcrumbsService.title = 'Teacher';
 
-    this.teacherService.getReviews().then((data: InterFaceSubTeacher[]) => {
+    this.teacherService.getTeachers().then((data: InterFaceSubTeacher[]) => {
         this.teachers = data;
       },
       (error) => {

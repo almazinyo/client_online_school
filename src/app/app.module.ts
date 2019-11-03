@@ -48,6 +48,7 @@ import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
 import {EmbedVideo, EmbedVideoService} from 'ngx-embed-video/dist';
 import { TeacherComponent } from './components/teacher/teacher.component';
 import {TeacherService} from './components/teacher/teacher.service';
+import { TeacherDetalisComponent } from './components/teacher-detalis/teacherDetalis.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -75,6 +76,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfilePointsComponent,
     CallbackComponent,
     TeacherComponent,
+    TeacherDetalisComponent,
   ],
   imports: [
     BrowserModule,

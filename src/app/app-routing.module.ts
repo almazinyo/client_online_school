@@ -15,6 +15,7 @@ import {ProfileBuyComponent} from './components/profile_buy/profile_buy.componen
 import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
 import {CallbackComponent} from './components/callback/callback.component';
 import {TeacherService} from './components/teacher/teacher.service';
+import {TeacherDetalisComponent} from './components/teacher-detalis/teacherDetalis.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: 'teacher',
     component: TeacherComponent
+  },
+  {
+    path: 'teacher/:id',
+    component: TeacherDetalisComponent
   },
   /*{
     path: 'callback',
