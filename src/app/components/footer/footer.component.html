@@ -27,52 +27,16 @@
 <div class="---layout-footer">
 
   <div class="---social ---row ---row--sm ---font-600">
-    <div class="col-6 col-xs-4 col-xl-auto">
-      <a href="#" rel="nofollow" target="_blank" class="---d-flex ---flex-column ---align-items-center">
+    <div class="col-6 col-xs-4 col-xl-auto" *ngFor="let socialLink of socialLinks">
+      <a href="{{socialLink.link}}" rel="nofollow" target="_blank" class="---d-flex ---flex-column ---align-items-center">
         <span class="---icon">
-            <img lazyLoad="assets/imgs/icons/social/facebook.svg" alt="" >
+            <img lazyLoad="{{socialLink.images}}" alt="" >
         </span>
-        <span class="---title">Facebook</span>
-        <span class="---followers">12К подписчиков</span>
+        <span class="---title">{{socialLink.name}}</span>
+        <span class="---followers">{{socialLink.subscribe}}</span>
       </a>
     </div>
-    <div class="col-6 col-xs-4 col-xl-auto">
-      <a href="#" rel="nofollow" target="_blank" class="---d-flex ---flex-column ---align-items-center">
-        <span class="---icon">
-            <img lazyLoad="assets/imgs/icons/social/telegram.svg" alt="" >
-        </span>
-        <span class="---title">Telegram</span>
-        <span class="---followers">12К подписчиков</span>
-      </a>
     </div>
-    <div class="col-6 col-xs-4 col-xl-auto">
-      <a href="#" rel="nofollow" target="_blank" class="---d-flex ---flex-column ---align-items-center">
-        <span class="---icon">
-            <img lazyLoad="assets/imgs/icons/social/vk.svg" alt="" >
-        </span>
-        <span class="---title">Вконтакте</span>
-        <span class="---followers">12К подписчиков</span>
-      </a>
-    </div>
-    <div class="col-6 col-xs-4 col-xl-auto">
-      <a href="#" rel="nofollow" target="_blank" class="---d-flex ---flex-column ---align-items-center">
-        <span class="---icon">
-            <img lazyLoad="assets/imgs/icons/social/instagram.svg" alt="" >
-        </span>
-        <span class="---title">Instagram</span>
-        <span class="---followers">12К подписчиков</span>
-      </a>
-    </div>
-    <div class="col-6 col-xs-4 col-xl-auto">
-      <a href="#" rel="nofollow" target="_blank" class="---d-flex ---flex-column ---align-items-center">
-        <span class="---icon">
-            <img lazyLoad="assets/imgs/icons/social/youtube.svg" alt="" >
-        </span>
-        <span class="---title">Youtube</span>
-        <span class="---followers">12К подписчиков</span>
-      </a>
-    </div>
-  </div>
 
   <div class="---row ---xl-flex-nowrap ---nav-blocks">
     <div class="---block col-6 col-xs-4 col-xl-auto">
