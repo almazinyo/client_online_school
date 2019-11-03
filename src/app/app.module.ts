@@ -109,7 +109,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfileDetailsService,
     ProfileBuyService,
     ProfilePointsService,
-    CallbackService
+    CallbackService,
   ],
   bootstrap: [AppComponent]
 })

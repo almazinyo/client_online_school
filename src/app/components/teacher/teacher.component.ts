@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {teacherService} from './teacher.service';
+import {TeacherService} from './teacher.service';
 import {Router} from '@angular/router';
 import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
 
@@ -11,12 +11,12 @@ import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
 export class TeacherComponent {
   teachers: InterFaceSubTeacher[] = [];
 
-  constructor(private teacherService: teacherService,
+  constructor(private teacherService: TeacherService,
               private router: Router,
               private breadcrumbsService: BreadcrumbsService) {
     this.breadcrumbsService.title = 'Teacher';
 
-    this.teacherService.getReviews().then((data: teacherService[]) => {
+    this.teacherService.getReviews().then((data: InterFaceSubTeacher[]) => {
         this.teachers = data;
       },
       (error) => {
