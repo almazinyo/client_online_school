@@ -27,6 +27,11 @@ export class WorkComponent {
     updated_at: '',
   };
 
+  lesson: any;
+  test: any;
+  storage: any;
+  teachers: any;
+
   currentTest: { id: number, url: string } = {id: null, url: ''};
   answerTest: { id: number, answer: string }[] = [];
   answer = '';
@@ -46,6 +51,10 @@ export class WorkComponent {
     this.workService.getWork(slug).then((data: InterFaceWork) => {
         console.log(1, data);
         this.section = data;
+        this.lesson = data['lessons'][0];
+        this.test = data['lessons'][0]['quizzes'];
+        this.storage = data['lessons'][0]['storageLessons'];
+        this.teachers = data['teachers'];
       },
       (error) => {
         console.log('Ошибка при получении информации об уроке: ', error);
