@@ -27,8 +27,8 @@ export class WorkComponent {
     updated_at: '',
   };
 
-  lesson: any;
-  test: any;
+  lesson: InterFaceLesson = {name: ''};
+  test: InterFaceTestWork = {question: ''};
   storage: any;
   teachers: any;
 
@@ -54,8 +54,6 @@ export class WorkComponent {
         this.test = data['lessons'][0]['quizzes'];
         this.storage = data['lessons'][0]['storageLessons'];
         this.teachers = data['teachers'];
-
-        console.log(1,this.storage)
       },
       (error) => {
         console.log('Ошибка при получении информации об уроке: ', error);

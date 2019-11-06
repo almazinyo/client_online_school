@@ -11,7 +11,7 @@ import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
 })
 export class SectionComponent implements OnInit {
   sections: InterFaceSection[] = [];
-  tests: InterFaceTest[] = [];
+  tests: InterFaceTestWork[] = [];
 
   constructor(private sectionService: SectionService,
               private subsectionService: SubsectionService,

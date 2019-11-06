@@ -1,0 +1,3 @@
+interface InterFaceLesson {
+  name: string;
+}

@@ -1,0 +1,3 @@
+interface InterFaceTestWork {
+  question: string;
+}
