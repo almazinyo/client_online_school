@@ -49,12 +49,13 @@ export class WorkComponent {
 
   getWork(slug) {
     this.workService.getWork(slug).then((data: InterFaceWork) => {
-        console.log(1, data);
         this.section = data;
         this.lesson = data['lessons'][0];
         this.test = data['lessons'][0]['quizzes'];
         this.storage = data['lessons'][0]['storageLessons'];
         this.teachers = data['teachers'];
+
+        console.log(1,this.storage)
       },
       (error) => {
         console.log('Ошибка при получении информации об уроке: ', error);

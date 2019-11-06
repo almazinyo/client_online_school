@@ -20,90 +20,88 @@
               d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/>
           </svg>
         </div>
-                <img lazyLoad="assets/imgs/course-in/bg.png" alt="" class="---bg ---img-cover">
+        <img lazyLoad="assets/imgs/course-in/bg.png" alt="" class="---bg ---img-cover">
 
-                <img lazyLoad="assets/imgs/course-in/man.png" alt="" class="---man">
-              </div>
+        <img lazyLoad="assets/imgs/course-in/man.png" alt="" class="---man">
+      </div>
 
-              <div class="---teacher">
-                <span class="---name ---font-800 ---d-block ---xs-d-inline-block">Борис Добродеев</span>
-                Доктор физико-математических наук, профессор
-              </div>
+      <div class="---teacher">
+        <span class="---name ---font-800 ---d-block ---xs-d-inline-block">Борис Добродеев</span>
+        Доктор физико-математических наук, профессор
+      </div>
 
-              <div class="---course-theory">
-                <div class="---block-title">Теория по курсу</div>
+      <div class="---course-theory">
+        <div class="---block-title">Теория по курсу</div>
 
-                <div *ngFor="let currentWork of storage">
-                  <div class="---theory-wrap" *ngIf="currentWork.type==='image'">
-                    <div class="---theory">
-                      <img src='http://api.examator.ru/images/lessons/{{currentWork.name}}' alt="">
-                    </div>
-                  </div>
+        <div *ngFor="let currentWork of storage">
+          <div class="---theory-wrap" *ngIf="currentWork.type==='image'">
+            <div class="---theory">
+              <img src='http://api.examator.ru/images/lessons/{{currentWork.name}}' alt="">
+            </div>
+          </div>
 
-                  <div class="---theory-wrap" *ngIf="currentWork.type==='pdf'">
-                    <ngx-extended-pdf-viewer [src]="currentWork.url" useBrowserLocale="false"></ngx-extended-pdf-viewer>
-                  </div>
+          <div class="---theory-wrap" *ngIf="currentWork.type==='pdf'">
+            <ngx-extended-pdf-viewer [src]="currentWork.url" useBrowserLocale="false"></ngx-extended-pdf-viewer>
+          </div>
 
-                  <div class="---theory-wrap" *ngIf="currentWork.type==='video'">
-                    <iframe>
-                      src="https://player.vimeo.com/video/197933516"
-                      frameborder="0"
-                      webkitallowfullscreen
-                      mozallowfullscreen
-                      allowfullscreen
-                      >
-                    </iframe>
-                  </div>
-                </div>
-              </div>
-
-             <div class="---devider"></div>
-
-              <div class="---block-title">Пройдите тест <span class="---acent">для завершения</span></div>
-              <div class="---test-wrap ---d-flex ---flex-wrap">
-                <div class="col-xl-5">
-                  <div class="---task">
-                    <div class="h3">Задание</div>
-                    <div class="---theory">
-                      <img src='http://api.examator.ru/images/question/rF-g6b13N0rg-lza78tiEYD-Rnn3T9ej.jpg{{test.question}}' alt="">
-                    </div>
-                  </div>
-                </div>
-
-                        <div class="col-xl-7">
-                          <div class="---answers">
-                            <div class="h3">Ваш ответ</div>
-                            <div class="---answer ---is-active">
-                                <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
-                            </div>
-                            <div class="---answer">
-<!--                              <div *ngIf="answerTest.length+1!==section.test.length" (click)="nextQuestion()" class="btn btn-link">Ответить</div>-->
-<!--                              <div *ngIf="answerTest.length+1===section.test.length" (click)="sendAnswer()" class="btn btn-link">Завершить тест</div>-->
-                            </div>
-                          </div>
-                          Вопрос {{1}} из {{10}}
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 ---lesson-list ---d-flex ---flex-column ---align-items-start ---lg-align-items-end">
-                      <svg class="---js-close ---d-block ---lg-d-none" data-close-block=".---main-menu"
-                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.171 241.171" width="512" height="512">
-                        <path
-                          d="M138.138 120.754l99.118-98.576a11.931 11.931 0 0 0 0-17.011c-4.74-4.704-12.439-4.704-17.179 0l-99.033 98.492-99.949-99.96c-4.74-4.752-12.439-4.752-17.179 0-4.74 4.764-4.74 12.475 0 17.227l99.876 99.888L3.555 220.497c-4.74 4.704-4.74 12.319 0 17.011 4.74 4.704 12.439 4.704 17.179 0l100.152-99.599 99.551 99.563c4.74 4.752 12.439 4.752 17.179 0 4.74-4.764 4.74-12.475 0-17.227l-99.478-99.491z"
-                          fill="#FFF"/>
-                      </svg>
-
-        <div class="---lessons">
-          <div [ngClass]="{'---is-curent':section.id===currentWork.section_id}"
-               (click)="getWork(section.slug+'/'+currentWork.slug)"
-               *ngFor="let currentWork of section.allLessons" class="---lesson">
-            {{currentWork.name}}
-            <span *ngIf="currentWork.checked==='1'"><svg class="---y-pos-abs" xmlns="http://www.w3.org/2000/svg"
-                                                         viewBox="0 0 32 32"><path
-              d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg></span>
+          <div class="---theory-wrap" *ngIf="currentWork.type==='video'">
+            <video width="400" height="300" controls="controls">
+              <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+              Тег video не поддерживается вашим браузером.
+              <a href="video/duel.mp4">Скачайте видео</a>.
+            </video>
           </div>
         </div>
       </div>
 
+      <div class="---devider"></div>
+
+      <div class="---block-title">Пройдите тест <span class="---acent">для завершения</span></div>
+      <div class="---test-wrap ---d-flex ---flex-wrap">
+        <div class="col-xl-5">
+          <div class="---task">
+            <div class="h3">Задание</div>
+            <div class="---theory">
+              <img src='http://api.examator.ru/images/question/rF-g6b13N0rg-lza78tiEYD-Rnn3T9ej.jpg{{test.question}}'
+                   alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-7">
+          <div class="---answers">
+            <div class="h3">Ваш ответ</div>
+            <div class="---answer ---is-active">
+              <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
+            </div>
+            <div class="---answer">
+              <!--                              <div *ngIf="answerTest.length+1!==section.test.length" (click)="nextQuestion()" class="btn btn-link">Ответить</div>-->
+              <!--                              <div *ngIf="answerTest.length+1===section.test.length" (click)="sendAnswer()" class="btn btn-link">Завершить тест</div>-->
+            </div>
+          </div>
+          Вопрос {{1}} из {{10}}
+        </div>
+      </div>
     </div>
+    <div class="col-lg-3 ---lesson-list ---d-flex ---flex-column ---align-items-start ---lg-align-items-end">
+      <svg class="---js-close ---d-block ---lg-d-none" data-close-block=".---main-menu"
+           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 241.171 241.171" width="512" height="512">
+        <path
+          d="M138.138 120.754l99.118-98.576a11.931 11.931 0 0 0 0-17.011c-4.74-4.704-12.439-4.704-17.179 0l-99.033 98.492-99.949-99.96c-4.74-4.752-12.439-4.752-17.179 0-4.74 4.764-4.74 12.475 0 17.227l99.876 99.888L3.555 220.497c-4.74 4.704-4.74 12.319 0 17.011 4.74 4.704 12.439 4.704 17.179 0l100.152-99.599 99.551 99.563c4.74 4.752 12.439 4.752 17.179 0 4.74-4.764 4.74-12.475 0-17.227l-99.478-99.491z"
+          fill="#FFF"/>
+      </svg>
+
+      <div class="---lessons">
+        <div [ngClass]="{'---is-curent':section.id===currentWork.section_id}"
+             (click)="getWork(section.slug+'/'+currentWork.slug)"
+             *ngFor="let currentWork of section.allLessons" class="---lesson">
+          {{currentWork.name}}
+          <span *ngIf="currentWork.checked==='1'"><svg class="---y-pos-abs" xmlns="http://www.w3.org/2000/svg"
+                                                       viewBox="0 0 32 32"><path
+            d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg></span>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
