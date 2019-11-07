@@ -45,10 +45,13 @@ import {ProfilePointsComponent} from './components/profile_points/profile_points
 import {CallbackComponent} from './components/callback/callback.component';
 import {CallbackService} from './components/callback/callback.service';
 import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
-import {EmbedVideo, EmbedVideoService} from 'ngx-embed-video/dist';
+import {EmbedVideo} from 'ngx-embed-video/dist';
 import { TeacherComponent } from './components/teacher/teacher.component';
 import {TeacherService} from './components/teacher/teacher.service';
 import { TeacherDetalisComponent } from './components/teacher-detalis/teacherDetalis.component';
+import {ProfileComponent} from './components/profile/profile.component';
+import {ProfileService} from './components/profile/profile.service';
+import {ProfileMenuComponent} from './components/profile-menu/profileMenu.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -77,6 +80,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     CallbackComponent,
     TeacherComponent,
     TeacherDetalisComponent,
+    ProfileComponent,
+    ProfileMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -112,6 +117,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfileBuyService,
     ProfilePointsService,
     CallbackService,
+    ProfileService
   ],
   bootstrap: [AppComponent]
 })
