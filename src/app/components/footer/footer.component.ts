@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BlogService, FooterService} from './footer.service';
+import {FooterService} from './footer.service';
 import {Router} from '@angular/router';
 import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
 
