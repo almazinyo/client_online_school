@@ -28,6 +28,7 @@ import {SubsectionService} from './components/subsection/subsection.service';
 import {WorkService} from './components/work/work.service';
 import {ReviewsService} from './components/reviews/reviews.service';
 import {BlogService} from './components/blog/blog.service';
+import {FooterService} from './components/footer/footer.service';
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
 import {BreadcrumbsService} from './components/breadcrumbs/breadcrumbs.service';
 import {MenuService} from './components/menu/menu.service';
@@ -45,13 +46,10 @@ import {ProfilePointsComponent} from './components/profile_points/profile_points
 import {CallbackComponent} from './components/callback/callback.component';
 import {CallbackService} from './components/callback/callback.service';
 import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
-import {EmbedVideo} from 'ngx-embed-video/dist';
-import {TeacherComponent} from './components/teacher/teacher.component';
+import {EmbedVideo, EmbedVideoService} from 'ngx-embed-video/dist';
+import { TeacherComponent } from './components/teacher/teacher.component';
 import {TeacherService} from './components/teacher/teacher.service';
-import {TeacherDetalisComponent} from './components/teacher-detalis/teacherDetalis.component';
-import {ProfileMenuComponent} from './components/profile-menu/profileMenu.component';
-import {ProfilePromotionalCodeComponent} from './components/profile_promotional_code/profile_promotional_code.component';
-import {ProfilePromotionalCodeService} from './components/profile_promotional_code/profile_promotional_code.service';
+import { TeacherDetalisComponent } from './components/teacher-detalis/teacherDetalis.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -80,8 +78,6 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     CallbackComponent,
     TeacherComponent,
     TeacherDetalisComponent,
-    ProfileMenuComponent,
-    ProfilePromotionalCodeComponent
   ],
   imports: [
     BrowserModule,
@@ -117,7 +113,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfileBuyService,
     ProfilePointsService,
     CallbackService,
-    ProfilePromotionalCodeService
+    FooterService,
   ],
   bootstrap: [AppComponent]
 })
