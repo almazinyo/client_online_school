@@ -46,12 +46,12 @@ import {CallbackComponent} from './components/callback/callback.component';
 import {CallbackService} from './components/callback/callback.service';
 import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
 import {EmbedVideo} from 'ngx-embed-video/dist';
-import { TeacherComponent } from './components/teacher/teacher.component';
+import {TeacherComponent} from './components/teacher/teacher.component';
 import {TeacherService} from './components/teacher/teacher.service';
-import { TeacherDetalisComponent } from './components/teacher-detalis/teacherDetalis.component';
-import {ProfileComponent} from './components/profile/profile.component';
-import {ProfileService} from './components/profile/profile.service';
+import {TeacherDetalisComponent} from './components/teacher-detalis/teacherDetalis.component';
 import {ProfileMenuComponent} from './components/profile-menu/profileMenu.component';
+import {ProfilePromotionalCodeComponent} from './components/profile_promotional_code/profile_promotional_code.component';
+import {ProfilePromotionalCodeService} from './components/profile_promotional_code/profile_promotional_code.service';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
@@ -80,8 +80,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     CallbackComponent,
     TeacherComponent,
     TeacherDetalisComponent,
-    ProfileComponent,
-    ProfileMenuComponent
+    ProfileMenuComponent,
+    ProfilePromotionalCodeComponent
   ],
   imports: [
     BrowserModule,
@@ -117,7 +117,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfileBuyService,
     ProfilePointsService,
     CallbackService,
-    ProfileService
+    ProfilePromotionalCodeService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,7 +10,12 @@ import {InstructionComponent} from './components/instruction/instruction.compone
 import {BlogDetailsComponent} from './components/blogDetails/blogDetails.component';
 import {TeacherComponent} from './components/teacher/teacher.component';
 import {TeacherDetalisComponent} from './components/teacher-detalis/teacherDetalis.component';
-import {ProfileComponent} from './components/profile/profile.component';
+import {ProfileDetailsComponent} from './components/profile_details/profile_details.component';
+import {ProfilePromotionComponent} from './components/profile_promotion/profile_promotion.component';
+import {ProfileBuyComponent} from './components/profile_buy/profile_buy.component';
+import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
+import {ProfilePromotionalCodeComponent} from './components/profile_promotional_code/profile_promotional_code.component';
+import {CallbackComponent} from './components/callback/callback.component';
 
 const routes: Routes = [
   {
@@ -54,20 +59,12 @@ const routes: Routes = [
     component: TeacherDetalisComponent
   },
   {
-    path: 'profile',
-    component: ProfileComponent
-  },
-  /*{
-    path: 'callback',
-    component: CallbackComponent
+    path: 'profile-details',
+    component: ProfileDetailsComponent
   },
   {
     path: 'profile-promotion',
     component: ProfilePromotionComponent
-  },
-  {
-    path: 'profile-details',
-    component: ProfileDetailsComponent
   },
   {
     path: 'profile-buy',
@@ -76,7 +73,15 @@ const routes: Routes = [
   {
     path: 'profile-points',
     component: ProfilePointsComponent
-  }*/
+  },
+  {
+    path: 'callback',
+    component: CallbackComponent
+  },
+  {
+    path: 'profile-promotional-code',
+    component: ProfilePromotionalCodeComponent
+  },
 ];
 
 @NgModule({

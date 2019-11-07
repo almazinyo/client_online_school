@@ -9,26 +9,30 @@
   </div>
 
   <nav class="---d-flex ---flex-wrap ---justify-content-between ---lg-flex-column ---font-600">
-    <a href="/user-1.php" class="---is-active">
+    <a [routerLink]="'/profile-promotion'" [ngClass]="{'---is-active':router.url==='/profile-promotion'}">
       <img data-src="assets/imgs/icons/profile-menu/1.svg" alt="" class="---svg-img ---y-pos-abs">
       Карта продвижения
     </a>
-    <a href="/user-2.php">
+    <a [routerLink]="'/profile-details'"  [ngClass]="{'---is-active':router.url==='/profile-details'}">
       <img data-src="assets/imgs/icons/profile-menu/2.svg" alt="" class="---svg-img ---y-pos-abs">
       Мой профиль
     </a>
-    <a href="/user-3.php">
-      <img data-src="assets/imgs/icons/profile-menu/3.svg" alt="" class="---svg-img ---y-pos-abs">
+    <a [routerLink]="'/profile-buy'" [ngClass]="{'---is-active':router.url==='/profile-buy'}">
+      <img src="assets/imgs/icons/profile-menu/3.svg" alt="" class="---svg-img ---y-pos-abs">
       История покупок
     </a>
-    <a href="/user-4.php" class="---d-flex ---align-items-center">
+    <a [routerLink]="'/profile-points'" class="---d-flex ---align-items-center" [ngClass]="{'---is-active':router.url==='/profile-points'}">
       <img data-src="assets/imgs/icons/profile-menu/4.svg" alt="" class="---svg-img ---y-pos-abs">
       Мои баллы
       <span class="---points">822</span>
     </a>
-    <a href="/user-5.php">
+    <a [routerLink]="'/profile-promotional-code'" [ngClass]="{'---is-active':router.url==='/profile-promotional-code'}">
       <img data-src="assets/imgs/icons/profile-menu/5.svg" alt="" class="---svg-img ---y-pos-abs">
       Мои промокоды
+    </a>
+    <a [routerLink]="'/callback'" [ngClass]="{'---is-active':router.url==='/callback'}">
+      <img data-src="assets/imgs/icons/profile-menu/5.svg" alt="" class="---svg-img ---y-pos-abs">
+      Обратная связь
     </a>
     <a href="#">
       <img data-src="assets/imgs/icons/profile-menu/6.svg" alt="" class="---svg-img ---y-pos-abs">
