@@ -8,7 +8,6 @@ import {Router} from '@angular/router';
 
 export class ProfileMenuComponent {
   constructor(public router: Router) {
-    console.log(1,router.url)
   }
 
 }
