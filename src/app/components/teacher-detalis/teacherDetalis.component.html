@@ -1,12 +1,12 @@
 <div class="---block-teacher-info">
 	<div class="---row ---flex-column-reverse ---md-flex-row">
-		
+
 		<div class="col-md-8 col-xl-7">
-			<div class="h1 ---font-200 ---teacher-name">Анна Вацловна</div>
+			<div class="h1 ---font-200 ---teacher-name">{{teacher.name}}</div>
 
 			<div class="---teacher-stat">
 				<div class="---row ---row--sm">
-					
+
 					<div class="col-6 col-lg-4">
 						<div class="---stat-item">
 							<span>Русский язык</span>
@@ -44,10 +44,10 @@
 
 			<div class="---teacher-docs">
 				<div class="h4 ---block-header ---font-600">Награды и дипломы</div>
-				
+
 				<div class="---docs-list">
 					<a href="#" class="---document">
-						<img src="/assets/imgs/docs/1.png" alt="" class="---img">
+						<img src="http://api.examator.ru/images/teachers/{{teacher.img_name}}"  alt="" class="---img">
 
 						<span class="---name ---font-600">Почетная Грамота Министерства<br> образования и науки РФ</span>
 						<span class="---year">Год получения: 2018</span>
@@ -61,7 +61,7 @@
 			<div class="---teacher-avatar">
 				<img lazyLoad="/static/imgs/teachers/2.png" class="---img-cover">
 			</div>
-			<a href="#" class="---text-center ---button ---button--acent_orange">Записаться на бесплатное занятие</a>	
+			<a href="#" class="---text-center ---button ---button--acent_orange">Записаться на бесплатное занятие</a>
 		</div>
 
 	</div>

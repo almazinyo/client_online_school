@@ -39,16 +39,15 @@
     </div>
 
   <div class="---row ---xl-flex-nowrap ---nav-blocks"
-  *ngFor="let footer of footers"
+  *ngFor="let footerMenu of footers"
   >
 
     <div class="---block col-6 col-xs-4 col-xl-auto">
-      <div class="---title ---font-800">{{footer.title}}</div>
-      <nav>
-        <a href="#">{{footer.name}}</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
+      <div class="---title ---font-800">{{footerMenu.title}}</div>
+      <nav
+      *ngFor="let subject of footerMenu.sectionSubjects">
+        <a href="#">{{footerMenu.name}}</a>
+        <a href="#">{{subject.name}}</a>
       </nav>
     </div>
 

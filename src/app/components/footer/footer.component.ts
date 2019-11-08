@@ -59,7 +59,7 @@ export class FooterComponent {
         link: "https://www.youtube.com/",
         subscribe: "12К подписчиков",
       },
-    ]
+    ];
 
 
 

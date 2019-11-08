@@ -27,7 +27,7 @@ export class TeacherService {
   // получение детальной информации о Teacher
   public getTeacherDetails(slug) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/subjects/teachers' + slug)
+      this.httpService.prepareQuery('api/subjects/teacher/' + slug)
         .then((result: any) => {
             resolve(result);
           },

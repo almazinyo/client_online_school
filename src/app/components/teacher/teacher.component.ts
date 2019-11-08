@@ -28,7 +28,9 @@ export class TeacherComponent {
       (error) => {
         console.log('Ошибка при получении информации по Teacher: ', error);
       });
-  }
+      }
+
+
 
   getTeacher(slug) {
     this.router.navigate(['teacher/' + slug]);

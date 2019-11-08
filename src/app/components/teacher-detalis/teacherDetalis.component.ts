@@ -7,21 +7,17 @@ import {TeacherService} from '../teacher/teacher.service';
   templateUrl: './teacherDetalis.component.html',
 })
 export class TeacherDetalisComponent {
-  teacher: InterFaceTeacherDetails[] = [];
+  // teacher: InterFaceTeacherDetails[] = [];
 
-  // teacher: InterFaceTeacherDetails = {
-  //   id: null,
-  //   name: '',
-  //   position: '',
-  //   section_id: '',
-  //   img_name: '',
-  //   short_description: '',
-  //   slug: '',
-  //   description: '',
-  //   created_at: '',
-  //   updated_at: '',
-  //   is_status: '',
-  // };
+  teacher: InterFaceTeacherDetails = {
+    id: null,
+    name: '',
+    position: '',
+    img_name: '',
+    short_description: '',
+    slug: '',
+    description: '',
+  };
 
   constructor(private teacherService: TeacherService,
               private activatedRoute: ActivatedRoute) {
