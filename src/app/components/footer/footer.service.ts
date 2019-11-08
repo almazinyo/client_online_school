@@ -11,7 +11,7 @@ export class FooterService {
   // получение блога
   public getFooters() {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/main/menu', {})
+      this.httpService.prepareQuery('api/subjects/menu', {})
         .then((result: any) => {
             console.log(result);
             resolve(result);

@@ -38,61 +38,28 @@
     </div>
     </div>
 
-  <div class="---row ---xl-flex-nowrap ---nav-blocks">
+  <div class="---row ---xl-flex-nowrap ---nav-blocks"
+  *ngFor="let footer of footers"
+  >
+
     <div class="---block col-6 col-xs-4 col-xl-auto">
-      <div class="---title ---font-800">Математика</div>
+      <div class="---title ---font-800">{{footer.title}}</div>
       <nav>
-        <a href="#">Divi Builder</a>
+        <a href="#">{{footer.name}}</a>
         <a href="#">Divi Builder</a>
         <a href="#">Divi Builder</a>
         <a href="#">Divi Builder</a>
       </nav>
     </div>
-    <div class="---block col-6 col-xs-4 col-xl-auto">
-      <div class="---title ---font-800">Физика</div>
-      <nav>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-      </nav>
-    </div>
-    <div class="---block col-6 col-xs-4 col-xl-auto">
-      <div class="---title ---font-800">Русский</div>
-      <nav>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-      </nav>
-    </div>
-    <div class="---block col-6 col-xs-4 col-xl-auto">
-      <div class="---title ---font-800">История</div>
-      <nav>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-      </nav>
-    </div>
-    <div class="---block col-6 col-xs-4 col-xl-auto">
-      <div class="---title ---font-800">Химия</div>
-      <nav>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-      </nav>
-    </div>
-    <div class="---block col-6 col-xs-4 col-xl-auto">
-      <div class="---title ---font-800">Биология</div>
-      <nav>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-        <a href="#">Divi Builder</a>
-      </nav>
-    </div>
+
+
+
+
+
+
+
+
+
   </div>
 
   <div class="---footer ---d-flex ---flex-column ---sm-flex-row">

@@ -3,8 +3,8 @@
   *ngFor="let teacher of teachers">
 
 		<div class="col-xs-6 col-md-4 col-lg-3">
-			<div class="---teacher-item" (click)="getTeacher(teacher.slug)">
-				<a href="#" class="---img">
+			<div class="---teacher-item" >
+				<a routerLink="#" (click)="getTeacher(teacher.slug)" class="---img">
 					<img src="http://api.examator.ru/frontend/web/images/teachers/small/{{teacher.img_name}}" alt="" class="---img-cover">
 				</a>
 				<div class="---name">{{teacher.name}}</div>
