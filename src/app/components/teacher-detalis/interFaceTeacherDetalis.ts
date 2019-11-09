@@ -1,4 +1,4 @@
-interface InterFaceTeacherDetails {
+interface InterFaceTeacherDetalis {
   id: number;
   name: string;
   position: string;
@@ -6,4 +6,7 @@ interface InterFaceTeacherDetails {
   short_description: any;
   slug: any;
   description: any;
+  subject_name: any;
+  work_experience: any;
+
 }

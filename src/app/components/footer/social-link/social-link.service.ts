@@ -25,7 +25,7 @@ export class SocialLinkService {
           {
             name: 'Вконтакте',
             images: 'assets/imgs/icons/social/vk.svg',
-            link: 'https://vk.com/',
+            link: 'https://vk.com/app5898182_-185278877#s=493523',
             subscribe: '12К подписчиков',
           },
           {

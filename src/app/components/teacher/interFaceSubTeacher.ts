@@ -6,4 +6,5 @@ interface InterFaceSubTeacher {
   short_description: any;
   slug: any;
   description: any;
+  social_link: any;
 }

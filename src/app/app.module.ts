@@ -54,6 +54,7 @@ import {ProfilePromotionalCodeComponent} from './components/profile_promotional_
 import {ProfilePromotionalCodeService} from './components/profile_promotional_code/profile_promotional_code.service';
 import {FooterService} from './components/footer/footer.service';
 import {SocialLinkService} from './components/footer/social-link/social-link.service';
+import {TeacherDetalisService} from './components/teacher-detalis/teacher-detalis.service';
 import {ModalAuthComponent} from './components/modal_auth/modal_auth.component';
 import { SocialLinkComponent } from './components/footer/social-link/social-link.component';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
@@ -125,6 +126,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfilePromotionalCodeService,
     FooterService,
     SocialLinkService,
+    TeacherDetalisService,
   ],
   bootstrap: [AppComponent]
 })
