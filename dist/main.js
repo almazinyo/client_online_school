@@ -169,7 +169,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-message-alert></app-message-alert>\n\n<app-header></app-header>\n\n  <div id=\"---main-content\" class=\"---d-flex\">\n    <div class=\"---container\">\n      <div class=\"---row\" style=\"height: 100%;\">\n        <app-menu class=\"---main-menu ---d-flex ---flex-column ---align-items-start ---lg-align-items-end ---text-center ---pos-rel ---z-index-over\"></app-menu>\n\n        <div class=\"---content-wrap\">\n          <app-breadcrumbs></app-breadcrumbs>\n          <router-outlet></router-outlet>\n          <app-footer></app-footer>\n        </div>\n      </div>\n    </div>\n  </div>\n"
+module.exports = "<app-message-alert></app-message-alert>\n\n<app-header></app-header>\n<app-modal-auth></app-modal-auth>\n  <div id=\"---main-content\" class=\"---d-flex\">\n    <div class=\"---container\">\n      <div class=\"---row\" style=\"height: 100%;\">\n        <app-menu class=\"---main-menu ---d-flex ---flex-column ---align-items-start ---lg-align-items-end ---text-center ---pos-rel ---z-index-over\"></app-menu>\n\n        <div class=\"---content-wrap\">\n          <app-breadcrumbs></app-breadcrumbs>\n          <router-outlet></router-outlet>\n          <app-footer></app-footer>\n        </div>\n      </div>\n    </div>\n  </div>\n"
 
 /***/ }),
 
@@ -278,12 +278,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_profile_promotional_code_profile_promotional_code_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/profile_promotional_code/profile_promotional_code.component */ "./src/app/components/profile_promotional_code/profile_promotional_code.component.ts");
 /* harmony import */ var _components_profile_promotional_code_profile_promotional_code_service__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/profile_promotional_code/profile_promotional_code.service */ "./src/app/components/profile_promotional_code/profile_promotional_code.service.ts");
 /* harmony import */ var _components_footer_footer_service__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/footer/footer.service */ "./src/app/components/footer/footer.service.ts");
+/* harmony import */ var _components_modal_auth_modal_auth_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./components/modal_auth/modal_auth.component */ "./src/app/components/modal_auth/modal_auth.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -370,7 +372,8 @@ var AppModule = /** @class */ (function () {
                 _components_teacher_teacher_component__WEBPACK_IMPORTED_MODULE_48__["TeacherComponent"],
                 _components_teacher_detalis_teacherDetalis_component__WEBPACK_IMPORTED_MODULE_50__["TeacherDetalisComponent"],
                 _components_profile_menu_profileMenu_component__WEBPACK_IMPORTED_MODULE_51__["ProfileMenuComponent"],
-                _components_profile_promotional_code_profile_promotional_code_component__WEBPACK_IMPORTED_MODULE_52__["ProfilePromotionalCodeComponent"]
+                _components_profile_promotional_code_profile_promotional_code_component__WEBPACK_IMPORTED_MODULE_52__["ProfilePromotionalCodeComponent"],
+                _components_modal_auth_modal_auth_component__WEBPACK_IMPORTED_MODULE_55__["ModalAuthComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -425,7 +428,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<script type=\"text/javascript\">\n  VK.init({apiId: 7200615});\n</script>\n\n<!-- VK Widget -->\n<div id=\"vk_auth\"></div>\n<script type=\"text/javascript\">\n  VK.Widgets.Auth(\"vk_auth\", {\"authUrl\":\"/dev/Login\"});\n</script>\n\n<div class=\"---block-auth-des ---tabs\">\n  <div class=\"col-xl-10 animatedParent animateOnce\">\n    <div class=\"---row ---item ---justify-content-between ---align-items-center\" *ngFor=\"let item of data\">\n\n      <div class=\"---item--text animated fadeInUpShort clickExample\">\n        <div class=\"---item-title h2 ---font-800\">{{item.name}}</div>\n        <p class=\"---item-des\">{{item.description}}</p>\n      </div>\n\n      <div class=\"---item--img animated fadeInUpShort\">\n        <img lazyLoad=\"http://api.examator.ru/frontend/web/images/options/{{item.img_name}}\">\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-subjects\">\n  <div class=\"---row ---row--sm\">\n\n    <div class=\"col-12 ---block-title\">Выбери <span class=\"---acent\">нужный предмет</span></div>\n\n    <div class=\"col-xs-6 col-md-4 col-lg-3 spec-block-lesson\" *ngFor=\"let item of menu\">\n      <a routerLink=\"/section/{{item.slug}}\"\n         class=\"---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start\"\n         [style.backgroundColor]=\"item.color\">\n        <div class=\"---item__icon ---pos-rel\">\n          <i class=\"---icon-font ---pos-abs\" [ngClass]=\"'---icon-menu-'+item.icon\"></i>\n        </div>\n        <div>\n          <div class=\"---item__title\">{{item.title}}</div>\n          <div class=\"---item__thumb\">56 курсов / 28 вебинаров</div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-reviews\" *ngFor=\"let item of user\">\n  <div class=\"---block-title ---d-flex ---align-items-center ---justify-content-between\">\n    <div>{{item.output}} <span class=\"---acent\">{{item.aboutCourses}}</span></div>\n\n    <a href=\"#\" class=\"---button ---button--border_bg ---button--color-acent\">{{item.allReviews}}</a>\n  </div>\n\n  <div class=\"---owl-carousel\">\n    <div class=\"---item\"  *ngFor=\"let items of output\">\n      <div class=\"---item-header ---pos-rel\">\n        <img lazyLoad=\"{{items.img}}\" alt=\"\" class=\"---img\">\n        <div class=\"---name\">{{items.name}}</div>\n        <div class=\"---thumb\">{{items.thumb}}<b class=\"---font-800\">{{items.rating}}</b></div>\n      </div>\n      <p>\n        {{items.text}}\n      </p>\n    </div>\n\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-auth-des ---tabs\">\n  <div class=\"col-xl-10 animatedParent animateOnce\">\n    <div class=\"---row ---item ---justify-content-between ---align-items-center\" *ngFor=\"let item of data\">\n\n      <div class=\"---item--text animated fadeInUpShort clickExample\">\n        <div class=\"---item-title h2 ---font-800\">{{item.name}}</div>\n        <p class=\"---item-des\">{{item.description}}</p>\n      </div>\n\n      <div class=\"---item--img animated fadeInUpShort\">\n        <img lazyLoad=\"http://api.examator.ru/frontend/web/images/options/{{item.img_name}}\">\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-subjects\">\n  <div class=\"---row ---row--sm\">\n\n    <div class=\"col-12 ---block-title\">Выбери <span class=\"---acent\">нужный предмет</span></div>\n\n    <div class=\"col-xs-6 col-md-4 col-lg-3 spec-block-lesson\" *ngFor=\"let item of menu\">\n      <a routerLink=\"/section/{{item.slug}}\"\n         class=\"---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start\"\n         [style.backgroundColor]=\"item.color\">\n        <div class=\"---item__icon ---pos-rel\">\n          <i class=\"---icon-font ---pos-abs\" [ngClass]=\"'---icon-menu-'+item.icon\"></i>\n        </div>\n        <div>\n          <div class=\"---item__title\">{{item.title}}</div>\n          <div class=\"---item__thumb\">56 курсов / 28 вебинаров</div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-reviews\" *ngFor=\"let item of user\">\n  <div class=\"---block-title ---d-flex ---align-items-center ---justify-content-between\">\n    <div>{{item.output}} <span class=\"---acent\">{{item.aboutCourses}}</span></div>\n\n    <a href=\"#\" class=\"---button ---button--border_bg ---button--color-acent\">{{item.allReviews}}</a>\n  </div>\n\n  <div class=\"---owl-carousel\">\n    <div class=\"---item\" *ngFor=\"let items of output\">\n      <div class=\"---item-header ---pos-rel\">\n        <img lazyLoad=\"{{items.img}}\" alt=\"\" class=\"---img\">\n        <div class=\"---name\">{{items.name}}</div>\n        <div class=\"---thumb\">{{items.thumb}}<b class=\"---font-800\">{{items.rating}}</b></div>\n      </div>\n      <p>\n        {{items.text}}\n      </p>\n    </div>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1550,6 +1553,51 @@ var MessageAlertComponent = /** @class */ (function () {
 /***/ (function(module, exports) {
 
 module.exports = "#modal-alert {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  height: 30%;\n  width: 30%;\n  background: #fff;\n  padding: 15px;\n  z-index: 9;\n  margin: auto;\n  border-radius: 10px;\n  display: flex;\n  text-align: center; }\n  #modal-alert .modal-body {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    justify-content: space-evenly;\n    flex-direction: column; }\n  #modal-alert .modal-body .error {\n      color: red; }\n  #modal-alert .modal-body .success {\n      color: green; }\n  #modal-alert .modal-body .btn {\n      background: #fed34f;\n      text-align: center;\n      width: -webkit-max-content;\n      width: -moz-max-content;\n      width: max-content;\n      padding: 15px;\n      border-radius: 10px;\n      margin: 0 auto; }\n"
+
+/***/ }),
+
+/***/ "./src/app/components/modal_auth/modal_auth.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/modal_auth/modal_auth.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/modal_auth/modal_auth.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/components/modal_auth/modal_auth.component.ts ***!
+  \***************************************************************/
+/*! exports provided: ModalAuthComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalAuthComponent", function() { return ModalAuthComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var ModalAuthComponent = /** @class */ (function () {
+    function ModalAuthComponent() {
+    }
+    ModalAuthComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-modal-auth',
+            template: __webpack_require__(/*! ./modal_auth.component.html */ "./src/app/components/modal_auth/modal_auth.component.html"),
+        })
+    ], ModalAuthComponent);
+    return ModalAuthComponent;
+}());
+
+
 
 /***/ }),
 
