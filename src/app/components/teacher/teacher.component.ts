@@ -9,12 +9,6 @@ import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
   // styleUrls: ['./teacher.component.scss']
 })
 export class TeacherComponent {
-
-
-
-
-
-
   teachers: InterFaceSubTeacher[] = [];
 
   constructor(private teacherService: TeacherService,
