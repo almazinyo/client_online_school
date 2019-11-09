@@ -3,12 +3,8 @@ import {HttpService} from '../../utils/http/http.service';
 
 @Injectable()
 export class FooterService {
-  footers = [];
-
-  constructor(private httpService: HttpService) {
-  }
-
-  // получение блога
+  constructor(private httpService: HttpService) { }
+  // получение нижний колонтитул
   public getFooters() {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/subjects/menu', {})
@@ -17,14 +13,14 @@ export class FooterService {
             resolve(result);
           },
           (error) => {
-            console.log('Ошибка при получении списка разделов меню ', error);
+            console.log('Ошибка при получении списка разделов нижний колонтитул ', error);
             reject();
           }
         );
     });
   }
 
-  // получение детальной информации о блоге
+  // получение детальной информации о нижний колонтитул
   public getFooterDetails(slug) {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/main/options' + slug)
@@ -32,7 +28,7 @@ export class FooterService {
             resolve(result);
           },
           (error) => {
-            console.log('Ошибка при получении детальной информации о меню ', error);
+            console.log('Ошибка при получении детальной информации о нижний колонтитул ', error);
             reject();
           }
         );

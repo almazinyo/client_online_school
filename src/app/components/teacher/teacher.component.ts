@@ -6,7 +6,6 @@ import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
 @Component({
   selector: 'app-teacher',
   templateUrl: './teacher.component.html',
-  // styleUrls: ['./teacher.component.scss']
 })
 export class TeacherComponent {
   teachers: InterFaceSubTeacher[] = [];
@@ -20,7 +19,7 @@ export class TeacherComponent {
         this.teachers = data;
       },
       (error) => {
-        console.log('Ошибка при получении информации по Teacher: ', error);
+        console.log('Ошибка при получении информации по учитель: ', error);
       });
       }
 

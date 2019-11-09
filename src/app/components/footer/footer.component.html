@@ -26,39 +26,18 @@
 
 <div class="---layout-footer">
 
-  <div class="---social ---row ---row--sm ---font-600">
-    <div class="col-6 col-xs-4 col-xl-auto" *ngFor="let socialLink of socialLinks">
-      <a href="{{socialLink.link}}" rel="nofollow" target="_blank" class="---d-flex ---flex-column ---align-items-center">
-        <span class="---icon">
-            <img lazyLoad="{{socialLink.images}}" alt="" >
-        </span>
-        <span class="---title">{{socialLink.name}}</span>
-        <span class="---followers">{{socialLink.subscribe}}</span>
-      </a>
-    </div>
-    </div>
+ <app-social-link></app-social-link>
 
   <div class="---row ---xl-flex-nowrap ---nav-blocks"
-  *ngFor="let footerMenu of footers"
-  >
+  *ngFor="let footerMenu of footers">
 
     <div class="---block col-6 col-xs-4 col-xl-auto">
       <div class="---title ---font-800">{{footerMenu.title}}</div>
-      <nav
-      *ngFor="let subject of footerMenu.sectionSubjects">
+      <nav *ngFor="let subject of footerMenu.sectionSubjects">
         <a href="#">{{footerMenu.name}}</a>
         <a href="#">{{subject.name}}</a>
       </nav>
     </div>
-
-
-
-
-
-
-
-
-
   </div>
 
   <div class="---footer ---d-flex ---flex-column ---sm-flex-row">

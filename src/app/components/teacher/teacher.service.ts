@@ -3,12 +3,9 @@ import {HttpService} from '../../utils/http/http.service';
 
 @Injectable()
 export class TeacherService {
-  teachers = [];
+  constructor(private httpService: HttpService) { }
 
-  constructor(private httpService: HttpService) {
-  }
-
-  // получение Teacher
+  // получение учитель
   public getTeachers() {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/subjects/teachers', {})
@@ -17,14 +14,14 @@ export class TeacherService {
             resolve(result);
           },
           (error) => {
-            console.log('Ошибка при получении списка разделов Teacher', error);
+            console.log('Ошибка при получении списка разделов учитель', error);
             reject();
           }
         );
     });
   }
 
-  // получение детальной информации о Teacher
+  // получение детальной информации о учитель
   public getTeacherDetails(slug) {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/subjects/teacher/' + slug)
@@ -32,7 +29,7 @@ export class TeacherService {
             resolve(result);
           },
           (error) => {
-            console.log('Ошибка при получении детальной информации о Teacher', error);
+            console.log('Ошибка при получении детальной информации о учитель', error);
             reject();
           }
         );
