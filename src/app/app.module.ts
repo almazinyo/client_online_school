@@ -53,6 +53,7 @@ import {ProfileMenuComponent} from './components/profile-menu/profileMenu.compon
 import {ProfilePromotionalCodeComponent} from './components/profile_promotional_code/profile_promotional_code.component';
 import {ProfilePromotionalCodeService} from './components/profile_promotional_code/profile_promotional_code.service';
 import {FooterService} from './components/footer/footer.service';
+import {ModalAuthComponent} from './components/modal_auth/modal_auth.component';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
@@ -81,7 +82,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     TeacherComponent,
     TeacherDetalisComponent,
     ProfileMenuComponent,
-    ProfilePromotionalCodeComponent
+    ProfilePromotionalCodeComponent,
+    ModalAuthComponent
   ],
   imports: [
     BrowserModule,
