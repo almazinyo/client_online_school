@@ -3,6 +3,7 @@ import {SectionService} from '../section/section.service';
 import {MenuService} from '../menu/menu.service';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth/auth.service';
+import {GlobalParamsAuth} from '../../storage/global-params-auth';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ export class HeaderComponent {
   constructor(private sectionService: SectionService,
               private router: Router,
               private authService: AuthService,
+              private globalParamsAuth: GlobalParamsAuth,
               private menuService: MenuService) {
     this.menuService.getMenu().then((data: InterFaceMenu[]) => {
         this.menu = data;
@@ -29,6 +31,6 @@ export class HeaderComponent {
   }
 
   auth() {
-    window.open('http://api.examator.ru/site/auth?authclient=vkontakte', '_blank');
+    this.globalParamsAuth.showModalAuth = true;
   }
 }

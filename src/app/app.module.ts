@@ -8,7 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import {AuthComponent} from './components/auth/auth.component';
 import {AuthService} from './components/auth/auth.service';
-import {GlobalParams} from './storage/global-params';
+import {GlobalParamsAuth} from './storage/global-params-auth';
 import {MenuComponent} from './components/menu/menu.component';
 import {MessageAlertComponent} from './components/message_alert/message_alert.component';
 import {HeaderComponent} from './components/header/header.component';
@@ -106,7 +106,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
   ],
   providers: [
-    GlobalParams,
+    GlobalParamsAuth,
     AuthService,
     GlobalParamsMessage,
     HttpService,
