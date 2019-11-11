@@ -13,7 +13,7 @@
 
       <div class="---course-name">{{lesson.name}}</div>
 
-      <div class="---video ---pos-rel">
+      <div (click)="getTeacher(teachers.slug)" class="---video ---pos-rel">
         <div class="---play-button ---y-pos-abs ---z-index-over">
           <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861">
             <path
@@ -22,12 +22,11 @@
         </div>
         <img lazyLoad="assets/imgs/course-in/bg.png" alt="" class="---bg ---img-cover">
 
-        <img lazyLoad="assets/imgs/course-in/man.png" alt="" class="---man">
+        <img lazyLoad="{{teachers.small_img_path}}" alt="{{teachers.name}}" class="---man">
       </div>
 
       <div class="---teacher">
-        <span class="---name ---font-800 ---d-block ---xs-d-inline-block">Борис Добродеев</span>
-        Доктор физико-математических наук, профессор
+        <span class="---name ---font-800 ---d-block ---xs-d-inline-block">{{teachers.name}}</span>
       </div>
 
       <div class="---course-theory">
