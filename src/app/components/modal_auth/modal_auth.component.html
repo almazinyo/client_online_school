@@ -1,27 +1,8 @@
-<div
-  *ngIf="globalParamsAuth.showModalAuth"
-     style="position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 400px;
-    height: 400px;
-    z-index: 999;
-    margin: auto;
-    background: rgba(0, 0, 0, 0.7215686274509804);">
-  <div style="position: absolute;right: 10px;top:10px" (click)="close()">Закрыть</div>
-  фыв
-
-  <!-- VK Widget -->
-  <div id="vk_auth"></div>
+<div *ngIf="globalParamsAuth.showModalAuth" id="---modal-login"
+     class="---modal ---justify-content-center ---align-items-start">
+  <div class="---wrapper">
+    <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" (click)="close()"
+       data-close-block=".---modal"></i>
+    <div id="vk_auth"></div>
+  </div>
 </div>
-
-
-<!-- <div id="---modal-login" class="---modal ---justify-content-center ---align-items-start">
-    <div class="---wrapper">
-        
-        <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" data-close-block=".---modal"></i>
-
-    </div>
-</div> -->
