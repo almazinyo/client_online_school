@@ -1,5 +1,7 @@
 <div class="---bg ---z-index-under"></div>
 
+<i class="---icon-font ---icon-close ---d-flex ---lg-d-none ---js-close" data-close-block=".---main-menu"></i>
+
 <div *ngFor="let currentMenu of menu" (click)="getSection(currentMenu.slug)" class="---item">
   <span class="---img ---icon-font" [ngClass]="'---icon-menu-'+currentMenu.icon"></span>
   <span class="---text">{{currentMenu.title}}</span>

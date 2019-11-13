@@ -32,23 +32,27 @@
       <div class="---course-theory">
         <div class="---block-title">Теория по курсу</div>
 
-        <div *ngFor="let currentWork of storage">
-          <div class="---theory-wrap" *ngIf="currentWork.type==='image'">
-            <div class="---theory">
-              <img src='http://api.examator.ru/images/lessons/{{currentWork.name}}' alt="">
+        <div class="---theory-wrap">
+          <div class="---theory">
+            <div *ngFor="let currentWork of storage">
+
+              <!-- <div *ngIf="currentWork.type==='image'"> -->
+                <img src='http://api.examator.ru/images/lessons/{{currentWork.name}}' alt="" *ngIf="currentWork.type==='image'">
+              <!-- </div> -->
+
+              <!-- <div *ngIf="currentWork.type==='pdf'"> -->
+                <ngx-extended-pdf-viewer [src]="currentWork.url" useBrowserLocale="false" *ngIf="currentWork.type==='pdf'"></ngx-extended-pdf-viewer>
+              <!-- </div> -->
+
+              <!-- <div > -->
+                <video controls="controls" *ngIf="currentWork.type==='video'">
+                  <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                  Тег video не поддерживается вашим браузером.
+                  <a href="video/duel.mp4">Скачайте видео</a>.
+                </video>
+              <!-- </div> -->
+
             </div>
-          </div>
-
-          <div class="---theory-wrap" *ngIf="currentWork.type==='pdf'">
-            <ngx-extended-pdf-viewer [src]="currentWork.url" useBrowserLocale="false"></ngx-extended-pdf-viewer>
-          </div>
-
-          <div class="---theory-wrap" *ngIf="currentWork.type==='video'">
-            <video width="400" height="300" controls="controls">
-              <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-              Тег video не поддерживается вашим браузером.
-              <a href="video/duel.mp4">Скачайте видео</a>.
-            </video>
           </div>
         </div>
       </div>
@@ -57,28 +61,29 @@
 
       <div class="---block-title">Пройдите тест <span class="---acent">для завершения</span></div>
       <div class="---test-wrap ---d-flex ---flex-wrap">
-        <div class="col-xl-5">
+        <div class="col-12">
           <div class="---task">
             <div class="h3">Задание</div>
             <div class="---theory">
               <img src='http://api.examator.ru/images/question/rF-g6b13N0rg-lza78tiEYD-Rnn3T9ej.jpg{{test.question}}'
-                   alt="">
+                   alt="" style="max-width: 100%;">
             </div>
           </div>
         </div>
 
-        <div class="col-xl-7">
+        <div class="col-12">
           <div class="---answers">
             <div class="h3">Ваш ответ</div>
             <div class="---answer ---is-active">
               <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
             </div>
             <div class="---answer">
-              <!--                              <div *ngIf="answerTest.length+1!==section.test.length" (click)="nextQuestion()" class="btn btn-link">Ответить</div>-->
-              <!--                              <div *ngIf="answerTest.length+1===section.test.length" (click)="sendAnswer()" class="btn btn-link">Завершить тест</div>-->
+              <!-- <div *ngIf="answerTest.length+1!==section.test.length" (click)="nextQuestion()" class="btn btn-link button--acent_orange">Ответить</div> -->
+              <!-- <div *ngIf="answerTest.length+1===section.test.length" (click)="sendAnswer()" class="btn btn-link ---button--border_bg-dark">Завершить тест</div> -->
             </div>
+            
+            <div class="---answers__count">Вопрос {{1}} из {{10}}</div>
           </div>
-          Вопрос {{1}} из {{10}}
         </div>
       </div>
     </div>
