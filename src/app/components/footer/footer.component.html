@@ -33,10 +33,9 @@
 
   <app-social-link></app-social-link>
 
-  <div class="---row ---xl-flex-nowrap ---nav-blocks"
-       *ngFor="let footerMenu of footers">
+  <div class="---row ---xl-flex-nowrap ---nav-blocks">
 
-    <div class="---block col-6 col-xs-4 col-xl-auto">
+    <div class="---block col-6 col-xs-4 col-xl-auto" *ngFor="let footerMenu of footers">
       <div class="---title ---font-800">{{footerMenu.title}}</div>
       <nav *ngFor="let subject of footerMenu.sectionSubjects">
         <a href="#">{{footerMenu.name}}</a>

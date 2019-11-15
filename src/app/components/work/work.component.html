@@ -60,22 +60,25 @@
       <div class="---devider"></div>
 
       <div class="---block-title">Пройдите тест <span class="---acent">для завершения</span></div>
+
       <div class="---test-wrap ---d-flex ---flex-wrap">
-        <div class="col-12">
+        <div class="col-xl-5">
           <div class="---task">
             <div class="h3">Задание</div>
-            <div class="---theory">
-              <img src='http://api.examator.ru/images/question/rF-g6b13N0rg-lza78tiEYD-Rnn3T9ej.jpg{{test.question}}'
-                   alt="" style="max-width: 100%;">
-            </div>
+
+            <img src='http://api.examator.ru/images/question/rF-g6b13N0rg-lza78tiEYD-Rnn3T9ej.jpg{{test.question}}' alt="" style="max-width: 100%;">
           </div>
         </div>
 
-        <div class="col-12">
+        <div class="col-xl-7">
           <div class="---answers">
             <div class="h3">Ваш ответ</div>
+
             <div class="---answer ---is-active">
-              <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
+              <div class="---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center">
+                <!-- <div class="---indicator ---y-pos-abs"></div> -->
+                <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
+              </div>
             </div>
             <div class="---answer">
               <!-- <div *ngIf="answerTest.length+1!==section.test.length" (click)="nextQuestion()" class="btn btn-link button--acent_orange">Ответить</div> -->
