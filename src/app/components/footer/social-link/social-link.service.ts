@@ -10,34 +10,34 @@ export class SocialLinkService {
     return new Promise((resolve) => {
 
       const socialLinks = [
-          {
-            name: 'Facebook',
-            images: 'assets/imgs/icons/social/facebook.svg',
-            link: 'https://www.facebook.com/',
-            subscribe: '12К подписчиков',
-          },
-          {
-            name: 'Telegram',
-            images: 'assets/imgs/icons/social/telegram.svg',
-            link: 'https://web.telegram.org/#/login',
-            subscribe: '12К подписчиков',
-          },
+          // {
+          //   name: 'Facebook',
+          //   images: 'assets/imgs/icons/social/facebook.svg',
+          //   link: 'https://www.facebook.com/',
+          //   subscribe: '12К подписчиков',
+          // },
+          // {
+          //   name: 'Telegram',
+          //   images: 'assets/imgs/icons/social/telegram.svg',
+          //   link: 'https://web.telegram.org/#/login',
+          //   subscribe: '12К подписчиков',
+          // },
           {
             name: 'Вконтакте',
             images: 'assets/imgs/icons/social/vk.svg',
-            link: 'https://vk.com/app5898182_-185278877#s=493523',
+            link: 'https://vk.com/examator',
             subscribe: '12К подписчиков',
           },
           {
             name: 'Instagram',
             images: 'assets/imgs/icons/social/instagram.svg',
-            link: 'https://www.instagram.com/',
+            link: 'https://www.instagram.com/_examator_',
             subscribe: '12К подписчиков',
           },
           {
             name: 'Youtube',
             images: 'assets/imgs/icons/social/youtube.svg',
-            link: 'https://www.youtube.com/',
+            link: 'https://www.youtube.com/channel/UCAijbvp1w1TAtLRoHIpxXeA',
             subscribe: '12К подписчиков',
           },
         ];
