@@ -105,6 +105,30 @@
 			margin-left: 10px;
 		}
 
+		.---start-learn {
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				border-radius: 100px;
+				animation: shadow-pulse 1s infinite;
+			}
+
+		}
+
+		@keyframes shadow-pulse {
+			0% {
+				box-shadow: 0 0 0 0 fadeout(@color-acent-orange, 40%);
+			}
+			100% {
+				box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+			}
+		}
+
 	}
 
 	.---profile {
