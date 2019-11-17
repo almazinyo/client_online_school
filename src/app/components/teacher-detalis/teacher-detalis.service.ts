@@ -6,7 +6,7 @@ export class TeacherDetalisService {
   constructor(private httpService: HttpService) { }
 
     // получение детальной информации о учитель
-  public getTeacherDetalis(slug) {
+    public getTeacherDetalis(slug) {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/subjects/teacher/' + slug)
         .then((result: any) => {
