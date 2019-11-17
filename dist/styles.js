@@ -621,9 +621,9 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/angular/client_online_school/src/assets/styles/inc/system.less */"./src/assets/styles/inc/system.less");
-__webpack_require__(/*! /var/www/html/angular/client_online_school/src/assets/styles/html_styles.less */"./src/assets/styles/html_styles.less");
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/assets/styles/main.less */"./src/assets/styles/main.less");
+__webpack_require__(/*! /home/arsen/Desktop/clon/src/assets/styles/inc/system.less */"./src/assets/styles/inc/system.less");
+__webpack_require__(/*! /home/arsen/Desktop/clon/src/assets/styles/html_styles.less */"./src/assets/styles/html_styles.less");
+module.exports = __webpack_require__(/*! /home/arsen/Desktop/clon/src/assets/styles/main.less */"./src/assets/styles/main.less");
 
 
 /***/ })
