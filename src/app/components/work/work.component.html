@@ -20,7 +20,7 @@
               d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/>
           </svg>
         </div>
-<!--        <img lazyLoad="assets/imgs/course-in/bg.png" alt="" class="-&#45;&#45;bg -&#45;&#45;img-cover">-->
+        <!--        <img lazyLoad="assets/imgs/course-in/bg.png" alt="" class="-&#45;&#45;bg -&#45;&#45;img-cover">-->
         <span *ngFor="let currentWork of storage">
           <video controls="controls" *ngIf="currentWork.type==='video'">
             <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"
@@ -53,12 +53,12 @@
               <!-- </div> -->
 
               <!-- <div > -->
-<!--              <video controls="controls" *ngIf="currentWork.type==='video'">-->
-<!--                <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"-->
-<!--                        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>-->
-<!--                Тег video не поддерживается вашим браузером.-->
-<!--                <a href="video/duel.mp4">Скачайте видео</a>.-->
-<!--              </video>-->
+              <!--              <video controls="controls" *ngIf="currentWork.type==='video'">-->
+              <!--                <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"-->
+              <!--                        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>-->
+              <!--                Тег video не поддерживается вашим браузером.-->
+              <!--                <a href="video/duel.mp4">Скачайте видео</a>.-->
+              <!--              </video>-->
               <!-- </div> -->
 
             </div>
@@ -75,7 +75,8 @@
           <div class="---task">
             <div class="h3">Задание</div>
 
-            <img src='http://api.examator.ru/images/question/rF-g6b13N0rg-lza78tiEYD-Rnn3T9ej.jpg{{test.question}}' alt="" style="max-width: 100%;">
+            <img src='http://api.examator.ru/images/question/rF-g6b13N0rg-lza78tiEYD-Rnn3T9ej.jpg{{test.question}}'
+                 alt="" style="max-width: 100%;">
           </div>
         </div>
 
@@ -90,11 +91,15 @@
               </div>
             </div>
             <div class="---answer">
-              <!-- <div *ngIf="answerTest.length+1!==section.test.length" (click)="nextQuestion()" class="btn btn-link button--acent_orange">Ответить</div> -->
-              <!-- <div *ngIf="answerTest.length+1===section.test.length" (click)="sendAnswer()" class="btn btn-link ---button--border_bg-dark">Завершить тест</div> -->
+              <div *ngIf="answerTest.length+1!==test.length" (click)="nextQuestion()"
+                   class="btn btn-link button--acent_orange">Ответить
+              </div>
+              <div *ngIf="answerTest.length+1===test.length" (click)="sendAnswer()"
+                   class="btn btn-link ---button--border_bg-dark">Завершить тест
+              </div>
             </div>
 
-            <div class="---answers__count">Вопрос {{1}} из {{10}}</div>
+            <div class="---answers__count">Вопрос {{answerTest.length + 1}} из {{test.length}}</div>
           </div>
         </div>
       </div>
@@ -108,10 +113,10 @@
       </svg>
 
       <div class="---lessons">
-        <div [ngClass]="{'---is-curent':section.id===currentWork.section_id}"
+        <div [ngClass]="{'---is-curent':lesson.slug===currentWork.slug}"
              (click)="getWork(section.slug+'/'+currentWork.slug)"
-             *ngFor="let currentWork of section.allLessons" class="---lesson">
-          {{currentWork.name}}
+             *ngFor="let currentWork of section.allLessons; let i = index;" class="---lesson">
+          {{i + 1}} урок
           <span *ngIf="currentWork.checked==='1'"><svg class="---y-pos-abs" xmlns="http://www.w3.org/2000/svg"
                                                        viewBox="0 0 32 32"><path
             d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg></span>
