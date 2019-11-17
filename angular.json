@@ -20,7 +20,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/.htaccess"
             ],
             "styles": [
               "src/assets/styles/inc/system.less",
@@ -34,6 +35,7 @@
               "src/assets/js/vendor/css3-animate-it.js",
               "src/assets/js/vendor/html_js.js",
               "src/assets/js/script.js",
+              "src/assets/js/openapi.js",
               "node_modules/ngx-extended-pdf-viewer/assets/pdf.js",
               "node_modules/ngx-extended-pdf-viewer/assets/pdf.worker.js",
               "node_modules/ngx-extended-pdf-viewer/assets/viewer.js"
