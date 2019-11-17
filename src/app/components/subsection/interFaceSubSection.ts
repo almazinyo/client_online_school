@@ -1,6 +1,8 @@
 interface InterFaceSubSection {
   thing: string;
   section: string;
+  name: string;
+  img_path: string;
   description: string;
   short_description: string;
   subject: { title: string };

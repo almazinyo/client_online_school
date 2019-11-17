@@ -11,6 +11,8 @@ export class SubsectionComponent {
   subsection: InterFaceSubSection = {
     thing: '',
     section: '',
+    name: '',
+    img_path: '',
     short_description: '',
     description: '',
     subject: {title: ''},
