@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef} from '@angular/core';
 import {SectionService} from '../section/section.service';
 import {MenuService} from '../menu/menu.service';
 import {Router} from '@angular/router';
@@ -16,6 +16,7 @@ export class HeaderComponent {
               private router: Router,
               private authService: AuthService,
               private globalParamsAuth: GlobalParamsAuth,
+              private elementRef: ElementRef,
               private menuService: MenuService) {
     this.menuService.getMenu().then((data: InterFaceMenu[]) => {
         this.menu = data;
@@ -31,6 +32,10 @@ export class HeaderComponent {
   }
 
   auth() {
+    const s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/dev/Login\'});';
+    this.elementRef.nativeElement.appendChild(s);
     this.globalParamsAuth.showModalAuth = true;
   }
 }

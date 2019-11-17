@@ -1338,12 +1338,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent(sectionService, router, authService, globalParamsAuth, menuService) {
+    function HeaderComponent(sectionService, router, authService, globalParamsAuth, elementRef, menuService) {
         var _this = this;
         this.sectionService = sectionService;
         this.router = router;
         this.authService = authService;
         this.globalParamsAuth = globalParamsAuth;
+        this.elementRef = elementRef;
         this.menuService = menuService;
         this.menu = [];
         this.menuService.getMenu().then(function (data) {
@@ -1357,6 +1358,10 @@ var HeaderComponent = /** @class */ (function () {
         this.router.navigate(['/section/' + slug]);
     };
     HeaderComponent.prototype.auth = function () {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/dev/Login\'});';
+        this.elementRef.nativeElement.appendChild(s);
         this.globalParamsAuth.showModalAuth = true;
     };
     HeaderComponent = __decorate([
@@ -1368,6 +1373,7 @@ var HeaderComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             _auth_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
             _storage_global_params_auth__WEBPACK_IMPORTED_MODULE_5__["GlobalParamsAuth"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"],
             _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"]])
     ], HeaderComponent);
     return HeaderComponent;

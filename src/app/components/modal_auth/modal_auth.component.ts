@@ -6,7 +6,8 @@ import {GlobalParamsAuth} from '../../storage/global-params-auth';
   templateUrl: './modal_auth.component.html',
 })
 export class ModalAuthComponent {
-  constructor(public globalParamsAuth: GlobalParamsAuth) {
+  constructor(public globalParamsAuth: GlobalParamsAuth,
+              ) {
   }
 
   close() {
