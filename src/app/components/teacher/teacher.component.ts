@@ -9,6 +9,7 @@ import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
 })
 export class TeacherComponent {
   teachers: InterFaceSubTeacher[] = [];
+  regex: any;
 
   constructor(private teacherService: TeacherService,
               private router: Router,
@@ -17,12 +18,13 @@ export class TeacherComponent {
 
     this.teacherService.getTeachers().then((data: InterFaceSubTeacher[]) => {
         this.teachers = data;
+        this.regex = /.*com\/|\//gi;
+
       },
       (error) => {
         console.log('Ошибка при получении информации по учитель: ', error);
       });
-      }
-
+  }
 
 
   getTeacher(slug) {

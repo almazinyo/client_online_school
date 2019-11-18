@@ -1,0 +1,3 @@
+interface InterFaceTeachers {
+  name: string;
+}

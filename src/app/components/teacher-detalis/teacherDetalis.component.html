@@ -1,64 +1,65 @@
 <div class="---block-teacher-info">
-	<div class="---row ---flex-column-reverse ---md-flex-row">
+  <div class="---row ---flex-column-reverse ---md-flex-row">
 
-		<div class="col-md-8 col-xl-7">
-			<div class="h1 ---font-200 ---teacher-name">{{teacherData.name}}</div>
+    <div class="col-md-8 col-xl-7">
+      <div class="h1 ---font-200 ---teacher-name">{{teacherData.name}}</div>
 
-			<div class="---teacher-stat">
-				<div class="---row ---row--sm">
+      <div class="---teacher-stat">
+        <div class="---row ---row--sm">
 
-					<div class="col-6 col-lg-4">
-						<div class="---stat-item">
-							<span>{{teacherData.subject_name}}</span>
-							предмет
-						</div>
-					</div>
-					<div class="col-6 col-lg-4">
-						<div class="---stat-item">
-							<span>{{teacherData.work_experience}}</span>
-							опыт работы
-						</div>
-					</div>
-					<div class="col-6 col-lg-4">
-						<div class="---stat-item ---pos-rel">
-							<span>14</span>
-							курсов
+          <div class="col-6 col-lg-4">
+            <div class="---stat-item">
+              <span>{{teacherData.subject_name}}</span>
+              предмет
+            </div>
+          </div>
+          <div class="col-6 col-lg-4">
+            <div class="---stat-item">
+              <span>{{teacherData.work_experience}}</span>
+              опыт работы
+            </div>
+          </div>
+          <div class="col-6 col-lg-4">
+            <div class="---stat-item ---pos-rel">
+              <span>14</span>
+              курсов
 
-							<i class="---icon-font ---icon-arrow-right ---y-pos-abs"></i>
-						</div>
-					</div>
+              <i class="---icon-font ---icon-arrow-right ---y-pos-abs"></i>
+            </div>
+          </div>
 
-				</div>
-			</div>
+        </div>
+      </div>
 
-			<div class="---teacher-des">
-				<div class="h4 ---block-header ---font-600">О преподавателе</div>
-				<p innerHTML="{{teacherData.description}}"></p>
-			</div>
+      <div class="---teacher-des">
+        <div class="h4 ---block-header ---font-600">О преподавателе</div>
+        <p innerHTML="{{teacherData.description}}"></p>
+      </div>
 
-			<div class="---teacher-docs">
-				<div class="h4 ---block-header ---font-600">Награды и дипломы</div>
+      <div class="---teacher-docs">
+        <div class="h4 ---block-header ---font-600">Награды и дипломы</div>
 
-				<div class="---docs-list">
-					<a href="#" class="---document">
-						<img src="http://api.examator.ru/images/teachers/small/{{teacherData.img_name}}"  alt="" class="---img">
+        <div class="---docs-list">
+          <a href="#" class="---document">
+            <img src="http://api.examator.ru/images/teachers/small/{{teacherData.img_name}}" alt="" class="---img">
 
-						<span class="---name ---font-600">Почетная Грамота Министерства<br> образования и науки РФ</span>
-						<span class="---year">Год получения: 2018</span>
-						<span class="---btn">Посмотреть</span>
-					</a>
-				</div>
-			</div>
-		</div>
+            <span class="---name ---font-600">Почетная Грамота Министерства<br> образования и науки РФ</span>
+            <span class="---year">Год получения: 2018</span>
+            <span class="---btn">Посмотреть</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
-		<div class="col-md-4 col-xl-5">
-			<div class="---teacher-avatar">
-				<img lazyLoad="http://api.examator.ru/images/teachers/{{teacherData.img_name}}" class="---img-cover">
-			</div>
-			<a href="https://vk.com/app5898182_-185278877#s=493523" class="---text-center ---button ---button--acent_orange">Записаться на бесплатное занятие</a>
-		</div>
+    <div class="col-md-4 col-xl-5">
+      <div class="---teacher-avatar">
+        <img lazyLoad="http://api.examator.ru/images/teachers/{{teacherData.img_name}}" class="---img-cover">
+      </div>
+      <a href="https://vk.com/app5898182_-185278877#s=493523" target="_blank"
+         class="---text-center ---button ---button--acent_orange">Записаться на бесплатное занятие</a>
+    </div>
 
-	</div>
+  </div>
 </div>
 
 <div class="---devider"></div>

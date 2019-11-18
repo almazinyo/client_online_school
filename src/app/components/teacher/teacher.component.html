@@ -1,18 +1,20 @@
 <div class="---block-teacher-list">
-	<div class="---row">
-		
-		<div class="col-xs-6 col-md-4 col-lg-3" *ngFor="let teacher of teachers">
-			<div class="---teacher-item">
-				<a routerLink="#" (click)="getTeacher(teacher.slug)" class="---img">
-					<img src="http://api.examator.ru/images/teachers/small/pQsSnp2Pzp7Y1JDCm86xs8PYVZGnODCY.png" alt="" class="---img-cover">
-				</a>
-				<div class="---name">{{teacher.name}}</div>
-				<div class="---subject">{{teacher.position}}</div>
-				<a href="#" class="---insta">{{teacher.social_link}}</a>
-			</div>
-		</div>
+  <div class="---row">
 
-	</div>
+    <div class="col-xs-6 col-md-4 col-lg-3" *ngFor="let teacher of teachers">
+      <div class="---teacher-item">
+        <a routerLink="#" (click)="getTeacher(teacher.slug)" class="---img">
+          <img src="http://api.examator.ru/images/teachers/small/pQsSnp2Pzp7Y1JDCm86xs8PYVZGnODCY.png" alt=""
+               class="---img-cover">
+        </a>
+        <div class="---name">{{teacher.name}}</div>
+        <div class="---subject">{{teacher.position}}</div>
+        <a href="{{teacher.social_link}}" target="_blank" class="---insta">insta
+          @{{teacher.social_link.replace(regex, '')}}</a>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <div class="---devider"></div>
