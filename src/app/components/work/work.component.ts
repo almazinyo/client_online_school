@@ -85,7 +85,7 @@ export class WorkComponent {
 
         this.lesson = data['lessons'][0];
         //this.test = data['lessons'][0]['quizzes'];
-        //this.storage = data['lessons'][0]['storageLessons'];
+        this.storage = data['lessons'][0]['storageLessons'];
         //this.teachers = data['subject']['teachers'][0];
         //this.currentTest = this.test[0];
         //this.countAnswer = 0;
