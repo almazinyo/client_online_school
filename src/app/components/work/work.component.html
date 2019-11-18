@@ -71,9 +71,9 @@
 
       <div class="---devider"></div>
 
-      <div class="---block-title">Пройдите тест <span class="---acent">для завершения</span></div>
+      <div class="---block-title" *ngIf="showTest===true">Пройдите тест <span class="---acent">для завершения</span></div>
 
-      <div class="---test-wrap ---d-flex ---flex-wrap" *ngIf="currentTest.question!=''">
+      <div class="---test-wrap ---d-flex ---flex-wrap" *ngIf="showTest===true">
         <div class="col-xl-5">
           <div class="---task">
             <div class="h3">Задание</div>

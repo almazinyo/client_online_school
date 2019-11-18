@@ -45,6 +45,7 @@ export class WorkComponent {
   answerTest: { id: string, answer: string }[] = [];
   answer = '';
   countAnswer = 0;
+  showTest = false;
 
   constructor(private workService: WorkService,
               private router: Router,
@@ -58,7 +59,7 @@ export class WorkComponent {
     );
   }
 
-  getWork(slug,) {
+  getWork(slug) {
     this.workService.getWork(slug).then((data: InterFaceWork) => {
         this.section = data;
         this.lesson = data['lessons'][0];
@@ -67,6 +68,7 @@ export class WorkComponent {
         this.teachers = data['subject']['teachers'][0];
         this.currentTest = this.test[0];
         this.countAnswer = 0;
+        this.showTest = this.test.length > 0;
 
         for (let i = 0; i < this.storage.length; i++) {
           if (this.storage[i].type === 'pdf') {
@@ -84,11 +86,13 @@ export class WorkComponent {
         console.log(1, data);
 
         this.lesson = data['lessons'][0];
-        //this.test = data['lessons'][0]['quizzes'];
+        this.test = data['lessons'][0]['quizzes'];
         this.storage = data['lessons'][0]['storageLessons'];
-        //this.teachers = data['subject']['teachers'][0];
-        //this.currentTest = this.test[0];
-        //this.countAnswer = 0;
+        this.teachers = data['subject']['teachers'][0];
+        this.currentTest = this.test[0];
+        this.countAnswer = 0;
+
+        this.showTest = this.test.length > 0;
 
         for (let i = 0; i < this.storage.length; i++) {
           if (this.storage[i].type === 'pdf') {
