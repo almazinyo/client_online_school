@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {WorkService} from './work.service';
 import {Router} from '@angular/router';
 import {ActivatedRoute, Params} from '@angular/router';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-work',
@@ -40,7 +41,8 @@ export class WorkComponent {
 
   constructor(private workService: WorkService,
               private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private dom: DomSanitizer) {
 
     this.activatedRoute.params.subscribe(
       (params: Params): void => {
@@ -58,6 +60,12 @@ export class WorkComponent {
         this.teachers = data['subject']['teachers'][0];
         this.currentTest = this.test[0];
         this.countAnswer = 0;
+
+        for (let i = 0; i < this.storage.length; i++) {
+          if (this.storage[i].type === 'pdf') {
+            this.storage[i].url = this.dom.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
+          }
+        }
       },
       (error) => {
         console.log('Ошибка при получении информации об уроке: ', error);
