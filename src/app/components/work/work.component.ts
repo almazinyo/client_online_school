@@ -27,6 +27,13 @@ export class WorkComponent {
     sort_lessons: '',
     storageLessons: [],
     updated_at: '',
+    allLessons: [{
+      id: '',
+      is_status: '',
+      name: '',
+      section_id: '',
+      slug: ''
+    }]
   };
 
   lesson: InterFaceLesson = {name: ''};

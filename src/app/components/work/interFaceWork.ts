@@ -16,4 +16,11 @@ interface InterFaceWork {
   sort_lessons: string;
   storageLessons: any;
   updated_at: string;
+  allLessons: [{
+    id: string;
+    is_status: string;
+    name: string;
+    section_id: string;
+    slug: string;
+  }];
 }
