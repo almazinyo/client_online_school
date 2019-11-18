@@ -29,12 +29,12 @@ export class WorkComponent {
   };
 
   lesson: InterFaceLesson = {name: ''};
-  test: InterFaceTestWork = {question: ''};
+  test: InterFaceTestWork[] = [{hint: '', id: '', lessons_id: '', question: ''}];
   storage: any;
   teachers: InterFaceTeachers = {name: ''};
 
-  currentTest: { id: number, url: string } = {id: null, url: ''};
-  answerTest: { id: number, answer: string }[] = [];
+  currentTest: InterFaceTestWork = {hint: '', id: '', lessons_id: '', question: ''};
+  answerTest: { id: string, answer: string }[] = [];
   answer = '';
   countAnswer = 0;
 
@@ -56,6 +56,8 @@ export class WorkComponent {
         this.test = data['lessons'][0]['quizzes'];
         this.storage = data['lessons'][0]['storageLessons'];
         this.teachers = data['subject']['teachers'][0];
+        this.currentTest = this.test[0];
+        this.countAnswer = 0;
       },
       (error) => {
         console.log('Ошибка при получении информации об уроке: ', error);
@@ -65,17 +67,18 @@ export class WorkComponent {
   nextQuestion() {
     this.answerTest.push({id: this.currentTest.id, answer: this.answer});
     this.countAnswer++;
-    // this.currentTest = this.work.test[this.countAnswer];
+    this.currentTest = this.test[this.countAnswer];
     this.answer = '';
   }
 
   sendAnswer() {
-    this.workService.sendAnswer({data: this.answer}).then(() => {
+    console.log(111, this.answerTest);
+    /*this.workService.sendAnswer({data: this.answer}).then(() => {
         console.log('Тест пройден');
       },
       (error) => {
         console.log('Ошибка при отправке тестов: ', error);
-      });
+      });*/
   }
 
   getTeacher(slug) {
