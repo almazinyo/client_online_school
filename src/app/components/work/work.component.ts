@@ -31,7 +31,7 @@ export class WorkComponent {
   lesson: InterFaceLesson = {name: ''};
   test: InterFaceTestWork = {question: ''};
   storage: any;
-  teachers: any;
+  teachers: InterFaceTeachers = {name: ''};
 
   currentTest: { id: number, url: string } = {id: null, url: ''};
   answerTest: { id: number, answer: string }[] = [];
