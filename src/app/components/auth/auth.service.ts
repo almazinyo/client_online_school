@@ -21,4 +21,19 @@ export class AuthService {
         );
     });
   }
+
+  // получение списка активных полей
+  public getInit() {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/main/init/')
+        .then((result: InterFaceWork) => {
+            resolve(result);
+          },
+          (error) => {
+            console.log('Ошибка при получении информации об клиенте', error);
+            reject();
+          }
+        );
+    });
+  }
 }

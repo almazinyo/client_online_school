@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {AuthService} from './components/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,13 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {
-    console.log(123);
+  constructor(private authService: AuthService) {
+    this.authService.getInit().then((data) => {
+        console.log(1, data);
+      },
+      (error) => {
+        console.log('Ошибка при получении информации о клиенте: ', error);
+      });
   }
 }
 
