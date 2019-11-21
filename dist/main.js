@@ -184,6 +184,7 @@ module.exports = "<app-message-alert></app-message-alert>\n\n<app-header></app-h
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _components_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/auth/auth.service */ "./src/app/components/auth/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -194,16 +195,22 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
-        console.log(123);
+    function AppComponent(authService) {
+        this.authService = authService;
+        this.authService.getInit().then(function (data) {
+            console.log(1, data);
+        }, function (error) {
+            console.log('Ошибка при получении информации о клиенте: ', error);
+        });
     }
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_components_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -579,6 +586,19 @@ var AuthService = /** @class */ (function () {
                 resolve(result);
             }, function (error) {
                 console.log('Ошибка при получении информации на главный экран', error);
+                reject();
+            });
+        });
+    };
+    // получение списка активных полей
+    AuthService.prototype.getInit = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.httpService.prepareQuery('api/main/init/')
+                .then(function (result) {
+                resolve(result);
+            }, function (error) {
+                console.log('Ошибка при получении информации об клиенте', error);
                 reject();
             });
         });
@@ -1361,7 +1381,7 @@ var HeaderComponent = /** @class */ (function () {
     HeaderComponent.prototype.auth = function () {
         var s = document.createElement('script');
         s.type = 'text/javascript';
-        s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/site/auth?authclient=vkontakte\',onAuth: function(){console.log(111);location.reload()}})';
+        s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/site/auth?authclient=vkontakte\',onAuth: function(){location.reload()}})';
         this.elementRef.nativeElement.appendChild(s);
         this.globalParamsAuth.showModalAuth = true;
     };
