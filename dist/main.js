@@ -1360,7 +1360,7 @@ var HeaderComponent = /** @class */ (function () {
     HeaderComponent.prototype.auth = function () {
         var s = document.createElement('script');
         s.type = 'text/javascript';
-        s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/site/auth?authclient=vkontakte\'},onAuth: function(){console.log(111);location.reload()});';
+        s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/site/auth?authclient=vkontakte\',onAuth: function(){console.log(111);location.reload()}})';
         this.elementRef.nativeElement.appendChild(s);
         this.globalParamsAuth.showModalAuth = true;
     };
