@@ -203,6 +203,7 @@ var AppComponent = /** @class */ (function () {
         this.authService = authService;
         this.cookieService = cookieService;
         var cookie = this.cookieService.get('vk_app_7200615') || '';
+        console.log(1, cookie);
         this.authService.getInit(cookie).then(function (data) {
             console.log(1, data);
         }, function (error) {
@@ -3879,7 +3880,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
