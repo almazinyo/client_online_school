@@ -185,6 +185,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _components_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/auth/auth.service */ "./src/app/components/auth/auth.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -196,10 +197,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent(authService) {
+    function AppComponent(authService, cookieService) {
         this.authService = authService;
-        this.authService.getInit().then(function (data) {
+        this.cookieService = cookieService;
+        var cookie = this.cookieService.get('vk_app_7200615') || '';
+        this.authService.getInit(cookie).then(function (data) {
             console.log(1, data);
         }, function (error) {
             console.log('Ошибка при получении информации о клиенте: ', error);
@@ -210,7 +214,8 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
         }),
-        __metadata("design:paramtypes", [_components_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]])
+        __metadata("design:paramtypes", [_components_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -290,12 +295,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_teacher_detalis_teacher_detalis_service__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./components/teacher-detalis/teacher-detalis.service */ "./src/app/components/teacher-detalis/teacher-detalis.service.ts");
 /* harmony import */ var _components_modal_auth_modal_auth_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./components/modal_auth/modal_auth.component */ "./src/app/components/modal_auth/modal_auth.component.ts");
 /* harmony import */ var _components_footer_social_link_social_link_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./components/footer/social-link/social-link.component */ "./src/app/components/footer/social-link/social-link.component.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -427,6 +434,7 @@ var AppModule = /** @class */ (function () {
                 _components_footer_footer_service__WEBPACK_IMPORTED_MODULE_54__["FooterService"],
                 _components_footer_social_link_social_link_service__WEBPACK_IMPORTED_MODULE_55__["SocialLinkService"],
                 _components_teacher_detalis_teacher_detalis_service__WEBPACK_IMPORTED_MODULE_56__["TeacherDetalisService"],
+                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_59__["CookieService"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
@@ -591,10 +599,10 @@ var AuthService = /** @class */ (function () {
         });
     };
     // получение списка активных полей
-    AuthService.prototype.getInit = function () {
+    AuthService.prototype.getInit = function (cookie) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/main/init/')
+            _this.httpService.prepareQuery('api/main/init/', cookie)
                 .then(function (result) {
                 resolve(result);
             }, function (error) {

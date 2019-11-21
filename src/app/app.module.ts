@@ -57,6 +57,7 @@ import {SocialLinkService} from './components/footer/social-link/social-link.ser
 import {TeacherDetalisService} from './components/teacher-detalis/teacher-detalis.service';
 import {ModalAuthComponent} from './components/modal_auth/modal_auth.component';
 import { SocialLinkComponent } from './components/footer/social-link/social-link.component';
+import {CookieService} from 'ngx-cookie-service';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
@@ -127,6 +128,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     FooterService,
     SocialLinkService,
     TeacherDetalisService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

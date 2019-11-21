@@ -23,9 +23,9 @@ export class AuthService {
   }
 
   // получение списка активных полей
-  public getInit() {
+  public getInit(cookie) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/main/init/')
+      this.httpService.prepareQuery('api/main/init/',cookie)
         .then((result: InterFaceWork) => {
             resolve(result);
           },
