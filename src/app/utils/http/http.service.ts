@@ -79,11 +79,24 @@ export class HttpService {
     const request = {
       data: data
     };
+
+    console.log(11,api)
+
     const headers = new HttpHeaders();
 
-    return this.http.get('http://api.examator.ru/' + api, {headers: headers}).pipe(
-    // return this.http.get('http://online-school/' + api, {headers: headers}).pipe(
-      catchError(HttpService.handlerError)
-    );
+    if (api === 'api/main/init/') {
+      return this.http.post('http://api.examator.ru/' + api, request, {headers: headers})
+      // return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
+      // return this.http.post('http://artdekor-kzn.ru/' + api, request, {headers: headers})
+        .pipe(
+          catchError(HttpService.handlerError)
+        );
+    } else {
+      return this.http.get('http://api.examator.ru/' + api, {headers: headers}).pipe(
+        // return this.http.get('http://online-school/' + api, {headers: headers}).pipe(
+        catchError(HttpService.handlerError)
+      );
+    }
+
   }
 }

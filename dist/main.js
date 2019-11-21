@@ -3801,10 +3801,19 @@ var HttpService = /** @class */ (function () {
         var request = {
             data: data
         };
+        console.log(11, api);
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
-        return this.http.get('http://api.examator.ru/' + api, { headers: headers }).pipe(
-        // return this.http.get('http://online-school/' + api, {headers: headers}).pipe(
-        Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
+        if (api === 'api/main/init/') {
+            return this.http.post('http://api.examator.ru/' + api, request, { headers: headers })
+                // return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
+                // return this.http.post('http://artdekor-kzn.ru/' + api, request, {headers: headers})
+                .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
+        }
+        else {
+            return this.http.get('http://api.examator.ru/' + api, { headers: headers }).pipe(
+            // return this.http.get('http://online-school/' + api, {headers: headers}).pipe(
+            Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
+        }
     };
     var HttpService_1;
     HttpService = HttpService_1 = __decorate([
