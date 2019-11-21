@@ -113,13 +113,12 @@ export class WorkComponent {
   }
 
   sendAnswer() {
-    console.log(111, this.answerTest);
-    /*this.workService.sendAnswer({data: this.answer}).then(() => {
+    this.workService.sendAnswer({data: this.answerTest}).then(() => {
         console.log('Тест пройден');
       },
       (error) => {
         console.log('Ошибка при отправке тестов: ', error);
-      });*/
+      });
   }
 
   getTeacher(slug) {

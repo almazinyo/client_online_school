@@ -34,7 +34,7 @@ export class HeaderComponent {
   auth() {
     const s = document.createElement('script');
     s.type = 'text/javascript';
-    s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/dev/Login\'});';
+    s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/site/auth?authclient=vkontakte\'});';
     this.elementRef.nativeElement.appendChild(s);
     this.globalParamsAuth.showModalAuth = true;
   }
