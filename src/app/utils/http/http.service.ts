@@ -76,11 +76,14 @@ export class HttpService {
   }
 
   private sendPostQuery(api, data: any) {
+    const request = {
+      data: data
+    };
 
     const headers = new HttpHeaders();
 
     if (api === 'api/main/init/') {
-      return this.http.post('http://online-school/' + api, data, {headers: headers})
+      return this.http.post('http://online-school/' + api, request, {headers: headers})
       // return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
       // return this.http.post('http://artdekor-kzn.ru/' + api, request, {headers: headers})
         .pipe(
