@@ -12,9 +12,7 @@ export class AppComponent {
               private cookieService: CookieService) {
 
     const cookie = this.cookieService.get('vk_app_7200615') || '';
-    console.log(1, cookie);
-    this.authService.getInit(cookie).then((data) => {
-        console.log(1, data);
+    this.authService.getInit(cookie).then(() => {
       },
       (error) => {
         console.log('Ошибка при получении информации о клиенте: ', error);

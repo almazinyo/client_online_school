@@ -82,7 +82,7 @@ export class HttpService {
     const headers = new HttpHeaders();
 
     if (api === 'api/main/init/') {
-      return this.http.get('http://api.examator.ru/' + api + '?' + data, {headers: headers})
+      return this.http.get('http://localhost:8005/' + api + '?' + data, {headers: headers})
       // return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
       // return this.http.post('http://artdekor-kzn.ru/' + api, request, {headers: headers})
         .pipe(
@@ -90,7 +90,7 @@ export class HttpService {
         );
     }
 
-    return this.http.get('http://api.examator.ru/' + api, {headers: headers}).pipe(
+    return this.http.get('http://localhost:8005/' + api, {headers: headers}).pipe(
       // return this.http.get('http://online-school/' + api, {headers: headers}).pipe(
       catchError(HttpService.handlerError)
     );
