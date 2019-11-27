@@ -29,7 +29,7 @@ export class AuthService {
   // получение списка активных полей
   public getInit(cookie) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/main/init/', cookie)
+      this.httpService.prepareQuery('api/main/init/', cookie, true)
         .then((result: { token: string, username: string }) => {
 
             if (typeof result.token !== 'undefined') {

@@ -83,8 +83,6 @@ export class WorkComponent {
 
   getWorkCurrent(slug, slugLesson = '') {
     this.workService.getWork(slug, slugLesson).then((data: InterFaceWork) => {
-        console.log(1, data);
-
         this.lesson = data['lessons'][0];
         this.test = data['lessons'][0]['quizzes'];
         this.storage = data['lessons'][0]['storageLessons'];

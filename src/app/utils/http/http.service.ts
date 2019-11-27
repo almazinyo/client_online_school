@@ -35,7 +35,7 @@ export class HttpService {
               private  globalParamsMessage: GlobalParamsMessage) {
   }
 
-  public prepareQuery(url: string = 'noUrl', data = {}) {
+  public prepareQuery(url: string = 'noUrl', data = {}, post = false) {
     if (data !== '') {
       console.log('Отправляем данные: ', data);
       // data = JSON.stringify(data);
@@ -44,7 +44,7 @@ export class HttpService {
 
     return new Promise((resolve, reject) => {
 
-      this.sendPostQuery(url, data).subscribe((result: { status: number, msg: string, session_id: string, data: string, code: string }) => {
+      this.sendPostQuery(url, data, post).subscribe((result: { status: number, msg: string, session_id: string, data: string, code: string }) => {
           console.log('HttpService Ответ получен: ', result);
           if (result.status === 200) {
             if (typeof result.data !== 'undefined') {
@@ -75,13 +75,13 @@ export class HttpService {
     });
   }
 
-  private sendPostQuery(api, data: any) {
+  private sendPostQuery(api, data: any, post) {
     const request = {
       data: data
     };
     const headers = new HttpHeaders();
 
-    if (api === 'api/main/init/') {
+    if (post) {
       return this.http.get('http://localhost:8005/' + api + '?' + data, {headers: headers})
       // return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
       // return this.http.post('http://artdekor-kzn.ru/' + api, request, {headers: headers})

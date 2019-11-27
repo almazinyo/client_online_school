@@ -21,7 +21,7 @@ export class WorkService {
   public sendAnswer(data) {
     return new Promise((resolve, reject) => {
 
-      this.httpService.prepareQuery('api/send-test', data)
+      this.httpService.prepareQuery('api/send-test', data, true)
         .then(() => {
             resolve();
           },

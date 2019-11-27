@@ -631,7 +631,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.getInit = function (cookie) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/main/init/', cookie)
+            _this.httpService.prepareQuery('api/main/init/', cookie, true)
                 .then(function (result) {
                 if (typeof result.token !== 'undefined') {
                     _this.globalParamsUser.fio = result.username;
@@ -3507,7 +3507,6 @@ var WorkComponent = /** @class */ (function () {
         var _this = this;
         if (slugLesson === void 0) { slugLesson = ''; }
         this.workService.getWork(slug, slugLesson).then(function (data) {
-            console.log(1, data);
             _this.lesson = data['lessons'][0];
             _this.test = data['lessons'][0]['quizzes'];
             _this.storage = data['lessons'][0]['storageLessons'];
@@ -3599,7 +3598,7 @@ var WorkService = /** @class */ (function () {
     WorkService.prototype.sendAnswer = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/send-test', data)
+            _this.httpService.prepareQuery('api/send-test', data, true)
                 .then(function () {
                 resolve();
             }, function (error) {
@@ -3904,17 +3903,18 @@ var HttpService = /** @class */ (function () {
         }
         return rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"].throw(text_error);
     };
-    HttpService.prototype.prepareQuery = function (url, data) {
+    HttpService.prototype.prepareQuery = function (url, data, post) {
         var _this = this;
         if (url === void 0) { url = 'noUrl'; }
         if (data === void 0) { data = {}; }
+        if (post === void 0) { post = false; }
         if (data !== '') {
             console.log('Отправляем данные: ', data);
             // data = JSON.stringify(data);
             // data = Base64.encode(data);
         }
         return new Promise(function (resolve, reject) {
-            _this.sendPostQuery(url, data).subscribe(function (result) {
+            _this.sendPostQuery(url, data, post).subscribe(function (result) {
                 console.log('HttpService Ответ получен: ', result);
                 if (result.status === 200) {
                     if (typeof result.data !== 'undefined') {
@@ -3947,12 +3947,12 @@ var HttpService = /** @class */ (function () {
             });
         });
     };
-    HttpService.prototype.sendPostQuery = function (api, data) {
+    HttpService.prototype.sendPostQuery = function (api, data, post) {
         var request = {
             data: data
         };
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
-        if (api === 'api/main/init/') {
+        if (post) {
             return this.http.get('http://localhost:8005/' + api + '?' + data, { headers: headers })
                 // return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
                 // return this.http.post('http://artdekor-kzn.ru/' + api, request, {headers: headers})
