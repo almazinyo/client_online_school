@@ -186,6 +186,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _components_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/auth/auth.service */ "./src/app/components/auth/auth.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+/* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -198,16 +201,26 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var AppComponent = /** @class */ (function () {
-    function AppComponent(authService, cookieService) {
+    function AppComponent(authService, router, location, sessionStorageService, cookieService) {
+        var _this = this;
         this.authService = authService;
+        this.router = router;
+        this.location = location;
+        this.sessionStorageService = sessionStorageService;
         this.cookieService = cookieService;
         var cookie = this.cookieService.get('vk_app_7200615') || '';
-        console.log(1, cookie);
-        this.authService.getInit(cookie).then(function (data) {
-            console.log(1, data);
+        this.authService.getInit(cookie).then(function () {
         }, function (error) {
             console.log('Ошибка при получении информации о клиенте: ', error);
+        });
+        this.sessionStorageService.authenticated.subscribe(function (item) {
+            if (!item && ['/profile-details', '/profile-promotion', '/profile-buy', '/profile-points', '/profile-promotional-code'].indexOf(_this.location.path())) {
+                _this.router.navigate(['/']);
+            }
         });
     }
     AppComponent = __decorate([
@@ -216,6 +229,9 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
         }),
         __metadata("design:paramtypes", [_components_auth_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_5__["Location"],
+            _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_3__["SessionStorageService"],
             ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__["CookieService"]])
     ], AppComponent);
     return AppComponent;
@@ -297,12 +313,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_modal_auth_modal_auth_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./components/modal_auth/modal_auth.component */ "./src/app/components/modal_auth/modal_auth.component.ts");
 /* harmony import */ var _components_footer_social_link_social_link_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./components/footer/social-link/social-link.component */ "./src/app/components/footer/social-link/social-link.component.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+/* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
+/* harmony import */ var _storage_global_params_user__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./storage/global-params-user */ "./src/app/storage/global-params-user.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -435,7 +455,9 @@ var AppModule = /** @class */ (function () {
                 _components_footer_footer_service__WEBPACK_IMPORTED_MODULE_54__["FooterService"],
                 _components_footer_social_link_social_link_service__WEBPACK_IMPORTED_MODULE_55__["SocialLinkService"],
                 _components_teacher_detalis_teacher_detalis_service__WEBPACK_IMPORTED_MODULE_56__["TeacherDetalisService"],
-                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_59__["CookieService"]
+                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_59__["CookieService"],
+                _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_60__["SessionStorageService"],
+                _storage_global_params_user__WEBPACK_IMPORTED_MODULE_61__["GlobalParamsUser"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
@@ -571,6 +593,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/http/http.service */ "./src/app/utils/http/http.service.ts");
+/* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
+/* harmony import */ var _storage_global_params_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../storage/global-params-user */ "./src/app/storage/global-params-user.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -582,9 +606,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var AuthService = /** @class */ (function () {
-    function AuthService(httpService) {
+    function AuthService(httpService, sessionStorage, globalParamsUser) {
         this.httpService = httpService;
+        this.sessionStorage = sessionStorage;
+        this.globalParamsUser = globalParamsUser;
     }
     // получение списка активных полей
     AuthService.prototype.getData = function () {
@@ -605,16 +633,25 @@ var AuthService = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             _this.httpService.prepareQuery('api/main/init/', cookie)
                 .then(function (result) {
+                if (typeof result.token !== 'undefined') {
+                    _this.globalParamsUser.fio = result.username;
+                    _this.sessionStorage.tokenId = result.token;
+                }
+                else {
+                    _this.sessionStorage.authenticated.emit(false);
+                }
                 resolve(result);
             }, function (error) {
-                console.log('Ошибка при получении информации об клиенте', error);
+                console.log('Ошибка при получении информации о клиенте', error);
                 reject();
             });
         });
     };
     AuthService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"]])
+        __metadata("design:paramtypes", [_utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
+            _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_2__["SessionStorageService"],
+            _storage_global_params_user__WEBPACK_IMPORTED_MODULE_3__["GlobalParamsUser"]])
     ], AuthService);
     return AuthService;
 }());
@@ -1332,7 +1369,7 @@ var SocialLinkService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"---layout-header ---d-flex\">\n  <div class=\"---container\">\n    <div class=\"---row\">\n\n      <a href=\"/\" class=\"---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end\">\n        <img lazyLoad=\"assets/imgs/logo.svg\">\n        <span class=\"---bg ---z-index-under\"></span>\n      </a>\n\n      <div class=\"---content ---d-flex ---justify-content-between ---align-items-center\">\n        <img lazyLoad=\"assets/imgs/logo-text.svg\" alt=\"\" class=\"---logo-text ---d-none ---xl-d-block\">\n\n        <div class=\"---d-flex\">\n          <a href=\"#\" class=\"---button ---button--acent_orange ---d-inline-flex ---lg-d-none ---js-open\"\n             data-open-block=\".---main-menu\" data-html-hidden=\"1\">\n            <img lazyLoad=\"assets/imgs/icons/main-menu.svg\" alt=\"\">\n            <span>Меню</span>\n          </a>\n\n          <div class=\"---subject ---pos-rel ---z-index-over ---lg-d-none ---xxl-d-block\">\n            <a href=\"#\" class=\"---button ---button--acent\">\n              <img lazyLoad=\"assets/imgs/icons/menu.svg\" alt=\"\">\n              <span>Предметы</span>\n            </a>\n\n            <div class=\"---subject-list ---font-600 ---z-index-under\">\n              <div *ngFor=\"let currentMenu of menu\" (click)=\"getSection(currentMenu.slug)\">{{currentMenu.title}}</div>\n            </div>\n\n          </div>\n        </div>\n\n        <nav class=\"---d-none ---lg-d-block\">\n          <a routerLink='' class=\"---acent ---font-600\">Выбрать бесплатный урок</a>\n\n          <!-- todo: поставить корректную ссылку -->\n          <a routerLink='teacher'>Учителя</a>\n\n          <a routerLink='reviews'>Отзывы</a>\n          <a routerLink='blog'>Блог</a>\n        </nav>\n\n        <!--<a href=\"#\" href=\"#\" class=\"-&#45;&#45;profile -&#45;&#45;d-flex -&#45;&#45;align-items-center\">\n          <span class=\"-&#45;&#45;avatar\">\n            <img lazyLoad=\"assets/imgs/user/1.png\" alt=\"\" class=\"-&#45;&#45;img-cover\">\n          </span>\n          <span class=\"-&#45;&#45;level -&#45;&#45;d-none -&#45;&#45;md-d-block\">\n            <img lazyLoad=\"assets/imgs/icons/profile-flash.svg\" alt=\"\" >\n            3 уровень\n          </span>\n          <span class=\"-&#45;&#45;points -&#45;&#45;font-600 -&#45;&#45;d-none -&#45;&#45;md-d-block\">822 балла</span>\n        </a>-->\n\n        <div class=\"---btns ---d-flex\">\n          <button (click)=\"auth()\" class=\"---button ---button--border_bg\">Войти</button>\n          <a\n            href=\"https://vk.com/app5898182_-185278877#s=493523\"\n            target=\"_blank\"\n            class=\"---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn\">\n            Начать учиться\n          </a>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</header>\n"
+module.exports = "<header class=\"---layout-header ---d-flex\">\n  <div class=\"---container\">\n    <div class=\"---row\">\n\n      <a href=\"/\" class=\"---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end\">\n        <img lazyLoad=\"assets/imgs/logo.svg\">\n        <span class=\"---bg ---z-index-under\"></span>\n      </a>\n\n      <div class=\"---content ---d-flex ---justify-content-between ---align-items-center\">\n        <img lazyLoad=\"assets/imgs/logo-text.svg\" alt=\"\" class=\"---logo-text ---d-none ---xl-d-block\">\n\n        <div class=\"---d-flex\">\n          <a href=\"#\" class=\"---button ---button--acent_orange ---d-inline-flex ---lg-d-none ---js-open\"\n             data-open-block=\".---main-menu\" data-html-hidden=\"1\">\n            <img lazyLoad=\"assets/imgs/icons/main-menu.svg\" alt=\"\">\n            <span>Меню</span>\n          </a>\n\n          <div class=\"---subject ---pos-rel ---z-index-over ---lg-d-none ---xxl-d-block\">\n            <a href=\"#\" class=\"---button ---button--acent\">\n              <img lazyLoad=\"assets/imgs/icons/menu.svg\" alt=\"\">\n              <span>Предметы</span>\n            </a>\n\n            <div class=\"---subject-list ---font-600 ---z-index-under\">\n              <div *ngFor=\"let currentMenu of menu\" (click)=\"getSection(currentMenu.slug)\">{{currentMenu.title}}</div>\n            </div>\n\n          </div>\n        </div>\n\n        <nav class=\"---d-none ---lg-d-block\">\n          <a routerLink='' class=\"---acent ---font-600\">Выбрать бесплатный урок</a>\n\n          <!-- todo: поставить корректную ссылку -->\n          <a routerLink='teacher'>Учителя</a>\n\n          <a routerLink='reviews'>Отзывы</a>\n          <a routerLink='blog'>Блог</a>\n        </nav>\n\n        <!--<a href=\"#\" href=\"#\" class=\"-&#45;&#45;profile -&#45;&#45;d-flex -&#45;&#45;align-items-center\">\n          <span class=\"-&#45;&#45;avatar\">\n            <img lazyLoad=\"assets/imgs/user/1.png\" alt=\"\" class=\"-&#45;&#45;img-cover\">\n          </span>\n          <span class=\"-&#45;&#45;level -&#45;&#45;d-none -&#45;&#45;md-d-block\">\n            <img lazyLoad=\"assets/imgs/icons/profile-flash.svg\" alt=\"\" >\n            3 уровень\n          </span>\n          <span class=\"-&#45;&#45;points -&#45;&#45;font-600 -&#45;&#45;d-none -&#45;&#45;md-d-block\">822 балла</span>\n        </a>-->\n\n        <div class=\"---btns ---d-flex\">\n          <button *ngIf=\"!checkAuth\" (click)=\"auth()\" class=\"---button ---button--border_bg\">Войти</button>\n          <button *ngIf=\"checkAuth\" (click)=\"exit()\" class=\"---button ---button--border_bg\">Выйти</button>\n          <a\n            href=\"https://vk.com/app5898182_-185278877#s=493523\"\n            target=\"_blank\"\n            class=\"---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn\">\n            Начать учиться\n          </a>\n          <div>{{fio}}</div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</header>\n"
 
 /***/ }),
 
@@ -1352,6 +1389,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _auth_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../auth/auth.service */ "./src/app/components/auth/auth.service.ts");
 /* harmony import */ var _storage_global_params_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../storage/global-params-auth */ "./src/app/storage/global-params-auth.ts");
+/* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
+/* harmony import */ var _storage_global_params_user__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../storage/global-params-user */ "./src/app/storage/global-params-user.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1367,8 +1406,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent(sectionService, router, authService, globalParamsAuth, elementRef, menuService) {
+    function HeaderComponent(sectionService, router, authService, globalParamsAuth, elementRef, menuService, globalParamsUser, sessionStorageService) {
         var _this = this;
         this.sectionService = sectionService;
         this.router = router;
@@ -1376,11 +1417,19 @@ var HeaderComponent = /** @class */ (function () {
         this.globalParamsAuth = globalParamsAuth;
         this.elementRef = elementRef;
         this.menuService = menuService;
+        this.globalParamsUser = globalParamsUser;
+        this.sessionStorageService = sessionStorageService;
         this.menu = [];
+        this.checkAuth = false;
+        this.fio = '';
         this.menuService.getMenu().then(function (data) {
             _this.menu = data;
         }, function (error) {
             console.log('Ошибка при получении меню: ', error);
+        });
+        this.sessionStorageService.authenticated.subscribe(function (item) {
+            _this.fio = _this.globalParamsUser.fio;
+            _this.checkAuth = item;
         });
     }
     // переход на ссылку
@@ -1394,6 +1443,9 @@ var HeaderComponent = /** @class */ (function () {
         this.elementRef.nativeElement.appendChild(s);
         this.globalParamsAuth.showModalAuth = true;
     };
+    HeaderComponent.prototype.exit = function () {
+        this.sessionStorageService.exit();
+    };
     HeaderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-header',
@@ -1404,7 +1456,9 @@ var HeaderComponent = /** @class */ (function () {
             _auth_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
             _storage_global_params_auth__WEBPACK_IMPORTED_MODULE_5__["GlobalParamsAuth"],
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"],
-            _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"]])
+            _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"],
+            _storage_global_params_user__WEBPACK_IMPORTED_MODULE_7__["GlobalParamsUser"],
+            _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_6__["SessionStorageService"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -3691,6 +3745,102 @@ var GlobalParamsAuth = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/storage/global-params-user.ts":
+/*!***********************************************!*\
+  !*** ./src/app/storage/global-params-user.ts ***!
+  \***********************************************/
+/*! exports provided: GlobalParamsUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalParamsUser", function() { return GlobalParamsUser; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GlobalParamsUser = /** @class */ (function () {
+    function GlobalParamsUser() {
+        this.fio = null;
+    }
+    GlobalParamsUser = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
+    ], GlobalParamsUser);
+    return GlobalParamsUser;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/storage/session-storage.service.ts":
+/*!****************************************************!*\
+  !*** ./src/app/storage/session-storage.service.ts ***!
+  \****************************************************/
+/*! exports provided: SessionStorageService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SessionStorageService", function() { return SessionStorageService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _global_params_user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./global-params-user */ "./src/app/storage/global-params-user.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SessionStorageService = /** @class */ (function () {
+    function SessionStorageService(router, globalParamsUser) {
+        this.router = router;
+        this.globalParamsUser = globalParamsUser;
+        this.authenticated = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"](false);
+        this.change(this.tokenId !== '');
+    }
+    Object.defineProperty(SessionStorageService.prototype, "tokenId", {
+        get: function () {
+            return localStorage.getItem('token');
+        },
+        set: function (value) {
+            localStorage.setItem('token', value);
+            this.change(true);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SessionStorageService.prototype.change = function (data) {
+        this.authenticated.emit(data);
+    };
+    SessionStorageService.prototype.exit = function () {
+        this.globalParamsUser.fio = '';
+        this.authenticated.emit(false);
+        this.router.navigate(['/']);
+        localStorage.removeItem('token');
+    };
+    SessionStorageService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _global_params_user__WEBPACK_IMPORTED_MODULE_2__["GlobalParamsUser"]])
+    ], SessionStorageService);
+    return SessionStorageService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/utils/http/http.service.ts":
 /*!********************************************!*\
   !*** ./src/app/utils/http/http.service.ts ***!
@@ -3803,12 +3953,12 @@ var HttpService = /** @class */ (function () {
         };
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
         if (api === 'api/main/init/') {
-            return this.http.get('http://api.examator.ru/' + api + '?' + data, { headers: headers })
+            return this.http.get('http://localhost:8005/' + api + '?' + data, { headers: headers })
                 // return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
                 // return this.http.post('http://artdekor-kzn.ru/' + api, request, {headers: headers})
                 .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
         }
-        return this.http.get('http://api.examator.ru/' + api, { headers: headers }).pipe(
+        return this.http.get('http://localhost:8005/' + api, { headers: headers }).pipe(
         // return this.http.get('http://online-school/' + api, {headers: headers}).pipe(
         Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
     };
@@ -3886,7 +4036,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })

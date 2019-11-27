@@ -32,7 +32,6 @@ export class HeaderComponent {
       });
 
     this.sessionStorageService.authenticated.subscribe(item => {
-      console.log(1, this.globalParamsUser.fio + 's');
       this.fio = this.globalParamsUser.fio;
       this.checkAuth = item;
     });

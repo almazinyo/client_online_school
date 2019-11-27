@@ -34,8 +34,9 @@ export class AuthService {
 
             if (typeof result.token !== 'undefined') {
               this.globalParamsUser.fio = result.username;
-              console.log(2,this.globalParamsUser)
               this.sessionStorage.tokenId = result.token;
+            } else {
+              this.sessionStorage.authenticated.emit(false);
             }
 
             resolve(result);
