@@ -83,7 +83,7 @@ export class HttpService {
 
     if (post) {
       // return this.http.get('http://localhost:8005/' + api + '?' + data, {headers: headers})
-      return this.http.post('http://u68857.netangels.ru/' + api, request, {headers: headers})
+      return this.http.post('http://online-school/' + api, request, {headers: headers})
         .pipe(
           catchError(HttpService.handlerError)
         );
