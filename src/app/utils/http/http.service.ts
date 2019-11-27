@@ -83,14 +83,14 @@ export class HttpService {
 
     if (post) {
       // return this.http.get('http://localhost:8005/' + api + '?' + data, {headers: headers})
-      return this.http.post('http://online-school/' + api, request, {headers: headers})
+      return this.http.post('http://api.examator.ru/' + api, request, {headers: headers})
         .pipe(
           catchError(HttpService.handlerError)
         );
     }
 
     // return this.http.get('http://localhost:8005/' + api, {headers: headers}).pipe(
-      return this.http.get('http://online-school/' + api, {headers: headers}).pipe(
+      return this.http.get('http://api.examator.ru/' + api, {headers: headers}).pipe(
       catchError(HttpService.handlerError)
     );
   }
