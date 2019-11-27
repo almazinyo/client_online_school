@@ -3954,11 +3954,11 @@ var HttpService = /** @class */ (function () {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
         if (post) {
             // return this.http.get('http://localhost:8005/' + api + '?' + data, {headers: headers})
-            return this.http.post('http://online-school/' + api, request, { headers: headers })
+            return this.http.post('http://api.examator.ru/' + api, request, { headers: headers })
                 .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
         }
         // return this.http.get('http://localhost:8005/' + api, {headers: headers}).pipe(
-        return this.http.get('http://online-school/' + api, { headers: headers }).pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
+        return this.http.get('http://api.examator.ru/' + api, { headers: headers }).pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
     };
     var HttpService_1;
     HttpService = HttpService_1 = __decorate([
@@ -4034,7 +4034,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
