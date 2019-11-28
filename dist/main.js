@@ -3598,7 +3598,7 @@ var WorkService = /** @class */ (function () {
     WorkService.prototype.sendAnswer = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/send-test', data, true)
+            _this.httpService.prepareQuery('api/subjects/check-test', data, true)
                 .then(function () {
                 resolve();
             }, function (error) {
