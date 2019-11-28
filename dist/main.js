@@ -3856,6 +3856,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/internal/operators */ "./node_modules/rxjs/internal/operators/index.js");
 /* harmony import */ var rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/message_alert/global-params-message */ "./src/app/components/message_alert/global-params-message.ts");
+/* harmony import */ var js_base64__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! js-base64 */ "./node_modules/js-base64/base64.js");
+/* harmony import */ var js_base64__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(js_base64__WEBPACK_IMPORTED_MODULE_5__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3865,6 +3867,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -3908,10 +3911,10 @@ var HttpService = /** @class */ (function () {
         if (url === void 0) { url = 'noUrl'; }
         if (data === void 0) { data = {}; }
         if (post === void 0) { post = false; }
-        if (data !== '') {
+        if (data !== '' && post) {
             console.log('Отправляем данные: ', data);
-            // data = JSON.stringify(data);
-            // data = Base64.encode(data);
+            data = JSON.stringify(data);
+            data = js_base64__WEBPACK_IMPORTED_MODULE_5__["Base64"].encode(data);
         }
         return new Promise(function (resolve, reject) {
             _this.sendPostQuery(url, data, post).subscribe(function (result) {
@@ -3953,12 +3956,13 @@ var HttpService = /** @class */ (function () {
         };
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
         if (post) {
-            // return this.http.get('http://localhost:8005/' + api + '?' + data, {headers: headers})
-            return this.http.post('http://api.examator.ru/' + api, request, { headers: headers })
+            return this.http.get('http://localhost:8005/' + api + '?' + data, { headers: headers })
+                // return this.http.post('http://api.examator.ru/' + api, request, {headers: headers})
                 .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
         }
-        // return this.http.get('http://localhost:8005/' + api, {headers: headers}).pipe(
-        return this.http.get('http://api.examator.ru/' + api, { headers: headers }).pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
+        return this.http.get('http://localhost:8005/' + api, { headers: headers }).pipe(
+        //  return this.http.get('http://api.examator.ru/' + api, {headers: headers}).pipe(
+        Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
     };
     var HttpService_1;
     HttpService = HttpService_1 = __decorate([
@@ -4034,7 +4038,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
