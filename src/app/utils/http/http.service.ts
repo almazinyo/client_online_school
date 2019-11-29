@@ -83,15 +83,9 @@ export class HttpService {
 
     if (post) {
       headers.append('Content-Type', 'application/json');
-      //
-      // // return this.http.post('http://localhost:8005/' + api + '?' + request, {headers: headers})
-      // return this.http.post('http://api.examator.ru/' + api, JSON.stringify(data), {headers: headers})
-      //   .pipe(
-      //     catchError(HttpService.handlerError)
-      //   );
 
-
-      return this.http.post('http://api.examator.ru/' + api, request, {headers: headers})
+      // return this.http.post('http://localhost:8005/' + api + '?' + request, {headers: headers})
+      return this.http.post('http://api.examator.ru/' + api, {'test': 5}, {headers: headers})
         .pipe(
           catchError(HttpService.handlerError)
         );

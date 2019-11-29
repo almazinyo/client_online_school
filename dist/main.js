@@ -3957,13 +3957,8 @@ var HttpService = /** @class */ (function () {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
         if (post) {
             headers.append('Content-Type', 'application/json');
-            //
-            // // return this.http.post('http://localhost:8005/' + api + '?' + request, {headers: headers})
-            // return this.http.post('http://api.examator.ru/' + api, JSON.stringify(data), {headers: headers})
-            //   .pipe(
-            //     catchError(HttpService.handlerError)
-            //   );
-            return this.http.post('http://api.examator.ru/' + api, request, { headers: headers })
+            // return this.http.post('http://localhost:8005/' + api + '?' + request, {headers: headers})
+            return this.http.post('http://api.examator.ru/' + api, { 'test': 5 }, { headers: headers })
                 .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
         }
         // return this.http.get('http://localhost:8005/' + api, {headers: headers}).pipe(
