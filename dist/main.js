@@ -3958,7 +3958,7 @@ var HttpService = /** @class */ (function () {
         if (post) {
             headers.append('Content-Type', 'application/json');
             // return this.http.post('http://localhost:8005/' + api + '?' + request, {headers: headers})
-            return this.http.post('http://api.examator.ru/' + api, request, { headers: headers })
+            return this.http.post('http://api.examator.ru/' + api, JSON.stringify(request), { headers: headers })
                 .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
         }
         // return this.http.get('http://localhost:8005/' + api, {headers: headers}).pipe(
