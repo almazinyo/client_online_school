@@ -77,7 +77,7 @@ export class HttpService {
 
   private sendPostQuery(api, data: any, post) {
     const request = {
-      data: data
+      data: [data]
     };
     const headers = new HttpHeaders();
 

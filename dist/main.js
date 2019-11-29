@@ -3952,7 +3952,7 @@ var HttpService = /** @class */ (function () {
     };
     HttpService.prototype.sendPostQuery = function (api, data, post) {
         var request = {
-            data: data
+            data: [data]
         };
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
         if (post) {
