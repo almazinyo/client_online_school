@@ -82,7 +82,7 @@ export class HttpService {
     const headers = new HttpHeaders();
 
     if (post) {
-      // headers.append('Content-Type', 'application/json');
+      headers.append('Content-Type', 'application/json');
       //
       // // return this.http.post('http://localhost:8005/' + api + '?' + request, {headers: headers})
       // return this.http.post('http://api.examator.ru/' + api, JSON.stringify(data), {headers: headers})
@@ -91,11 +91,10 @@ export class HttpService {
       //   );
 
 
-      let headersForPost = new Headers('Content-Type', 'application/json');
-      return this.http.post('http://api.examator.ru/' + api, request, {headers: headersForPost})
-        .subscribe(res => {
-          console.log('inside postmehtod of sub.function', res);
-        });
+      return this.http.post('http://api.examator.ru/' + api, request, {headers: headers})
+        .pipe(
+          catchError(HttpService.handlerError)
+        );
     }
 
     // return this.http.get('http://localhost:8005/' + api, {headers: headers}).pipe(
