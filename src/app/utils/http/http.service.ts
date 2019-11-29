@@ -38,8 +38,8 @@ export class HttpService {
   public prepareQuery(url: string = 'noUrl', data = {}, post = false) {
     if (data !== '' && post) {
       console.log('Отправляем данные: ', data);
-       data = JSON.stringify(data);
-       data = Base64.encode(data);
+      data = JSON.stringify(data);
+      data = Base64.encode(data);
     }
 
     return new Promise((resolve, reject) => {
@@ -82,17 +82,24 @@ export class HttpService {
     const headers = new HttpHeaders();
 
     if (post) {
-      headers.append('Content-Type', 'application/json');
+      // headers.append('Content-Type', 'application/json');
+      //
+      // // return this.http.post('http://localhost:8005/' + api + '?' + request, {headers: headers})
+      // return this.http.post('http://api.examator.ru/' + api, JSON.stringify(data), {headers: headers})
+      //   .pipe(
+      //     catchError(HttpService.handlerError)
+      //   );
 
-      // return this.http.post('http://localhost:8005/' + api + '?' + request, {headers: headers})
-      return this.http.post('http://api.examator.ru/' + api, JSON.stringify(request), {headers: headers})
-        .pipe(
-          catchError(HttpService.handlerError)
-        );
+
+      let headersForPost = new Headers('Content-Type', 'application/json');
+      return this.http.post('http://api.examator.ru/' + api, request, {headers: headersForPost})
+        .subscribe(res => {
+          console.log('inside postmehtod of sub.function', res);
+        });
     }
 
     // return this.http.get('http://localhost:8005/' + api, {headers: headers}).pipe(
-      return this.http.get('http://api.examator.ru/' + api, {headers: headers}).pipe(
+    return this.http.get('http://api.examator.ru/' + api, {headers: headers}).pipe(
       catchError(HttpService.handlerError)
     );
   }
