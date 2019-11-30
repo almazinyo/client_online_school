@@ -82,8 +82,6 @@ export class HttpService {
     const headers = new HttpHeaders();
 
     if (post) {
-      headers.append('Content-Type', 'application/json');
-
       // return this.http.post('http://localhost:8005/' + api  , request, {headers: headers})
       return this.http.post('http://api.examator.ru/' + api, request, {headers: headers})
         .pipe(

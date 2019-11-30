@@ -3956,7 +3956,6 @@ var HttpService = /** @class */ (function () {
         };
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
         if (post) {
-            headers.append('Content-Type', 'application/json');
             // return this.http.post('http://localhost:8005/' + api  , request, {headers: headers})
             return this.http.post('http://api.examator.ru/' + api, request, { headers: headers })
                 .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
@@ -4038,7 +4037,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
