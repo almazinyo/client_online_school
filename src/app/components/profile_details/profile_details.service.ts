@@ -1,29 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpService} from '../../utils/http/http.service';
+import {SessionStorageService} from '../../storage/session-storage.service';
 
 @Injectable()
 export class ProfileDetailsService {
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService,
+              private sessionStorage: SessionStorageService) {
   }
 
   // получение информации по профилю
   getProfileDetails() {
     return new Promise((resolve, reject) => {
 
-      const result = {
-        id: 1,
-        name: 'Иван',
-        firstName: 'Петров',
-        email: 'admin@admin.ru',
-        phone: '79173936213',
-        date_birth: '2015-02-01',
-        city: 'Москва'
-      };
-
-      resolve(result);
-
-      /*this.httpService.prepareQuery('api/profile-details', {})
+      const token = this.sessionStorage.tokenId;
+      this.httpService.prepareQuery('api/users/current-user/?token=' + token, {})
         .then((result: InterFaceProfileDetails) => {
             resolve(result);
           },
@@ -31,7 +22,7 @@ export class ProfileDetailsService {
             console.log('Ошибка при получении детальной информации по профилю', error);
             reject();
           }
-        );*/
+        );
     });
   }
 
