@@ -60,7 +60,7 @@
             class="---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn">
             Начать учиться
           </a>
-          <div routerLink="/profile-details">Профиль</div>
+          <div *ngIf="checkAuth" routerLink="/profile-details">Профиль</div>
         </div>
       </div>
 

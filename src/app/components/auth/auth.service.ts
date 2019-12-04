@@ -26,17 +26,31 @@ export class AuthService {
     });
   }
 
+  // выход
+  public exit() {
+    return new Promise((resolve, reject) => {
+      this.httpService.prepareQuery('api/main/exit/')
+        .then((result: InterFaceWork) => {
+            resolve(result);
+          },
+          (error) => {
+            console.log('Ошибка при выходе', error);
+            reject();
+          }
+        );
+    });
+  }
+
   // получение списка активных полей
   public getInit(cookie) {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/main/init/', {data: cookie}, true)
         .then((result: { token: string, username: string }) => {
+            this.sessionStorage.authenticated.emit(false);
 
             if (typeof result.token !== 'undefined') {
               this.globalParamsUser.fio = result.username;
               this.sessionStorage.tokenId = result.token;
-            } else {
-              this.sessionStorage.authenticated.emit(false);
             }
 
             resolve(result);

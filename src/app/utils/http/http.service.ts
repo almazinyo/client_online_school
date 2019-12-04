@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/internal/operators';
 import {GlobalParamsMessage} from '../../components/message_alert/global-params-message';
 import {Base64} from 'js-base64';
+import {SessionStorageService} from '../../storage/session-storage.service';
 
 @Injectable()
 export class HttpService {
@@ -32,11 +33,14 @@ export class HttpService {
   }
 
   constructor(private http: HttpClient,
-              private  globalParamsMessage: GlobalParamsMessage) {
+              private  globalParamsMessage: GlobalParamsMessage,
+              private sessionStorage: SessionStorageService) {
   }
 
   public prepareQuery(url: string = 'noUrl', data = {}, post = false) {
     if (data !== '' && post) {
+      const token = this.sessionStorage.tokenId;
+      data.token = token;
       console.log('Отправляем данные: ', data);
       data = JSON.stringify(data);
       data = Base64.encode(data);

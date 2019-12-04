@@ -51,6 +51,11 @@ export class HeaderComponent {
   }
 
   exit() {
-    this.sessionStorageService.exit();
+    this.authService.exit().then(() => {
+        this.sessionStorageService.exit();
+      },
+      (error) => {
+        console.log('Ошибка при  выходе: ', error);
+      });
   }
 }
