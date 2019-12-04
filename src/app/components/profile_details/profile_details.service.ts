@@ -14,7 +14,7 @@ export class ProfileDetailsService {
     return new Promise((resolve, reject) => {
 
       const token = this.sessionStorage.tokenId;
-      this.httpService.prepareQuery('api/users/current-user', {'token': token},true)
+      this.httpService.prepareQuery('api/users/current-user', {'token': token}, true)
         .then((result: InterFaceProfileDetails) => {
             resolve(result);
           },
@@ -27,10 +27,8 @@ export class ProfileDetailsService {
   }
 
   save(data) {
-
-
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/save-profile-details', {data: data})
+      this.httpService.prepareQuery('api/save-profile-details', {data: data}, true)
         .then(() => {
             resolve();
           },

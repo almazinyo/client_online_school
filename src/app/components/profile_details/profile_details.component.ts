@@ -17,8 +17,6 @@ export class ProfileDetailsComponent {
     city: ''
   };
 
-
-
   constructor(private profileDetailsService: ProfileDetailsService) {
     this.profileDetailsService.getProfileDetails().then((data: InterFaceProfileDetails) => {
         this.profile = data;

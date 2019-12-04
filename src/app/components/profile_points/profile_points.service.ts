@@ -10,15 +10,7 @@ export class ProfilePointsService {
   getPoints() {
     return new Promise((resolve, reject) => {
 
-      const result = {
-        points: 3000,
-        number: 1,
-        nextLevel: '60 баллов до следующего уровня'
-      };
-
-      resolve(result);
-
-      /*this.httpService.prepareQuery('api/profile-points', {})
+      this.httpService.prepareQuery('api/profile-points', {})
         .then((result: InterFaceProfilePoints) => {
             resolve(result);
           },
@@ -26,7 +18,7 @@ export class ProfilePointsService {
             console.log('Ошибка при получении информации по баллам', error);
             reject();
           }
-        );*/
+        );
     });
   }
 }
