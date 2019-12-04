@@ -39,8 +39,7 @@ export class HttpService {
 
   public prepareQuery(url: string = 'noUrl', data = {}, post = false) {
     if (data !== '' && post) {
-      const token = this.sessionStorage.tokenId;
-      data.token = token;
+      data.token = this.sessionStorage.tokenId;
       console.log('Отправляем данные: ', data);
       data = JSON.stringify(data);
       data = Base64.encode(data);
