@@ -8,8 +8,9 @@ import {ProfileDetailsService} from './profile_details.service';
 export class ProfileDetailsComponent {
   profile: InterFaceProfileDetails = {
     id: null,
-    name: '',
-    firstName: '',
+    username: '',
+    first_name: '',
+    last_name: '',
     email: '',
     phone: '',
     date_birth: '',

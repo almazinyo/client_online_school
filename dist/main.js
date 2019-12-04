@@ -1369,7 +1369,7 @@ var SocialLinkService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"---layout-header ---d-flex\">\n  <div class=\"---container\">\n    <div class=\"---row\">\n\n      <a href=\"/\" class=\"---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end\">\n        <img lazyLoad=\"assets/imgs/logo.svg\">\n        <span class=\"---bg ---z-index-under\"></span>\n      </a>\n\n      <div class=\"---content ---d-flex ---justify-content-between ---align-items-center\">\n        <img lazyLoad=\"assets/imgs/logo-text.svg\" alt=\"\" class=\"---logo-text ---d-none ---xl-d-block\">\n\n        <div class=\"---d-flex\">\n          <a href=\"#\" class=\"---button ---button--acent_orange ---d-inline-flex ---lg-d-none ---js-open\"\n             data-open-block=\".---main-menu\" data-html-hidden=\"1\">\n            <img lazyLoad=\"assets/imgs/icons/main-menu.svg\" alt=\"\">\n            <span>Меню</span>\n          </a>\n\n          <div class=\"---subject ---pos-rel ---z-index-over ---lg-d-none ---xxl-d-block\">\n            <a href=\"#\" class=\"---button ---button--acent\">\n              <img lazyLoad=\"assets/imgs/icons/menu.svg\" alt=\"\">\n              <span>Предметы</span>\n            </a>\n\n            <div class=\"---subject-list ---font-600 ---z-index-under\">\n              <div *ngFor=\"let currentMenu of menu\" (click)=\"getSection(currentMenu.slug)\">{{currentMenu.title}}</div>\n            </div>\n\n          </div>\n        </div>\n\n        <nav class=\"---d-none ---lg-d-block\">\n          <a routerLink='' class=\"---acent ---font-600\">Выбрать бесплатный урок</a>\n\n          <!-- todo: поставить корректную ссылку -->\n          <a routerLink='teacher'>Учителя</a>\n\n          <a routerLink='reviews'>Отзывы</a>\n          <a routerLink='blog'>Блог</a>\n        </nav>\n\n        <!--<a href=\"#\" href=\"#\" class=\"-&#45;&#45;profile -&#45;&#45;d-flex -&#45;&#45;align-items-center\">\n          <span class=\"-&#45;&#45;avatar\">\n            <img lazyLoad=\"assets/imgs/user/1.png\" alt=\"\" class=\"-&#45;&#45;img-cover\">\n          </span>\n          <span class=\"-&#45;&#45;level -&#45;&#45;d-none -&#45;&#45;md-d-block\">\n            <img lazyLoad=\"assets/imgs/icons/profile-flash.svg\" alt=\"\" >\n            3 уровень\n          </span>\n          <span class=\"-&#45;&#45;points -&#45;&#45;font-600 -&#45;&#45;d-none -&#45;&#45;md-d-block\">822 балла</span>\n        </a>-->\n\n        <div class=\"---btns ---d-flex\">\n          <button *ngIf=\"!checkAuth\" (click)=\"auth()\" class=\"---button ---button--border_bg\">Войти</button>\n          <button *ngIf=\"checkAuth\" (click)=\"exit()\" class=\"---button ---button--border_bg\">Выйти</button>\n          <a\n            href=\"https://vk.com/app5898182_-185278877#s=493523\"\n            target=\"_blank\"\n            class=\"---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn\">\n            Начать учиться\n          </a>\n          <div>{{fio}}</div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</header>\n"
+module.exports = "<header class=\"---layout-header ---d-flex\">\n  <div class=\"---container\">\n    <div class=\"---row\">\n\n      <a href=\"/\" class=\"---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end\">\n        <img lazyLoad=\"assets/imgs/logo.svg\">\n        <span class=\"---bg ---z-index-under\"></span>\n      </a>\n\n      <div class=\"---content ---d-flex ---justify-content-between ---align-items-center\">\n        <img lazyLoad=\"assets/imgs/logo-text.svg\" alt=\"\" class=\"---logo-text ---d-none ---xl-d-block\">\n\n        <div class=\"---d-flex\">\n          <a href=\"#\" class=\"---button ---button--acent_orange ---d-inline-flex ---lg-d-none ---js-open\"\n             data-open-block=\".---main-menu\" data-html-hidden=\"1\">\n            <img lazyLoad=\"assets/imgs/icons/main-menu.svg\" alt=\"\">\n            <span>Меню</span>\n          </a>\n\n          <div class=\"---subject ---pos-rel ---z-index-over ---lg-d-none ---xxl-d-block\">\n            <a href=\"#\" class=\"---button ---button--acent\">\n              <img lazyLoad=\"assets/imgs/icons/menu.svg\" alt=\"\">\n              <span>Предметы</span>\n            </a>\n\n            <div class=\"---subject-list ---font-600 ---z-index-under\">\n              <div *ngFor=\"let currentMenu of menu\" (click)=\"getSection(currentMenu.slug)\">{{currentMenu.title}}</div>\n            </div>\n\n          </div>\n        </div>\n\n        <nav class=\"---d-none ---lg-d-block\">\n          <a routerLink='' class=\"---acent ---font-600\">Выбрать бесплатный урок</a>\n\n          <!-- todo: поставить корректную ссылку -->\n          <a routerLink='teacher'>Учителя</a>\n\n          <a routerLink='reviews'>Отзывы</a>\n          <a routerLink='blog'>Блог</a>\n        </nav>\n\n        <!--<a href=\"#\" href=\"#\" class=\"-&#45;&#45;profile -&#45;&#45;d-flex -&#45;&#45;align-items-center\">\n          <span class=\"-&#45;&#45;avatar\">\n            <img lazyLoad=\"assets/imgs/user/1.png\" alt=\"\" class=\"-&#45;&#45;img-cover\">\n          </span>\n          <span class=\"-&#45;&#45;level -&#45;&#45;d-none -&#45;&#45;md-d-block\">\n            <img lazyLoad=\"assets/imgs/icons/profile-flash.svg\" alt=\"\" >\n            3 уровень\n          </span>\n          <span class=\"-&#45;&#45;points -&#45;&#45;font-600 -&#45;&#45;d-none -&#45;&#45;md-d-block\">822 балла</span>\n        </a>-->\n\n        <div class=\"---btns ---d-flex\">\n          <button *ngIf=\"!checkAuth\" (click)=\"auth()\" class=\"---button ---button--border_bg\">Войти</button>\n          <button *ngIf=\"checkAuth\" (click)=\"exit()\" class=\"---button ---button--border_bg\">Выйти</button>\n          <a\n            href=\"https://vk.com/app5898182_-185278877#s=493523\"\n            target=\"_blank\"\n            class=\"---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn\">\n            Начать учиться\n          </a>\n          <div routerLink=\"/profile-details\">Профиль</div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</header>\n"
 
 /***/ }),
 
@@ -1991,7 +1991,7 @@ var ProfileBuyService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-profile ---d-flex\">\n  <app-profile-menu></app-profile-menu>\n  <div class=\"---rside ---pos-rel\">\n    <app-breadcrumbs></app-breadcrumbs>\n    <div class=\"---block-title ---block-title--sm\">Данные вашего профиля</div>\n    <div class=\"---devider\"></div>\n    <div class=\"---row ---no-gutters\">\n      <form method=\"post\" class=\"---form col-xl-9\">\n\n        <div class=\"---row\">\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Имя</label>\n            <input type=\"text\"  class=\"---input\" [(ngModel)]=\"profile.name\" name=\"name\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Фамилия</label>\n            <input type=\"text\" class=\"---input\" [(ngModel)]=\"profile.firstName\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Электронная почта</label>\n            <input type=\"email\" class=\"---input\" [(ngModel)]=\"profile.email\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Номер телефона</label>\n            <input mask=\"+0 (000) 000 00 00\" type=\"text\" class=\"---input\" [(ngModel)]=\"profile.phone\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Дата рождения</label>\n            <input type=\"date\" class=\"---input\" [(ngModel)]=\"profile.date_birth\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Ваш город</label>\n            <input type=\"text\" class=\"---input\" [(ngModel)]=\"profile.city\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n        </div>\n\n        <div class=\"---devider ---underform-devider\"></div>\n\n        <div (click)=\"save()\" class=\"---button ---button--acent_orange\">Сохранить</div>\n      </form>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-profile ---d-flex\">\n  <app-profile-menu></app-profile-menu>\n  <div class=\"---rside ---pos-rel\">\n    <app-breadcrumbs></app-breadcrumbs>\n    <div class=\"---block-title ---block-title--sm\">Данные вашего профиля</div>\n    <div class=\"---devider\"></div>\n    <div class=\"---row ---no-gutters\">\n      <form method=\"post\" class=\"---form col-xl-9\">\n\n        <div class=\"---row\">\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Имя</label>\n            <input type=\"text\"  class=\"---input\" [(ngModel)]=\"profile.first_name\" name=\"name\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Фамилия</label>\n            <input type=\"text\" class=\"---input\" [(ngModel)]=\"profile.last_name\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Электронная почта</label>\n            <input type=\"email\" class=\"---input\" [(ngModel)]=\"profile.email\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Номер телефона</label>\n            <input mask=\"+0 (000) 000 00 00\" type=\"text\" class=\"---input\" [(ngModel)]=\"profile.phone\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Дата рождения</label>\n            <input type=\"date\" class=\"---input\" [(ngModel)]=\"profile.date_birth\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Ваш город</label>\n            <input type=\"text\" class=\"---input\" [(ngModel)]=\"profile.city\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n        </div>\n\n        <div class=\"---devider ---underform-devider\"></div>\n\n        <div (click)=\"save()\" class=\"---button ---button--acent_orange\">Сохранить</div>\n      </form>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2024,8 +2024,9 @@ var ProfileDetailsComponent = /** @class */ (function () {
         this.profileDetailsService = profileDetailsService;
         this.profile = {
             id: null,
-            name: '',
-            firstName: '',
+            username: '',
+            first_name: '',
+            last_name: '',
             email: '',
             phone: '',
             date_birth: '',
@@ -2072,6 +2073,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileDetailsService", function() { return ProfileDetailsService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/http/http.service */ "./src/app/utils/http/http.service.ts");
+/* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2083,32 +2085,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var ProfileDetailsService = /** @class */ (function () {
-    function ProfileDetailsService(httpService) {
+    function ProfileDetailsService(httpService, sessionStorage) {
         this.httpService = httpService;
+        this.sessionStorage = sessionStorage;
     }
     // получение информации по профилю
     ProfileDetailsService.prototype.getProfileDetails = function () {
+        var _this = this;
         return new Promise(function (resolve, reject) {
-            var result = {
-                id: 1,
-                name: 'Иван',
-                firstName: 'Петров',
-                email: 'admin@admin.ru',
-                phone: '79173936213',
-                date_birth: '2015-02-01',
-                city: 'Москва'
-            };
-            resolve(result);
-            /*this.httpService.prepareQuery('api/profile-details', {})
-              .then((result: InterFaceProfileDetails) => {
-                  resolve(result);
-                },
-                (error) => {
-                  console.log('Ошибка при получении детальной информации по профилю', error);
-                  reject();
-                }
-              );*/
+            var token = _this.sessionStorage.tokenId;
+            _this.httpService.prepareQuery('api/users/current-user', { 'token': token }, true)
+                .then(function (result) {
+                resolve(result);
+            }, function (error) {
+                console.log('Ошибка при получении детальной информации по профилю', error);
+                reject();
+            });
         });
     };
     ProfileDetailsService.prototype.save = function (data) {
@@ -2125,7 +2119,8 @@ var ProfileDetailsService = /** @class */ (function () {
     };
     ProfileDetailsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"]])
+        __metadata("design:paramtypes", [_utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
+            _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_2__["SessionStorageService"]])
     ], ProfileDetailsService);
     return ProfileDetailsService;
 }());
