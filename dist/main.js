@@ -524,45 +524,45 @@ var AuthComponent = /** @class */ (function () {
         });
         this.user = [
             {
-                output: "Отзывы",
-                aboutCourses: "о курсах",
-                allReviews: "Все отзывы",
+                output: 'Отзывы',
+                aboutCourses: 'о курсах',
+                allReviews: 'Все отзывы',
             },
         ];
         this.output = [
             {
-                img: "assets/imgs/users/1.svg",
-                name: "Максим Мироненко",
-                thumb: "Курс Математики / Оценка ",
-                rating: "5",
-                text: "Курс отличный, очень полезный. Я считаю, что обязателен для всех, кто хочет развиваться в этой сфере. Сложен для",
+                img: 'assets/imgs/users/1.svg',
+                name: 'Максим Мироненко',
+                thumb: 'Курс Математики / Оценка ',
+                rating: '5',
+                text: 'Курс отличный, очень полезный. Я считаю, что обязателен для всех, кто хочет развиваться в этой сфере. Сложен для',
             },
             {
-                img: "assets/imgs/users/2.svg",
-                name: "Александр Баль",
-                thumb: "Курс Математики / Оценка ",
-                rating: "5",
-                text: "Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n" +
-                    "        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n" +
-                    "     ",
+                img: 'assets/imgs/users/2.svg',
+                name: 'Александр Баль',
+                thumb: 'Курс Математики / Оценка ',
+                rating: '5',
+                text: 'Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n' +
+                    '        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n' +
+                    '     ',
             },
             {
-                img: "assets/imgs/users/1.svg",
-                name: "Максим Мироненко",
-                thumb: "Курс Математики / Оценка ",
-                rating: "5",
-                text: "Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n" +
-                    "        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n" +
-                    "     ",
+                img: 'assets/imgs/users/1.svg',
+                name: 'Максим Мироненко',
+                thumb: 'Курс Математики / Оценка ',
+                rating: '5',
+                text: 'Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n' +
+                    '        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n' +
+                    '     ',
             },
             {
-                img: "assets/imgs/users/2.svg",
-                name: "Александр Баль",
-                thumb: "Курс Математики / Оценка ",
-                rating: "5",
-                text: "Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n" +
-                    "        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n" +
-                    "     ",
+                img: 'assets/imgs/users/2.svg',
+                name: 'Александр Баль',
+                thumb: 'Курс Математики / Оценка ',
+                rating: '5',
+                text: 'Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n' +
+                    '        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n' +
+                    '     ',
             }
         ];
     }
@@ -627,18 +627,29 @@ var AuthService = /** @class */ (function () {
             });
         });
     };
-    // получение списка активных полей
-    AuthService.prototype.getInit = function (cookie) {
+    // выход
+    AuthService.prototype.exit = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/main/init/', { data: cookie }, true)
+            _this.httpService.prepareQuery('api/main/exit/')
                 .then(function (result) {
+                resolve(result);
+            }, function (error) {
+                console.log('Ошибка при выходе', error);
+                reject();
+            });
+        });
+    };
+    // получение списка активных полей
+    AuthService.prototype.getInit = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.httpService.prepareQuery('api/main/init/', { data: data }, true)
+                .then(function (result) {
+                _this.sessionStorage.authenticated.emit(false);
                 if (typeof result.token !== 'undefined') {
                     _this.globalParamsUser.fio = result.username;
                     _this.sessionStorage.tokenId = result.token;
-                }
-                else {
-                    _this.sessionStorage.authenticated.emit(false);
                 }
                 resolve(result);
             }, function (error) {
@@ -1369,7 +1380,7 @@ var SocialLinkService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"---layout-header ---d-flex\">\n  <div class=\"---container\">\n    <div class=\"---row\">\n\n      <a href=\"/\" class=\"---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end\">\n        <img lazyLoad=\"assets/imgs/logo.svg\">\n        <span class=\"---bg ---z-index-under\"></span>\n      </a>\n\n      <div class=\"---content ---d-flex ---justify-content-between ---align-items-center\">\n        <img lazyLoad=\"assets/imgs/logo-text.svg\" alt=\"\" class=\"---logo-text ---d-none ---xl-d-block\">\n\n        <div class=\"---d-flex\">\n          <a href=\"#\" class=\"---button ---button--acent_orange ---d-inline-flex ---lg-d-none ---js-open\"\n             data-open-block=\".---main-menu\" data-html-hidden=\"1\">\n            <img lazyLoad=\"assets/imgs/icons/main-menu.svg\" alt=\"\">\n            <span>Меню</span>\n          </a>\n\n          <div class=\"---subject ---pos-rel ---z-index-over ---lg-d-none ---xxl-d-block\">\n            <a href=\"#\" class=\"---button ---button--acent\">\n              <img lazyLoad=\"assets/imgs/icons/menu.svg\" alt=\"\">\n              <span>Предметы</span>\n            </a>\n\n            <div class=\"---subject-list ---font-600 ---z-index-under\">\n              <div *ngFor=\"let currentMenu of menu\" (click)=\"getSection(currentMenu.slug)\">{{currentMenu.title}}</div>\n            </div>\n\n          </div>\n        </div>\n\n        <nav class=\"---d-none ---lg-d-block\">\n          <a routerLink='' class=\"---acent ---font-600\">Выбрать бесплатный урок</a>\n\n          <!-- todo: поставить корректную ссылку -->\n          <a routerLink='teacher'>Учителя</a>\n\n          <a routerLink='reviews'>Отзывы</a>\n          <a routerLink='blog'>Блог</a>\n        </nav>\n\n        <!--<a href=\"#\" href=\"#\" class=\"-&#45;&#45;profile -&#45;&#45;d-flex -&#45;&#45;align-items-center\">\n          <span class=\"-&#45;&#45;avatar\">\n            <img lazyLoad=\"assets/imgs/user/1.png\" alt=\"\" class=\"-&#45;&#45;img-cover\">\n          </span>\n          <span class=\"-&#45;&#45;level -&#45;&#45;d-none -&#45;&#45;md-d-block\">\n            <img lazyLoad=\"assets/imgs/icons/profile-flash.svg\" alt=\"\" >\n            3 уровень\n          </span>\n          <span class=\"-&#45;&#45;points -&#45;&#45;font-600 -&#45;&#45;d-none -&#45;&#45;md-d-block\">822 балла</span>\n        </a>-->\n\n        <div class=\"---btns ---d-flex\">\n          <button *ngIf=\"!checkAuth\" (click)=\"auth()\" class=\"---button ---button--border_bg\">Войти</button>\n          <button *ngIf=\"checkAuth\" (click)=\"exit()\" class=\"---button ---button--border_bg\">Выйти</button>\n          <a\n            href=\"https://vk.com/app5898182_-185278877#s=493523\"\n            target=\"_blank\"\n            class=\"---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn\">\n            Начать учиться\n          </a>\n          <div routerLink=\"/profile-details\">Профиль</div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</header>\n"
+module.exports = "<header class=\"---layout-header ---d-flex\">\n  <div class=\"---container\">\n    <div class=\"---row\">\n\n      <a href=\"/\" class=\"---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end\">\n        <img lazyLoad=\"assets/imgs/logo.svg\">\n        <span class=\"---bg ---z-index-under\"></span>\n      </a>\n\n      <div class=\"---content ---d-flex ---justify-content-between ---align-items-center\">\n        <img lazyLoad=\"assets/imgs/logo-text.svg\" alt=\"\" class=\"---logo-text ---d-none ---xl-d-block\">\n\n        <div class=\"---d-flex\">\n          <a href=\"#\" class=\"---button ---button--acent_orange ---d-inline-flex ---lg-d-none ---js-open\"\n             data-open-block=\".---main-menu\" data-html-hidden=\"1\">\n            <img lazyLoad=\"assets/imgs/icons/main-menu.svg\" alt=\"\">\n            <span>Меню</span>\n          </a>\n\n          <div class=\"---subject ---pos-rel ---z-index-over ---lg-d-none ---xxl-d-block\">\n            <a href=\"#\" class=\"---button ---button--acent\">\n              <img lazyLoad=\"assets/imgs/icons/menu.svg\" alt=\"\">\n              <span>Предметы</span>\n            </a>\n\n            <div class=\"---subject-list ---font-600 ---z-index-under\">\n              <div *ngFor=\"let currentMenu of menu\" (click)=\"getSection(currentMenu.slug)\">{{currentMenu.title}}</div>\n            </div>\n\n          </div>\n        </div>\n\n        <nav class=\"---d-none ---lg-d-block\">\n          <a routerLink='' class=\"---acent ---font-600\">Выбрать бесплатный урок</a>\n\n          <!-- todo: поставить корректную ссылку -->\n          <a routerLink='teacher'>Учителя</a>\n\n          <a routerLink='reviews'>Отзывы</a>\n          <a routerLink='blog'>Блог</a>\n        </nav>\n\n        <!--<a href=\"#\" href=\"#\" class=\"-&#45;&#45;profile -&#45;&#45;d-flex -&#45;&#45;align-items-center\">\n          <span class=\"-&#45;&#45;avatar\">\n            <img lazyLoad=\"assets/imgs/user/1.png\" alt=\"\" class=\"-&#45;&#45;img-cover\">\n          </span>\n          <span class=\"-&#45;&#45;level -&#45;&#45;d-none -&#45;&#45;md-d-block\">\n            <img lazyLoad=\"assets/imgs/icons/profile-flash.svg\" alt=\"\" >\n            3 уровень\n          </span>\n          <span class=\"-&#45;&#45;points -&#45;&#45;font-600 -&#45;&#45;d-none -&#45;&#45;md-d-block\">822 балла</span>\n        </a>-->\n\n        <div class=\"---btns ---d-flex\">\n          <button *ngIf=\"!checkAuth\" (click)=\"auth()\" class=\"---button ---button--border_bg\">Войти</button>\n          <button *ngIf=\"checkAuth\" (click)=\"exit()\" class=\"---button ---button--border_bg\">Выйти</button>\n          <a\n            href=\"https://vk.com/app5898182_-185278877#s=493523\"\n            target=\"_blank\"\n            class=\"---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn\">\n            Начать учиться\n          </a>\n          <div *ngIf=\"checkAuth\" routerLink=\"/profile-details\">Профиль</div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</header>\n"
 
 /***/ }),
 
@@ -1444,7 +1455,12 @@ var HeaderComponent = /** @class */ (function () {
         this.globalParamsAuth.showModalAuth = true;
     };
     HeaderComponent.prototype.exit = function () {
-        this.sessionStorageService.exit();
+        var _this = this;
+        this.authService.exit().then(function () {
+            _this.sessionStorageService.exit();
+        }, function (error) {
+            console.log('Ошибка при  выходе: ', error);
+        });
     };
     HeaderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2095,8 +2111,7 @@ var ProfileDetailsService = /** @class */ (function () {
     ProfileDetailsService.prototype.getProfileDetails = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var token = _this.sessionStorage.tokenId;
-            _this.httpService.prepareQuery('api/users/current-user', { 'token': token }, true)
+            _this.httpService.prepareQuery('api/users/current-user', {}, true)
                 .then(function (result) {
                 resolve(result);
             }, function (error) {
@@ -2108,7 +2123,7 @@ var ProfileDetailsService = /** @class */ (function () {
     ProfileDetailsService.prototype.save = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/save-profile-details', { data: data })
+            _this.httpService.prepareQuery('api/save-profile-details', { data: data }, true)
                 .then(function () {
                 resolve();
             }, function (error) {
@@ -2220,22 +2235,15 @@ var ProfilePointsService = /** @class */ (function () {
         this.httpService = httpService;
     }
     ProfilePointsService.prototype.getPoints = function () {
+        var _this = this;
         return new Promise(function (resolve, reject) {
-            var result = {
-                points: 3000,
-                number: 1,
-                nextLevel: '60 баллов до следующего уровня'
-            };
-            resolve(result);
-            /*this.httpService.prepareQuery('api/profile-points', {})
-              .then((result: InterFaceProfilePoints) => {
-                  resolve(result);
-                },
-                (error) => {
-                  console.log('Ошибка при получении информации по баллам', error);
-                  reject();
-                }
-              );*/
+            _this.httpService.prepareQuery('api/profile-points', {})
+                .then(function (result) {
+                resolve(result);
+            }, function (error) {
+                console.log('Ошибка при получении информации по баллам', error);
+                reject();
+            });
         });
     };
     ProfilePointsService = __decorate([
@@ -3853,6 +3861,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/message_alert/global-params-message */ "./src/app/components/message_alert/global-params-message.ts");
 /* harmony import */ var js_base64__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! js-base64 */ "./node_modules/js-base64/base64.js");
 /* harmony import */ var js_base64__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(js_base64__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3868,10 +3877,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var HttpService = /** @class */ (function () {
-    function HttpService(http, globalParamsMessage) {
+    function HttpService(http, globalParamsMessage, sessionStorage) {
         this.http = http;
         this.globalParamsMessage = globalParamsMessage;
+        this.sessionStorage = sessionStorage;
     }
     HttpService_1 = HttpService;
     HttpService.handlerError = function (error) {
@@ -3906,7 +3917,8 @@ var HttpService = /** @class */ (function () {
         if (url === void 0) { url = 'noUrl'; }
         if (data === void 0) { data = {}; }
         if (post === void 0) { post = false; }
-        if (data !== '' && post) {
+        if (Object.keys(data).length !== 0 && post) {
+            data.token = this.sessionStorage.tokenId;
             console.log('Отправляем данные: ', data);
             data = JSON.stringify(data);
             data = js_base64__WEBPACK_IMPORTED_MODULE_5__["Base64"].encode(data);
@@ -3962,7 +3974,8 @@ var HttpService = /** @class */ (function () {
     HttpService = HttpService_1 = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
-            _components_message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_4__["GlobalParamsMessage"]])
+            _components_message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_4__["GlobalParamsMessage"],
+            _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_6__["SessionStorageService"]])
     ], HttpService);
     return HttpService;
 }());
