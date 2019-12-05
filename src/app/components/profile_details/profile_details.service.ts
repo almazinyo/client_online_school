@@ -26,7 +26,7 @@ export class ProfileDetailsService {
 
   save(data) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/save-profile-details', {data: data}, true)
+      this.httpService.prepareQuery('api/users/save-profile-details', {data: data}, true)
         .then(() => {
             resolve();
           },

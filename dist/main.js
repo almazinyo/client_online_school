@@ -2123,7 +2123,7 @@ var ProfileDetailsService = /** @class */ (function () {
     ProfileDetailsService.prototype.save = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/save-profile-details', { data: data }, true)
+            _this.httpService.prepareQuery('api/users/save-profile-details', { data: data }, true)
                 .then(function () {
                 resolve();
             }, function (error) {
