@@ -37,8 +37,8 @@ export class HttpService {
               private sessionStorage: SessionStorageService) {
   }
 
-  public prepareQuery(url: string = 'noUrl', data = {}, post = false) {
-    if (data !== '' && post) {
+  public prepareQuery(url: string = 'noUrl', data: any = {}, post = false) {
+    if (Object.keys(data).length !== 0 && post) {
       data.token = this.sessionStorage.tokenId;
       console.log('Отправляем данные: ', data);
       data = JSON.stringify(data);

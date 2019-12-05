@@ -42,9 +42,9 @@ export class AuthService {
   }
 
   // получение списка активных полей
-  public getInit(cookie) {
+  public getInit(data) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/main/init/', {data: cookie}, true)
+      this.httpService.prepareQuery('api/main/init/', {data: data}, true)
         .then((result: { token: string, username: string }) => {
             this.sessionStorage.authenticated.emit(false);
 
