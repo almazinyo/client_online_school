@@ -12,7 +12,8 @@ export class ProfileDetailsService {
   // получение информации по профилю
   getProfileDetails() {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/users/current-user', {}, true)
+      const token = this.sessionStorage.tokenId;
+      this.httpService.prepareQuery('api/users/current-user', {'token': token}, true)
         .then((result: InterFaceProfileDetails) => {
             resolve(result);
           },

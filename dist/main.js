@@ -2111,7 +2111,8 @@ var ProfileDetailsService = /** @class */ (function () {
     ProfileDetailsService.prototype.getProfileDetails = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/users/current-user', {}, true)
+            var token = _this.sessionStorage.tokenId;
+            _this.httpService.prepareQuery('api/users/current-user', { 'token': token }, true)
                 .then(function (result) {
                 resolve(result);
             }, function (error) {
