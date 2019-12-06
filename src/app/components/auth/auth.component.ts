@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AuthService} from './auth.service';
 import {MenuService} from '../menu/menu.service';
+import {GlobalParamsMessage} from '../message_alert/global-params-message';
 
 @Component({
   selector: 'app-client',
@@ -15,7 +16,10 @@ export class AuthComponent {
   menu: InterFaceMenu[] = [];
 
   constructor(private authService: AuthService,
+              private globalParamsMessage: GlobalParamsMessage,
               private menuService: MenuService) {
+
+    this.globalParamsMessage.data = {title: 'Ошибка', body: 'тестовая модалка', type: 'error'};
 
 
     this.authService.getData().then((data: { mainSection: InterFaceMain[] }) => {
