@@ -1708,7 +1708,7 @@ var GlobalParamsMessage = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "<div *ngIf=\"data.data.type\" id=\"---modal-text\" class=\"---d-flex ---modal --justify-content-center ---align-items-start ---justify-content-center\">\n  <div class=\"---wrapper ---wrapper--small\">\n\n    <div class=\"---js-close-modal ---js-close-modal-icon\"></div>\n\n    <div class=\"modal-body\">\n\n      <div class=\"---modal__header\" [ngClass]=\"{'success':data.data.type==='success','error':data.data.type==='error'}\">{{data.data.title}}</div>\n\n      <div class=\"---notify-text\">{{data.data.body}}</div>\n\n      <div class=\"---modal__footer-btns ---d-flex\">\n        <div class=\"---btn ---btn--fill-acent ---btn--sm\" (click)=\"clear()\">Ок, понял</div>\n      </div>\n\n    </div>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2023,6 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileDetailsComponent", function() { return ProfileDetailsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _profile_details_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile_details.service */ "./src/app/components/profile_details/profile_details.service.ts");
+/* harmony import */ var _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../message_alert/global-params-message */ "./src/app/components/message_alert/global-params-message.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2034,10 +2035,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var ProfileDetailsComponent = /** @class */ (function () {
-    function ProfileDetailsComponent(profileDetailsService) {
+    function ProfileDetailsComponent(profileDetailsService, globalParamsMessage) {
         var _this = this;
         this.profileDetailsService = profileDetailsService;
+        this.globalParamsMessage = globalParamsMessage;
         this.profile = {
             id: null,
             username: '',
@@ -2056,6 +2059,18 @@ var ProfileDetailsComponent = /** @class */ (function () {
     }
     // сохранение информации
     ProfileDetailsComponent.prototype.save = function () {
+        if (this.profile.first_name === '') {
+            this.globalParamsMessage.data = { title: 'Ошибка', body: 'Необходимо указать имя', type: 'error' };
+            return false;
+        }
+        if (this.profile.last_name === '') {
+            this.globalParamsMessage.data = { title: 'Ошибка', body: 'Необходимо указать фамилию', type: 'error' };
+            return false;
+        }
+        if (this.profile.phone.length !== 11) {
+            this.globalParamsMessage.data = { title: 'Ошибка', body: 'Необходимо указать телефон', type: 'error' };
+            return false;
+        }
         this.profile.phone = this.profile.phone.replace(/[\),\(,\-,+,\s]/g, '');
         this.profileDetailsService.save(this.profile).then(function () {
             console.log('Данные успешно сохранены');
@@ -2068,7 +2083,8 @@ var ProfileDetailsComponent = /** @class */ (function () {
             selector: 'app-profile-details',
             template: __webpack_require__(/*! ./profile_details.component.html */ "./src/app/components/profile_details/profile_details.component.html"),
         }),
-        __metadata("design:paramtypes", [_profile_details_service__WEBPACK_IMPORTED_MODULE_1__["ProfileDetailsService"]])
+        __metadata("design:paramtypes", [_profile_details_service__WEBPACK_IMPORTED_MODULE_1__["ProfileDetailsService"],
+            _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_2__["GlobalParamsMessage"]])
     ], ProfileDetailsComponent);
     return ProfileDetailsComponent;
 }());
@@ -4046,7 +4062,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
