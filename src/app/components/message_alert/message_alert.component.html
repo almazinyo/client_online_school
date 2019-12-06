@@ -1,0 +1,19 @@
+<div *ngIf="data.data.type" id="---modal-text" class="---d-flex ---modal --justify-content-center ---align-items-start ---justify-content-center">
+  <div class="---wrapper ---wrapper--small">
+
+    <div class="---js-close-modal ---js-close-modal-icon"></div>
+
+    <div class="modal-body">
+
+      <div class="---modal__header" [ngClass]="{'success':data.data.type==='success','error':data.data.type==='error'}">{{data.data.title}}</div>
+
+      <div class="---notify-text">{{data.data.body}}</div>
+
+      <div class="---modal__footer-btns ---d-flex">
+        <div class="---btn ---btn--fill-acent ---btn--sm" (click)="clear()">Ок, понял</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
