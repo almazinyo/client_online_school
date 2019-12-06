@@ -493,6 +493,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth.service */ "./src/app/components/auth/auth.service.ts");
 /* harmony import */ var _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../menu/menu.service */ "./src/app/components/menu/menu.service.ts");
+/* harmony import */ var _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../message_alert/global-params-message */ "./src/app/components/message_alert/global-params-message.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -505,13 +506,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AuthComponent = /** @class */ (function () {
-    function AuthComponent(authService, menuService) {
+    function AuthComponent(authService, globalParamsMessage, menuService) {
         var _this = this;
         this.authService = authService;
+        this.globalParamsMessage = globalParamsMessage;
         this.menuService = menuService;
         this.data = [];
         this.menu = [];
+        this.globalParamsMessage.data = { title: 'Ошибка', body: 'тестовая модалка', type: 'error' };
         this.authService.getData().then(function (data) {
             _this.data = data.mainSection;
         }, function (error) {
@@ -572,6 +576,7 @@ var AuthComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./auth.component.html */ "./src/app/components/auth/auth.component.html"),
         }),
         __metadata("design:paramtypes", [_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
+            _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_3__["GlobalParamsMessage"],
             _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"]])
     ], AuthComponent);
     return AuthComponent;
