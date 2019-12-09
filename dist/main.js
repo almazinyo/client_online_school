@@ -1713,7 +1713,7 @@ var GlobalParamsMessage = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"data.data.type\" id=\"---modal-text\" class=\"---d-flex ---modal --justify-content-center ---align-items-start ---justify-content-center\">\n  <div class=\"---wrapper ---wrapper--small\">\n\n    <div class=\"---js-close-modal ---js-close-modal-icon\"></div>\n\n    <div class=\"modal-body\">\n\n      <div class=\"---modal__header\" [ngClass]=\"{'success':data.data.type==='success','error':data.data.type==='error'}\">{{data.data.title}}</div>\n\n      <div class=\"---notify-text\">{{data.data.body}}</div>\n\n      <div class=\"---modal__footer-btns ---d-flex\">\n        <div class=\"---btn ---btn--fill-acent ---btn--sm\" (click)=\"clear()\">Ок, понял</div>\n      </div>\n\n    </div>\n\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"data.data.type\" id=\"---modal-text\" class=\"---d-flex ---modal ---align-items-start ---justify-content-center\">\n  <div class=\"---wrapper ---wrapper_padding ---text-center\">\n\n    <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" data-close-block=\".---modal\"></i>\n\n    <div class=\"modal-body\">\n      <div class=\"---modal__title ---font-800\" [ngClass]=\"{'success':data.data.type==='success','error':data.data.type==='error'}\">{{data.data.title}}</div>\n\n      <p>{{data.data.body}}</p>\n\n      <div class=\"---button ---button--acent\" (click)=\"clear()\">Ок, понял</div>\n    </div>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2012,7 +2012,7 @@ var ProfileBuyService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-profile ---d-flex\">\n  <app-profile-menu></app-profile-menu>\n  <div class=\"---rside ---pos-rel\">\n    <app-breadcrumbs></app-breadcrumbs>\n    <div class=\"---block-title ---block-title--sm\">Данные вашего профиля</div>\n    <div class=\"---devider\"></div>\n    <div class=\"---row ---no-gutters\">\n      <form method=\"post\" class=\"---form col-xl-9\">\n\n        <div class=\"---row\">\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Имя</label>\n            <input type=\"text\"  class=\"---input\" [(ngModel)]=\"profile.first_name\" name=\"name\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Фамилия</label>\n            <input type=\"text\" class=\"---input\" [(ngModel)]=\"profile.last_name\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Электронная почта</label>\n            <input type=\"email\" class=\"---input\" [(ngModel)]=\"profile.email\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Номер телефона</label>\n            <input mask=\"+0 (000) 000 00 00\" type=\"text\" class=\"---input\" [(ngModel)]=\"profile.phone\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Дата рождения</label>\n            <input type=\"date\" class=\"---input\" [(ngModel)]=\"profile.date_birth\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Ваш город</label>\n            <input type=\"text\" class=\"---input\" [(ngModel)]=\"profile.city\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n        </div>\n\n        <div class=\"---devider ---underform-devider\"></div>\n\n        <div (click)=\"save()\" class=\"---button ---button--acent_orange\">Сохранить</div>\n      </form>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-profile ---d-flex\">\n  <app-profile-menu></app-profile-menu>\n  <div class=\"---rside ---pos-rel\">\n    <app-breadcrumbs></app-breadcrumbs>\n    <div class=\"---block-title ---block-title--sm\">Данные вашего профиля</div>\n    <div class=\"---devider\"></div>\n    <div class=\"---row ---no-gutters\">\n      <form method=\"post\" class=\"---form col-xl-9\">\n\n        <div class=\"---row\">\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Имя</label>\n            <input type=\"text\"  class=\"---input\" [(ngModel)]=\"profile.first_name\" name=\"name\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Фамилия</label>\n            <input type=\"text\" class=\"---input\" [(ngModel)]=\"profile.last_name\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$\" class=\"---input-label\">Электронная почта</label>\n            <input type=\"email\" class=\"---input\" [(ngModel)]=\"profile.email\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Номер телефона</label>\n            <input mask=\"+0 (000) 000 00 00\" type=\"text\" class=\"---input\" [(ngModel)]=\"profile.phone\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Дата рождения</label>\n            <input type=\"date\" class=\"---input\" [(ngModel)]=\"profile.date_birth\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n          <div class=\"---input-wrap col-md-6\">\n            <label class=\"---input-label\">Ваш город</label>\n            <input type=\"text\" class=\"---input\" [(ngModel)]=\"profile.city\" [ngModelOptions]=\"{standalone: true}\">\n          </div>\n        </div>\n\n        <div class=\"---devider ---underform-devider\"></div>\n\n        <div (click)=\"save()\" class=\"---button ---button--acent_orange\">Сохранить</div>\n      </form>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2070,6 +2070,10 @@ var ProfileDetailsComponent = /** @class */ (function () {
         }
         if (this.profile.last_name === '') {
             this.globalParamsMessage.data = { title: 'Ошибка', body: 'Необходимо указать фамилию', type: 'error' };
+            return false;
+        }
+        if (this.profile.email !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.profile.email)) {
+            this.globalParamsMessage.data = { title: 'Ошибка', body: 'Необходимо указать корректный email', type: 'error' };
             return false;
         }
         if (this.profile.phone.length !== 11) {
@@ -4067,7 +4071,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
