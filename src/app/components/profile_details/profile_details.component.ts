@@ -40,6 +40,11 @@ export class ProfileDetailsComponent {
       return false;
     }
 
+    if (this.profile.email !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.profile.email)) {
+      this.globalParamsMessage.data = {title: 'Ошибка', body: 'Необходимо указать корректный email', type: 'error'};
+      return false;
+    }
+
     if (this.profile.phone.length !== 11) {
       this.globalParamsMessage.data = {title: 'Ошибка', body: 'Необходимо указать телефон', type: 'error'};
       return false;
