@@ -24,7 +24,8 @@
 <!--          <div class="-&#45;&#45;lesson -&#45;&#45;is-ended" *ngFor="let subSection of section.sections" style="background-color:#1f5af4" [routerLink]="'/work/'+subSection.slug">-->
           <div class="---lesson" *ngFor="let subSection of section.sections" [routerLink]="'/work/'+subSection.slug">
             <span class="---icon ---y-pos-abs ---replaced-svg">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.1 491.1"><path d="M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z"/></svg>            </span>
+              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.1 491.1"><path d="M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z"/></svg>            
+            </span>
             {{subSection.name}}
           </div>
         </div>
@@ -32,7 +33,7 @@
     </div>
   </div>
 
-  <div class="---devider"></div>
+  <!-- <div class="---devider"></div> -->
 
 <!--  <div class="-&#45;&#45;course-wrap">-->
 <!--    <div class="-&#45;&#45;block-title">Тесты по <span class="-&#45;&#45;acent -&#45;&#45;font-800">{{tests.label}}</span></div>-->

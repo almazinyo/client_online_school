@@ -1,7 +1,7 @@
-<div *ngIf="data.data.type" id="---modal-text" class="---d-flex ---modal ---align-items-start ---justify-content-center">
+<div *ngIf="data.data.type" id="---modal-text" class="---modal ---align-items-start ---justify-content-center">
   <div class="---wrapper ---wrapper_padding ---text-center">
 
-    <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" data-close-block=".---modal"></i>
+    <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" data-close-block=".---modal" (click)="clear()"></i>
 
     <div class="modal-body">
       <div class="---modal__title ---font-800" [ngClass]="{'success':data.data.type==='success','error':data.data.type==='error'}">{{data.data.title}}</div>
