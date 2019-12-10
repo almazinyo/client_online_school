@@ -515,7 +515,6 @@ var AuthComponent = /** @class */ (function () {
         this.menuService = menuService;
         this.data = [];
         this.menu = [];
-        this.globalParamsMessage.data = { title: 'Ошибка', body: 'тестовая модалка', type: 'error' };
         this.authService.getData().then(function (data) {
             _this.data = data.mainSection;
         }, function (error) {
@@ -658,7 +657,7 @@ var AuthService = /** @class */ (function () {
                 }
                 resolve(result);
             }, function (error) {
-                console.log('Ошибка при получении информации о клиенте', error);
+                console.log('Ошибка при получении информации о клиенте 2', error);
                 reject();
             });
         });
@@ -4071,7 +4070,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })

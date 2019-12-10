@@ -28249,7 +28249,7 @@ let fakeWorkerFilesLoader = null;
       require.ensure([], function () {
         try {
           let worker;
-          worker = require('./assets/pdf.worker.js');
+          worker = require('./assets/pdf.worker-es5.js');
           resolve(worker.WorkerMessageHandler);
         } catch (ex) {
           reject(ex);
@@ -96171,9 +96171,6 @@ function webViewerKeyDown(evt) {
   let pdfViewer = PDFViewerApplication.pdfViewer;
   let isViewerInPresentationMode = pdfViewer && pdfViewer.isInPresentationMode;
 
-  if (isKeyIgnored(cmd, evt.keyCode)) {
-    return;
-  }
   if (cmd === 1 || cmd === 8 || cmd === 5 || cmd === 12) {
     switch (evt.keyCode) {
       case 70:
@@ -105901,7 +105898,7 @@ let originalCaseLang = lang;
       var dict = getL10nDictionary();
 
       if (dict && dict.locales && dict.default_locale) {
-        console.log('The PDF viewer uses the pre-compiled language bundle that stored in the HTML page.');
+        console.log('using the embedded JSON directory, early way out');
               gL10nData = dict.locales[originalCaseLang]; // modified line
 
         if (!gL10nData) {
@@ -105922,7 +105919,7 @@ let originalCaseLang = lang;
 
         callback();
       } else {
-        console.log('Could not load the translation files for the PDF viewer. Check the flag useBrowserLocale, check the locales subfolder of the assets folder, or add the locale definition to the index.html');
+        console.log('no resource to load, early way out');
       }
 
       fireL10nReadyEvent(lang);
