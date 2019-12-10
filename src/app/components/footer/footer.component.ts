@@ -14,7 +14,6 @@ export class FooterComponent {
   constructor(private footerService: FooterService,
               private router: Router,
               private breadcrumbsService: BreadcrumbsService) {
-    this.breadcrumbsService.title = 'Footer';
     this.footerService.getFooters().then((data: InterFaceFooter[]) => {
         this.footers = data;
       },
@@ -22,6 +21,7 @@ export class FooterComponent {
         console.log('Ошибка при получении информации по нижний колонтитул: ', error);
       });
   }
+
   getFooter(slug) {
     this.router.navigate(['footer/' + slug]);
   }

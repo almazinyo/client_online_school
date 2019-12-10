@@ -39,11 +39,10 @@
     <div class="---block col-6 col-xs-4 col-xl-auto">
       <div class="---title ---font-800">{{footerMenu.title}}</div>
       <nav *ngFor="let subject of footerMenu.sectionSubjects">
-        <a href="#">{{footerMenu.name}}</a>
-        <a href="#">{{subject.name}}</a>
+        <a [queryParams]="{debug: true}" [routerLink]="'/work/'+subject.slug" *ngIf="subject.parent_id!=='0'">{{subject.name}}</a>
       </nav>
     </div>
-     </div>
+  </div>
 
   <div class="---footer ---d-flex ---flex-column ---sm-flex-row">
     <div class="---copy">© 2019 Ekzamator. All Rights Reserved.</div>
