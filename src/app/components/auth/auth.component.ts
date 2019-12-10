@@ -19,8 +19,6 @@ export class AuthComponent {
               private globalParamsMessage: GlobalParamsMessage,
               private menuService: MenuService) {
 
-    this.globalParamsMessage.data = {title: 'Ошибка', body: 'тестовая модалка', type: 'error'};
-
 
     this.authService.getData().then((data: { mainSection: InterFaceMain[] }) => {
         this.data = data.mainSection;

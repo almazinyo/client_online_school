@@ -56,7 +56,7 @@ export class AuthService {
             resolve(result);
           },
           (error) => {
-            console.log('Ошибка при получении информации о клиенте', error);
+            console.log('Ошибка при получении информации о клиенте 2', error);
             reject();
           }
         );
