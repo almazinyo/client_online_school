@@ -24,12 +24,11 @@ export class HeaderComponent {
               private menuService: MenuService,
               private globalParamsUser: GlobalParamsUser,
               private sessionStorageService: SessionStorageService) {
-    this.menuService.getMenu().then((data: InterFaceMenu[]) => {
-        this.menu = data;
-      },
-      (error) => {
-        console.log('Ошибка при получении меню: ', error);
-      });
+
+    this.menuService.getMenuCheck.subscribe(item => {
+      this.menu = this.menuService.menu;
+    });
+
 
     this.sessionStorageService.authenticated.subscribe(item => {
       this.fio = this.globalParamsUser.fio;

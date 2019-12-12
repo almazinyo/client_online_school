@@ -52,7 +52,6 @@ import {TeacherDetalisComponent} from './components/teacher-detalis/teacherDetal
 import {ProfileMenuComponent} from './components/profile-menu/profileMenu.component';
 import {ProfilePromotionalCodeComponent} from './components/profile_promotional_code/profile_promotional_code.component';
 import {ProfilePromotionalCodeService} from './components/profile_promotional_code/profile_promotional_code.service';
-import {FooterService} from './components/footer/footer.service';
 import {SocialLinkService} from './components/footer/social-link/social-link.service';
 import {TeacherDetalisService} from './components/teacher-detalis/teacher-detalis.service';
 import {ModalAuthComponent} from './components/modal_auth/modal_auth.component';
@@ -127,7 +126,6 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfilePointsService,
     CallbackService,
     ProfilePromotionalCodeService,
-    FooterService,
     SocialLinkService,
     TeacherDetalisService,
     CookieService,

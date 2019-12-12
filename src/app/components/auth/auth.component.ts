@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from './auth.service';
 import {MenuService} from '../menu/menu.service';
 import {GlobalParamsMessage} from '../message_alert/global-params-message';
@@ -7,7 +7,8 @@ import {GlobalParamsMessage} from '../message_alert/global-params-message';
   selector: 'app-client',
   templateUrl: './auth.component.html',
 })
-export class AuthComponent {
+
+export class AuthComponent  implements OnInit {
   user: any;
   output: any;
 
@@ -26,14 +27,6 @@ export class AuthComponent {
       (error) => {
         console.log('Ошибка при получении информации на гавный экран: ', error);
       });
-
-    this.menuService.getMenu().then((data: InterFaceMenu[]) => {
-        this.menu = data;
-      },
-      (error) => {
-        console.log('Ошибка при получении меню: ', error);
-      });
-
 
     this.user = [
       {
@@ -84,5 +77,11 @@ export class AuthComponent {
       }
     ];
 
+  }
+
+  ngOnInit() {
+    this.menuService.getMenuCheck.subscribe(item => {
+      this.menu = this.menuService.menu;
+    });
   }
 }

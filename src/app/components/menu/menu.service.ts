@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {HttpService} from '../../utils/http/http.service';
 
 @Injectable()
 export class MenuService {
+  getMenuCheck: EventEmitter<any> = new EventEmitter(false);
   menu = [];
 
   constructor(private httpService: HttpService) {
@@ -12,9 +13,11 @@ export class MenuService {
   public getMenu() {
     return new Promise((resolve, reject) => {
       if (this.menu.length === 0) {
+        console.log(123);
         this.httpService.prepareQuery('api/subjects/menu', {})
           .then((result: any) => {
               this.menu = result;
+              this.getMenuCheck.emit(true);
               resolve(result);
             },
             (error) => {
@@ -23,6 +26,7 @@ export class MenuService {
             }
           );
       } else {
+        this.getMenuCheck.emit(true);
         resolve(this.menu);
       }
     });
