@@ -7,6 +7,7 @@ import {TeacherDetalisService} from './teacher-detalis.service';
   templateUrl: './teacherDetalis.component.html',
 })
 export class TeacherDetalisComponent {
+  showCheckImg = false;
   teacherData: InterFaceTeacherDetalis[] = [];
   constructor(private teacherDetalisService: TeacherDetalisService,
               private activatedRoute: ActivatedRoute) {
