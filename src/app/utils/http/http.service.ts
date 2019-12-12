@@ -38,6 +38,7 @@ export class HttpService {
   }
 
   public prepareQuery(url: string = 'noUrl', data: any = {}, post = false) {
+    console.log('url:', url);
     if (Object.keys(data).length !== 0 && post) {
       data.token = this.sessionStorage.tokenId;
       console.log('Отправляем данные: ', data);

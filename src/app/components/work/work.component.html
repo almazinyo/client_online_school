@@ -71,15 +71,17 @@
 
       <div class="---devider"></div>
 
-      <div class="---block-title" *ngIf="showTest===true">Пройдите тест <span class="---acent">для завершения</span></div>
+      <div class="---block-title" *ngIf="showTest===true">Пройдите тест <span class="---acent">для завершения</span>
+      </div>
 
       <div class="---test-wrap ---d-flex ---flex-wrap" *ngIf="showTest===true">
         <div class="col-xl-5">
           <div class="---task">
             <div class="h3">Задание</div>
 
-            <img src='http://api.examator.ru/images/question/{{currentTest.question}}'
-                 alt="" style="max-width: 100%;">
+            <div (click)="showCheckImg=!showCheckImg"><img
+              src='http://api.examator.ru/images/question/{{currentTest.question}}' alt="" style="max-width: 100%;">
+            </div>
           </div>
         </div>
 
@@ -126,5 +128,15 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+
+<div *ngIf="showCheckImg" id="---modal-login"
+     class="---modal ---justify-content-center ---align-items-start ---is-visible">
+  <div class="---wrapper">
+    <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" (click)="showCheckImg=false"
+       data-close-block=".---modal"></i>
+    <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt="">
   </div>
 </div>

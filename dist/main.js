@@ -307,21 +307,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_profile_menu_profileMenu_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/profile-menu/profileMenu.component */ "./src/app/components/profile-menu/profileMenu.component.ts");
 /* harmony import */ var _components_profile_promotional_code_profile_promotional_code_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/profile_promotional_code/profile_promotional_code.component */ "./src/app/components/profile_promotional_code/profile_promotional_code.component.ts");
 /* harmony import */ var _components_profile_promotional_code_profile_promotional_code_service__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/profile_promotional_code/profile_promotional_code.service */ "./src/app/components/profile_promotional_code/profile_promotional_code.service.ts");
-/* harmony import */ var _components_footer_footer_service__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/footer/footer.service */ "./src/app/components/footer/footer.service.ts");
-/* harmony import */ var _components_footer_social_link_social_link_service__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./components/footer/social-link/social-link.service */ "./src/app/components/footer/social-link/social-link.service.ts");
-/* harmony import */ var _components_teacher_detalis_teacher_detalis_service__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./components/teacher-detalis/teacher-detalis.service */ "./src/app/components/teacher-detalis/teacher-detalis.service.ts");
-/* harmony import */ var _components_modal_auth_modal_auth_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./components/modal_auth/modal_auth.component */ "./src/app/components/modal_auth/modal_auth.component.ts");
-/* harmony import */ var _components_footer_social_link_social_link_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./components/footer/social-link/social-link.component */ "./src/app/components/footer/social-link/social-link.component.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
-/* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
-/* harmony import */ var _storage_global_params_user__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./storage/global-params-user */ "./src/app/storage/global-params-user.ts");
+/* harmony import */ var _components_footer_social_link_social_link_service__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/footer/social-link/social-link.service */ "./src/app/components/footer/social-link/social-link.service.ts");
+/* harmony import */ var _components_teacher_detalis_teacher_detalis_service__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./components/teacher-detalis/teacher-detalis.service */ "./src/app/components/teacher-detalis/teacher-detalis.service.ts");
+/* harmony import */ var _components_modal_auth_modal_auth_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./components/modal_auth/modal_auth.component */ "./src/app/components/modal_auth/modal_auth.component.ts");
+/* harmony import */ var _components_footer_social_link_social_link_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./components/footer/social-link/social-link.component */ "./src/app/components/footer/social-link/social-link.component.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
+/* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
+/* harmony import */ var _storage_global_params_user__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./storage/global-params-user */ "./src/app/storage/global-params-user.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -415,8 +413,8 @@ var AppModule = /** @class */ (function () {
                 _components_teacher_detalis_teacherDetalis_component__WEBPACK_IMPORTED_MODULE_50__["TeacherDetalisComponent"],
                 _components_profile_menu_profileMenu_component__WEBPACK_IMPORTED_MODULE_51__["ProfileMenuComponent"],
                 _components_profile_promotional_code_profile_promotional_code_component__WEBPACK_IMPORTED_MODULE_52__["ProfilePromotionalCodeComponent"],
-                _components_modal_auth_modal_auth_component__WEBPACK_IMPORTED_MODULE_57__["ModalAuthComponent"],
-                _components_footer_social_link_social_link_component__WEBPACK_IMPORTED_MODULE_58__["SocialLinkComponent"],
+                _components_modal_auth_modal_auth_component__WEBPACK_IMPORTED_MODULE_56__["ModalAuthComponent"],
+                _components_footer_social_link_social_link_component__WEBPACK_IMPORTED_MODULE_57__["SocialLinkComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -452,12 +450,11 @@ var AppModule = /** @class */ (function () {
                 _components_profile_points_profile_points_service__WEBPACK_IMPORTED_MODULE_42__["ProfilePointsService"],
                 _components_callback_callback_service__WEBPACK_IMPORTED_MODULE_45__["CallbackService"],
                 _components_profile_promotional_code_profile_promotional_code_service__WEBPACK_IMPORTED_MODULE_53__["ProfilePromotionalCodeService"],
-                _components_footer_footer_service__WEBPACK_IMPORTED_MODULE_54__["FooterService"],
-                _components_footer_social_link_social_link_service__WEBPACK_IMPORTED_MODULE_55__["SocialLinkService"],
-                _components_teacher_detalis_teacher_detalis_service__WEBPACK_IMPORTED_MODULE_56__["TeacherDetalisService"],
-                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_59__["CookieService"],
-                _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_60__["SessionStorageService"],
-                _storage_global_params_user__WEBPACK_IMPORTED_MODULE_61__["GlobalParamsUser"]
+                _components_footer_social_link_social_link_service__WEBPACK_IMPORTED_MODULE_54__["SocialLinkService"],
+                _components_teacher_detalis_teacher_detalis_service__WEBPACK_IMPORTED_MODULE_55__["TeacherDetalisService"],
+                ngx_cookie_service__WEBPACK_IMPORTED_MODULE_58__["CookieService"],
+                _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_59__["SessionStorageService"],
+                _storage_global_params_user__WEBPACK_IMPORTED_MODULE_60__["GlobalParamsUser"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
@@ -476,7 +473,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-auth-des ---tabs\">\n  <div class=\"col-xl-10 animatedParent animateOnce\">\n    <div class=\"---row ---item ---justify-content-between ---align-items-center\" *ngFor=\"let item of data\">\n\n      <div class=\"---item--text animated fadeInUpShort clickExample\">\n        <div class=\"---item-title h2 ---font-800\">{{item.name}}</div>\n        <p class=\"---item-des\">{{item.description}}</p>\n      </div>\n\n      <div class=\"---item--img animated fadeInUpShort\">\n        <img lazyLoad=\"http://api.examator.ru/frontend/web/images/options/{{item.img_name}}\">\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-subjects\">\n  <div class=\"---row ---row--sm\">\n\n    <div class=\"col-12 ---block-title\">Выбери <span class=\"---acent\">нужный предмет</span></div>\n\n    <div class=\"col-xs-6 col-md-4 col-lg-3 spec-block-lesson\" *ngFor=\"let item of menu\">\n      <a routerLink=\"/section/{{item.slug}}\"\n         class=\"---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start\"\n         [style.backgroundColor]=\"item.color\">\n        <div class=\"---item__icon ---pos-rel\">\n          <i class=\"---icon-font ---pos-abs\" [ngClass]=\"'---icon-menu-'+item.icon\"></i>\n        </div>\n        <div>\n          <div class=\"---item__title\">{{item.title}}</div>\n          <div class=\"---item__thumb\">56 курсов / 28 вебинаров</div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-reviews\" *ngFor=\"let item of user\">\n  <div class=\"---block-title ---d-flex ---align-items-center ---justify-content-between\">\n    <div>{{item.output}} <span class=\"---acent\">{{item.aboutCourses}}</span></div>\n\n    <a href=\"#\" class=\"---button ---button--border_bg ---button--color-acent\">{{item.allReviews}}</a>\n  </div>\n\n  <div class=\"---owl-carousel\">\n    <div class=\"---item\" *ngFor=\"let items of output\">\n      <div class=\"---item-header ---pos-rel\">\n        <img lazyLoad=\"{{items.img}}\" alt=\"\" class=\"---img\">\n        <div class=\"---name\">{{items.name}}</div>\n        <div class=\"---thumb\">{{items.thumb}}<b class=\"---font-800\">{{items.rating}}</b></div>\n      </div>\n      <p>\n        {{items.text}}\n      </p>\n    </div>\n\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-auth-des ---tabs\">\n  <div class=\"col-xl-10 animatedParent animateOnce\">\n    <div class=\"---row ---item ---justify-content-between ---align-items-center\" *ngFor=\"let item of data\">\n\n      <div class=\"---item--text animated fadeInUpShort clickExample\">\n        <div class=\"---item-title h2 ---font-800\">{{item.name}}</div>\n        <p class=\"---item-des\">{{item.description}}</p>\n      </div>\n\n      <div class=\"---item--img animated fadeInUpShort\">\n        <img lazyLoad=\"http://api.examator.ru/frontend/web/images/options/{{item.img_name}}\">\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-subjects\">\n  <div class=\"---row ---row--sm\">\n\n    <div class=\"col-12 ---block-title\">Выбери <span class=\"---acent\">нужный предмет</span></div>\n\n    <div class=\"col-xs-6 col-md-4 col-lg-3 spec-block-lesson\" *ngFor=\"let item of menu\">\n      <a routerLink=\"/section/{{item.slug}}\"\n         class=\"---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start\"\n         [style.backgroundColor]=\"item.color\">\n        <div class=\"---item__icon ---pos-rel\">\n          <i class=\"---icon-font ---pos-abs\" [ngClass]=\"'---icon-menu-'+item.icon\"></i>\n        </div>\n        <div>\n          <div class=\"---item__title\">{{item.title}}</div>\n          <!--<div class=\"-&#45;&#45;item__thumb\">56 курсов / 28 вебинаров</div>-->\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-reviews\" *ngFor=\"let item of user\">\n  <div class=\"---block-title ---d-flex ---align-items-center ---justify-content-between\">\n    <div>{{item.output}} <span class=\"---acent\">{{item.aboutCourses}}</span></div>\n\n    <a href=\"#\" class=\"---button ---button--border_bg ---button--color-acent\">{{item.allReviews}}</a>\n  </div>\n\n  <div class=\"---owl-carousel\">\n    <div class=\"---item\" *ngFor=\"let items of output\">\n      <div class=\"---item-header ---pos-rel\">\n        <img lazyLoad=\"{{items.img}}\" alt=\"\" class=\"---img\">\n        <div class=\"---name\">{{items.name}}</div>\n        <div class=\"---thumb\">{{items.thumb}}<b class=\"---font-800\">{{items.rating}}</b></div>\n      </div>\n      <p>\n        {{items.text}}\n      </p>\n    </div>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -519,11 +516,6 @@ var AuthComponent = /** @class */ (function () {
             _this.data = data.mainSection;
         }, function (error) {
             console.log('Ошибка при получении информации на гавный экран: ', error);
-        });
-        this.menuService.getMenu().then(function (data) {
-            _this.menu = data;
-        }, function (error) {
-            console.log('Ошибка при получении меню: ', error);
         });
         this.user = [
             {
@@ -569,6 +561,12 @@ var AuthComponent = /** @class */ (function () {
             }
         ];
     }
+    AuthComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.menuService.getMenuCheck.subscribe(function (item) {
+            _this.menu = _this.menuService.menu;
+        });
+    };
     AuthComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-client',
@@ -1132,9 +1130,8 @@ module.exports = "<div class=\"---block-have-questions\">\n  <div class=\"---row
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FooterComponent", function() { return FooterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _footer_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footer.service */ "./src/app/components/footer/footer.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _breadcrumbs_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../breadcrumbs/breadcrumbs.service */ "./src/app/components/breadcrumbs/breadcrumbs.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../menu/menu.service */ "./src/app/components/menu/menu.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1147,98 +1144,25 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var FooterComponent = /** @class */ (function () {
-    function FooterComponent(footerService, router, breadcrumbsService) {
+    function FooterComponent(router, menuService) {
         var _this = this;
-        this.footerService = footerService;
         this.router = router;
-        this.breadcrumbsService = breadcrumbsService;
+        this.menuService = menuService;
         this.footers = [];
-        this.footerService.getFooters().then(function (data) {
-            _this.footers = data;
-        }, function (error) {
-            console.log('Ошибка при получении информации по нижний колонтитул: ', error);
+        this.menuService.getMenuCheck.subscribe(function (item) {
+            _this.footers = _this.menuService.menu;
         });
     }
-    FooterComponent.prototype.getFooter = function (slug) {
-        this.router.navigate(['footer/' + slug]);
-    };
     FooterComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-footer',
             template: __webpack_require__(/*! ./footer.component.html */ "./src/app/components/footer/footer.component.html"),
         }),
-        __metadata("design:paramtypes", [_footer_service__WEBPACK_IMPORTED_MODULE_1__["FooterService"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _breadcrumbs_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_3__["BreadcrumbsService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"]])
     ], FooterComponent);
     return FooterComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/components/footer/footer.service.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/components/footer/footer.service.ts ***!
-  \*****************************************************/
-/*! exports provided: FooterService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FooterService", function() { return FooterService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/http/http.service */ "./src/app/utils/http/http.service.ts");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var FooterService = /** @class */ (function () {
-    function FooterService(httpService) {
-        this.httpService = httpService;
-    }
-    // получение нижний колонтитул
-    FooterService.prototype.getFooters = function () {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/subjects/menu', {})
-                .then(function (result) {
-                console.log(result);
-                resolve(result);
-            }, function (error) {
-                console.log('Ошибка при получении списка разделов нижний колонтитул ', error);
-                reject();
-            });
-        });
-    };
-    // получение детальной информации о нижний колонтитул
-    FooterService.prototype.getFooterDetails = function (slug) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/main/options' + slug)
-                .then(function (result) {
-                resolve(result);
-            }, function (error) {
-                console.log('Ошибка при получении детальной информации о нижний колонтитул ', error);
-                reject();
-            });
-        });
-    };
-    FooterService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"]])
-    ], FooterService);
-    return FooterService;
 }());
 
 
@@ -1436,10 +1360,8 @@ var HeaderComponent = /** @class */ (function () {
         this.menu = [];
         this.checkAuth = false;
         this.fio = '';
-        this.menuService.getMenu().then(function (data) {
-            _this.menu = data;
-        }, function (error) {
-            console.log('Ошибка при получении меню: ', error);
+        this.menuService.getMenuCheck.subscribe(function (item) {
+            _this.menu = _this.menuService.menu;
         });
         this.sessionStorageService.authenticated.subscribe(function (item) {
             _this.fio = _this.globalParamsUser.fio;
@@ -1636,6 +1558,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var MenuService = /** @class */ (function () {
     function MenuService(httpService) {
         this.httpService = httpService;
+        this.getMenuCheck = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"](false);
         this.menu = [];
     }
     // получение списка активных полей
@@ -1643,9 +1566,11 @@ var MenuService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             if (_this.menu.length === 0) {
+                console.log(123);
                 _this.httpService.prepareQuery('api/subjects/menu', {})
                     .then(function (result) {
                     _this.menu = result;
+                    _this.getMenuCheck.emit(true);
                     resolve(result);
                 }, function (error) {
                     console.log('Ошибка при получении списка разделов предмета', error);
@@ -1653,6 +1578,7 @@ var MenuService = /** @class */ (function () {
                 });
             }
             else {
+                _this.getMenuCheck.emit(true);
                 resolve(_this.menu);
             }
         });
@@ -3433,7 +3359,7 @@ var TeacherService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-course-in\">\n  <div class=\"---d-block ---lg-d-none\">\n    <a href=\"#\" class=\"---button ---button--acent ---js-open\" data-open-block=\".---lesson-list\" data-html-hidden=\"1\">Список\n      уроков</a>\n  </div>\n\n  <div class=\"---course-theme ---font-800\">{{section.name}}</div>\n  <div class=\"---devider\"></div>\n\n  <div class=\"---row\">\n\n    <div class=\"col-lg-9\">\n\n      <div class=\"---course-name\">{{lesson.name}}</div>\n\n      <div class=\"---video ---pos-rel\">\n        <div class=\"---play-button ---y-pos-abs ---z-index-over\">\n          <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\">\n            <path\n              d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/>\n          </svg>\n        </div>\n        <!--<img lazyLoad=\"assets/imgs/course-in/bg.png\" alt=\"\" class=\"-&#45;&#45;bg -&#45;&#45;img-cover\">-->\n        <span *ngFor=\"let currentWork of storage\">\n          <video controls=\"controls\" *ngIf=\"currentWork.type==='video'\">\n            <source src=\"http://api.examator.ru/images/lessons/{{currentWork.name}}\"\n                    type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'>\n            Тег video не поддерживается вашим браузером.\n            <a href=\"video/duel.mp4\">Скачайте видео</a>.\n          </video>\n        </span>\n      </div>\n\n      <div class=\"---teacher\">\n        <span class=\"---name ---font-800 ---d-block ---xs-d-inline-block\">{{teachers.name}}</span>\n      </div>\n\n      <div class=\"---course-theory\">\n        <div class=\"---block-title\">Теория по курсу</div>\n\n        <div class=\"---theory-wrap\">\n          <div class=\"---theory\">\n            <div *ngFor=\"let currentWork of storage\">\n\n              <!-- <div *ngIf=\"currentWork.type==='image'\"> -->\n              <img src='http://api.examator.ru/images/lessons/{{currentWork.name}}' alt=\"\"\n                   *ngIf=\"currentWork.type==='image'\">\n              <!-- </div> -->\n\n              <div *ngIf=\"currentWork.type==='pdf'\">\n                <!--<ngx-extended-pdf-viewer src='http://api.examator.ru/images/lessons/{{currentWork.name}}'></ngx-extended-pdf-viewer>-->\n\n                <embed id='vid' [src]='currentWork.url'\n                       style=\"width: 100%;height: 500px\"\n                       type=\"application/pdf\">\n              </div>\n\n              <div>\n                <video controls=\"controls\" *ngIf=\"currentWork.type==='video'\">\n                  <source src=\"http://api.examator.ru/images/lessons/{{currentWork.name}}\"\n                          type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'>\n                  Тег video не поддерживается вашим браузером.\n                  <a href=\"video/duel.mp4\">Скачайте видео</a>.\n                </video>\n              </div>\n\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"---devider\"></div>\n\n      <div class=\"---block-title\" *ngIf=\"showTest===true\">Пройдите тест <span class=\"---acent\">для завершения</span></div>\n\n      <div class=\"---test-wrap ---d-flex ---flex-wrap\" *ngIf=\"showTest===true\">\n        <div class=\"col-xl-5\">\n          <div class=\"---task\">\n            <div class=\"h3\">Задание</div>\n\n            <img src='http://api.examator.ru/images/question/{{currentTest.question}}'\n                 alt=\"\" style=\"max-width: 100%;\">\n          </div>\n        </div>\n\n        <div class=\"col-xl-7\">\n          <div class=\"---answers\">\n            <div class=\"h3\">Ваш ответ</div>\n\n            <div class=\"---answer ---is-active\">\n              <div class=\"---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center\">\n                <!-- <div class=\"---indicator ---y-pos-abs\"></div> -->\n                <input [(ngModel)]=\"answer\" class=\"---input\" placeholder=\"Впишите ответ\">\n              </div>\n            </div>\n            <div class=\"---answer\">\n              <div *ngIf=\"answerTest.length+1!==test.length\" (click)=\"nextQuestion()\"\n                   class=\"btn btn-link button--acent_orange\">Ответить\n              </div>\n              <div *ngIf=\"answerTest.length+1===test.length\" (click)=\"sendAnswer()\"\n                   class=\"btn btn-link ---button--border_bg-dark\">Завершить тест\n              </div>\n            </div>\n\n            <div class=\"---answers__count\">Вопрос {{answerTest.length + 1}} из {{test.length}}</div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-lg-3 ---lesson-list ---d-flex ---flex-column ---align-items-start ---lg-align-items-end\">\n      <svg class=\"---js-close ---d-block ---lg-d-none\" data-close-block=\".---main-menu\"\n           xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 241.171 241.171\" width=\"512\" height=\"512\">\n        <path\n          d=\"M138.138 120.754l99.118-98.576a11.931 11.931 0 0 0 0-17.011c-4.74-4.704-12.439-4.704-17.179 0l-99.033 98.492-99.949-99.96c-4.74-4.752-12.439-4.752-17.179 0-4.74 4.764-4.74 12.475 0 17.227l99.876 99.888L3.555 220.497c-4.74 4.704-4.74 12.319 0 17.011 4.74 4.704 12.439 4.704 17.179 0l100.152-99.599 99.551 99.563c4.74 4.752 12.439 4.752 17.179 0 4.74-4.764 4.74-12.475 0-17.227l-99.478-99.491z\"\n          fill=\"#FFF\"/>\n      </svg>\n\n      <div class=\"---lessons\">\n        <div [ngClass]=\"{'---is-curent':lesson.slug===currentWork.slug}\"\n             *ngFor=\"let currentWork of section.allLessons;\" (click)=\"getWorkCurrent(section.slug+'/'+currentWork.slug)\"\n             class=\"---lesson\">\n          {{currentWork.name}}\n          <span *ngIf=\"currentWork.checked==='1'\"><svg class=\"---y-pos-abs\" xmlns=\"http://www.w3.org/2000/svg\"\n                                                       viewBox=\"0 0 32 32\"><path\n            d=\"M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z\"/></svg></span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-course-in\">\n  <div class=\"---d-block ---lg-d-none\">\n    <a href=\"#\" class=\"---button ---button--acent ---js-open\" data-open-block=\".---lesson-list\" data-html-hidden=\"1\">Список\n      уроков</a>\n  </div>\n\n  <div class=\"---course-theme ---font-800\">{{section.name}}</div>\n  <div class=\"---devider\"></div>\n\n  <div class=\"---row\">\n\n    <div class=\"col-lg-9\">\n\n      <div class=\"---course-name\">{{lesson.name}}</div>\n\n      <div class=\"---video ---pos-rel\">\n        <div class=\"---play-button ---y-pos-abs ---z-index-over\">\n          <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\">\n            <path\n              d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/>\n          </svg>\n        </div>\n        <!--<img lazyLoad=\"assets/imgs/course-in/bg.png\" alt=\"\" class=\"-&#45;&#45;bg -&#45;&#45;img-cover\">-->\n        <span *ngFor=\"let currentWork of storage\">\n          <video controls=\"controls\" *ngIf=\"currentWork.type==='video'\">\n            <source src=\"http://api.examator.ru/images/lessons/{{currentWork.name}}\"\n                    type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'>\n            Тег video не поддерживается вашим браузером.\n            <a href=\"video/duel.mp4\">Скачайте видео</a>.\n          </video>\n        </span>\n      </div>\n\n      <div class=\"---teacher\">\n        <span class=\"---name ---font-800 ---d-block ---xs-d-inline-block\">{{teachers.name}}</span>\n      </div>\n\n      <div class=\"---course-theory\">\n        <div class=\"---block-title\">Теория по курсу</div>\n\n        <div class=\"---theory-wrap\">\n          <div class=\"---theory\">\n            <div *ngFor=\"let currentWork of storage\">\n\n              <!-- <div *ngIf=\"currentWork.type==='image'\"> -->\n              <img src='http://api.examator.ru/images/lessons/{{currentWork.name}}' alt=\"\"\n                   *ngIf=\"currentWork.type==='image'\">\n              <!-- </div> -->\n\n              <div *ngIf=\"currentWork.type==='pdf'\">\n                <!--<ngx-extended-pdf-viewer src='http://api.examator.ru/images/lessons/{{currentWork.name}}'></ngx-extended-pdf-viewer>-->\n\n                <embed id='vid' [src]='currentWork.url'\n                       style=\"width: 100%;height: 500px\"\n                       type=\"application/pdf\">\n              </div>\n\n              <div>\n                <video controls=\"controls\" *ngIf=\"currentWork.type==='video'\">\n                  <source src=\"http://api.examator.ru/images/lessons/{{currentWork.name}}\"\n                          type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'>\n                  Тег video не поддерживается вашим браузером.\n                  <a href=\"video/duel.mp4\">Скачайте видео</a>.\n                </video>\n              </div>\n\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"---devider\"></div>\n\n      <div class=\"---block-title\" *ngIf=\"showTest===true\">Пройдите тест <span class=\"---acent\">для завершения</span>\n      </div>\n\n      <div class=\"---test-wrap ---d-flex ---flex-wrap\" *ngIf=\"showTest===true\">\n        <div class=\"col-xl-5\">\n          <div class=\"---task\">\n            <div class=\"h3\">Задание</div>\n\n            <div (click)=\"showCheckImg=!showCheckImg\"><img\n              src='http://api.examator.ru/images/question/{{currentTest.question}}' alt=\"\" style=\"max-width: 100%;\">\n            </div>\n          </div>\n        </div>\n\n        <div class=\"col-xl-7\">\n          <div class=\"---answers\">\n            <div class=\"h3\">Ваш ответ</div>\n\n            <div class=\"---answer ---is-active\">\n              <div class=\"---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center\">\n                <!-- <div class=\"---indicator ---y-pos-abs\"></div> -->\n                <input [(ngModel)]=\"answer\" class=\"---input\" placeholder=\"Впишите ответ\">\n              </div>\n            </div>\n            <div class=\"---answer\">\n              <div *ngIf=\"answerTest.length+1!==test.length\" (click)=\"nextQuestion()\"\n                   class=\"btn btn-link button--acent_orange\">Ответить\n              </div>\n              <div *ngIf=\"answerTest.length+1===test.length\" (click)=\"sendAnswer()\"\n                   class=\"btn btn-link ---button--border_bg-dark\">Завершить тест\n              </div>\n            </div>\n\n            <div class=\"---answers__count\">Вопрос {{answerTest.length + 1}} из {{test.length}}</div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-lg-3 ---lesson-list ---d-flex ---flex-column ---align-items-start ---lg-align-items-end\">\n      <svg class=\"---js-close ---d-block ---lg-d-none\" data-close-block=\".---main-menu\"\n           xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 241.171 241.171\" width=\"512\" height=\"512\">\n        <path\n          d=\"M138.138 120.754l99.118-98.576a11.931 11.931 0 0 0 0-17.011c-4.74-4.704-12.439-4.704-17.179 0l-99.033 98.492-99.949-99.96c-4.74-4.752-12.439-4.752-17.179 0-4.74 4.764-4.74 12.475 0 17.227l99.876 99.888L3.555 220.497c-4.74 4.704-4.74 12.319 0 17.011 4.74 4.704 12.439 4.704 17.179 0l100.152-99.599 99.551 99.563c4.74 4.752 12.439 4.752 17.179 0 4.74-4.764 4.74-12.475 0-17.227l-99.478-99.491z\"\n          fill=\"#FFF\"/>\n      </svg>\n\n      <div class=\"---lessons\">\n        <div [ngClass]=\"{'---is-curent':lesson.slug===currentWork.slug}\"\n             *ngFor=\"let currentWork of section.allLessons;\" (click)=\"getWorkCurrent(section.slug+'/'+currentWork.slug)\"\n             class=\"---lesson\">\n          {{currentWork.name}}\n          <span *ngIf=\"currentWork.checked==='1'\"><svg class=\"---y-pos-abs\" xmlns=\"http://www.w3.org/2000/svg\"\n                                                       viewBox=\"0 0 32 32\"><path\n            d=\"M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z\"/></svg></span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"showCheckImg\" id=\"---modal-login\"\n     class=\"---modal ---justify-content-center ---align-items-start ---is-visible\">\n  <div class=\"---wrapper\">\n    <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" (click)=\"showCheckImg=false\"\n       data-close-block=\".---modal\"></i>\n    <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt=\"\">\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3506,6 +3432,7 @@ var WorkComponent = /** @class */ (function () {
         this.answer = '';
         this.countAnswer = 0;
         this.showTest = false;
+        this.showCheckImg = false;
         this.activatedRoute.params.subscribe(function (params) {
             _this.getWork(params.id);
         });
@@ -3563,8 +3490,7 @@ var WorkComponent = /** @class */ (function () {
             console.log('Ошибка при отправке тестов: ', error);
         });
     };
-    WorkComponent.prototype.getTeacher = function (slug) {
-        this.router.navigate(['teacher/' + slug]);
+    WorkComponent.prototype.showImg = function () {
     };
     WorkComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -3941,6 +3867,7 @@ var HttpService = /** @class */ (function () {
         if (url === void 0) { url = 'noUrl'; }
         if (data === void 0) { data = {}; }
         if (post === void 0) { post = false; }
+        console.log('url:', url);
         if (Object.keys(data).length !== 0 && post) {
             data.token = this.sessionStorage.tokenId;
             console.log('Отправляем данные: ', data);

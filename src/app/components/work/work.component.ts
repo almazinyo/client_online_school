@@ -47,6 +47,8 @@ export class WorkComponent {
   countAnswer = 0;
   showTest = false;
 
+  showCheckImg = false;
+
   constructor(private workService: WorkService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
@@ -119,7 +121,7 @@ export class WorkComponent {
       });
   }
 
-  getTeacher(slug) {
-    this.router.navigate(['teacher/' + slug]);
+  showImg() {
+
   }
 }
