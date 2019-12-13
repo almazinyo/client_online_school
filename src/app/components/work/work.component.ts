@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {WorkService} from './work.service';
 import {Router} from '@angular/router';
 import {ActivatedRoute, Params} from '@angular/router';
@@ -9,6 +9,8 @@ import {DomSanitizer} from '@angular/platform-browser';
   templateUrl: './work.component.html',
 })
 export class WorkComponent {
+  @ViewChild('videoPlayer') videoplayer: ElementRef;
+
   section: InterFaceWork = {
     background: '',
     created_at: '',
@@ -48,6 +50,10 @@ export class WorkComponent {
   showTest = false;
 
   showCheckImg = false;
+  modalImg = '';
+
+  // отображение кнопки на плеере
+  showButton = true;
 
   constructor(private workService: WorkService,
               private router: Router,
@@ -121,7 +127,17 @@ export class WorkComponent {
       });
   }
 
-  showImg() {
+  checkImg(data, type = 'img') {
+    if (type === 'img') {
+      this.modalImg = 'http://api.examator.ru/images/question/' + data;
+    } else {
+      this.modalImg = 'http://api.examator.ru/images/question/' + data;
+    }
+    this.showCheckImg = true;
+  }
 
+  toggleVideo(event: any) {
+    this.showButton = !this.showButton;
+    this.videoplayer.nativeElement.play();
   }
 }

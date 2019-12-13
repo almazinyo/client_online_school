@@ -13,20 +13,16 @@
 
       <div class="---course-name">{{lesson.name}}</div>
 
-      <div class="---video ---pos-rel">
-        <div class="---play-button ---y-pos-abs ---z-index-over">
+      <div (click)="toggleVideo()" class="---video ---pos-rel">
+        <div *ngIf="showButton" class="---play-button ---y-pos-abs ---z-index-over">
           <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861">
             <path
               d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/>
           </svg>
         </div>
-        <!--<img lazyLoad="assets/imgs/course-in/bg.png" alt="" class="-&#45;&#45;bg -&#45;&#45;img-cover">-->
         <span *ngFor="let currentWork of storage">
-          <video controls="controls" *ngIf="currentWork.type==='video'">
-            <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"
-                    type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-            Тег video не поддерживается вашим браузером.
-            <a href="video/duel.mp4">Скачайте видео</a>.
+          <video #videoPlayer style="position: relative;width: 100%;" controls *ngIf="currentWork.type==='video'">
+            <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>Тег video не поддерживается вашим браузером.<a href="video/duel.mp4">Скачайте видео</a>.
           </video>
         </span>
       </div>
@@ -41,29 +37,11 @@
         <div class="---theory-wrap">
           <div class="---theory">
             <div *ngFor="let currentWork of storage">
-
-              <!-- <div *ngIf="currentWork.type==='image'"> -->
-              <img src='http://api.examator.ru/images/lessons/{{currentWork.name}}' alt=""
-                   *ngIf="currentWork.type==='image'">
-              <!-- </div> -->
-
               <div *ngIf="currentWork.type==='pdf'">
-                <!--<ngx-extended-pdf-viewer src='http://api.examator.ru/images/lessons/{{currentWork.name}}'></ngx-extended-pdf-viewer>-->
-
                 <embed id='vid' [src]='currentWork.url'
                        style="width: 100%;height: 500px"
                        type="application/pdf">
               </div>
-
-              <div>
-                <video controls="controls" *ngIf="currentWork.type==='video'">
-                  <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"
-                          type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-                  Тег video не поддерживается вашим браузером.
-                  <a href="video/duel.mp4">Скачайте видео</a>.
-                </video>
-              </div>
-
             </div>
           </div>
         </div>
@@ -79,9 +57,11 @@
           <div class="---task">
             <div class="h3">Задание</div>
 
-            <div (click)="showCheckImg=!showCheckImg"><img
+            <div (click)="checkImg(currentTest.question)"><img
               src='http://api.examator.ru/images/question/{{currentTest.question}}' alt="" style="max-width: 100%;">
             </div>
+
+            <div (click)="checkImg(currentTest.hint,'hint')" *ngIf="currentTest.hint!==''">Подсказка</div>
           </div>
         </div>
 
@@ -91,7 +71,6 @@
 
             <div class="---answer ---is-active">
               <div class="---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center">
-                <!-- <div class="---indicator ---y-pos-abs"></div> -->
                 <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
               </div>
             </div>
@@ -119,9 +98,10 @@
 
       <div class="---lessons">
         <div [ngClass]="{'---is-curent':lesson.slug===currentWork.slug}"
-             *ngFor="let currentWork of section.allLessons;" (click)="getWorkCurrent(section.slug+'/'+currentWork.slug)"
+             *ngFor="let currentWork of section.allLessons;let i = index"
+             (click)="getWorkCurrent(section.slug+'/'+currentWork.slug)"
              class="---lesson">
-          {{currentWork.name}}
+          {{i+1}}.{{currentWork.name}}
           <span *ngIf="currentWork.checked==='1'"><svg class="---y-pos-abs" xmlns="http://www.w3.org/2000/svg"
                                                        viewBox="0 0 32 32"><path
             d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg></span>
@@ -137,6 +117,6 @@
   <div class="---wrapper">
     <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" (click)="showCheckImg=false"
        data-close-block=".---modal"></i>
-    <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt="">
+    <img src='{{modalImg}}' alt="">
   </div>
 </div>
