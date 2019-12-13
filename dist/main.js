@@ -563,6 +563,7 @@ var AuthComponent = /** @class */ (function () {
     }
     AuthComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.menu = this.menuService.menu;
         this.menuService.getMenuCheck.subscribe(function (item) {
             _this.menu = _this.menuService.menu;
         });
@@ -1360,6 +1361,7 @@ var HeaderComponent = /** @class */ (function () {
         this.menu = [];
         this.checkAuth = false;
         this.fio = '';
+        this.menu = this.menuService.menu;
         this.menuService.getMenuCheck.subscribe(function (item) {
             _this.menu = _this.menuService.menu;
         });
