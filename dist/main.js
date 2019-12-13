@@ -1177,7 +1177,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---social ---row ---row--sm ---font-600\">\n  <div class=\"col-6 col-xs-4 col-xl-auto\" *ngFor=\"let socialLink of socialData\">\n    <a href=\"{{socialLink.link}}\" rel=\"nofollow\" target=\"_blank\" class=\"---d-flex ---flex-column ---align-items-center\">\n        <span class=\"---icon\">\n            <img lazyLoad=\"{{socialLink.images}}\" alt=\"\" >\n        </span>\n      <span class=\"---title\">{{socialLink.name}}</span>\n      <span class=\"---followers\">{{socialLink.subscribe}}</span>\n    </a>\n  </div>\n</div>\n"
+module.exports = "<div class=\"---social ---row ---row--sm ---font-600\">\n  <div class=\"col-6 col-xs-4 col-xl-auto\" *ngFor=\"let socialLink of socialData\">\n    <a href=\"{{socialLink.link}}\" rel=\"nofollow\" target=\"_blank\" class=\"---d-flex ---flex-column ---align-items-center\">\n        <span class=\"---icon\">\n            <img lazyLoad=\"{{socialLink.images}}\" alt=\"\" >\n        </span>\n      <span class=\"---title\">{{socialLink.name}}</span>\n    </a>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -4018,7 +4018,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
