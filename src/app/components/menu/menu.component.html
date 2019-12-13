@@ -3,7 +3,7 @@
 <i class="---icon-font ---icon-close ---d-flex ---lg-d-none ---js-close" data-close-block=".---main-menu"></i>
 
 <div *ngFor="let currentMenu of menu" (click)="getSection(currentMenu)" class="---item"
-     [ngClass]="{'opacity-5':currentMenu.sectionSlug===null}">
+     [ngClass]="{'opacity-5':currentMenu.is_status==='2'}">
   <span class="---img ---icon-font" [ngClass]="'---icon-menu-'+currentMenu.icon"></span>
   <span class="---text">{{currentMenu.title}}</span>
 </div>

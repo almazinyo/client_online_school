@@ -15,7 +15,6 @@ export class MenuComponent {
               private menuService: MenuService) {
 
     this.menuService.getMenu().then((data: InterFaceMenu[]) => {
-      console.log(1,data)
         this.menu = data;
       },
       (error) => {
@@ -25,7 +24,7 @@ export class MenuComponent {
 
   // переход на ссылку
   getSection(currentMenu) {
-    if (currentMenu.sectionSlug !== null) {
+    if (currentMenu.is_status !== '2') {
       this.router.navigate(['/section/' + currentMenu.slug]);
     }
   }
