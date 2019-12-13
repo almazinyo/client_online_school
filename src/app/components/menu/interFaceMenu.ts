@@ -4,4 +4,5 @@ interface InterFaceMenu {
   icon: string;
   slug: string;
   color: string;
+  sectionSlug: string;
 }
