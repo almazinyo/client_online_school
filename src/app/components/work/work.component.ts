@@ -131,7 +131,7 @@ export class WorkComponent {
     if (type === 'img') {
       this.modalImg = 'http://api.examator.ru/images/question/' + data;
     } else {
-      this.modalImg = 'http://api.examator.ru/images/question/' + data;
+      this.modalImg = 'http://api.examator.ru/images/question/hint/' + data;
     }
     this.showCheckImg = true;
   }
