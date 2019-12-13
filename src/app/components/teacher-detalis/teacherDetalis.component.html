@@ -35,18 +35,6 @@
         <div class="h4 ---block-header ---font-600">О преподавателе</div>
         <p innerHTML="{{teacherData.description}}"></p>
       </div>
-
-      <div class="---teacher-docs">
-        <div class="h4 ---block-header ---font-600">Награды и дипломы</div>
-
-        <div class="---docs-list">
-            <img src="http://api.examator.ru/images/teachers/small/{{teacherData.img_name}}" (click)="showCheckImg=true" alt="" class="---img">
-
-            <span class="---name ---font-600">Почетная Грамота Министерства<br> образования и науки РФ</span>
-            <span class="---year">Год получения: 2018</span>
-            <span class="---btn">Посмотреть</span>
-        </div>
-      </div>
     </div>
 
     <div class="col-md-4 col-xl-5">
@@ -61,13 +49,3 @@
 </div>
 
 <div class="---devider"></div>
-
-
-<div *ngIf="showCheckImg===true" id="---modal-login"
-     class="---modal ---justify-content-center ---align-items-start ---is-visible">
-  <div class="---wrapper">
-    <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" (click)="showCheckImg=false"
-       data-close-block=".---modal"></i>
-    <img src='http://api.examator.ru/images/teachers/small/{{teacherData.img_name}}' alt="">
-  </div>
-</div>
