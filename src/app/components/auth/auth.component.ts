@@ -80,6 +80,7 @@ export class AuthComponent  implements OnInit {
   }
 
   ngOnInit() {
+    this.menu = this.menuService.menu;
     this.menuService.getMenuCheck.subscribe(item => {
       this.menu = this.menuService.menu;
     });
