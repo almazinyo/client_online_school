@@ -16,4 +16,11 @@ export class FooterComponent {
       this.footers = this.menuService.menu;
     });
   }
+
+  // переход на ссылку
+  getSection(currentMenu) {
+    if (currentMenu.is_status !== '2') {
+      this.router.navigate(['/work/' + currentMenu.slug]);
+    }
+  }
 }

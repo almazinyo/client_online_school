@@ -3,4 +3,5 @@ interface InterFaceFooter {
   title: string;
   sectionSubjects: any;
   name: string;
+  is_status: string;
 }

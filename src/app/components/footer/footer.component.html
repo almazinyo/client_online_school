@@ -38,8 +38,8 @@
 
     <div class="---block col-6 col-xs-4 col-xl-auto">
       <div class="---title ---font-800">{{footerMenu.title}}</div>
-      <nav *ngFor="let subject of footerMenu.sectionSubjects">
-        <a [queryParams]="{debug: true}" [routerLink]="'/work/'+subject.slug" *ngIf="subject.parent_id!=='0'">{{subject.name}}</a>
+      <nav *ngFor="let subject of footerMenu.sectionSubjects"  [ngClass]="{'opacity-5':footerMenu.is_status==='2'}">
+        <a (click)="getSection(subject)" [queryParams]="{debug: true}" *ngIf="subject.parent_id!=='0'">{{subject.name}}</a>
       </nav>
     </div>
   </div>
