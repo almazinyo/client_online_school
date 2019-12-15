@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from './auth.service';
 import {MenuService} from '../menu/menu.service';
 import {GlobalParamsMessage} from '../message_alert/global-params-message';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-client',
@@ -18,6 +19,7 @@ export class AuthComponent  implements OnInit {
 
   constructor(private authService: AuthService,
               private globalParamsMessage: GlobalParamsMessage,
+              private router: Router,
               private menuService: MenuService) {
 
 
@@ -84,5 +86,12 @@ export class AuthComponent  implements OnInit {
     this.menuService.getMenuCheck.subscribe(item => {
       this.menu = this.menuService.menu;
     });
+  }
+
+  // переход на ссылку
+  getSection(currentMenu) {
+    if (currentMenu.is_status !== '2') {
+      this.router.navigate(['/section/' + currentMenu.slug]);
+    }
   }
 }
