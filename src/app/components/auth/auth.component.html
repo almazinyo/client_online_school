@@ -2,12 +2,12 @@
   <div class="col-xl-10 animatedParent animateOnce">
     <div class="---row ---item ---justify-content-between ---align-items-center" *ngFor="let item of data">
 
-      <div class="---item--text animated fadeInUpShort clickExample">
+      <div class="---item--text clickExample">
         <div class="---item-title h2 ---font-800">{{item.name}}</div>
         <p class="---item-des">{{item.description}}</p>
       </div>
 
-      <div class="---item--img animated fadeInUpShort">
+      <div class="---item--img">
         <img lazyLoad="http://api.examator.ru/frontend/web/images/options/{{item.img_name}}">
       </div>
 
