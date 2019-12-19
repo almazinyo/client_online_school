@@ -14,7 +14,7 @@
       <div class="---course-name">{{lesson.name}}</div>
 
       <div (click)="toggleVideo()" class="---video ---pos-rel">
-        <div *ngIf="showButton" class="---play-button ---y-pos-abs ---z-index-over">
+        <div *ngIf="showButton" class="---play-button ---y-pos-abs ---z-index-over ---d-none">
           <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861">
             <path
               d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/>
@@ -112,11 +112,11 @@
 </div>
 
 
-<div *ngIf="showCheckImg" id="---modal-login"
-     class="---modal ---justify-content-center ---align-items-start ---is-visible">
-  <div class="---wrapper">
+<div *ngIf="showCheckImg"
+    class="---modal ---justify-content-center ---align-items-start ---is-visible">
+  <div class="---wrapper ---wrapper_img-view ---text-center">
     <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" (click)="showCheckImg=false"
        data-close-block=".---modal"></i>
-    <img src='{{modalImg}}' alt="">
+    <img src='{{modalImg}}' alt="" class="---task-img">
   </div>
 </div>
