@@ -34,10 +34,8 @@ export class ProfileMenuComponent {
   }
 
   exit() {
-    console.log(1)
-    this.sessionStorageService.exit();
     this.authService.exit().then(() => {
-
+        this.sessionStorageService.exit();
       },
       (error) => {
         console.log('Ошибка при  выходе: ', error);
