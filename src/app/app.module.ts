@@ -59,6 +59,7 @@ import { SocialLinkComponent } from './components/footer/social-link/social-link
 import {CookieService} from 'ngx-cookie-service';
 import {SessionStorageService} from './storage/session-storage.service';
 import {GlobalParamsUser} from './storage/global-params-user';
+import {ProfilePayComponent} from './components/profile_pay/profile_pay.component';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
@@ -90,6 +91,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfilePromotionalCodeComponent,
     ModalAuthComponent,
     SocialLinkComponent,
+    ProfilePayComponent
   ],
   imports: [
     BrowserModule,

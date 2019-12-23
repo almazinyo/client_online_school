@@ -16,6 +16,7 @@ import {ProfileBuyComponent} from './components/profile_buy/profile_buy.componen
 import {ProfilePointsComponent} from './components/profile_points/profile_points.component';
 import {ProfilePromotionalCodeComponent} from './components/profile_promotional_code/profile_promotional_code.component';
 import {CallbackComponent} from './components/callback/callback.component';
+import {ProfilePayComponent} from './components/profile_pay/profile_pay.component';
 
 const routes: Routes = [
   {
@@ -69,6 +70,10 @@ const routes: Routes = [
   {
     path: 'profile-buy',
     component: ProfileBuyComponent
+  },
+  {
+    path: 'profile-pay',
+    component: ProfilePayComponent
   },
   {
     path: 'profile-points',

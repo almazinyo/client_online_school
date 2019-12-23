@@ -46,7 +46,7 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/main/init/', {data: data}, true)
         .then((result: { token: string, username: string }) => {
-            this.sessionStorage.authenticated.emit(false);
+            this.sessionStorage.authenticated.emit(true);
 
             if (typeof result.token !== 'undefined') {
               this.globalParamsUser.fio = result.username;
