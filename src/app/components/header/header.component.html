@@ -24,7 +24,7 @@
             </a>
 
             <div class="---subject-list ---font-600 ---z-index-under">
-              <div *ngFor="let currentMenu of menu" (click)="getSection(currentMenu.slug)">{{currentMenu.title}}</div>
+              <div *ngFor="let currentMenu of menu" [ngClass]="{'---inactive':currentMenu.is_status==='2'}" (click)="getSection(currentMenu)">{{currentMenu.title}}</div>
             </div>
 
           </div>

@@ -38,8 +38,10 @@ export class HeaderComponent {
   }
 
   // переход на ссылку
-  getSection(slug) {
-    this.router.navigate(['/section/' + slug]);
+  getSection(currentMenu) {
+    if (currentMenu.is_status !== '2') {
+      this.router.navigate(['/section/' + currentMenu.slug]);
+    }
   }
 
   auth() {
