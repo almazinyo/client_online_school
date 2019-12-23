@@ -1404,7 +1404,7 @@ var HeaderComponent = /** @class */ (function () {
     HeaderComponent.prototype.auth = function () {
         var s = document.createElement('script');
         s.type = 'text/javascript';
-        s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/site/auth?authclient=vkontakte\',onAuth: function(){location.reload()}})';
+        s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/site/auth?authclient=vkontakte\',onAuth: function(){window.location.href = \'http://dev.examator.ru/profile-details\';}})';
         this.elementRef.nativeElement.appendChild(s);
         this.globalParamsAuth.showModalAuth = true;
     };
