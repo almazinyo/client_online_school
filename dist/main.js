@@ -2171,7 +2171,7 @@ var ProfileDetailsService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<iframe src=\"https://money.yandex.ru/quickpay/shop-widget?writer=buyer&targets=&targets-hint=&default-sum=&button-text=12&hint=&successURL=&quickpay=shop&account=41001977346497\" width=\"423\" height=\"215\" frameborder=\"0\" allowtransparency=\"true\" scrolling=\"no\"></iframe>\n"
+module.exports = "<iframe src=\"https://money.yandex.ru/quickpay/shop-widget?writer=buyer&targets=&targets-hint=&default-sum=&button-text=12&hint=&successURL=&quickpay=shop&account=41001820507850\" width=\"423\" height=\"215\" frameborder=\"0\" allowtransparency=\"true\" scrolling=\"no\"></iframe>\n"
 
 /***/ }),
 
