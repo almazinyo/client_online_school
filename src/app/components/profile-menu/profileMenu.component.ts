@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {ProfileDetailsService} from '../profile_details/profile_details.service';
+import {AuthService} from '../auth/auth.service';
+import {SessionStorageService} from '../../storage/session-storage.service';
 
 @Component({
   selector: 'app-profile-menu',
@@ -20,7 +22,9 @@ export class ProfileMenuComponent {
   };
 
   constructor(public router: Router,
-              private profileDetailsService: ProfileDetailsService) {
+              private profileDetailsService: ProfileDetailsService,
+              private sessionStorageService: SessionStorageService,
+              private authService: AuthService) {
     this.profileDetailsService.getProfileDetails().then((data: InterFaceProfileDetails) => {
         this.user = data;
       },
@@ -29,4 +33,14 @@ export class ProfileMenuComponent {
       });
   }
 
+  exit() {
+    console.log(1)
+    this.sessionStorageService.exit();
+    this.authService.exit().then(() => {
+
+      },
+      (error) => {
+        console.log('Ошибка при  выходе: ', error);
+      });
+  }
 }

@@ -49,13 +49,4 @@ export class HeaderComponent {
     this.elementRef.nativeElement.appendChild(s);
     this.globalParamsAuth.showModalAuth = true;
   }
-
-  exit() {
-    this.authService.exit().then(() => {
-        this.sessionStorageService.exit();
-      },
-      (error) => {
-        console.log('Ошибка при  выходе: ', error);
-      });
-  }
 }

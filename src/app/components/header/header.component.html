@@ -32,8 +32,6 @@
 
         <nav class="---d-none ---lg-d-block">
           <a routerLink='' class="---acent ---font-600">Выбрать бесплатный урок</a>
-
-          <!-- todo: поставить корректную ссылку -->
           <a routerLink='teacher'>Учителя</a>
 
           <a routerLink='reviews'>Отзывы</a>
@@ -53,14 +51,13 @@
 
         <div class="---btns ---d-flex">
           <button *ngIf="!checkAuth" (click)="auth()" class="---button ---button--border_bg">Войти</button>
-          <button *ngIf="checkAuth" (click)="exit()" class="---button ---button--border_bg">Выйти</button>
+          <a *ngIf="checkAuth" routerLink='profile-details'  class="---button ---button--border_bg">Профиль</a>
           <a
             href="https://vk.com/app5898182_-185278877#s=493523"
             target="_blank"
             class="---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn">
             Начать учиться
           </a>
-          <div *ngIf="checkAuth" routerLink="/profile-details">Профиль</div>
         </div>
       </div>
 
