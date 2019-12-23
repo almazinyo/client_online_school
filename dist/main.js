@@ -644,7 +644,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.exit = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/main/exit/')
+            _this.httpService.prepareQuery('api/users/logout')
                 .then(function (result) {
                 resolve(result);
             }, function (error) {
@@ -990,7 +990,7 @@ var BreadcrumbsService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-profile ---d-flex\">\n  <div class=\"---rside ---pos-rel\">\n    <div class=\"---block-title ---block-title--sm\">У вас появился вопрос?</div>\n\n    <form action=\"#\" class=\"---row ---support-form\">\n      <p class=\"col-12\">Напишите нам если у вас какие то затруднения с курсами<br>или вопросы по каким либо моментам</p>\n\n      <div class=\"---input-wrap col-md-6\">\n        <div class=\"---input-label\">Электронная почта</div>\n        <input [(ngModel)]=\"data.email\" type=\"email\" class=\"---input\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n      <div class=\"---input-wrap col-md-6\">\n        <div class=\"---input-label\">Номер телефона</div>\n        <input [(ngModel)]=\"data.tel\" type=\"tel\" class=\"---input\" [ngModelOptions]=\"{standalone: true}\">\n      </div>\n      <div class=\"---input-wrap col-12\">\n        <div class=\"---input-label\">Вопрос</div>\n        <textarea [(ngModel)]=\"data.text\" type=\"text\" rows=\"4\" class=\"---input\"></textarea>\n      </div>\n\n      <div class=\"col-12 ---d-flex ---align-items-center\">\n        <button (click)=\"sendCallback()\" class=\"---button ---button--xl ---button--acent_orange\">Отправить</button>\n        <div class=\"---agree ---pos-rel\">\n          <img data-src=\"/assets/imgs/agree.png\" alt=\"\" class=\"---lazyload ---y-pos-abs\">\n          <input type=\"checkbox\" [(ngModel)]=\"checkCondition\" id=\"checkCondition\"/>\n          <label for=\"checkCondition\">\n          Принимаю <a href=\"#\">условия</a><br>\n          обработки данных\n          </label>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-profile ---d-flex\">\n  <div class=\"---rside ---pos-rel\">\n    <div class=\"---block-title ---block-title--sm\">У вас появился вопрос?</div>\n\n    <form action=\"#\" class=\"---row ---support-form\">\n      <p class=\"col-12\">Напишите нам если у вас какие то затруднения с курсами<br>или вопросы по каким либо моментам</p>\n\n      <div class=\"---input-wrap col-md-6\">\n        <div class=\"---input-label\">Электронная почта</div>\n        <input [(ngModel)]=\"data.email\" type=\"email\" class=\"---input\" name=\"first\">\n      </div>\n      <div class=\"---input-wrap col-md-6\">\n        <div class=\"---input-label\">Номер телефона</div>\n        <input [(ngModel)]=\"data.tel\" type=\"tel\" class=\"---input\" name=\"second\">\n      </div>\n      <div class=\"---input-wrap col-12\">\n        <div class=\"---input-label\">Вопрос</div>\n        <textarea [(ngModel)]=\"data.text\" type=\"text\" rows=\"4\" class=\"---input\" name=\"third\"></textarea>\n      </div>\n\n      <div class=\"col-12 ---d-flex ---align-items-center\">\n        <button (click)=\"sendCallback()\" class=\"---button ---button--xl ---button--acent_orange\">Отправить</button>\n        <div class=\"---agree ---pos-rel\">\n          <img data-src=\"/assets/imgs/agree.png\" alt=\"\" class=\"---lazyload ---y-pos-abs\">\n          <input type=\"checkbox\" [(ngModel)]=\"checkCondition\" name=\"lb\" id=\"checkCondition\"/>\n          <label for=\"checkCondition\">\n          Принимаю <a href=\"#\">условия</a><br>\n          обработки данных\n          </label>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1099,7 +1099,7 @@ var CallbackService = /** @class */ (function () {
     CallbackService.prototype.addCallback = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/add-callback', data)
+            _this.httpService.prepareQuery('api/users/contact', data, true)
                 .then(function (result) {
                 resolve(result);
             }, function (error) {
@@ -1832,9 +1832,9 @@ var ProfileMenuComponent = /** @class */ (function () {
         });
     }
     ProfileMenuComponent.prototype.exit = function () {
-        console.log(1);
-        this.sessionStorageService.exit();
+        var _this = this;
         this.authService.exit().then(function () {
+            _this.sessionStorageService.exit();
         }, function (error) {
             console.log('Ошибка при  выходе: ', error);
         });

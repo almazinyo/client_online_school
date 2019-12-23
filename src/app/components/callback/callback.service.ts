@@ -9,7 +9,7 @@ export class CallbackService {
   // обратная связь
   public addCallback(data) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/add-callback', data)
+      this.httpService.prepareQuery('api/users/contact', data, true)
         .then((result: any) => {
             resolve(result);
           },
