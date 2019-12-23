@@ -8,24 +8,22 @@ import {GlobalParamsMessage} from '../message_alert/global-params-message';
 })
 export class ProfileDetailsComponent {
   profile: InterFaceProfileDetails = {
-    id: null,
     username: '',
+    email: '',
     first_name: '',
     last_name: '',
-    email: '',
     phone: '',
+    image: '',
     date_birth: '',
-    city: ''
+    city: '',
   };
 
   constructor(private profileDetailsService: ProfileDetailsService,
               private globalParamsMessage: GlobalParamsMessage) {
-    this.profileDetailsService.getProfileDetails().then((data: InterFaceProfileDetails) => {
-        this.profile = data;
-      },
-      (error) => {
-        console.log('Ошибка при получении детальной информации по профилю: ', error);
-      });
+    this.profile = this.profileDetailsService.user;
+    this.profileDetailsService.getDataUser.subscribe(item => {
+      this.profile = this.profileDetailsService.user;
+    });
   }
 
   // сохранение информации

@@ -1,9 +1,20 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {HttpService} from '../../utils/http/http.service';
 import {SessionStorageService} from '../../storage/session-storage.service';
 
 @Injectable()
 export class ProfileDetailsService {
+  getDataUser: EventEmitter<any> = new EventEmitter(false);
+  user: InterFaceProfileDetails = {
+    username: '',
+    email: '',
+    first_name: '',
+    last_name: '',
+    phone: null,
+    image: '',
+    date_birth: '',
+    city: '',
+  };
 
   constructor(private httpService: HttpService,
               private sessionStorage: SessionStorageService) {
@@ -15,6 +26,8 @@ export class ProfileDetailsService {
       const token = this.sessionStorage.tokenId;
       this.httpService.prepareQuery('api/users/current-user', {'token': token}, true)
         .then((result: InterFaceProfileDetails) => {
+            this.user = result;
+            this.getDataUser.emit(true);
             resolve(result);
           },
           (error) => {

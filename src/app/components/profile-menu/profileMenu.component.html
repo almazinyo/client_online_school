@@ -1,11 +1,10 @@
 <div class="---profile-menu ---pos-rel ---z-index-over">
   <div class="---user ---pos-rel">
     <div class="---avatar ---y-pos-abs">
-      <img src="assets/imgs/user/1.png" alt="" class="---img-cover">
+      <img src="http://api.examator.ru/frontend/web/images/users/{{user.image}}" class="---img-cover">
     </div>
 
-    <div class="---name ---font-600">Валерия Селезнёва</div>
-    <div class="---level">У вас 3 уровень</div>
+    <div class="---name ---font-600">{{user.last_name}} {{user.first_name}}</div>
   </div>
 
   <nav class="---d-flex ---flex-wrap ---justify-content-between ---lg-flex-column ---font-600">
