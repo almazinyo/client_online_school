@@ -653,7 +653,7 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.exit = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/users/logout')
+            _this.httpService.prepareQuery('api/users/logout', null, true)
                 .then(function (result) {
                 resolve(result);
             }, function (error) {
