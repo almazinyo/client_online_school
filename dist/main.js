@@ -219,10 +219,12 @@ var AppComponent = /** @class */ (function () {
         this.sessionStorageService = sessionStorageService;
         this.cookieService = cookieService;
         var cookie = this.cookieService.get('vk_app_7200615') || '';
-        this.authService.getInit(cookie).then(function () {
-        }, function (error) {
-            console.log('Ошибка при получении информации о клиенте: ', error);
-        });
+        if (cookie !== '') {
+            this.authService.getInit(cookie).then(function () {
+            }, function (error) {
+                console.log('Ошибка при получении информации о клиенте: ', error);
+            });
+        }
         this.sessionStorageService.authenticated.subscribe(function (item) {
             if (!item && ['/profile-details', '/profile-promotion', '/profile-buy', '/profile-points', '/profile-promotional-code'].indexOf(_this.location.path())) {
                 _this.router.navigate(['/']);
@@ -4141,7 +4143,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
