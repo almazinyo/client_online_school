@@ -31,6 +31,8 @@ export class AuthService {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/users/logout', '', true)
         .then((result: InterFaceWork) => {
+            this.sessionStorage.exit();
+            delete this.sessionStorage;
             resolve(result);
           },
           (error) => {
