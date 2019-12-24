@@ -29,7 +29,7 @@ export class AuthService {
   // выход
   public exit() {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/users/logout')
+      this.httpService.prepareQuery('api/users/logout', null, true)
         .then((result: InterFaceWork) => {
             resolve(result);
           },
