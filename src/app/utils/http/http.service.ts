@@ -41,7 +41,13 @@ export class HttpService {
     console.log('url:', url);
     if (Object.keys(data).length !== 0 && post) {
       data.token = this.sessionStorage.tokenId;
-      console.log('Отправляем данные: ', data);
+    } else {
+      data = {token: this.sessionStorage.tokenId};
+    }
+
+    console.log('Отправляем данные: ', data);
+
+    if (Object.keys(data).length !== 0 && post) {
       data = JSON.stringify(data);
       data = Base64.encode(data);
     }
