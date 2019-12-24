@@ -43,7 +43,7 @@ export class ProfileDetailsComponent {
       return false;
     }
 
-    if (this.profile.phone.length !== 11) {
+    if (this.profile.phone === null || this.profile.phone.length !== 11) {
       this.globalParamsMessage.data = {title: 'Ошибка', body: 'Необходимо указать телефон', type: 'error'};
       return false;
     }
