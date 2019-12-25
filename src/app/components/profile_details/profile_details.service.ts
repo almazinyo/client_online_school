@@ -23,18 +23,22 @@ export class ProfileDetailsService {
   // получение информации по профилю
   getProfileDetails() {
     return new Promise((resolve, reject) => {
-      const token = this.sessionStorage.tokenId;
-      this.httpService.prepareQuery('api/users/current-user', {'token': token}, true)
-        .then((result: InterFaceProfileDetails) => {
-            this.user = result;
-            this.getDataUser.emit(true);
-            resolve(result);
-          },
-          (error) => {
-            console.log('Ошибка при получении детальной информации по профилю', error);
-            reject();
-          }
-        );
+      if (this.user.username === '') {
+        const token = this.sessionStorage.tokenId;
+        this.httpService.prepareQuery('api/users/current-user', {'token': token}, true)
+          .then((result: InterFaceProfileDetails) => {
+              this.user = result;
+              this.getDataUser.emit(true);
+              resolve(result);
+            },
+            (error) => {
+              console.log('Ошибка при получении детальной информации по профилю', error);
+              reject();
+            }
+          );
+      } else {
+        resolve(this.user);
+      }
     });
   }
 
