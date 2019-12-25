@@ -2049,6 +2049,7 @@ var ProfileDetailsComponent = /** @class */ (function () {
     }
     // сохранение информации
     ProfileDetailsComponent.prototype.save = function () {
+        var _this = this;
         if (this.profile.first_name === '') {
             this.globalParamsMessage.data = { title: 'Ошибка', body: 'Необходимо указать имя', type: 'error' };
             return false;
@@ -2067,6 +2068,7 @@ var ProfileDetailsComponent = /** @class */ (function () {
         }
         this.profile.phone = this.profile.phone.replace(/[\),\(,\-,+,\s]/g, '');
         this.profileDetailsService.save(this.profile).then(function () {
+            _this.globalParamsMessage.data = { title: 'Ошибка', body: 'Данные успешно сохранены', type: 'success' };
             console.log('Данные успешно сохранены');
         }, function (error) {
             console.log('Ошибка при сохранении детальной информации по профилю: ', error);

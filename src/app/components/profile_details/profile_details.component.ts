@@ -50,6 +50,7 @@ export class ProfileDetailsComponent {
 
     this.profile.phone = this.profile.phone.replace(/[\),\(,\-,+,\s]/g, '');
     this.profileDetailsService.save(this.profile).then(() => {
+        this.globalParamsMessage.data = {title: 'Ошибка', body: 'Данные успешно сохранены', type: 'success'};
         console.log('Данные успешно сохранены');
       },
       (error) => {
