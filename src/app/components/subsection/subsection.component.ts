@@ -51,35 +51,12 @@ export class SubsectionComponent {
       });
   }
 
-  public payment(price) {
-    return new Promise((resolve, reject) => {
-      let data =
-        {
-          'receiver': '410013781874599',
-          'label': 'test-test-label',
-          'operation_id': '1',
-          'operation-details': 'true',
-          'formcomment': 'Examator',
-          'short-dest': 'Онлайн школа examator.ru',
-          'quickpay-form': 'shop',
-          'targets': 'Examator',
-          'sum': '2',
-          'comment': 'Платеж  за  урока ... ',
-          'message': 'Платеж  за  урока ...',
-          'codepro': 'true',
-          'successURL': 'http://dev.examator.ru/',
-          'paymentType': 'payment-shop'
-        };
-
-      this.httpService.prepareQuery('https://money.yandex.ru/quickpay/confirm.xml', {data: data}, true)
-        .then(() => {
-            resolve();
-          },
-          (error) => {
-            console.log('Ошибка при сохранении детальной информации по профилю', error);
-            reject();
-          }
-        );
-    });
+  payment(price) {
+    this.subsectionService.getPayment(price).then((data: InterFaceSubSection) => {
+        console.log(1, data);
+      },
+      (error) => {
+        console.log('Ошибка при получении информации о разделе: ', error);
+      });
   }
 }

@@ -63,7 +63,7 @@
 
         <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
 
-        <a  routerLink="#" (click)="payment(section.price)"  class="---button ---button--acent_orange">Купить</a>
+        <div (click)="payment(section.price)"  class="---button ---button--acent_orange">Купить</div>
         <a [routerLink]="'/work/'+section.slug" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>
     </div>

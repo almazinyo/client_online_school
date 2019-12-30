@@ -37,6 +37,44 @@ export class HttpService {
               private sessionStorage: SessionStorageService) {
   }
 
+  public prepareQueryYandex(url: string = 'noUrl', data: any = {}) {
+    return new Promise((resolve, reject) => {
+      this.sendPostQueryYandex(url, data).subscribe((result: { status: number, msg: string, session_id: string, data: string, code: string }) => {
+          console.log('HttpService Ответ получен: ', result);
+          if (result.status === 200) {
+            if (typeof result.data !== 'undefined') {
+              resolve(result.data);
+            } else {
+              resolve(result);
+            }
+          } else if (result.status !== 200) {
+            if (typeof result.code !== 'undefined' && result.code === 'NEED SESSION') {
+              this.globalParamsMessage.data = {title: 'Ошибка', body: 'Истек срок сессии', type: 'error'};
+            } else {
+              this.globalParamsMessage.data = {title: 'Ошибка', body: result.msg, type: 'error'};
+            }
+            reject();
+          } else {
+            this.globalParamsMessage.data = {title: 'Ошибка', body: 'Система врменно недостпуна', type: 'error'};
+            reject();
+          }
+        },
+        (error) => {
+          console.log('Ошибка после отправки запроса в CRM', error);
+          this.globalParamsMessage.data = {title: 'Ошибка', body: 'Система врменно недостпуна', type: 'error'};
+          reject(error);
+        });
+    });
+  }
+
+  private sendPostQueryYandex(url, data: any) {
+    const headers = new HttpHeaders();
+    return this.http.post(url, data, {headers: headers})
+      .pipe(
+        catchError(HttpService.handlerError)
+      );
+  }
+
   public prepareQuery(url: string = 'noUrl', data: any = {}, post = false) {
     console.log('url:', url);
     if (Object.keys(data).length !== 0 && post) {
