@@ -62,14 +62,15 @@
         </ul>
 
         <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
-
         <iframe
-          src="https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum=2&successURL=http://dev.examator.ru&account=410013781874599&label='test-test'"
+          *ngIf="globalParamsUser.fio!==null"
+          [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum=2&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio)"
           width="184"
           height="36"
           frameborder="0"
           allowtransparency="true"
-          scrolling="no">
+          scrolling="no"
+        >
 
         </iframe>
         <a [routerLink]="'/work/'+section.slug" class="---button ---button--acent_orange">Начать беслатно</a>

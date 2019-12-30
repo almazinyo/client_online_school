@@ -2,12 +2,15 @@ import {Component} from '@angular/core';
 import {SubsectionService} from './subsection.service';
 import {ActivatedRoute, Params} from '@angular/router';
 import {HttpService} from '../../utils/http/http.service';
+import {GlobalParamsUser} from '../../storage/global-params-user';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 
 
 @Component({
   selector: 'app-subsection',
   templateUrl: './subsection.component.html',
 })
+
 export class SubsectionComponent {
 
   subsection: InterFaceSubSection = {
@@ -32,6 +35,8 @@ export class SubsectionComponent {
 
   constructor(private subsectionService: SubsectionService,
               private httpService: HttpService,
+              public globalParamsUser: GlobalParamsUser,
+              private sanitizer: DomSanitizer,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(
       (params: Params): void => {
