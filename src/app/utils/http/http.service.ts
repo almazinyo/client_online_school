@@ -93,7 +93,14 @@ export class HttpService {
 
     if (post) {
       // return this.http.post('http://localhost:8005/' + api  , request, {headers: headers})
-      return this.http.post('http://api.examator.ru/' + api, request, {headers: headers})
+
+      let url = 'http://api.examator.ru/' + api;
+
+      if (api.includes('http')) {
+        url = api;
+      }
+
+      return this.http.post(url, request, {headers: headers})
         .pipe(
           catchError(HttpService.handlerError)
         );
