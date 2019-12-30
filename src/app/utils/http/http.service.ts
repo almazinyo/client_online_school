@@ -68,6 +68,7 @@ export class HttpService {
   }
 
   private sendPostQueryYandex(url, data: any) {
+    data = JSON.stringify(data.data);
     const headers = new HttpHeaders();
     return this.http.post(url, data, {headers: headers})
       .pipe(

@@ -4098,6 +4098,7 @@ var HttpService = /** @class */ (function () {
         });
     };
     HttpService.prototype.sendPostQueryYandex = function (url, data) {
+        data = JSON.stringify(data.data);
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
         return this.http.post(url, data, { headers: headers })
             .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
