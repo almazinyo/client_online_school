@@ -3044,7 +3044,7 @@ var SectionService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-course-header ---pos-rel\">\n  <div class=\"---bg ---z-index-under\" style=\"background: #ec407a;\"></div>\n\n  <img lazyLoad=\"assets/imgs/course-in/bg/mechanic.svg\" alt=\"\" class=\"---bg-img ---z-index-under\">\n\n  <div class=\"---row\">\n\n    <div class=\"col-lg-8\">\n      <div class=\"---block-title\">\n        Курсы по {{subsection.subject.title}}\n        <div class=\"---font-800\">{{subsection.name}}</div>\n      </div>\n\n      <p>{{subsection.short_description}}</p>\n      <a [routerLink]=\"[]\" fragment=\"start_work\" class=\"---button ---button--acent_orange ---button--shadow\">Начать\n        учиться</a>\n    </div>\n\n  </div>\n\n  <img lazyLoad=\"{{subsection.img_path}}\" alt=\"\" class=\"---icon ---d-none ---sm-d-block\">\n</div>\n\n<div class=\"---block-courses\" id=\"courses-details\">\n  <div class=\"---free-course ---pos-rel ---d-flex ---align-items-center\">\n    <div>\n      <div class=\"---title\"><span class=\"---font-800\">3 урока бесплатно!</span> Попробуйте</div>\n      <p>Вы можете выбрать любой курс и пройти 3 урока бесплатно после <a href=\"#\">регитсрации</a></p>\n    </div>\n\n    <i class=\"---icon-font ---icon-arrow-down ---d-none ---xl-d-inline-flex\"></i>\n\n    <img lazyLoad=\"assets/imgs/illustrations/course-free.svg\" alt=\"\" class=\"---icon ---d-none ---md-d-block\">\n  </div>\n\n  <div id=\"start_work\" class=\"---block-title\">Выберите <span class=\"---acent\">курс</span></div>\n\n  <div class=\"---row\">\n    <div class=\"col-xs-6 col-lg-4 col-xl-3\" *ngFor=\"let section of subsection.sections\">\n      <div class=\"---course\">\n        <div class=\"---top\" [style.backgroundColor]=\"section.background\">\n          <div class=\"---d-flex\">\n            <div class=\"---play-button ---pos-rel\">\n              <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\">\n                <path fill=\"#ec407a\"\n                      d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/>\n              </svg>\n            </div>\n            <div class=\"---icon ---icon-font ---icon-menu-{{section.icon}}\"></div>\n          </div>\n\n          <div class=\"---title\">\n            {{section.name}}\n          </div>\n          <div class=\"---count\">{{section.sort_description}}</div>\n        </div>\n        <ul>\n          <li *ngFor=\"let lesson of section.lessons\">\n            <img lazyLoad=\"assets/imgs/icons/circle-check.svg\" alt=\"\" class=\"---y-pos-abs\">\n            {{lesson.name}}\n          </li>\n        </ul>\n\n        <div class=\"---price ---font-800 ---text-center\">{{section.price}} ₽</div>\n\n        <a [routerLink]=\"'/work/'+section.slug\" class=\"---button ---button--acent_orange\">Начать беслатно</a>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"---free-course ---free-course--acent ---pos-rel\">\n    <div class=\"---title\">\n      <span class=\"---font-800 ---d-block ---xs-d-inline-block\">Все курсы по механике со скидкой 30%!</span>\n      <span class=\"---old-price\">4,200</span> - 3,300 ₽\n    </div>\n    <p>Покупая несколько курсов вы сильно экономите и получаете больше баллов</p>\n\n    <a href=\"#\" class=\"---button ---button--acent_orange\">Купить весе курсы</a>\n  </div>\n</div>\n\n<div class=\"---block-course-about\">\n  <div class=\"---row\">\n\n    <div class=\"col-xl-6\">\n      <div class=\"---block-title\" id=\"courses\">О курсах</div>\n      <div innerHTML=\"{{subsection.description}}\">\n\n      </div>\n    </div>\n    \n    <div class=\"col-xl-6 ---d-none ---sm-d-flex ---justify-content-between ---xl-flex-row\">\n      <img lazyLoad=\"assets/imgs/illustrations/bg2.svg\" alt=\"\" class=\"---bg ---z-index-under ---d-none ---xl-d-block\">\n\n      <div class=\"---img ---img-1\"><img lazyLoad=\"assets/imgs/course-in/2.png\" alt=\"\" class=\"---img-cover\"></div>\n      <div class=\"---img ---img-2\"><img lazyLoad=\"assets/imgs/course-in/1.png\" alt=\"\" class=\"---img-cover\"></div>\n    </div>\n\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-course-header ---pos-rel\">\n  <div class=\"---bg ---z-index-under\" style=\"background: #ec407a;\"></div>\n\n  <img lazyLoad=\"assets/imgs/course-in/bg/mechanic.svg\" alt=\"\" class=\"---bg-img ---z-index-under\">\n\n  <div class=\"---row\">\n\n    <div class=\"col-lg-8\">\n      <div class=\"---block-title\">\n        Курсы по {{subsection.subject.title}}\n        <div class=\"---font-800\">{{subsection.name}}</div>\n      </div>\n\n      <p>{{subsection.short_description}}</p>\n      <a [routerLink]=\"[]\" fragment=\"start_work\" class=\"---button ---button--acent_orange ---button--shadow\">Начать\n        учиться</a>\n    </div>\n\n  </div>\n\n  <img lazyLoad=\"{{subsection.img_path}}\" alt=\"\" class=\"---icon ---d-none ---sm-d-block\">\n</div>\n\n<div class=\"---block-courses\" id=\"courses-details\">\n  <div class=\"---free-course ---pos-rel ---d-flex ---align-items-center\">\n    <div>\n      <div class=\"---title\"><span class=\"---font-800\">3 урока бесплатно!</span> Попробуйте</div>\n      <p>Вы можете выбрать любой курс и пройти 3 урока бесплатно после <a href=\"#\">регитсрации</a></p>\n    </div>\n\n    <i class=\"---icon-font ---icon-arrow-down ---d-none ---xl-d-inline-flex\"></i>\n\n    <img lazyLoad=\"assets/imgs/illustrations/course-free.svg\" alt=\"\" class=\"---icon ---d-none ---md-d-block\">\n  </div>\n\n  <div id=\"start_work\" class=\"---block-title\">Выберите <span class=\"---acent\">курс</span></div>\n\n  <div class=\"---row\">\n    <div class=\"col-xs-6 col-lg-4 col-xl-3\" *ngFor=\"let section of subsection.sections\">\n      <div class=\"---course\">\n        <div class=\"---top\" [style.backgroundColor]=\"section.background\">\n          <div class=\"---d-flex\">\n            <div class=\"---play-button ---pos-rel\">\n              <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\">\n                <path fill=\"#ec407a\"\n                      d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/>\n              </svg>\n            </div>\n            <div class=\"---icon ---icon-font ---icon-menu-{{section.icon}}\"></div>\n          </div>\n\n          <div class=\"---title\">\n            {{section.name}}\n          </div>\n          <div class=\"---count\">{{section.sort_description}}</div>\n        </div>\n        <ul>\n          <li *ngFor=\"let lesson of section.lessons\">\n            <img lazyLoad=\"assets/imgs/icons/circle-check.svg\" alt=\"\" class=\"---y-pos-abs\">\n            {{lesson.name}}\n          </li>\n        </ul>\n\n        <div class=\"---price ---font-800 ---text-center\">{{section.price}} ₽</div>\n\n        <div (click)=\"payment(section.price)\"  class=\"---button ---button--acent_orange\">Купить</div>\n        <a [routerLink]=\"'/work/'+section.slug\" class=\"---button ---button--acent_orange\">Начать беслатно</a>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"---free-course ---free-course--acent ---pos-rel\">\n    <div class=\"---title\">\n      <span class=\"---font-800 ---d-block ---xs-d-inline-block\">Все курсы по механике со скидкой 30%!</span>\n      <span class=\"---old-price\">4,200</span> - 3,300 ₽\n    </div>\n    <p>Покупая несколько курсов вы сильно экономите и получаете больше баллов</p>\n\n    <a href=\"#\" class=\"---button ---button--acent_orange\">Купить весе курсы</a>\n  </div>\n</div>\n\n<div class=\"---block-course-about\">\n  <div class=\"---row\">\n\n    <div class=\"col-xl-6\">\n      <div class=\"---block-title\" id=\"courses\">О курсах</div>\n      <div innerHTML=\"{{subsection.description}}\">\n\n      </div>\n    </div>\n\n    <div class=\"col-xl-6 ---d-none ---sm-d-flex ---justify-content-between ---xl-flex-row\">\n      <img lazyLoad=\"assets/imgs/illustrations/bg2.svg\" alt=\"\" class=\"---bg ---z-index-under ---d-none ---xl-d-block\">\n\n      <div class=\"---img ---img-1\"><img lazyLoad=\"assets/imgs/course-in/2.png\" alt=\"\" class=\"---img-cover\"></div>\n      <div class=\"---img ---img-2\"><img lazyLoad=\"assets/imgs/course-in/1.png\" alt=\"\" class=\"---img-cover\"></div>\n    </div>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3061,6 +3061,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _subsection_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./subsection.service */ "./src/app/components/subsection/subsection.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _utils_http_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/http/http.service */ "./src/app/utils/http/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3073,10 +3074,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SubsectionComponent = /** @class */ (function () {
-    function SubsectionComponent(subsectionService, activatedRoute) {
+    function SubsectionComponent(subsectionService, httpService, activatedRoute) {
         var _this = this;
         this.subsectionService = subsectionService;
+        this.httpService = httpService;
         this.activatedRoute = activatedRoute;
         this.subsection = {
             thing: '',
@@ -3111,12 +3114,20 @@ var SubsectionComponent = /** @class */ (function () {
             console.log('Ошибка при получении информации о разделе: ', error);
         });
     };
+    SubsectionComponent.prototype.payment = function (price) {
+        this.subsectionService.getPayment(price).then(function (data) {
+            console.log(1, data);
+        }, function (error) {
+            console.log('Ошибка при получении информации о разделе: ', error);
+        });
+    };
     SubsectionComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-subsection',
             template: __webpack_require__(/*! ./subsection.component.html */ "./src/app/components/subsection/subsection.component.html"),
         }),
         __metadata("design:paramtypes", [_subsection_service__WEBPACK_IMPORTED_MODULE_1__["SubsectionService"],
+            _utils_http_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], SubsectionComponent);
     return SubsectionComponent;
@@ -3224,6 +3235,34 @@ var SubsectionService = /** @class */ (function () {
             //   ]
             // };
             // resolve(result);
+        });
+    };
+    SubsectionService.prototype.getPayment = function (price) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var data = {
+                'receiver': '410013781874599',
+                'label': 'test-test-label',
+                'operation_id': '1',
+                'operation-details': 'true',
+                'formcomment': 'Examator',
+                'short-dest': 'Онлайн школа examator.ru',
+                'quickpay-form': 'shop',
+                'targets': 'Examator',
+                'sum': '2',
+                'comment': 'Платеж  за  урока ... ',
+                'message': 'Платеж  за  урока ...',
+                'codepro': 'true',
+                'successURL': 'http://dev.examator.ru/',
+                'paymentType': 'payment-shop'
+            };
+            _this.httpService.prepareQueryYandex('https://money.yandex.ru/quickpay/confirm.xml', { data: data })
+                .then(function (result) {
+                resolve(result);
+            }, function (error) {
+                console.log('Ошибка при сохранении детальной информации по профилю', error);
+                reject();
+            });
         });
     };
     SubsectionService = __decorate([
@@ -4023,6 +4062,46 @@ var HttpService = /** @class */ (function () {
         }
         return rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"].throw(text_error);
     };
+    HttpService.prototype.prepareQueryYandex = function (url, data) {
+        var _this = this;
+        if (url === void 0) { url = 'noUrl'; }
+        if (data === void 0) { data = {}; }
+        return new Promise(function (resolve, reject) {
+            _this.sendPostQueryYandex(url, data).subscribe(function (result) {
+                console.log('HttpService Ответ получен: ', result);
+                if (result.status === 200) {
+                    if (typeof result.data !== 'undefined') {
+                        resolve(result.data);
+                    }
+                    else {
+                        resolve(result);
+                    }
+                }
+                else if (result.status !== 200) {
+                    if (typeof result.code !== 'undefined' && result.code === 'NEED SESSION') {
+                        _this.globalParamsMessage.data = { title: 'Ошибка', body: 'Истек срок сессии', type: 'error' };
+                    }
+                    else {
+                        _this.globalParamsMessage.data = { title: 'Ошибка', body: result.msg, type: 'error' };
+                    }
+                    reject();
+                }
+                else {
+                    _this.globalParamsMessage.data = { title: 'Ошибка', body: 'Система врменно недостпуна', type: 'error' };
+                    reject();
+                }
+            }, function (error) {
+                console.log('Ошибка после отправки запроса в CRM', error);
+                _this.globalParamsMessage.data = { title: 'Ошибка', body: 'Система врменно недостпуна', type: 'error' };
+                reject(error);
+            });
+        });
+    };
+    HttpService.prototype.sendPostQueryYandex = function (url, data) {
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        return this.http.post(url, data, { headers: headers })
+            .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
+    };
     HttpService.prototype.prepareQuery = function (url, data, post) {
         var _this = this;
         if (url === void 0) { url = 'noUrl'; }
@@ -4081,7 +4160,11 @@ var HttpService = /** @class */ (function () {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
         if (post) {
             // return this.http.post('http://localhost:8005/' + api  , request, {headers: headers})
-            return this.http.post('http://api.examator.ru/' + api, request, { headers: headers })
+            var url = 'http://api.examator.ru/' + api;
+            if (api.includes('http')) {
+                url = api;
+            }
+            return this.http.post(url, request, { headers: headers })
                 .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
         }
         // return this.http.get('http://localhost:8005/' + api, {headers: headers}).pipe(
@@ -4162,7 +4245,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
