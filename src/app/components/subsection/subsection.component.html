@@ -64,7 +64,7 @@
         <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
         <iframe
           *ngIf="globalParamsUser.fio!==null"
-          [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum=2&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio)"
+          [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+section.price+'&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio+'&'+section.slug)"
           width="184"
           height="36"
           frameborder="0"
