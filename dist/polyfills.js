@@ -626,7 +626,7 @@ module.exports = function (NAME, wrapper, methods, common, IS_MAP, IS_WEAK) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.10' };
+var core = module.exports = { version: '2.6.11' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -5776,7 +5776,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })
