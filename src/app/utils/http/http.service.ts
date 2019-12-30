@@ -68,9 +68,11 @@ export class HttpService {
   }
 
   private sendPostQueryYandex(url, data: any) {
-    data = JSON.stringify(data.data);
-    const headers = new HttpHeaders();
-    return this.http.post(url, data, {headers: headers})
+    const options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+
+    return this.http.post(url, data.toString(), options)
       .pipe(
         catchError(HttpService.handlerError)
       );

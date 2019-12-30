@@ -82,24 +82,23 @@ export class SubsectionService {
 
   getPayment(price) {
     return new Promise((resolve, reject) => {
-      const data = {
-        'receiver': '410013781874599',
-        'label': 'test-test-label',
-        'operation_id': '1',
-        'operation-details': 'true',
-        'formcomment': 'Examator',
-        'short-dest': 'Онлайн школа examator.ru',
-        'quickpay-form': 'shop',
-        'targets': 'Examator',
-        'sum': '2',
-        'comment': 'Платеж  за  урока ... ',
-        'message': 'Платеж  за  урока ...',
-        'codepro': 'true',
-        'successURL': 'http://dev.examator.ru/',
-        'paymentType': 'payment-shop'
-      };
+      const body = new URLSearchParams();
+      body.set('receiver', '410013781874599');
+      body.set('label', 'test-test-label');
+      body.set('operation_id', '1');
+      body.set('operation-details', 'true');
+      body.set('formcomment', 'Examator');
+      body.set('short-dest', 'Онлайн школа examator.ru');
+      body.set('quickpay-form', 'shop');
+      body.set('targets', 'Examator');
+      body.set('sum', '2');
+      body.set('comment', 'Платеж  за  урока ... ');
+      body.set('message', 'Платеж  за  урока ... ');
+      body.set('codepro', 'true');
+      body.set('successURL', 'http://dev.examator.ru/');
+      body.set('paymentType', 'payment-shop');
 
-      this.httpService.prepareQueryYandex('https://money.yandex.ru/quickpay/confirm.xml', {data: data})
+      this.httpService.prepareQueryYandex('https://money.yandex.ru/quickpay/confirm.xml', body)
         .then((result) => {
             resolve(result);
           },
