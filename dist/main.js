@@ -3240,23 +3240,22 @@ var SubsectionService = /** @class */ (function () {
     SubsectionService.prototype.getPayment = function (price) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var data = {
-                'receiver': '410013781874599',
-                'label': 'test-test-label',
-                'operation_id': '1',
-                'operation-details': 'true',
-                'formcomment': 'Examator',
-                'short-dest': 'Онлайн школа examator.ru',
-                'quickpay-form': 'shop',
-                'targets': 'Examator',
-                'sum': '2',
-                'comment': 'Платеж  за  урока ... ',
-                'message': 'Платеж  за  урока ...',
-                'codepro': 'true',
-                'successURL': 'http://dev.examator.ru/',
-                'paymentType': 'payment-shop'
-            };
-            _this.httpService.prepareQueryYandex('https://money.yandex.ru/quickpay/confirm.xml', { data: data })
+            var body = new URLSearchParams();
+            body.set('receiver', '410013781874599');
+            body.set('label', 'test-test-label');
+            body.set('operation_id', '1');
+            body.set('operation-details', 'true');
+            body.set('formcomment', 'Examator');
+            body.set('short-dest', 'Онлайн школа examator.ru');
+            body.set('quickpay-form', 'shop');
+            body.set('targets', 'Examator');
+            body.set('sum', '2');
+            body.set('comment', 'Платеж  за  урока ... ');
+            body.set('message', 'Платеж  за  урока ... ');
+            body.set('codepro', 'true');
+            body.set('successURL', 'http://dev.examator.ru/');
+            body.set('paymentType', 'payment-shop');
+            _this.httpService.prepareQueryYandex('https://money.yandex.ru/quickpay/confirm.xml', body)
                 .then(function (result) {
                 resolve(result);
             }, function (error) {
@@ -4098,9 +4097,10 @@ var HttpService = /** @class */ (function () {
         });
     };
     HttpService.prototype.sendPostQueryYandex = function (url, data) {
-        data = JSON.stringify(data.data);
-        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
-        return this.http.post(url, data, { headers: headers })
+        var options = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Content-Type', 'application/x-www-form-urlencoded')
+        };
+        return this.http.post(url, data.toString(), options)
             .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(HttpService_1.handlerError));
     };
     HttpService.prototype.prepareQuery = function (url, data, post) {
