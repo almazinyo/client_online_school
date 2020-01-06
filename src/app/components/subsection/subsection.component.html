@@ -63,7 +63,15 @@
 
         <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
 
-        <div (click)="payment(section.price)"  class="---button ---button--acent_orange">Купить</div>
+        <iframe
+          src="https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum={{section.price}}&successURL=http://dev.examator.ru&account=410013781874599"
+          width="184"
+          height="36"
+          frameborder="0"
+          allowtransparency="true"
+          scrolling="no">
+
+        </iframe>
         <a [routerLink]="'/work/'+section.slug" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>
     </div>
