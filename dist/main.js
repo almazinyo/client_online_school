@@ -175,7 +175,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-message-alert></app-message-alert>\n\n<app-header></app-header>\n<app-modal-auth></app-modal-auth>\n  <div id=\"---main-content\" class=\"---d-flex\">\n    <div class=\"---container\">\n      <div class=\"---row\" style=\"height: 100%;\">\n        <app-menu class=\"---main-menu ---d-flex ---flex-column ---align-items-start ---lg-align-items-end ---text-center ---pos-rel ---z-index-over\"></app-menu>\n\n        <div class=\"---content-wrap\">\n          <app-breadcrumbs></app-breadcrumbs>\n          <router-outlet></router-outlet>\n          <app-footer></app-footer>\n        </div>\n      </div>\n    </div>\n  </div>\n"
+module.exports = "<app-message-alert></app-message-alert>\n<app-hints></app-hints>\n<app-header></app-header>\n<app-modal-auth></app-modal-auth>\n  <div id=\"---main-content\" class=\"---d-flex\">\n    <div class=\"---container\">\n      <div class=\"---row\" style=\"height: 100%;\">\n        <app-menu class=\"---main-menu ---d-flex ---flex-column ---align-items-start ---lg-align-items-end ---text-center ---pos-rel ---z-index-over\"></app-menu>\n\n        <div class=\"---content-wrap\">\n          <app-breadcrumbs></app-breadcrumbs>\n          <router-outlet></router-outlet>\n          <app-footer></app-footer>\n        </div>\n      </div>\n    </div>\n  </div>\n"
 
 /***/ }),
 
@@ -322,12 +322,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _storage_global_params_user__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./storage/global-params-user */ "./src/app/storage/global-params-user.ts");
 /* harmony import */ var _components_profile_pay_profile_pay_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./components/profile_pay/profile_pay.component */ "./src/app/components/profile_pay/profile_pay.component.ts");
 /* harmony import */ var ng2_page_scroll__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ng2-page-scroll */ "./node_modules/ng2-page-scroll/ng2-page-scroll.js");
+/* harmony import */ var _components_hints_hints_service__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./components/hints/hints.service */ "./src/app/components/hints/hints.service.ts");
+/* harmony import */ var _components_hints_hints_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./components/hints/hints.component */ "./src/app/components/hints/hints.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -425,7 +429,8 @@ var AppModule = /** @class */ (function () {
                 _components_profile_promotional_code_profile_promotional_code_component__WEBPACK_IMPORTED_MODULE_52__["ProfilePromotionalCodeComponent"],
                 _components_modal_auth_modal_auth_component__WEBPACK_IMPORTED_MODULE_56__["ModalAuthComponent"],
                 _components_footer_social_link_social_link_component__WEBPACK_IMPORTED_MODULE_57__["SocialLinkComponent"],
-                _components_profile_pay_profile_pay_component__WEBPACK_IMPORTED_MODULE_61__["ProfilePayComponent"]
+                _components_profile_pay_profile_pay_component__WEBPACK_IMPORTED_MODULE_61__["ProfilePayComponent"],
+                _components_hints_hints_component__WEBPACK_IMPORTED_MODULE_64__["HintsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -466,6 +471,7 @@ var AppModule = /** @class */ (function () {
                 _components_teacher_detalis_teacher_detalis_service__WEBPACK_IMPORTED_MODULE_55__["TeacherDetalisService"],
                 ngx_cookie_service__WEBPACK_IMPORTED_MODULE_58__["CookieService"],
                 _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_59__["SessionStorageService"],
+                _components_hints_hints_service__WEBPACK_IMPORTED_MODULE_63__["HintsService"],
                 _storage_global_params_user__WEBPACK_IMPORTED_MODULE_60__["GlobalParamsUser"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
@@ -1443,6 +1449,101 @@ var HeaderComponent = /** @class */ (function () {
             _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_6__["SessionStorageService"]])
     ], HeaderComponent);
     return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/hints/hints.component.html":
+/*!*******************************************************!*\
+  !*** ./src/app/components/hints/hints.component.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"hiddenHints\" style=\"    position: absolute;\n    z-index: 9999;\n    height: 100%;\n    width: 100%;\n    background: rgba(0, 0, 0, 0.63);\n    color: white;\">\nПодсказка\n  <div (click)=\"hiddenHints=!hiddenHints\">Закрыть подсказку</div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/hints/hints.component.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/components/hints/hints.component.ts ***!
+  \*****************************************************/
+/*! exports provided: HintsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HintsComponent", function() { return HintsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HintsComponent = /** @class */ (function () {
+    function HintsComponent(sessionStorageService) {
+        var _this = this;
+        this.sessionStorageService = sessionStorageService;
+        this.hiddenHints = true;
+        this.sessionStorageService.authenticated.subscribe(function (item) {
+            _this.hiddenHints = !item;
+        });
+    }
+    HintsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-hints',
+            template: __webpack_require__(/*! ./hints.component.html */ "./src/app/components/hints/hints.component.html"),
+        }),
+        __metadata("design:paramtypes", [_storage_session_storage_service__WEBPACK_IMPORTED_MODULE_1__["SessionStorageService"]])
+    ], HintsComponent);
+    return HintsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/hints/hints.service.ts":
+/*!***************************************************!*\
+  !*** ./src/app/components/hints/hints.service.ts ***!
+  \***************************************************/
+/*! exports provided: HintsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HintsService", function() { return HintsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/http/http.service */ "./src/app/utils/http/http.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HintsService = /** @class */ (function () {
+    function HintsService(httpService) {
+        this.httpService = httpService;
+    }
+    HintsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"]])
+    ], HintsService);
+    return HintsService;
 }());
 
 

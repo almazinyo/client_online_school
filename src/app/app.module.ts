@@ -61,6 +61,8 @@ import {SessionStorageService} from './storage/session-storage.service';
 import {GlobalParamsUser} from './storage/global-params-user';
 import {ProfilePayComponent} from './components/profile_pay/profile_pay.component';
 import {Ng2PageScrollModule} from 'ng2-page-scroll';
+import {HintsService} from './components/hints/hints.service';
+import {HintsComponent} from './components/hints/hints.component';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
@@ -92,7 +94,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ProfilePromotionalCodeComponent,
     ModalAuthComponent,
     SocialLinkComponent,
-    ProfilePayComponent
+    ProfilePayComponent,
+    HintsComponent
   ],
   imports: [
     BrowserModule,
@@ -133,6 +136,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     TeacherDetalisService,
     CookieService,
     SessionStorageService,
+    HintsService,
     GlobalParamsUser
   ],
   bootstrap: [AppComponent]
