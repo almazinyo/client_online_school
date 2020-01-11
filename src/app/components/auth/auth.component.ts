@@ -12,8 +12,7 @@ import {Router} from '@angular/router';
 export class AuthComponent  implements OnInit {
   user: any;
   output: any;
-
-
+  fragment='';
   data: InterFaceMain[] = [];
   menu: InterFaceMenu[] = [];
 

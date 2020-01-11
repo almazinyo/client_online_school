@@ -60,6 +60,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {SessionStorageService} from './storage/session-storage.service';
 import {GlobalParamsUser} from './storage/global-params-user';
 import {ProfilePayComponent} from './components/profile_pay/profile_pay.component';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
@@ -106,8 +107,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     LazyLoadImageModule.forRoot({
       preset: intersectionObserverPreset // <-- tell LazyLoadImage that you want to use IntersectionObserver
     }),
-    NgxMaskModule.forRoot(options)
-
+    NgxMaskModule.forRoot(options),
+    Ng2PageScrollModule
   ],
   providers: [
     GlobalParamsAuth,
