@@ -22,8 +22,7 @@
       <div class="col-12 ---d-flex ---align-items-center">
         <button (click)="sendCallback()" class="---button ---button--xl ---button--acent_orange">Отправить</button>
         <div class="---agree ---pos-rel">
-          <img src="/assets/imgs/agree.png" alt="" class="---y-pos-abs">
-          <input type="checkbox" [(ngModel)]="checkCondition" name="lb" id="checkCondition"/>
+          <input type="checkbox" [(ngModel)]="checkCondition" name="lb" id="checkCondition" style="-webkit-appearance: checkbox;"/>
           <label for="checkCondition">
           Принимаю <a href="#">условия</a><br>
           обработки данных

@@ -22,7 +22,7 @@
         </div>
         <span *ngFor="let currentWork of storage">
           <video #videoPlayer class="---pos-rel ---img-cover" controls *ngIf="currentWork.type==='video'">
-            <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>Тег video не поддерживается вашим браузером.<a href="video/duel.mp4">Скачайте видео</a>.
+            <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
           </video>
         </span>
       </div>
@@ -113,7 +113,7 @@
 
 
 <div *ngIf="showCheckImg"
-    class="---modal ---justify-content-center ---align-items-start ---is-visible">
+    class="---modal ---justify-content-center ---align-items-start ---is-visible d-flex">
   <div class="---wrapper ---wrapper_img-view ---text-center">
     <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" (click)="showCheckImg=false"
        data-close-block=".---modal"></i>
