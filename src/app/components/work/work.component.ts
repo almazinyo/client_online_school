@@ -3,6 +3,7 @@ import {WorkService} from './work.service';
 import {Router} from '@angular/router';
 import {ActivatedRoute, Params} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
+import {GlobalParamsMessage} from '../message_alert/global-params-message';
 
 @Component({
   selector: 'app-work',
@@ -57,6 +58,7 @@ export class WorkComponent {
 
   constructor(private workService: WorkService,
               private router: Router,
+              private globalParamsMessage: GlobalParamsMessage,
               private activatedRoute: ActivatedRoute,
               private dom: DomSanitizer) {
 
@@ -119,13 +121,18 @@ export class WorkComponent {
   }
 
   sendAnswer() {
-    this.workService.sendAnswer({data: this.answerTest}).then(() => {
-        console.log('Тест пройден');
+    this.workService.sendAnswer({data: this.answerTest}).then((result: { correct_answers: number, wrong_answers: number }) => {
+        this.globalParamsMessage.data = {
+          title: 'Ошибка',
+          body: 'Количество правильных ответов ' + result.correct_answers + '. Количество неправильных ответо' + result.wrong_answers,
+          type: 'error'
+        };
       },
       (error) => {
         console.log('Ошибка при отправке тестов: ', error);
       });
   }
+
 
   checkImg(data, type = 'img') {
     if (type === 'img') {
