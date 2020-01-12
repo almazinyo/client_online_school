@@ -123,7 +123,7 @@ export class WorkComponent {
   sendAnswer() {
     this.workService.sendAnswer({data: this.answerTest}).then((result: { correct_answers: number, wrong_answers: number }) => {
         this.globalParamsMessage.data = {
-          title: 'Ошибка',
+          title: 'Результат',
           body: 'Количество правильных ответов ' + result.correct_answers + '. Количество неправильных ответо' + result.wrong_answers,
           type: 'error'
         };

@@ -2073,28 +2073,23 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var ProfileBuyService = /** @class */ (function () {
     function ProfileBuyService(httpService) {
         this.httpService = httpService;
+        this.profileBuy = [];
     }
     ProfileBuyService.prototype.getBuyList = function () {
+        var _this = this;
         return new Promise(function (resolve, reject) {
-            var result = [
-                { id: 1, name: 'Покупка 1', sum: '1000', date: '20.09.2019' },
-                { id: 2, name: 'Покупка 2', sum: '1200', date: '21.05.2019' },
-                { id: 3, name: 'Покупка 3', sum: '1500', date: '01.05.2019' },
-                { id: 4, name: 'Покупка 4', sum: '1050', date: '01.16.2019' },
-                { id: 5, name: 'Покупка 5', sum: '1006', date: '01.05.2019' },
-                { id: 6, name: 'Покупка 6', sum: '500', date: '01.05.2019' },
-                { id: 8, name: 'Покупка 7', sum: '320', date: '01.05.2019' },
-            ];
-            resolve(result);
-            /*this.httpService.prepareQuery('api/profile-buy', {})
-              .then((result: InterFaceProfileBuy[]) => {
-                  resolve(result);
-                },
-                (error) => {
-                  console.log('Ошибка при получении информации по покупкам', error);
-                  reject();
-                }
-              );*/
+            if (_this.profileBuy.length === 0) {
+                _this.httpService.prepareQuery('api/users/profile-buy', '', true)
+                    .then(function (result) {
+                    resolve(result);
+                }, function (error) {
+                    console.log('Ошибка при получении детальной информации по платежам', error);
+                    reject();
+                });
+            }
+            else {
+                resolve(_this.profileBuy);
+            }
         });
     };
     ProfileBuyService = __decorate([
@@ -3786,7 +3781,7 @@ var WorkComponent = /** @class */ (function () {
         var _this = this;
         this.workService.sendAnswer({ data: this.answerTest }).then(function (result) {
             _this.globalParamsMessage.data = {
-                title: 'Ошибка',
+                title: 'Результат',
                 body: 'Количество правильных ответов ' + result.correct_answers + '. Количество неправильных ответо' + result.wrong_answers,
                 type: 'error'
             };
@@ -4368,7 +4363,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
