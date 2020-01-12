@@ -16,7 +16,7 @@
         </tr>
         <tr *ngFor="let buy of buyList">
           <td>{{buy.id}}</td>
-          <td class="---font-600">{{buy.name}}</td>
+          <td class="---font-600">{{buy.section_name}}</td>
           <td class="---date">{{buy.datetime | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
           <td>{{buy.price | digitsNumbers}} ₽</td>
         </tr>
