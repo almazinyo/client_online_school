@@ -1,6 +1,6 @@
 interface InterFaceProfileBuy {
   id: number;
   name: string;
-  sum: string;
-  date: string;
+  price: string;
+  datetime: string;
 }

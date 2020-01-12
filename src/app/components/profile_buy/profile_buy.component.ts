@@ -10,6 +10,7 @@ export class ProfileBuyComponent {
 
   constructor(private profileBuyService: ProfileBuyService) {
     this.profileBuyService.getBuyList().then((data: InterFaceProfileBuy[]) => {
+      console.log(1,data)
         this.buyList = data;
       },
       (error) => {

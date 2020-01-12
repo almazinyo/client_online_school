@@ -1995,7 +1995,7 @@ var ProfileMenuComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-profile ---d-flex\">\n  <app-profile-menu></app-profile-menu>\n  <div class=\"---rside ---pos-rel\">\n    <app-breadcrumbs></app-breadcrumbs>\n    <div class=\"---block-title ---block-title--sm\">Ваши покупки</div>\n\n    <div class=\"---devider\"></div>\n\n    <div class=\"---t-wrap\">\n      <table>\n        <tr>\n          <th>#</th>\n          <th>Курс</th>\n          <th>Дата</th>\n          <th>Сумма</th>\n        </tr>\n        <tr *ngFor=\"let buy of buyList\">\n          <td>{{buy.id}}</td>\n          <td class=\"---font-600\">{{buy.name}}</td>\n          <td class=\"---date\">{{buy.date}}</td>\n          <td>{{buy.sum | digitsNumbers}} ₽</td>\n        </tr>\n      </table>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-profile ---d-flex\">\n  <app-profile-menu></app-profile-menu>\n  <div class=\"---rside ---pos-rel\">\n    <app-breadcrumbs></app-breadcrumbs>\n    <div class=\"---block-title ---block-title--sm\">Ваши покупки</div>\n\n    <div class=\"---devider\"></div>\n\n    <div class=\"---t-wrap\">\n      <table>\n        <tr>\n          <th>#</th>\n          <th>Курс</th>\n          <th>Дата</th>\n          <th>Сумма</th>\n        </tr>\n        <tr *ngFor=\"let buy of buyList\">\n          <td>{{buy.id}}</td>\n          <td class=\"---font-600\">{{buy.name}}</td>\n          <td class=\"---date\">{{buy.datetime | date: 'dd.MM.yyyy HH:mm:ss'}}</td>\n          <td>{{buy.price | digitsNumbers}} ₽</td>\n        </tr>\n      </table>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2028,6 +2028,7 @@ var ProfileBuyComponent = /** @class */ (function () {
         this.profileBuyService = profileBuyService;
         this.buyList = [];
         this.profileBuyService.getBuyList().then(function (data) {
+            console.log(1, data);
             _this.buyList = data;
         }, function (error) {
             console.log('Ошибка при получении информации по покупкам: ', error);
