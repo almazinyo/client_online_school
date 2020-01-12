@@ -6,7 +6,7 @@ import {SessionStorageService} from '../../storage/session-storage.service';
   templateUrl: './hints.component.html',
 })
 export class HintsComponent {
-  hiddenHints = true;
+  hiddenHints = false;
 
   constructor(private sessionStorageService: SessionStorageService) {
 
