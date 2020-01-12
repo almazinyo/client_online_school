@@ -3783,7 +3783,7 @@ var WorkComponent = /** @class */ (function () {
         this.workService.sendAnswer({ data: this.answerTest }).then(function (result) {
             _this.globalParamsMessage.data = {
                 title: 'Результат',
-                body: 'Количество правильных ответов ' + result.correct_answers + '. Количество неправильных ответо' + result.wrong_answers,
+                body: 'Количество правильных ответов: ' + result.correct_answers + '. Количество неправильных ответов: ' + result.wrong_answers,
                 type: 'error'
             };
         }, function (error) {
