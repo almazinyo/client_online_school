@@ -1,5 +1,4 @@
 .---modal {
-
   position: fixed;
   top: 0;
   left: 0;
@@ -24,6 +23,16 @@
       content: '';
       display: block;
       clear: both;
+    }
+
+  }
+  .---wrapper_hint {
+    border-radius: 10px !important;
+    padding: 0 !important;
+    max-width: 600px;
+  
+    img {
+      border-radius: 10px 10px 0 0;
     }
 
   }
@@ -70,6 +79,21 @@
     font-size: 16px;
     margin-bottom: 30px;
     color: fadeout(@color-text, 40%);
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .---wrapper__hint-content {
+    padding: 15px;
+
+    p {
+      font-size: 15px;
+      line-height: 1.5;
+      margin: 15px 0 0;
+    }
+
   }
 
   .---pay-type {
@@ -145,6 +169,14 @@
 
     .---wrapper {
       border-radius: 15px;
+    }
+
+    .---wrapper__hint-content {
+
+      p {
+        font-size: 14px;
+      }
+
     }
 
   }

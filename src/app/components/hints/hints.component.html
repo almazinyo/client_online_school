@@ -1,9 +1,14 @@
-<div *ngIf="hiddenHints" style="    position: absolute;
-    z-index: 9999;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.63);
-    color: white;">
-Подсказка
-  <div (click)="hiddenHints=!hiddenHints">Закрыть подсказку</div>
+<div *ngIf="hiddenHints" class="---modal ---d-flex ---justify-content-center ---align-items-start">
+	<div class="---wrapper ---wrapper_hint ---text-center">		
+		<img src="https://hb.bizmrg.com/kazanexpress/static/PopUp.png" alt="">
+
+		<div class="---wrapper__hint-content">
+			<div class="h4 ---hint__title ---font-600">Дарим подарки!</div>
+			<p>
+				В преддверии волшебного праздника мы подготовили для тебя игру. На сайте и в приложении спрятано 10 символов Нового года. Найди их, чтобы получить уникальные промокоды и купить подарки еще выгоднее. Среди счастливчиков, которые нашли все 10 предметов, мы разыграем 10000₽ на шопинг в KazanExpress.
+			</p>
+		</div>
+
+		<div (click)="hiddenHints=!hiddenHints" class="---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs"></div>
+	</div>
 </div>
