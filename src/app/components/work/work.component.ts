@@ -39,7 +39,7 @@ export class WorkComponent {
     }]
   };
 
-  lesson: InterFaceLesson = {name: ''};
+  lesson: InterFaceLesson = {name: '', section_id: ''};
   test: InterFaceTestWork[] = [{hint: '', id: '', lessons_id: '', question: ''}];
   storage: any;
   teachers: InterFaceTeachers = {name: ''};
@@ -121,7 +121,11 @@ export class WorkComponent {
   }
 
   sendAnswer() {
-    this.workService.sendAnswer({data: this.answerTest}).then((result: { correct_answers: number, wrong_answers: number }) => {
+    this.workService.sendAnswer({
+        section_id: this.lesson.section_id,
+        data: this.answerTest
+      }
+    ).then((result: { correct_answers: number, wrong_answers: number }) => {
         this.globalParamsMessage.data = {
           title: 'Результат',
           body: 'Количество правильных ответов: ' + result.correct_answers + '. Количество неправильных ответов: ' + result.wrong_answers,

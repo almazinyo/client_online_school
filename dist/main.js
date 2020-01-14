@@ -3716,7 +3716,7 @@ var WorkComponent = /** @class */ (function () {
                     slug: ''
                 }]
         };
-        this.lesson = { name: '' };
+        this.lesson = { name: '', section_id: '' };
         this.test = [{ hint: '', id: '', lessons_id: '', question: '' }];
         this.teachers = { name: '' };
         this.currentTest = { hint: '', id: '', lessons_id: '', question: '' };
@@ -3780,7 +3780,10 @@ var WorkComponent = /** @class */ (function () {
     };
     WorkComponent.prototype.sendAnswer = function () {
         var _this = this;
-        this.workService.sendAnswer({ data: this.answerTest }).then(function (result) {
+        this.workService.sendAnswer({
+            section_id: this.lesson.section_id,
+            data: this.answerTest
+        }).then(function (result) {
             _this.globalParamsMessage.data = {
                 title: 'Результат',
                 body: 'Количество правильных ответов: ' + result.correct_answers + '. Количество неправильных ответов: ' + result.wrong_answers,
