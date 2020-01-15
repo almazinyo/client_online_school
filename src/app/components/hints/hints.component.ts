@@ -11,7 +11,11 @@ export class HintsComponent {
   constructor(private sessionStorageService: SessionStorageService) {
 
     this.sessionStorageService.authenticated.subscribe(item => {
-      this.hiddenHints = !item;
+      const hints = localStorage.getItem('hints');
+      if (hints === null && !item) {
+        this.hiddenHints = true;
+        localStorage.setItem('hints', 'yes');
+      }
     });
   }
 }
