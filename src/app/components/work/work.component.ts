@@ -39,7 +39,7 @@ export class WorkComponent {
     }]
   };
 
-  lesson: InterFaceLesson = {name: '', section_id: ''};
+  lesson: InterFaceLesson = {id: '', name: '', section_id: ''};
   test: InterFaceTestWork[] = [{hint: '', id: '', lessons_id: '', question: ''}];
   storage: any;
   teachers: InterFaceTeachers = {name: ''};
@@ -125,6 +125,7 @@ export class WorkComponent {
 
     this.workService.sendAnswer({
         section_id: this.lesson.section_id,
+        lesson_id: this.lesson.id,
         data: this.answerTest
       }
     ).then((result: { correct_answers: number, wrong_answers: number }) => {
