@@ -3780,6 +3780,7 @@ var WorkComponent = /** @class */ (function () {
     };
     WorkComponent.prototype.sendAnswer = function () {
         var _this = this;
+        this.answerTest.push({ id: this.currentTest.id, answer: this.answer });
         this.workService.sendAnswer({
             section_id: this.lesson.section_id,
             data: this.answerTest
@@ -4367,7 +4368,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })

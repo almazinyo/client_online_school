@@ -121,6 +121,8 @@ export class WorkComponent {
   }
 
   sendAnswer() {
+    this.answerTest.push({id: this.currentTest.id, answer: this.answer});
+
     this.workService.sendAnswer({
         section_id: this.lesson.section_id,
         data: this.answerTest
