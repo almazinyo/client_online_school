@@ -8,11 +8,7 @@ $(document).ready(function() {
 
       var div = $(clickField);
 
-      if (!div.is(e.target) && div.has(e.target).length === 0) {
-
-        callback();
-
-      }
+      if (!div.is(e.target) && div.has(e.target).length === 0) callback();
 
     });
 
