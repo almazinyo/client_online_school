@@ -3,7 +3,7 @@
     <div class="---block-title">Видео курсы по <span class="---acent ---font-800">{{sections.title}}</span></div>
     <div class="---course-list ---lessons-tabs">
       <div class="---subject" *ngFor="let section of sections.sectionSubjects">
-        <div [routerLink]="'/subsection/'+section.slug" class="---course ---font-800 ---d-flex ---align-items-center"
+        <div [routerLink]="'/subsection/'+section.slug" class="---course ---font-800 ---d-flex ---align-items-center ---cursor-pointer"
              [style.backgroundColor]="section.background">
           <span class="---play-button ---pos-rel">
             <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path
