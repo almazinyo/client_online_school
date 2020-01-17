@@ -24,9 +24,9 @@
 
     <div class="col-xs-6 col-md-4 col-lg-3 spec-block-lesson" *ngFor="let item of menu">
       <div (click)="getSection(item)"
-         [ngClass]="{'opacity-5':item.is_status==='2'}"
-         class="---cursor-pointer ---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start"
-         [style.backgroundColor]="item.color">
+           [ngClass]="{'opacity-5':item.is_status==='2'}"
+           class="---cursor-pointer ---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start"
+           [style.backgroundColor]="item.color">
         <div class="---item__icon ---pos-rel">
           <i class="---icon-font ---pos-abs" [ngClass]="'---icon-menu-'+item.icon"></i>
         </div>
@@ -41,24 +41,25 @@
 
 <div class="---devider"></div>
 
-<div class="---block-reviews" *ngFor="let item of user">
+<div class="---block-reviews">
   <div class="---block-title ---d-flex ---align-items-center ---justify-content-between">
-    <div>{{item.output}} <span class="---acent">{{item.aboutCourses}}</span></div>
+    <div>Отзывы <span class="---acent">о курсах</span></div>
 
-    <a href="#" class="---button ---button--border_bg ---button--color-acent">{{item.allReviews}}</a>
+    <a routerLink="/reviews" class="---button ---button--border_bg ---button--color-acent">Все отзывы</a>
   </div>
+</div>
 
-  <div class="---owl-carousel">
-    <div class="---item" *ngFor="let items of output">
+<div class="---block-reviews ---block-reviews--in">
+<div class="---row">
+  <div class="col-xl-6" *ngFor="let review of reviews">
+    <div class="---item">
       <div class="---item-header ---pos-rel">
-        <img lazyLoad="{{items.img}}" alt="" class="---img">
-        <div class="---name">{{items.name}}</div>
-        <div class="---thumb">{{items.thumb}}<b class="---font-800">{{items.rating}}</b></div>
+        <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
+        <div class="---name">{{review.author}}</div>
+        <div class="---thumb">{{review.course}} / Оценка <b class="---font-800">{{review.assessment}}</b></div>
       </div>
-      <p>
-        {{items.text}}
-      </p>
+      <p>{{review.text}}</p>
     </div>
-
   </div>
+</div>
 </div>

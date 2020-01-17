@@ -3,22 +3,24 @@ import {AuthService} from './auth.service';
 import {MenuService} from '../menu/menu.service';
 import {GlobalParamsMessage} from '../message_alert/global-params-message';
 import {Router} from '@angular/router';
+import {ReviewsService} from '../reviews/reviews.service';
 
 @Component({
   selector: 'app-client',
   templateUrl: './auth.component.html',
 })
 
-export class AuthComponent  implements OnInit {
-  user: any;
+export class AuthComponent implements OnInit {
   output: any;
-  fragment='';
+  fragment = '';
   data: InterFaceMain[] = [];
   menu: InterFaceMenu[] = [];
+  reviews: InterFaceReviews[] = [];
 
   constructor(private authService: AuthService,
               private globalParamsMessage: GlobalParamsMessage,
               private router: Router,
+              private reviewsService: ReviewsService,
               private menuService: MenuService) {
 
 
@@ -29,55 +31,12 @@ export class AuthComponent  implements OnInit {
         console.log('Ошибка при получении информации на гавный экран: ', error);
       });
 
-    this.user = [
-      {
-        output: 'Отзывы',
-        aboutCourses: 'о курсах',
-        allReviews: 'Все отзывы',
+    this.reviewsService.getReviews().then((data: InterFaceReviews[]) => {
+        this.reviews = data;
       },
-    ];
-
-    this.output = [
-      {
-        img: 'assets/imgs/users/1.svg',
-        name: 'Максим Мироненко',
-        thumb: 'Курс Математики / Оценка ',
-        rating: '5',
-        text: 'Курс отличный, очень полезный. Я считаю, что обязателен для всех, кто хочет развиваться в этой сфере. Сложен для',
-
-      },
-      {
-        img: 'assets/imgs/users/2.svg',
-        name: 'Александр Баль',
-        thumb: 'Курс Математики / Оценка ',
-        rating: '5',
-        text: 'Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n' +
-          '        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n' +
-          '     ',
-
-      },
-      {
-        img: 'assets/imgs/users/1.svg',
-        name: 'Максим Мироненко',
-        thumb: 'Курс Математики / Оценка ',
-        rating: '5',
-        text: 'Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n' +
-          '        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n' +
-          '     ',
-
-      },
-      {
-        img: 'assets/imgs/users/2.svg',
-        name: 'Александр Баль',
-        thumb: 'Курс Математики / Оценка ',
-        rating: '5',
-        text: 'Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n' +
-          '        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n' +
-          '     ',
-
-      }
-    ];
-
+      (error) => {
+        console.log('Ошибка при получении информации по отзывам: ', error);
+      });
   }
 
   ngOnInit() {
