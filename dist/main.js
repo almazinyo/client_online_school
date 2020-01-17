@@ -155,7 +155,7 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, { anchorScrolling: 'enabled' })],
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes, { scrollPositionRestoration: 'enabled' })],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
             providers: []
         }),
@@ -491,7 +491,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-auth-des ---tabs\">\n  <div class=\"col-xl-10 animatedParent animateOnce\">\n    <div class=\"---row ---item ---justify-content-between ---align-items-center\" *ngFor=\"let item of data\">\n\n      <div class=\"---item--text clickExample\">\n        <div class=\"---item-title h2 ---font-800\">{{item.name}}</div>\n        <p class=\"---item-des\">{{item.description}}</p>\n      </div>\n\n      <div class=\"---item--img\">\n        <img lazyLoad=\"http://api.examator.ru/frontend/web/images/options/{{item.img_name}}\">\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-subjects\" id=\"test\">\n  <div class=\"---row ---row--sm\">\n\n    <div class=\"col-12 ---block-title\">Выбери <span class=\"---acent\">нужный предмет</span></div>\n\n    <div class=\"col-xs-6 col-md-4 col-lg-3 spec-block-lesson\" *ngFor=\"let item of menu\">\n      <div (click)=\"getSection(item)\"\n         [ngClass]=\"{'opacity-5':item.is_status==='2'}\"\n         class=\"---cursor-pointer ---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start\"\n         [style.backgroundColor]=\"item.color\">\n        <div class=\"---item__icon ---pos-rel\">\n          <i class=\"---icon-font ---pos-abs\" [ngClass]=\"'---icon-menu-'+item.icon\"></i>\n        </div>\n        <div>\n          <div class=\"---item__title\">{{item.title}}</div>\n          <!--<div class=\"---item__thumb\">56 курсов / 28 вебинаров</div>-->\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-reviews\" *ngFor=\"let item of user\">\n  <div class=\"---block-title ---d-flex ---align-items-center ---justify-content-between\">\n    <div>{{item.output}} <span class=\"---acent\">{{item.aboutCourses}}</span></div>\n\n    <a href=\"#\" class=\"---button ---button--border_bg ---button--color-acent\">{{item.allReviews}}</a>\n  </div>\n\n  <div class=\"---owl-carousel\">\n    <div class=\"---item\" *ngFor=\"let items of output\">\n      <div class=\"---item-header ---pos-rel\">\n        <img lazyLoad=\"{{items.img}}\" alt=\"\" class=\"---img\">\n        <div class=\"---name\">{{items.name}}</div>\n        <div class=\"---thumb\">{{items.thumb}}<b class=\"---font-800\">{{items.rating}}</b></div>\n      </div>\n      <p>\n        {{items.text}}\n      </p>\n    </div>\n\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-auth-des ---tabs\">\n  <div class=\"col-xl-10 animatedParent animateOnce\">\n    <div class=\"---row ---item ---justify-content-between ---align-items-center\" *ngFor=\"let item of data\">\n\n      <div class=\"---item--text clickExample\">\n        <div class=\"---item-title h2 ---font-800\">{{item.name}}</div>\n        <p class=\"---item-des\">{{item.description}}</p>\n      </div>\n\n      <div class=\"---item--img\">\n        <img lazyLoad=\"http://api.examator.ru/frontend/web/images/options/{{item.img_name}}\">\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-subjects\" >\n  <div class=\"---row ---row--sm\">\n\n    <div class=\"col-12 ---block-title\">Выбери <span class=\"---acent\">нужный предмет</span></div>\n\n    <div class=\"col-xs-6 col-md-4 col-lg-3 spec-block-lesson\" *ngFor=\"let item of menu\">\n      <div (click)=\"getSection(item)\"\n           [ngClass]=\"{'opacity-5':item.is_status==='2'}\"\n           class=\"---cursor-pointer ---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start\"\n           [style.backgroundColor]=\"item.color\">\n        <div class=\"---item__icon ---pos-rel\">\n          <i class=\"---icon-font ---pos-abs\" [ngClass]=\"'---icon-menu-'+item.icon\"></i>\n        </div>\n        <div>\n          <div class=\"---item__title\">{{item.title}}</div>\n          <!--<div class=\"---item__thumb\">56 курсов / 28 вебинаров</div>-->\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---block-reviews\">\n  <div class=\"---block-title ---d-flex ---align-items-center ---justify-content-between\">\n    <div>Отзывы <span class=\"---acent\">о курсах</span></div>\n\n    <a routerLink=\"/reviews\" class=\"---button ---button--border_bg ---button--color-acent\">Все отзывы</a>\n  </div>\n</div>\n\n<div class=\"---block-reviews ---block-reviews--in\">\n<div class=\"---row\">\n  <div class=\"col-xl-6\" *ngFor=\"let review of reviews\">\n    <div class=\"---item\">\n      <div class=\"---item-header ---pos-rel\">\n        <img lazyLoad=\"assets/imgs/users/2.svg\" alt=\"\" class=\"---img\">\n        <div class=\"---name\">{{review.author}}</div>\n        <div class=\"---thumb\">{{review.course}} / Оценка <b class=\"---font-800\">{{review.assessment}}</b></div>\n      </div>\n      <p>{{review.text}}</p>\n    </div>\n  </div>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -510,6 +510,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../menu/menu.service */ "./src/app/components/menu/menu.service.ts");
 /* harmony import */ var _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../message_alert/global-params-message */ "./src/app/components/message_alert/global-params-message.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _reviews_reviews_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../reviews/reviews.service */ "./src/app/components/reviews/reviews.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -524,64 +525,29 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AuthComponent = /** @class */ (function () {
-    function AuthComponent(authService, globalParamsMessage, router, menuService) {
+    function AuthComponent(authService, globalParamsMessage, router, reviewsService, menuService) {
         var _this = this;
         this.authService = authService;
         this.globalParamsMessage = globalParamsMessage;
         this.router = router;
+        this.reviewsService = reviewsService;
         this.menuService = menuService;
         this.fragment = '';
         this.data = [];
         this.menu = [];
+        this.reviews = [];
         this.authService.getData().then(function (data) {
             _this.data = data.mainSection;
         }, function (error) {
             console.log('Ошибка при получении информации на гавный экран: ', error);
         });
-        this.user = [
-            {
-                output: 'Отзывы',
-                aboutCourses: 'о курсах',
-                allReviews: 'Все отзывы',
-            },
-        ];
-        this.output = [
-            {
-                img: 'assets/imgs/users/1.svg',
-                name: 'Максим Мироненко',
-                thumb: 'Курс Математики / Оценка ',
-                rating: '5',
-                text: 'Курс отличный, очень полезный. Я считаю, что обязателен для всех, кто хочет развиваться в этой сфере. Сложен для',
-            },
-            {
-                img: 'assets/imgs/users/2.svg',
-                name: 'Александр Баль',
-                thumb: 'Курс Математики / Оценка ',
-                rating: '5',
-                text: 'Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n' +
-                    '        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n' +
-                    '     ',
-            },
-            {
-                img: 'assets/imgs/users/1.svg',
-                name: 'Максим Мироненко',
-                thumb: 'Курс Математики / Оценка ',
-                rating: '5',
-                text: 'Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n' +
-                    '        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n' +
-                    '     ',
-            },
-            {
-                img: 'assets/imgs/users/2.svg',
-                name: 'Александр Баль',
-                thumb: 'Курс Математики / Оценка ',
-                rating: '5',
-                text: 'Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать\n' +
-                    '        на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.\n' +
-                    '     ',
-            }
-        ];
+        this.reviewsService.getReviews().then(function (data) {
+            _this.reviews = data;
+        }, function (error) {
+            console.log('Ошибка при получении информации по отзывам: ', error);
+        });
     }
     AuthComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -604,6 +570,7 @@ var AuthComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"],
             _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_3__["GlobalParamsMessage"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _reviews_reviews_service__WEBPACK_IMPORTED_MODULE_5__["ReviewsService"],
             _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"]])
     ], AuthComponent);
     return AuthComponent;
@@ -648,18 +615,25 @@ var AuthService = /** @class */ (function () {
         this.sessionStorage = sessionStorage;
         this.cookieService = cookieService;
         this.globalParamsUser = globalParamsUser;
+        this.dataMainOption = [];
     }
     // получение списка активных полей
     AuthService.prototype.getData = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/main/options/')
-                .then(function (result) {
-                resolve(result);
-            }, function (error) {
-                console.log('Ошибка при получении информации на главный экран', error);
-                reject();
-            });
+            if (_this.dataMainOption.length === 0) {
+                _this.httpService.prepareQuery('api/main/options/')
+                    .then(function (result) {
+                    _this.dataMainOption = result;
+                    resolve(result);
+                }, function (error) {
+                    console.log('Ошибка при получении информации на главный экран', error);
+                    reject();
+                });
+            }
+            else {
+                resolve(_this.dataMainOption);
+            }
         });
     };
     // выход
@@ -1359,7 +1333,7 @@ var SocialLinkService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"---layout-header ---d-flex\">\n  <div class=\"---container\">\n    <div class=\"---row\">\n\n      <a routerLink=\"/\" class=\"---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end\">\n        <img lazyLoad=\"assets/imgs/logo.svg\">\n        <span class=\"---bg ---z-index-under\"></span>\n      </a>\n\n      <div class=\"---content ---d-flex ---justify-content-between ---align-items-center\">\n        <img lazyLoad=\"assets/imgs/logo-text.svg\" alt=\"\" class=\"---logo-text ---d-none ---xl-d-block\">\n\n        <div class=\"---d-flex\">\n          <a href=\"#\" class=\"---button ---button--acent_orange ---d-inline-flex ---lg-d-none ---js-open\"\n             data-open-block=\".---main-menu\" data-html-hidden=\"1\">\n            <img lazyLoad=\"assets/imgs/icons/main-menu.svg\" alt=\"\">\n            <span>Меню</span>\n          </a>\n\n          <div class=\"---subject ---pos-rel ---z-index-over ---lg-d-none ---xxl-d-block\">\n            <a href=\"#\" class=\"---button ---button--acent\">\n              <img lazyLoad=\"assets/imgs/icons/menu.svg\" alt=\"\">\n              <span>Предметы</span>\n            </a>\n\n            <div class=\"---subject-list ---font-600 ---z-index-under\">\n              <div *ngFor=\"let currentMenu of menu\" [ngClass]=\"{'---inactive':currentMenu.is_status==='2'}\" (click)=\"getSection(currentMenu)\">{{currentMenu.title}}</div>\n            </div>\n\n          </div>\n        </div>\n\n        <nav class=\"---d-none ---lg-d-block\">\n          <a pageScroll href=\"/#test\" class=\"---acent ---font-600\">Выбрать бесплатный урок</a>\n          <a routerLink='teacher'>Учителя</a>\n\n          <a routerLink='reviews'>Отзывы</a>\n          <a routerLink='blog'>Блог</a>\n        </nav>\n\n        <div class=\"---btns ---d-flex\">\n          <button *ngIf=\"!checkAuth\" (click)=\"auth()\" class=\"---button ---button--border_bg\">Войти</button>\n          <a *ngIf=\"checkAuth\" routerLink='profile-details'  class=\"---button ---button--border_bg\">Профиль</a>\n          <a\n            href=\"https://vk.com/app5898182_-185278877#s=493523\"\n            target=\"_blank\"\n            class=\"---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn\">\n            Начать учиться\n          </a>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</header>\n"
+module.exports = "<header class=\"---layout-header ---d-flex\">\n  <div class=\"---container\">\n    <div class=\"---row\">\n\n      <a routerLink=\"/\"\n         class=\"---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end\">\n        <img lazyLoad=\"assets/imgs/logo.svg\">\n        <span class=\"---bg ---z-index-under\"></span>\n      </a>\n\n      <div class=\"---content ---d-flex ---justify-content-between ---align-items-center\">\n        <img lazyLoad=\"assets/imgs/logo-text.svg\" alt=\"\" class=\"---logo-text ---d-none ---xl-d-block\">\n\n        <div class=\"---d-flex\">\n          <a href=\"#\" class=\"---button ---button--acent_orange ---d-inline-flex ---lg-d-none ---js-open\"\n             data-open-block=\".---main-menu\" data-html-hidden=\"1\">\n            <img lazyLoad=\"assets/imgs/icons/main-menu.svg\" alt=\"\">\n            <span>Меню</span>\n          </a>\n\n          <div class=\"---subject ---pos-rel ---z-index-over ---lg-d-none ---xxl-d-block\">\n            <a href=\"#\" class=\"---button ---button--acent\">\n              <img lazyLoad=\"assets/imgs/icons/menu.svg\" alt=\"\">\n              <span>Предметы</span>\n            </a>\n\n            <div class=\"---subject-list ---font-600 ---z-index-under\">\n              <div *ngFor=\"let currentMenu of menu\" [ngClass]=\"{'---inactive':currentMenu.is_status==='2'}\"\n                   (click)=\"getSection(currentMenu)\">{{currentMenu.title}}\n              </div>\n            </div>\n\n          </div>\n        </div>\n\n        <nav class=\"---d-none ---lg-d-block\">\n          <div (click)=\"subject.show=true\" class=\"---acent ---font-600\">Выбрать бесплатный урок</div>\n          <a routerLink='teacher'>Учителя</a>\n\n          <a routerLink='reviews'>Отзывы</a>\n          <a routerLink='blog'>Блог</a>\n        </nav>\n\n        <div class=\"---btns ---d-flex\">\n          <button *ngIf=\"!checkAuth\" (click)=\"auth()\" class=\"---button ---button--border_bg\">Войти</button>\n          <a *ngIf=\"checkAuth\" routerLink='profile-details' class=\"---button ---button--border_bg\">Профиль</a>\n          <a\n            href=\"https://vk.com/app5898182_-185278877#s=493523\"\n            target=\"_blank\"\n            class=\"---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn\">\n            Начать учиться\n          </a>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</header>\n\n\n<div *ngIf=\"subject.show\"\n     class=\"---modal ---justify-content-center ---align-items-start ---is-visible ---d-flex\">\n  <div class=\"---wrapper ---wrapper_img-view ---text-center\">\n    <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" (click)=\"subject.show=false\"\n       data-close-block=\".---modal\"></i>\n\n    <div class=\"---block-subjects\">\n      <div class=\"---row ---row--sm\">\n        <div class=\"col-xs-6 col-md-4 col-lg-3 spec-block-lesson\" *ngFor=\"let item of menu\">\n          <div (click)=\"getSection(item)\"\n               [ngClass]=\"{'opacity-5':item.is_status==='2'}\"\n               class=\"---cursor-pointer ---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start\"\n               [style.backgroundColor]=\"item.color\">\n            <div class=\"---item__icon ---pos-rel\">\n              <i class=\"---icon-font ---pos-abs\" [ngClass]=\"'---icon-menu-'+item.icon\"></i>\n            </div>\n            <div>\n              <div class=\"---item__title\">{{item.title}}</div>\n              <!--<div class=\"---item__thumb\">56 курсов / 28 вебинаров</div>-->\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1412,6 +1386,10 @@ var HeaderComponent = /** @class */ (function () {
         this.menu = [];
         this.checkAuth = false;
         this.fio = '';
+        this.subject = {
+            show: false,
+            data: true
+        };
         this.menu = this.menuService.menu;
         this.menuService.getMenuCheck.subscribe(function (item) {
             _this.menu = _this.menuService.menu;
@@ -2547,112 +2525,15 @@ var ProfilePromotionService = /** @class */ (function () {
     }
     // получение информации по продвижению
     ProfilePromotionService.prototype.getPromotion = function () {
+        var _this = this;
         return new Promise(function (resolve, reject) {
-            var result = [{
-                    id: 1,
-                    name: 'Физика',
-                    section: [
-                        {
-                            id: 1,
-                            name: 'Кинематика',
-                            background: '#ec407a',
-                            img: 'course.svg',
-                            lessons: [
-                                {
-                                    id: 1,
-                                    name: 'Урок 1',
-                                    img: 'lesson-success.svg'
-                                },
-                                {
-                                    id: 2,
-                                    name: 'Урок 2',
-                                    img: 'lesson-success.svg'
-                                },
-                                {
-                                    id: 9,
-                                    name: 'Урок 9',
-                                    img: 'lesson-success.svg'
-                                }
-                            ]
-                        },
-                        {
-                            id: 2,
-                            name: 'Динамика',
-                            background: '#eca532',
-                            img: 'course.svg',
-                            lessons: [
-                                {
-                                    id: 3,
-                                    name: 'Урок 3',
-                                    img: 'lesson-success.svg'
-                                },
-                                {
-                                    id: 4,
-                                    name: 'Урок 4',
-                                    img: 'lesson-success.svg'
-                                },
-                                {
-                                    id: 10,
-                                    name: 'Урок 10',
-                                    img: 'lesson-success.svg'
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    id: 2,
-                    name: 'Метаматика',
-                    section: [
-                        {
-                            id: 3,
-                            name: 'Алгебра',
-                            background: '#69ec44',
-                            img: 'course.svg',
-                            lessons: [
-                                {
-                                    id: 5,
-                                    name: 'Урок 5',
-                                    img: 'lesson-success.svg'
-                                },
-                                {
-                                    id: 6,
-                                    name: 'Урок 6',
-                                    img: 'lesson-success.svg'
-                                }
-                            ]
-                        },
-                        {
-                            id: 4,
-                            name: 'Геометрия',
-                            background: '#2829ec',
-                            img: 'course.svg',
-                            lessons: [
-                                {
-                                    id: 7,
-                                    name: 'Урок 7',
-                                    img: 'lesson-success.svg'
-                                },
-                                {
-                                    id: 8,
-                                    name: 'Урок 8',
-                                    img: 'lesson-success.svg'
-                                }
-                            ]
-                        }
-                    ]
-                }];
-            resolve(result);
-            /*this.httpService.prepareQuery('api/promotion', {})
-              .then((result: InterFaceProfilePromotion[]) => {
-      
-                  resolve(result);
-                },
-                (error) => {
-                  console.log('Ошибка при получении информации о продвижении', error);
-                  reject();
-                }
-              );*/
+            _this.httpService.prepareQuery('api/users/passing-lessons', {}, true)
+                .then(function (result) {
+                resolve(result);
+            }, function (error) {
+                console.log('Ошибка при получении информации о продвижении', error);
+                reject();
+            });
         });
     };
     ProfilePromotionService = __decorate([
@@ -2760,7 +2641,7 @@ var ProfilePromotionalCodeService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <div class=\"---block-reviews ---block-reviews--in\">\n\n   <div class=\"---block-title\">Отзывы студентов</div>\n\n   <div class=\"---row\" >\n     <div class=\"col-xl-6\"  *ngFor=\"let review of reviews\">\n       <div class=\"---item\">\n         <div class=\"---item-header ---pos-rel\">\n           <img lazyLoad=\"assets/imgs/users/2.svg\" alt=\"\" class=\"---img\">\n           <div class=\"---name\">{{review.author}}</div>\n           <div class=\"---thumb\">{{review.course}} / Оценка <b class=\"---font-800\">{{review.assessment}}</b></div>\n         </div>\n         <p>{{review.text}}</p>\n       </div>\n     </div>\n   </div>\n\n </div>\n\n<!--  <div class=\"---pagination ---d-flex ---justify-content-between ---align-items-center\">\n    <div class=\"---nums\">\n      <a href=\"#\" class=\"---is-active\">1</a>\n      <a href=\"#\">2</a>\n      <a href=\"#\">3</a>\n      <a href=\"#\">4</a>\n      <a href=\"#\">5</a>\n      <a href=\"#\">6</a>\n    </div>\n    <a href=\"#\" class=\"---button ---button--acent_orange\">Далее</a>\n  </div>-->\n<div class=\"---devider ---devider--sm\"></div>\n"
+module.exports = " <div class=\"---block-reviews ---block-reviews--in\">\n\n   <div class=\"---block-title\">Отзывы студентов</div>\n\n   <div class=\"---row\" >\n     <div class=\"col-xl-6\"  *ngFor=\"let review of reviews\">\n       <div class=\"---item\">\n         <div class=\"---item-header ---pos-rel\">\n           <img lazyLoad=\"assets/imgs/users/2.svg\" alt=\"\" class=\"---img\">\n           <div class=\"---name\">{{review.author}}</div>\n           <div class=\"---thumb\">{{review.course}} / Оценка <b class=\"---font-800\">{{review.assessment}}</b></div>\n         </div>\n         <p>{{review.text}}</p>\n       </div>\n     </div>\n   </div>\n\n </div>\n<div class=\"---devider ---devider--sm\"></div>\n"
 
 /***/ }),
 
@@ -4373,7 +4254,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })

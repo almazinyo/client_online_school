@@ -6,6 +6,7 @@ import {CookieService} from 'ngx-cookie-service';
 
 @Injectable()
 export class AuthService {
+  dataMainOption: InterFaceMain[] = [];
 
   constructor(private httpService: HttpService,
               private sessionStorage: SessionStorageService,
@@ -16,15 +17,20 @@ export class AuthService {
   // получение списка активных полей
   public getData() {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/main/options/')
-        .then((result: InterFaceMain) => {
-            resolve(result);
-          },
-          (error) => {
-            console.log('Ошибка при получении информации на главный экран', error);
-            reject();
-          }
-        );
+      if (this.dataMainOption.length === 0) {
+        this.httpService.prepareQuery('api/main/options/')
+          .then((result: InterFaceMain[]) => {
+              this.dataMainOption = result;
+              resolve(result);
+            },
+            (error) => {
+              console.log('Ошибка при получении информации на главный экран', error);
+              reject();
+            }
+          );
+      } else {
+        resolve(this.dataMainOption);
+      }
     });
   }
 

@@ -2,7 +2,8 @@
   <div class="---container">
     <div class="---row">
 
-      <a routerLink="/" class="---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end">
+      <a routerLink="/"
+         class="---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end">
         <img lazyLoad="assets/imgs/logo.svg">
         <span class="---bg ---z-index-under"></span>
       </a>
@@ -24,14 +25,16 @@
             </a>
 
             <div class="---subject-list ---font-600 ---z-index-under">
-              <div *ngFor="let currentMenu of menu" [ngClass]="{'---inactive':currentMenu.is_status==='2'}" (click)="getSection(currentMenu)">{{currentMenu.title}}</div>
+              <div *ngFor="let currentMenu of menu" [ngClass]="{'---inactive':currentMenu.is_status==='2'}"
+                   (click)="getSection(currentMenu)">{{currentMenu.title}}
+              </div>
             </div>
 
           </div>
         </div>
 
         <nav class="---d-none ---lg-d-block">
-          <a pageScroll href="/#test" class="---acent ---font-600">Выбрать бесплатный урок</a>
+          <div (click)="subject.show=true" class="---acent ---font-600">Выбрать бесплатный урок</div>
           <a routerLink='teacher'>Учителя</a>
 
           <a routerLink='reviews'>Отзывы</a>
@@ -40,7 +43,7 @@
 
         <div class="---btns ---d-flex">
           <button *ngIf="!checkAuth" (click)="auth()" class="---button ---button--border_bg">Войти</button>
-          <a *ngIf="checkAuth" routerLink='profile-details'  class="---button ---button--border_bg">Профиль</a>
+          <a *ngIf="checkAuth" routerLink='profile-details' class="---button ---button--border_bg">Профиль</a>
           <a
             href="https://vk.com/app5898182_-185278877#s=493523"
             target="_blank"
@@ -53,3 +56,31 @@
     </div>
   </div>
 </header>
+
+
+<div *ngIf="subject.show"
+     class="---modal ---justify-content-center ---align-items-start ---is-visible ---d-flex">
+  <div class="---wrapper ---wrapper_img-view ---text-center">
+    <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" (click)="subject.show=false"
+       data-close-block=".---modal"></i>
+
+    <div class="---block-subjects">
+      <div class="---row ---row--sm">
+        <div class="col-xs-6 col-md-4 col-lg-3 spec-block-lesson" *ngFor="let item of menu">
+          <div (click)="getSection(item)"
+               [ngClass]="{'opacity-5':item.is_status==='2'}"
+               class="---cursor-pointer ---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start"
+               [style.backgroundColor]="item.color">
+            <div class="---item__icon ---pos-rel">
+              <i class="---icon-font ---pos-abs" [ngClass]="'---icon-menu-'+item.icon"></i>
+            </div>
+            <div>
+              <div class="---item__title">{{item.title}}</div>
+              <!--<div class="---item__thumb">56 курсов / 28 вебинаров</div>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

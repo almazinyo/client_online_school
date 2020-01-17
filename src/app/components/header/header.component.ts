@@ -15,6 +15,10 @@ export class HeaderComponent {
   menu: InterFaceMenu[] = [];
   checkAuth = false;
   fio = '';
+  subject = {
+    show: false,
+    data: true
+  };
 
   constructor(private sectionService: SectionService,
               private router: Router,
