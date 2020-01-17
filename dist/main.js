@@ -3669,6 +3669,7 @@ var WorkComponent = /** @class */ (function () {
         this.workService.sendAnswer({
             section_id: this.lesson.section_id,
             lesson_id: this.lesson.id,
+            subject_id: this.section.section.subject_id,
             data: this.answerTest
         }).then(function (result) {
             _this.globalParamsMessage.data = {

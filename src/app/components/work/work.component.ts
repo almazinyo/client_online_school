@@ -126,6 +126,7 @@ export class WorkComponent {
     this.workService.sendAnswer({
         section_id: this.lesson.section_id,
         lesson_id: this.lesson.id,
+        subject_id: this.section.section.subject_id,
         data: this.answerTest
       }
     ).then((result: { correct_answers: number, wrong_answers: number }) => {
