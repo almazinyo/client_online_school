@@ -6,24 +6,31 @@
 
     <div class="---tabs ---lessons-tabs ---font-800 ---pos-rel">
       <div class="---tabs-switchers ---pos-rel ---d-flex">
-        <div *ngFor="let lesson of lessons" (click)="changeLessons(lesson)" class="---tab-switcher">{{lesson.name}}
-        </div>
-      </div>
+        <div *ngFor="let lesson of lessons" class="---tab-switcher">{{lesson.name}}
 
-      <div class="---tab ---is-visible">
-        <div *ngFor="let section of sections" class="---subject">
-          <div class="---course ---font-800"  [style.backgroundColor]="section.background">
-            <img data-src="/assets/imgs/icons/{{section.img}}" alt="" class="---lazyload ---y-pos-abs">
-            {{section.name}}
-          </div>
+          <div class="---block-catalog">
+            <div class="---course-wrap">
+              <div class="---course-list ---lessons-tabs">
+                <div class="---subject" *ngFor="let section of lesson.sectionSubjects">
+                  <div class="---course ---font-800 ---d-flex ---align-items-center ---cursor-pointer"
+                       [style.backgroundColor]="section.background">
+                    <span class="---text-wrap">
+            <span class="---font-800">{{section.name}}</span>
+            <span class="---course-count ---font-400 ---d-block">{{section.short_description}}</span>
+          </span>
+                  </div>
 
-          <div class="---lessons ---d-inline-flex ---pos-rel">
-            <div *ngFor="let lesson of section.lessons" class="---lesson ---is-ended">
-                                <span class="---icon ---y-pos-abs">
-                                    <img data-src="/assets/imgs/icons/{{lesson.img}}" alt=""
-                                         class="---svg-img ---pos-abs">
-                                </span>
-              {{lesson.name}}
+                  <div class="---d-inline-flex ---pos-rel" [ngClass]="{'---lessons':section.lessons.length>0}">
+                    <div class="---lesson" *ngFor="let subSection of section.lessons">
+            <span class="---icon ---y-pos-abs ---replaced-svg">
+              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.1 491.1"><path
+                d="M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z"/></svg>
+            </span>
+                      {{subSection.name}}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

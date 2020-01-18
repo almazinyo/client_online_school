@@ -1,7 +1,8 @@
 interface InterFaceProfilePromotion {
   id: number;
   name: string;
-  section: {
+  color: string;
+  sectionSubjects: {
     id: number;
     name: string;
     background: string;
