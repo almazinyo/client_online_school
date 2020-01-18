@@ -2,6 +2,7 @@ interface InterFaceWork {
   background: string;
   created_at: string;
   description: string;
+  subject_id: any;
   id: string;
   is_status: string;
   logo: string;
