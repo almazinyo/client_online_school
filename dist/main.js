@@ -798,7 +798,6 @@ var BlogService = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             _this.httpService.prepareQuery('api/blog', {})
                 .then(function (result) {
-                console.log(result);
                 resolve(result);
             }, function (error) {
                 console.log('Ошибка при получении списка разделов блогов', error);
@@ -2010,7 +2009,6 @@ var ProfileBuyComponent = /** @class */ (function () {
         this.profileBuyService = profileBuyService;
         this.buyList = [];
         this.profileBuyService.getBuyList().then(function (data) {
-            console.log(1, data);
             _this.buyList = data;
         }, function (error) {
             console.log('Ошибка при получении информации по покупкам: ', error);
@@ -3095,15 +3093,12 @@ var SubsectionComponent = /** @class */ (function () {
         var _this = this;
         this.subsectionService.getSubSection(slug).then(function (data) {
             _this.subsection = data;
-            console.log('hello');
-            console.log(_this.subsection);
         }, function (error) {
             console.log('Ошибка при получении информации о разделе: ', error);
         });
     };
     SubsectionComponent.prototype.payment = function (price) {
         this.subsectionService.getPayment(price).then(function (data) {
-            console.log(1, data);
         }, function (error) {
             console.log('Ошибка при получении информации о разделе: ', error);
         });
@@ -3489,7 +3484,6 @@ var TeacherService = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             _this.httpService.prepareQuery('api/subjects/teachers', {})
                 .then(function (result) {
-                console.log(result);
                 resolve(result);
             }, function (error) {
                 console.log('Ошибка при получении списка разделов учитель', error);
@@ -3528,7 +3522,7 @@ var TeacherService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-course-in\">\n  <div class=\"---d-block ---lg-d-none\">\n    <a href=\"#\" class=\"---button ---button--acent ---js-open\" data-open-block=\".---lesson-list\" data-html-hidden=\"1\">Список\n      уроков</a>\n  </div>\n\n  <div class=\"---course-theme ---font-800\">{{section.name}}</div>\n  <div class=\"---devider\"></div>\n\n  <div class=\"---row\">\n\n    <div class=\"col-lg-9\">\n\n      <div class=\"---course-name\">{{lesson.name}}</div>\n\n      <div (click)=\"toggleVideo()\" class=\"---video ---pos-rel\">\n        <div *ngIf=\"showButton\" class=\"---play-button ---y-pos-abs ---z-index-over ---d-none\">\n          <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\">\n            <path\n              d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/>\n          </svg>\n        </div>\n        <span *ngFor=\"let currentWork of storage\">\n          <video #videoPlayer class=\"---pos-rel ---img-cover\" controls *ngIf=\"currentWork.type==='video'\">\n            <source src=\"http://api.examator.ru/images/lessons/{{currentWork.name}}\"type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'>\n          </video>\n        </span>\n      </div>\n\n      <div class=\"---teacher\">\n        <span class=\"---name ---font-800 ---d-block ---xs-d-inline-block\">{{teachers.name}}</span>\n      </div>\n\n      <div class=\"---course-theory\">\n        <div class=\"---block-title\">Теория по курсу</div>\n\n        <div class=\"---theory-wrap\">\n          <div class=\"---theory\">\n            <div *ngFor=\"let currentWork of storage\">\n              <div *ngIf=\"currentWork.type==='pdf'\">\n                <embed id='vid' [src]='currentWork.url'\n                       style=\"width: 100%; height: 500px\"\n                       type=\"application/pdf\">\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"---devider\"></div>\n\n      <div class=\"---block-title\" *ngIf=\"showTest===true\">Пройдите тест <span class=\"---acent\">для завершения</span>\n      </div>\n\n      <div class=\"---test-wrap ---d-flex ---flex-wrap\" *ngIf=\"showTest===true\">\n        <div class=\"col-xl-5\">\n          <div class=\"---task\">\n            <div class=\"h3\">Задание</div>\n\n            <div (click)=\"checkImg(currentTest.question)\">\n              <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt=\"\" style=\"max-width: 100%;\">\n            </div>\n\n            <div class=\"---button ---button--xs ---button--green ---cursor-pointer\" (click)=\"checkImg(currentTest.hint,'hint')\" *ngIf=\"currentTest.hint!==''\">Подсказка</div>\n          </div>\n        </div>\n\n        <div class=\"col-xl-7\">\n          <div class=\"---answers\">\n            <div class=\"h3\">Ваш ответ (вопрос {{answerTest.length + 1}} из {{test.length}})</div>\n\n            <div class=\"---answer ---is-active\">\n              <div class=\"---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center\">\n                <input [(ngModel)]=\"answer\" class=\"---input\" placeholder=\"Впишите ответ\">\n              </div>\n            </div>\n            <div class=\"---answer\">\n              <div *ngIf=\"answerTest.length+1!==test.length\" (click)=\"nextQuestion()\"\n                   class=\"---button ---button--acent_orange\">Ответить\n              </div>\n              <div *ngIf=\"answerTest.length+1===test.length\" (click)=\"sendAnswer()\"\n                   class=\"---button ---button--acent_orange\">Завершить тест\n              </div>\n            </div>\n\n            <!-- <div class=\"---answers__count\"></div> -->\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-lg-3 ---lesson-list ---d-flex ---flex-column\">\n      <svg class=\"---js-close ---d-block ---lg-d-none\" data-close-block=\".---main-menu\"\n           xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 241.171 241.171\" width=\"512\" height=\"512\">\n        <path\n          d=\"M138.138 120.754l99.118-98.576a11.931 11.931 0 0 0 0-17.011c-4.74-4.704-12.439-4.704-17.179 0l-99.033 98.492-99.949-99.96c-4.74-4.752-12.439-4.752-17.179 0-4.74 4.764-4.74 12.475 0 17.227l99.876 99.888L3.555 220.497c-4.74 4.704-4.74 12.319 0 17.011 4.74 4.704 12.439 4.704 17.179 0l100.152-99.599 99.551 99.563c4.74 4.752 12.439 4.752 17.179 0 4.74-4.764 4.74-12.475 0-17.227l-99.478-99.491z\"\n          fill=\"#FFF\"/>\n      </svg>\n\n      <div class=\"---lessons\">\n        <div [ngClass]=\"{'---is-curent':lesson.slug===currentWork.slug}\"\n             *ngFor=\"let currentWork of section.allLessons;let i = index\"\n             (click)=\"getWorkCurrent(section.slug+'/'+currentWork.slug)\"\n             class=\"---lesson ---cursor-pointer\">\n            {{i+1}}. {{currentWork.name}}\n            <span *ngIf=\"currentWork.checked==='1'\">\n              <svg class=\"---y-pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><path d=\"M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z\"/></svg>\n            </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"showCheckImg\"\n    class=\"---modal ---justify-content-center ---align-items-start ---is-visible ---d-flex\">\n  <div class=\"---wrapper ---wrapper_img-view ---text-center\">\n    <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" (click)=\"showCheckImg=false\"\n       data-close-block=\".---modal\"></i>\n    <img src='{{modalImg}}' alt=\"\" class=\"---task-img\">\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-course-in\">\n  <div class=\"---d-block ---lg-d-none\">\n    <a href=\"#\" class=\"---button ---button--acent ---js-open\" data-open-block=\".---lesson-list\" data-html-hidden=\"1\">Список\n      уроков</a>\n  </div>\n\n  <div class=\"---course-theme ---font-800\">{{section.name}}\n\n    <iframe\n      *ngIf=\"globalParamsUser.fio!==null\"\n      [src]=\"sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+section.price+'&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio+'-'+section.slug)\"\n      width=\"184\"\n      height=\"36\"\n      frameborder=\"0\"\n      allowtransparency=\"true\"\n      scrolling=\"no\"\n    >\n\n    </iframe>\n  </div>\n  <div class=\"---devider\"></div>\n\n  <div class=\"---row\">\n\n    <div class=\"col-lg-9\">\n\n      <div class=\"---course-name\">{{lesson.name}}</div>\n\n      <div (click)=\"toggleVideo()\" class=\"---video ---pos-rel\">\n        <div *ngIf=\"showButton\" class=\"---play-button ---y-pos-abs ---z-index-over ---d-none\">\n          <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\">\n            <path\n              d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/>\n          </svg>\n        </div>\n        <span *ngFor=\"let currentWork of storage\">\n          <video #videoPlayer class=\"---pos-rel ---img-cover\" controls *ngIf=\"currentWork.type==='video'\">\n            <source src=\"http://api.examator.ru/images/lessons/{{currentWork.name}}\"type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'>\n          </video>\n        </span>\n      </div>\n\n      <div class=\"---teacher\">\n        <span class=\"---name ---font-800 ---d-block ---xs-d-inline-block\">{{teachers.name}}</span>\n      </div>\n\n      <div class=\"---course-theory\">\n        <div class=\"---block-title\">Теория по курсу</div>\n\n        <div class=\"---theory-wrap\">\n          <div class=\"---theory\">\n            <div *ngFor=\"let currentWork of storage\">\n              <div *ngIf=\"currentWork.type==='pdf'\">\n                <embed id='vid' [src]='currentWork.url'\n                       style=\"width: 100%; height: 500px\"\n                       type=\"application/pdf\">\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div class=\"---devider\"></div>\n\n      <div class=\"---block-title\" *ngIf=\"showTest===true\">Пройдите тест <span class=\"---acent\">для завершения</span>\n      </div>\n\n      <div class=\"---test-wrap ---d-flex ---flex-wrap\" *ngIf=\"showTest===true\">\n        <div class=\"col-xl-5\">\n          <div class=\"---task\">\n            <div class=\"h3\">Задание</div>\n\n            <div (click)=\"checkImg(currentTest.question)\">\n              <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt=\"\" style=\"max-width: 100%;\">\n            </div>\n\n            <div class=\"---button ---button--xs ---button--green ---cursor-pointer\" (click)=\"checkImg(currentTest.hint,'hint')\" *ngIf=\"currentTest.hint!==''\">Подсказка</div>\n          </div>\n        </div>\n\n        <div class=\"col-xl-7\">\n          <div class=\"---answers\">\n            <div class=\"h3\">Ваш ответ (вопрос {{answerTest.length + 1}} из {{test.length}})</div>\n\n            <div class=\"---answer ---is-active\">\n              <div class=\"---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center\">\n                <input [(ngModel)]=\"answer\" class=\"---input\" placeholder=\"Впишите ответ\">\n              </div>\n            </div>\n            <div class=\"---answer\">\n              <div *ngIf=\"answerTest.length+1!==test.length\" (click)=\"nextQuestion()\"\n                   class=\"---button ---button--acent_orange\">Ответить\n              </div>\n              <div *ngIf=\"answerTest.length+1===test.length\" (click)=\"sendAnswer()\"\n                   class=\"---button ---button--acent_orange\">Завершить тест\n              </div>\n            </div>\n\n            <!-- <div class=\"---answers__count\"></div> -->\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"col-lg-3 ---lesson-list ---d-flex ---flex-column\">\n      <svg class=\"---js-close ---d-block ---lg-d-none\" data-close-block=\".---main-menu\"\n           xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 241.171 241.171\" width=\"512\" height=\"512\">\n        <path\n          d=\"M138.138 120.754l99.118-98.576a11.931 11.931 0 0 0 0-17.011c-4.74-4.704-12.439-4.704-17.179 0l-99.033 98.492-99.949-99.96c-4.74-4.752-12.439-4.752-17.179 0-4.74 4.764-4.74 12.475 0 17.227l99.876 99.888L3.555 220.497c-4.74 4.704-4.74 12.319 0 17.011 4.74 4.704 12.439 4.704 17.179 0l100.152-99.599 99.551 99.563c4.74 4.752 12.439 4.752 17.179 0 4.74-4.764 4.74-12.475 0-17.227l-99.478-99.491z\"\n          fill=\"#FFF\"/>\n      </svg>\n\n      <div class=\"---lessons\">\n        <div [ngClass]=\"{'---is-curent':lesson.slug===currentWork.slug}\"\n             *ngFor=\"let currentWork of section.allLessons;let i = index\"\n             (click)=\"getWorkCurrent(section.slug+'/'+currentWork.slug)\"\n             class=\"---lesson ---cursor-pointer\">\n            {{i+1}}. {{currentWork.name}}\n            <span *ngIf=\"currentWork.checked==='1'\">\n              <svg class=\"---y-pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><path d=\"M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z\"/></svg>\n            </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<div *ngIf=\"showCheckImg\"\n    class=\"---modal ---justify-content-center ---align-items-start ---is-visible ---d-flex\">\n  <div class=\"---wrapper ---wrapper_img-view ---text-center\">\n    <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" (click)=\"showCheckImg=false\"\n       data-close-block=\".---modal\"></i>\n    <img src='{{modalImg}}' alt=\"\" class=\"---task-img\">\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3547,6 +3541,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../message_alert/global-params-message */ "./src/app/components/message_alert/global-params-message.ts");
+/* harmony import */ var _storage_global_params_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../storage/global-params-user */ "./src/app/storage/global-params-user.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3562,14 +3557,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var WorkComponent = /** @class */ (function () {
-    function WorkComponent(workService, router, globalParamsMessage, activatedRoute, dom) {
+    function WorkComponent(workService, router, globalParamsMessage, activatedRoute, globalParamsUser, sanitizer) {
         var _this = this;
         this.workService = workService;
         this.router = router;
         this.globalParamsMessage = globalParamsMessage;
         this.activatedRoute = activatedRoute;
-        this.dom = dom;
+        this.globalParamsUser = globalParamsUser;
+        this.sanitizer = sanitizer;
         this.section = {
             background: '',
             created_at: '',
@@ -3626,7 +3623,7 @@ var WorkComponent = /** @class */ (function () {
             _this.showTest = _this.test.length > 0;
             for (var i = 0; i < _this.storage.length; i++) {
                 if (_this.storage[i].type === 'pdf') {
-                    _this.storage[i].url = _this.dom.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + _this.storage[i].name);
+                    _this.storage[i].url = _this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + _this.storage[i].name);
                 }
             }
         }, function (error) {
@@ -3646,7 +3643,7 @@ var WorkComponent = /** @class */ (function () {
             _this.showTest = _this.test.length > 0;
             for (var i = 0; i < _this.storage.length; i++) {
                 if (_this.storage[i].type === 'pdf') {
-                    _this.storage[i].url = _this.dom.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + _this.storage[i].name);
+                    _this.storage[i].url = _this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + _this.storage[i].name);
                 }
             }
         }, function (error) {
@@ -3704,6 +3701,7 @@ var WorkComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_4__["GlobalParamsMessage"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _storage_global_params_user__WEBPACK_IMPORTED_MODULE_5__["GlobalParamsUser"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"]])
     ], WorkComponent);
     return WorkComponent;
@@ -4251,7 +4249,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
