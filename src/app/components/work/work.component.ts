@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ActivatedRoute, Params} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {GlobalParamsMessage} from '../message_alert/global-params-message';
+import {GlobalParamsUser} from '../../storage/global-params-user';
 
 @Component({
   selector: 'app-work',
@@ -61,7 +62,8 @@ export class WorkComponent {
               private router: Router,
               private globalParamsMessage: GlobalParamsMessage,
               private activatedRoute: ActivatedRoute,
-              private dom: DomSanitizer) {
+              public globalParamsUser: GlobalParamsUser,
+              public sanitizer: DomSanitizer) {
 
     this.activatedRoute.params.subscribe(
       (params: Params): void => {
@@ -83,7 +85,7 @@ export class WorkComponent {
 
         for (let i = 0; i < this.storage.length; i++) {
           if (this.storage[i].type === 'pdf') {
-            this.storage[i].url = this.dom.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
+            this.storage[i].url = this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
           }
         }
       },
@@ -105,7 +107,7 @@ export class WorkComponent {
 
         for (let i = 0; i < this.storage.length; i++) {
           if (this.storage[i].type === 'pdf') {
-            this.storage[i].url = this.dom.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
+            this.storage[i].url = this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
           }
         }
       },

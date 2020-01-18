@@ -48,8 +48,6 @@ export class SubsectionComponent {
   getSubsection(slug) {
     this.subsectionService.getSubSection(slug).then((data: InterFaceSubSection) => {
         this.subsection = data;
-        console.log('hello');
-        console.log(this.subsection);
       },
       (error) => {
         console.log('Ошибка при получении информации о разделе: ', error);
@@ -58,7 +56,6 @@ export class SubsectionComponent {
 
   payment(price) {
     this.subsectionService.getPayment(price).then((data: InterFaceSubSection) => {
-        console.log(1, data);
       },
       (error) => {
         console.log('Ошибка при получении информации о разделе: ', error);

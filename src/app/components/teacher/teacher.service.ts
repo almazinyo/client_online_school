@@ -10,7 +10,6 @@ export class TeacherService {
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/subjects/teachers', {})
         .then((result: any) => {
-            console.log(result);
             resolve(result);
           },
           (error) => {
