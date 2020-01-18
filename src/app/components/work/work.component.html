@@ -57,7 +57,7 @@
           <div class="---task">
             <div class="h3">Задание</div>
 
-            <div (click)="checkImg(currentTest.question)">
+            <div (click)="checkImg(currentTest.question)" class="---cursor-pointer">
               <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt="" style="max-width: 100%;">
             </div>
 
@@ -76,10 +76,10 @@
             </div>
             <div class="---answer">
               <div *ngIf="answerTest.length+1!==test.length" (click)="nextQuestion()"
-                   class="---button ---button--acent_orange">Ответить
+                   class="---button ---button--acent_orange ---cursor-pointer">Ответить
               </div>
               <div *ngIf="answerTest.length+1===test.length" (click)="sendAnswer()"
-                   class="---button ---button--acent_orange">Завершить тест
+                   class="---button ---button--acent_orange ---cursor-pointer">Завершить тест
               </div>
             </div>
 

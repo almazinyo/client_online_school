@@ -47,12 +47,9 @@
 
     <a routerLink="/reviews" class="---button ---button--border_bg ---button--color-acent">Все отзывы</a>
   </div>
-</div>
 
-<div class="---block-reviews ---block-reviews--in">
-<div class="---row">
-  <div class="col-xl-6" *ngFor="let review of reviews">
-    <div class="---item">
+  <div class="---owl-carousel">
+    <div class="---item" *ngFor="let review of reviews">
       <div class="---item-header ---pos-rel">
         <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
         <div class="---name">{{review.author}}</div>
@@ -61,5 +58,4 @@
       <p>{{review.text}}</p>
     </div>
   </div>
-</div>
 </div>

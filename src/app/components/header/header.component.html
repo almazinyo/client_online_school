@@ -33,8 +33,8 @@
           </div>
         </div>
 
-        <nav class="---d-none ---lg-d-block">
-          <div (click)="subject.show=true" class="---acent ---font-600">Выбрать бесплатный урок</div>
+        <nav class="---d-none ---lg-d-flex">
+          <a (click)="subject.show=true" class="---cursor-pointer ---acent ---font-600">Выбрать бесплатный урок</a>
           <a routerLink='teacher'>Учителя</a>
 
           <a routerLink='reviews'>Отзывы</a>
@@ -60,24 +60,22 @@
 
 <div *ngIf="subject.show"
      class="---modal ---justify-content-center ---align-items-start ---is-visible ---d-flex">
-  <div class="---wrapper ---wrapper_img-view ---text-center">
+  <div class="---wrapper ---wrapper_free-courses">
     <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" (click)="subject.show=false"
        data-close-block=".---modal"></i>
 
-    <div class="---block-subjects">
-      <div class="---row ---row--sm">
-        <div class="col-xs-6 col-md-4 col-lg-3 spec-block-lesson" *ngFor="let item of menu">
-          <div (click)="getSection(item)"
-               [ngClass]="{'opacity-5':item.is_status==='2'}"
-               class="---cursor-pointer ---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start"
-               [style.backgroundColor]="item.color">
-            <div class="---item__icon ---pos-rel">
-              <i class="---icon-font ---pos-abs" [ngClass]="'---icon-menu-'+item.icon"></i>
-            </div>
-            <div>
-              <div class="---item__title">{{item.title}}</div>
-              <!--<div class="---item__thumb">56 курсов / 28 вебинаров</div>-->
-            </div>
+    <div class="---block-subjects ---row ---row--sm">
+      <div class="col-xs-6 spec-block-lesson" *ngFor="let item of menu">
+        <div (click)="getSection(item)"
+             [ngClass]="{'opacity-5':item.is_status==='2'}"
+             class="---cursor-pointer ---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start"
+             [style.backgroundColor]="item.color">
+          <div class="---item__icon ---pos-rel">
+            <i class="---icon-font ---pos-abs" [ngClass]="'---icon-menu-'+item.icon"></i>
+          </div>
+          <div>
+            <div class="---item__title">{{item.title}}</div>
+            <!--<div class="---item__thumb">56 курсов / 28 вебинаров</div>-->
           </div>
         </div>
       </div>
