@@ -217,7 +217,7 @@ var AppComponent = /** @class */ (function () {
         this.checkAuth = false;
         this.urlAuth = ['/profile-details', '/profile-promotion', '/profile-buy', '/profile-points', '/profile-promotional-code'];
         if (!this.checkAuth && this.urlAuth.indexOf(this.location.path()) !== -1) {
-            this.router.navigate(['/']);
+            //this.router.navigate(['/']);
         }
     }
     AppComponent.prototype.ngOnInit = function () {
@@ -4249,7 +4249,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
