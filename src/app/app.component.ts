@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
               private sessionStorageService: SessionStorageService) {
 
     if (!this.checkAuth && this.urlAuth.indexOf(this.location.path()) !== -1) {
-      this.router.navigate(['/']);
+      //this.router.navigate(['/']);
     }
   }
 
