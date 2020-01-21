@@ -21,73 +21,17 @@ export class SectionService {
           }
         );
 
-      // const result = {
-      //   'sections': {
-      //     'label': 'физике',
+      // const result = {[
+      //     'label': 'Механика',
+  //         'background': '#ff8a65',
       //     'sections': [
       //       {
-      //         'section_id': '1',
-      //         'slug': '1',
-      //         'background': '#ff8a65',
-      //         'description': '6 видео курсов',
-      //         'section_name': 'Механика',
-      //         'lessons': [
-      //           {
-      //             'id': 1,
-      //             'slug': '1',
-      //             'lesson_name': 'Кинематика и динамика простейших систем'
-      //           },
-      //           {
-      //             'id': 2,
-      //             'slug': '2',
-      //             'lesson_name': 'Законы сохранения в простейших системах'
-      //           },
-      //           {
-      //             'id': 3,
-      //             'slug': '3',
-      //             'lesson_name': 'Неинерциальные системы отсчета'
-      //           }
-      //         ]
-      //       },
-      //       {
-      //         'section_id': '2',
+      //         'section_name': 'Кинематика',
       //         'slug': '2',
-      //         'background': '#29b6f6',
-      //         'description': '5 видео курсов',
-      //         'section_name': 'Электродинамика',
       //         'lessons': [
       //           {
       //             'id': 1,
-      //             'slug': '2',
-      //             'lesson_name': 'Урок 1'
-      //           },
-      //           {
-      //             'id': 2,
-      //             'slug': '2',
-      //             'lesson_name': 'Урок 2'
-      //           },
-      //           {
-      //             'id': 3,
-      //             'slug': '3',
-      //             'lesson_name': 'Урок 3'
-      //           }
-      //         ]
-      //       }
-      //     ]
-      //   },
-      //   'tests': {
-      //     'label': 'физике',
-      //     'tests': [
-      //       {
-      //         'section_id': '1',
-      //         'slug': '2',
-      //         'background': '#ff8a65',
-      //         'description': '6 видео курсов',
-      //         'section_name': 'Механика',
-      //         'lessons': [
-      //           {
-      //             'id': 1,
-      //             'slug': '1',
+      //             'slug': 'kinematika',
       //             'lesson_name': 'Урок 1'
       //           },
       //           {
@@ -103,11 +47,8 @@ export class SectionService {
       //         ]
       //       },
       //       {
-      //         'section_id': '2',
-      //         'slug': '2',
-      //         'background': '#29b6f6',
-      //         'description': '5 видео курсов',
-      //         'section_name': 'Электродинамика',
+      //         'section_name': 'Динамика',
+      //         'slug': 'dinamika',
       //         'lessons': [
       //           {
       //             'id': 1,
@@ -127,9 +68,55 @@ export class SectionService {
       //         ]
       //       }
       //     ]
-      //   },
-      // };
-      // resolve(result);
+      //   ],
+      //    [
+      //     'label': 'Термодинамика',
+  //         'background': '#ff8a65',
+      //     'sections': [
+      //       {
+      //         'section_name': 'МКТ',
+      //         'slug': '2',
+      //         'lessons': [
+      //           {
+      //             'id': 1,
+      //             'slug': 'mkt',
+      //             'lesson_name': 'Урок 1'
+      //           },
+      //           {
+      //             'id': 2,
+      //             'slug': '2',
+      //             'lesson_name': 'Урок 2'
+      //           },
+      //           {
+      //             'id': 3,
+      //             'slug': '3',
+      //             'lesson_name': 'Урок 3'
+      //           }
+      //         ]
+      //       },
+      //       {
+      //         'section_name': 'Термодинамика',
+      //         'slug': 'termodinamika-3',
+      //         'lessons': [
+      //           {
+      //             'id': 1,
+      //             'slug': '1',
+      //             'lesson_name': 'Урок 1'
+      //           },
+      //           {
+      //             'id': 2,
+      //             'slug': '2',
+      //             'lesson_name': 'Урок 2'
+      //           },
+      //           {
+      //             'id': 3,
+      //             'slug': '3',
+      //             'lesson_name': 'Урок 3'
+      //           }
+      //         ]
+      //       }
+      //     ]
+      //   ]},
     });
   }
 
