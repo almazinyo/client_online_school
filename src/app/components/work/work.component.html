@@ -88,13 +88,13 @@
               </div>
             </div>
             <div class="---answer">
-              <div *ngIf="answerTest.length+1!==test.length && !notPush" (click)="nextQuestionAnswer()"
+              <div *ngIf="countAnswer+1!==test.length && !notPush" (click)="nextQuestionAnswer()"
                    class="---button ---button--acent_orange ---cursor-pointer">Ответить
               </div>
-              <div *ngIf="answerTest.length+1!==test.length && notPush" (click)="nextQuestion()"
+              <div *ngIf="countAnswer+1!==test.length && notPush" (click)="nextQuestion()"
                    class="---button ---button--acent_orange ---cursor-pointer">Перейти к следующему вопросу
               </div>
-              <div *ngIf="answerTest.length+1===test.length" (click)="sendAnswer()"
+              <div *ngIf="countAnswer+1===test.length" (click)="sendAnswer()"
                    class="---button ---button--acent_orange ---cursor-pointer">Завершить тест
               </div>
             </div>
