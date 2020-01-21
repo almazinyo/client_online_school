@@ -42,11 +42,11 @@ export class WorkComponent {
   };
 
   lesson: InterFaceLesson = {id: '', name: '', section_id: ''};
-  test: InterFaceTestWork[] = [{hint: '', id: '', lessons_id: '', question: ''}];
+  test: InterFaceTestWork[] = [{hint: '', id: '', lessons_id: '', question: '', correct_answer: ''}];
   storage: any;
   teachers: InterFaceTeachers = {name: ''};
 
-  currentTest: InterFaceTestWork = {hint: '', id: '', lessons_id: '', question: ''};
+  currentTest: InterFaceTestWork = {hint: '', id: '', lessons_id: '', question: '', correct_answer: ''};
   answerTest: { id: string, answer: string }[] = [];
   answer = '';
   countAnswer = 0;
@@ -57,6 +57,7 @@ export class WorkComponent {
 
   // отображение кнопки на плеере
   showButton = true;
+  notPush = false;
 
   constructor(private workService: WorkService,
               private router: Router,
@@ -117,13 +118,31 @@ export class WorkComponent {
   }
 
   nextQuestion() {
-    this.answerTest.push({id: this.currentTest.id, answer: this.answer});
-    this.countAnswer++;
     this.currentTest = this.test[this.countAnswer];
+    this.countAnswer++;
+    this.notPush = false;
     this.answer = '';
   }
 
-  sendAnswer() {
+  nextQuestionAnswer() {
+    this.answerTest.push({id: this.currentTest.id, answer: this.answer});
+
+    if (this.currentTest.correct_answer !== this.answer) {
+      this.notPush = true;
+      this.globalParamsMessage.data = {
+        title: 'Неверный ответ',
+        body: 'Правильный ответ: ' + this.currentTest.correct_answer,
+        type: 'error'
+      };
+    } else {
+      this.currentTest = this.test[this.countAnswer];
+      this.countAnswer++;
+      this.notPush = false;
+      this.answer = '';
+    }
+  }
+
+   sendAnswer() {
     this.answerTest.push({id: this.currentTest.id, answer: this.answer});
 
     this.workService.sendAnswer({

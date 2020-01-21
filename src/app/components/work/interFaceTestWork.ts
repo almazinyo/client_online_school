@@ -3,4 +3,5 @@ interface InterFaceTestWork {
   id: string;
   lessons_id: string;
   question: string;
+  correct_answer: string;
 }

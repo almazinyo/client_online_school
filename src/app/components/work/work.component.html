@@ -80,7 +80,7 @@
 
         <div class="col-xl-7">
           <div class="---answers">
-            <div class="h3">Ваш ответ (вопрос {{answerTest.length + 1}} из {{test.length}})</div>
+            <div class="h3">Ваш ответ (вопрос {{countAnswer+1}} из {{test.length}})</div>
 
             <div class="---answer ---is-active">
               <div class="---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center">
@@ -88,8 +88,11 @@
               </div>
             </div>
             <div class="---answer">
-              <div *ngIf="answerTest.length+1!==test.length" (click)="nextQuestion()"
+              <div *ngIf="answerTest.length+1!==test.length && !notPush" (click)="nextQuestionAnswer()"
                    class="---button ---button--acent_orange ---cursor-pointer">Ответить
+              </div>
+              <div *ngIf="answerTest.length+1!==test.length && notPush" (click)="nextQuestion()"
+                   class="---button ---button--acent_orange ---cursor-pointer">Перейти к следующему вопросу
               </div>
               <div *ngIf="answerTest.length+1===test.length" (click)="sendAnswer()"
                    class="---button ---button--acent_orange ---cursor-pointer">Завершить тест
