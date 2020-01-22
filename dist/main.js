@@ -3639,7 +3639,7 @@ var WorkComponent = /** @class */ (function () {
         });
     };
     WorkComponent.prototype.nextQuestion = function () {
-        this.currentTest = this.test[this.countAnswer];
+        this.currentTest = this.test[this.countAnswer + 1];
         this.countAnswer++;
         this.notPush = false;
         this.answer = '';
@@ -3655,7 +3655,7 @@ var WorkComponent = /** @class */ (function () {
             };
         }
         else {
-            this.currentTest = this.test[this.countAnswer];
+            this.currentTest = this.test[this.countAnswer + 1];
             this.countAnswer++;
             this.notPush = false;
             this.answer = '';

@@ -118,7 +118,7 @@ export class WorkComponent {
   }
 
   nextQuestion() {
-    this.currentTest = this.test[this.countAnswer];
+    this.currentTest = this.test[this.countAnswer+1];
     this.countAnswer++;
     this.notPush = false;
     this.answer = '';
@@ -135,14 +135,14 @@ export class WorkComponent {
         type: 'error'
       };
     } else {
-      this.currentTest = this.test[this.countAnswer];
+      this.currentTest = this.test[this.countAnswer+1];
       this.countAnswer++;
       this.notPush = false;
       this.answer = '';
     }
   }
 
-   sendAnswer() {
+  sendAnswer() {
     this.answerTest.push({id: this.currentTest.id, answer: this.answer});
 
     this.workService.sendAnswer({
