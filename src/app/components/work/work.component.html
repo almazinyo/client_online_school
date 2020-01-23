@@ -26,7 +26,7 @@
 
       <div class="---course-name">{{lesson.name}}</div>
 
-      <div (click)="toggleVideo()" class="---video ---pos-rel">
+      <div (click)="toggleVideo()" class="---video ---pos-rel" *ngIf="storage.length>0">
         <div *ngIf="showButton" class="---play-button ---y-pos-abs ---z-index-over ---d-none">
           <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861">
             <path
@@ -35,7 +35,8 @@
         </div>
         <span *ngFor="let currentWork of storage">
           <video #videoPlayer class="---pos-rel ---img-cover" controls *ngIf="currentWork.type==='video'">
-            <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"
+                    type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
           </video>
         </span>
       </div>
@@ -44,7 +45,7 @@
         <span class="---name ---font-800 ---d-block ---xs-d-inline-block">{{teachers.name}}</span>
       </div>
 
-      <div class="---course-theory">
+      <div class="---course-theory" *ngIf="storage.length>0">
         <div class="---block-title">Теория по курсу</div>
 
         <div class="---theory-wrap">
@@ -71,10 +72,13 @@
             <div class="h3">Задание</div>
 
             <div (click)="checkImg(currentTest.question)" class="---cursor-pointer">
-              <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt="" style="max-width: 100%;">
+              <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt=""
+                   style="max-width: 100%;">
             </div>
 
-            <div class="---button ---button--xs ---button--green ---cursor-pointer" (click)="checkImg(currentTest.hint,'hint')" *ngIf="currentTest.hint!==''">Подсказка</div>
+            <div class="---button ---button--xs ---button--green ---cursor-pointer"
+                 (click)="checkImg(currentTest.hint,'hint')" *ngIf="currentTest.hint!==''">Подсказка
+            </div>
           </div>
         </div>
 
@@ -112,14 +116,15 @@
           fill="#FFF"/>
       </svg>
 
-      <div class="---lessons">
+      <div class="---lessons" *ngIf="lesson!==''">
         <div [ngClass]="{'---is-curent':lesson.slug===currentWork.slug,'---opacity':currentWork.is_status==='1'}"
              *ngFor="let currentWork of section.allLessons;let i = index"
              (click)="getWorkCurrent(currentWork.is_status, section.slug+'/'+currentWork.slug)"
              class="---lesson ---cursor-pointer">
-            {{i+1}}. {{currentWork.name}}
-            <span *ngIf="currentWork.checked==='1'">
-              <svg class="---y-pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg>
+          {{i+1}}. {{currentWork.name}}
+          <span *ngIf="currentWork.checked==='1'">
+              <svg class="---y-pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path
+                d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg>
             </span>
         </div>
       </div>
@@ -129,7 +134,7 @@
 
 
 <div *ngIf="showCheckImg"
-    class="---modal ---justify-content-center ---align-items-start ---is-visible ---d-flex">
+     class="---modal ---justify-content-center ---align-items-start ---is-visible ---d-flex">
   <div class="---wrapper ---wrapper_img-view ---text-center">
     <i class="---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs" (click)="showCheckImg=false"
        data-close-block=".---modal"></i>

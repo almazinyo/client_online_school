@@ -41,9 +41,9 @@ export class WorkComponent {
     }]
   };
 
-  lesson: InterFaceLesson = {id: '', name: '', section_id: ''};
+  lesson: InterFaceLesson = {id: '', name: '', section_id: '', slug: ''};
   test: InterFaceTestWork[] = [{hint: '', id: '', lessons_id: '', question: '', correct_answer: '', bonus_points: ''}];
-  storage: any;
+  storage: any = [];
   teachers: InterFaceTeachers = {name: ''};
 
   currentTest: InterFaceTestWork = {hint: '', id: '', lessons_id: '', question: '', correct_answer: '', bonus_points: ''};
@@ -77,9 +77,10 @@ export class WorkComponent {
     if (is_status === '2') {
       this.workService.getWork(slug, slugLesson).then((data: InterFaceWork) => {
           this.section = data;
-          this.lesson = data['lessons'][0];
-          this.test = data['lessons'][0]['quizzes'];
-          this.storage = data['lessons'][0]['storageLessons'];
+
+          this.lesson = data['lessons'][0] || '';
+          this.test = data['lessons'].length > 0 ? data['lessons'][0]['quizzes'] : [];
+          this.storage = data['lessons'].length > 0 ? data['lessons'][0]['storageLessons'] : [];
           this.teachers = data['subject']['teachers'][0];
           this.currentTest = this.test[0];
           this.countAnswer = 0;
@@ -87,7 +88,8 @@ export class WorkComponent {
 
           for (let i = 0; i < this.storage.length; i++) {
             if (this.storage[i].type === 'pdf') {
-              this.storage[i].url = this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
+              this.storage[i].url =
+                this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
             }
           }
 
