@@ -58,6 +58,7 @@ export class WorkComponent {
   // отображение кнопки на плеере
   showButton = true;
   notPush = false;
+  hiddenTest = false;
 
   constructor(private workService: WorkService,
               private router: Router,
@@ -146,9 +147,12 @@ export class WorkComponent {
           body: 'Количество правильных ответов: ' + result.correct_answers + '. Количество неправильных ответов: ' + result.wrong_answers,
           type: 'error'
         };
+
+        this.hiddenTest = true;
       },
       (error) => {
         console.log('Ошибка при отправке тестов: ', error);
+        this.hiddenTest = true;
       });
   }
 

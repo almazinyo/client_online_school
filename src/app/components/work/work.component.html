@@ -63,47 +63,51 @@
 
       <div class="---devider"></div>
 
-      <div class="---block-title" *ngIf="showTest===true">Пройдите тест <span class="---acent">для завершения</span>
-      </div>
+      <div *ngIf="!hiddenTest">
 
-      <div class="---test-wrap ---d-flex ---flex-wrap" *ngIf="showTest===true">
-        <div class="col-xl-5">
-          <div class="---task">
-            <div class="h3">Задание</div>
-
-            <div (click)="checkImg(currentTest.question)" class="---cursor-pointer">
-              <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt=""
-                   style="max-width: 100%;">
-            </div>
-
-            <div class="---button ---button--xs ---button--green ---cursor-pointer"
-                 (click)="checkImg(currentTest.hint,'hint')" *ngIf="currentTest.hint!==''">Подсказка
-            </div>
-          </div>
+        <div class="---block-title" *ngIf="showTest===true">Пройдите тест <span class="---acent">для завершения</span>
         </div>
 
-        <div class="col-xl-7">
-          <div class="---answers">
-            <div class="h3">Ваш ответ (вопрос {{countAnswer+1}} из {{test.length}})</div>
 
-            <div class="---answer ---is-active">
-              <div class="---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center">
-                <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
+        <div class="---test-wrap ---d-flex ---flex-wrap" *ngIf="showTest===true">
+          <div class="col-xl-5">
+            <div class="---task">
+              <div class="h3">Задание</div>
+
+              <div (click)="checkImg(currentTest.question)" class="---cursor-pointer">
+                <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt=""
+                     style="max-width: 100%;">
+              </div>
+
+              <div class="---button ---button--xs ---button--green ---cursor-pointer"
+                   (click)="checkImg(currentTest.hint,'hint')" *ngIf="currentTest.hint!==''">Подсказка
               </div>
             </div>
-            <div class="---answer">
-              <div *ngIf="countAnswer+1!==test.length && !notPush" (click)="nextQuestionAnswer()"
-                   class="---button ---button--acent_orange ---cursor-pointer">Ответить
-              </div>
-              <div *ngIf="countAnswer+1!==test.length && notPush" (click)="nextQuestion()"
-                   class="---button ---button--acent_orange ---cursor-pointer">Перейти к следующему вопросу
-              </div>
-              <div *ngIf="countAnswer+1===test.length" (click)="sendAnswer()"
-                   class="---button ---button--acent_orange ---cursor-pointer">Завершить тест
-              </div>
-            </div>
+          </div>
 
-            <!-- <div class="---answers__count"></div> -->
+          <div class="col-xl-7">
+            <div class="---answers">
+              <div class="h3">Ваш ответ (вопрос {{countAnswer+1}} из {{test.length}})</div>
+
+              <div class="---answer ---is-active">
+                <div class="---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center">
+                  <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
+                </div>
+              </div>
+              <div class="---answer">
+                <div *ngIf="countAnswer+1!==test.length && !notPush" (click)="nextQuestionAnswer()"
+                     class="---button ---button--acent_orange ---cursor-pointer">Ответить
+                </div>
+                <div *ngIf="countAnswer+1!==test.length && notPush" (click)="nextQuestion()"
+                     class="---button ---button--acent_orange ---cursor-pointer">Перейти к следующему вопросу
+                </div>
+                <div *ngIf="countAnswer+1===test.length" (click)="sendAnswer()"
+                     class="---button ---button--acent_orange ---cursor-pointer">Завершить тест
+                </div>
+              </div>
+
+              <!-- <div class="---answers__count"></div> -->
+            </div>
           </div>
         </div>
       </div>
