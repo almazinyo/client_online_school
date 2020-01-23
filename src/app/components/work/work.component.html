@@ -113,9 +113,9 @@
       </svg>
 
       <div class="---lessons">
-        <div [ngClass]="{'---is-curent':lesson.slug===currentWork.slug}"
+        <div [ngClass]="{'---is-curent':lesson.slug===currentWork.slug,'---opacity':currentWork.is_status==='1'}"
              *ngFor="let currentWork of section.allLessons;let i = index"
-             (click)="getWorkCurrent(section.slug+'/'+currentWork.slug)"
+             (click)="getWorkCurrent(currentWork.is_status, section.slug+'/'+currentWork.slug)"
              class="---lesson ---cursor-pointer">
             {{i+1}}. {{currentWork.name}}
             <span *ngIf="currentWork.checked==='1'">

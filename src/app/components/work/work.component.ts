@@ -95,30 +95,32 @@ export class WorkComponent {
       });
   }
 
-  getWorkCurrent(slug, slugLesson = '') {
-    this.workService.getWork(slug, slugLesson).then((data: InterFaceWork) => {
-        this.lesson = data['lessons'][0];
-        this.test = data['lessons'][0]['quizzes'];
-        this.storage = data['lessons'][0]['storageLessons'];
-        this.teachers = data['subject']['teachers'][0];
-        this.currentTest = this.test[0];
-        this.countAnswer = 0;
+  getWorkCurrent(is_status, slug, slugLesson = '') {
+    if (is_status === '2') {
+      this.workService.getWork(slug, slugLesson).then((data: InterFaceWork) => {
+          this.lesson = data['lessons'][0];
+          this.test = data['lessons'][0]['quizzes'];
+          this.storage = data['lessons'][0]['storageLessons'];
+          this.teachers = data['subject']['teachers'][0];
+          this.currentTest = this.test[0];
+          this.countAnswer = 0;
 
-        this.showTest = this.test.length > 0;
+          this.showTest = this.test.length > 0;
 
-        for (let i = 0; i < this.storage.length; i++) {
-          if (this.storage[i].type === 'pdf') {
-            this.storage[i].url = this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
+          for (let i = 0; i < this.storage.length; i++) {
+            if (this.storage[i].type === 'pdf') {
+              this.storage[i].url = this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
+            }
           }
-        }
-      },
-      (error) => {
-        console.log('Ошибка при получении информации об уроке: ', error);
-      });
+        },
+        (error) => {
+          console.log('Ошибка при получении информации об уроке: ', error);
+        });
+    }
   }
 
   nextQuestion() {
-    this.currentTest = this.test[this.countAnswer+1];
+    this.currentTest = this.test[this.countAnswer + 1];
     this.countAnswer++;
     this.notPush = false;
     this.answer = '';
@@ -135,7 +137,7 @@ export class WorkComponent {
         type: 'error'
       };
     } else {
-      this.currentTest = this.test[this.countAnswer+1];
+      this.currentTest = this.test[this.countAnswer + 1];
       this.countAnswer++;
       this.notPush = false;
       this.answer = '';
