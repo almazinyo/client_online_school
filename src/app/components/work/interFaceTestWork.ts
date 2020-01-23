@@ -4,4 +4,5 @@ interface InterFaceTestWork {
   lessons_id: string;
   question: string;
   correct_answer: string;
+  bonus_points: string;
 }
