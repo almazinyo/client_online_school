@@ -80,6 +80,22 @@ export class SubsectionService {
     });
   }
 
+  // получение списка активных полей
+  public usePromotionalCode(slug) {
+    return new Promise((resolve, reject) => {
+      resolve(5000);
+      /*this.httpService.prepareQuery('api/sections/details/' + slug)
+        .then((result: any) => {
+            resolve(result);
+          },
+          (error) => {
+            console.log('Ошибка при получении списка разделов предмета', error);
+            reject();
+          }
+        );*/
+    });
+  }
+
   getPayment(price) {
     return new Promise((resolve, reject) => {
       const body = new URLSearchParams();

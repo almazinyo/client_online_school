@@ -63,6 +63,13 @@ export class SubsectionComponent {
     if (this.promo !== '') {
       this.buyModal.price = '20000';
     }
+
+    this.subsectionService.usePromotionalCode({price: this.buyModal.price, slug: this.buyModal.slug, promo: this.promo}).then((data: string) => {
+        this.buyModal.price = data;
+      },
+      (error) => {
+        console.log('Ошибка при получении информации о разделе: ', error);
+      });
   }
 
   getSubsection(slug) {
