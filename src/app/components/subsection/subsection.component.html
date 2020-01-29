@@ -106,6 +106,9 @@
   <div class="---wrapper ---wrapper_hint ---text-center">
 
     <div class="---wrapper__hint-content">
+      <div> Сумма: <span style="font-weight: bold">{{buyModal.price}} р</span></div>
+      <div> Скидка: <span style="font-weight: bold">{{buyModal.sale}} %</span></div>
+
       Использовать промокод
       <input type="text" style="border: 1px solid black" [(ngModel)]="promo">
       <div class="---button ---button--acent_orange" (click)="usePromotionalCode()">Использовать</div>

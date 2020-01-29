@@ -16,6 +16,7 @@ export class SubsectionComponent {
     show: false,
     price: '',
     slug: '',
+    sale: 0,
   };
   subsection: InterFaceSubSection = {
     thing: '',
@@ -55,7 +56,8 @@ export class SubsectionComponent {
     this.buyModal = {
       show: true,
       price: price,
-      slug: slug
+      slug: slug,
+      sale: 0
     };
   }
 
@@ -64,7 +66,11 @@ export class SubsectionComponent {
       this.buyModal.price = '20000';
     }
 
-    this.subsectionService.usePromotionalCode({price: this.buyModal.price, slug: this.buyModal.slug, promo: this.promo}).then((data: string) => {
+    this.subsectionService.usePromotionalCode({
+      price: this.buyModal.price,
+      slug: this.buyModal.slug,
+      promo: this.promo
+    }).then((data: string) => {
         this.buyModal.price = data;
       },
       (error) => {
