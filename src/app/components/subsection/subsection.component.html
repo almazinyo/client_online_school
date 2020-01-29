@@ -63,7 +63,7 @@
 
         <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
 
-        <div class="---button ---button--acent_orange" (click)="changeShowBuy(section.price,section.slug)">Купить</div>
+        <div class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,section.slug)">Купить</div>
 
         <a [routerLink]="'/work/'+section.slug" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>
@@ -106,12 +106,18 @@
   <div class="---wrapper ---wrapper_hint ---text-center">
 
     <div class="---wrapper__hint-content">
-      <div> Сумма: <span style="font-weight: bold">{{buyModal.price}} р</span></div>
-      <div> Скидка: <span style="font-weight: bold">{{buyModal.sale}} %</span></div>
+      <div class="---d-flex ---flex-wrap ---justify-content-center">
+        <div style="margin: 0 5px 10px;">Сумма: <span class="---font-600">{{buyModal.price}} р</span></div>
+        <div style="margin: 0 5px 10px;">Скидка: <span class="---font-600">{{buyModal.sale}} %</span></div>
+      </div>
 
-      Использовать промокод
-      <input type="text" style="border: 1px solid black" [(ngModel)]="promo">
-      <div class="---button ---button--acent_orange" (click)="usePromotionalCode()">Использовать</div>
+      <div class="---input-wrap">
+        <div class="---input-label">Использовать промокод</div>
+        
+        <input type="text" class="---input" style="border: 1px solid rgba(0, 0, 0, .3); font-size: 14px; padding: 10px 20px 11px;" [(ngModel)]="promo">
+      
+        <div class="---button ---button--acent_orange ---button--xs" (click)="usePromotionalCode()" style="margin-top: 15px;">Использовать</div>
+      </div>
 
       <iframe
         [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+buyModal.price+'&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio+'-'+buyModal.slug)"
