@@ -63,7 +63,7 @@
 
         <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
 
-        <div class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,section.slug)">Купить</div>
+        <div *ngIf="globalParamsUser.fio!==null" class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,section.slug)">Купить</div>
 
         <a [routerLink]="'/work/'+section.slug" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>
@@ -113,9 +113,9 @@
 
       <div class="---input-wrap">
         <div class="---input-label">Использовать промокод</div>
-        
+
         <input type="text" class="---input" style="border: 1px solid rgba(0, 0, 0, .3); font-size: 14px; padding: 10px 20px 11px;" [(ngModel)]="promo">
-      
+
         <div class="---button ---button--acent_orange ---button--xs" (click)="usePromotionalCode()" style="margin-top: 15px;">Использовать</div>
       </div>
 
