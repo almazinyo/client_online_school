@@ -81,10 +81,9 @@ export class SubsectionService {
   }
 
   // получение списка активных полей
-  public usePromotionalCode(slug) {
+  public usePromotionalCode(data) {
     return new Promise((resolve, reject) => {
-      resolve(5000);
-      /*this.httpService.prepareQuery('api/sections/details/' + slug)
+      this.httpService.prepareQuery('api/main/promo-code', data, true)
         .then((result: any) => {
             resolve(result);
           },
@@ -92,7 +91,7 @@ export class SubsectionService {
             console.log('Ошибка при получении списка разделов предмета', error);
             reject();
           }
-        );*/
+        );
     });
   }
 
