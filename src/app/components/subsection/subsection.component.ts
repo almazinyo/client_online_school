@@ -12,7 +12,11 @@ import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 })
 
 export class SubsectionComponent {
-
+  buyModal = {
+    show: false,
+    price: '',
+    slug: '',
+  };
   subsection: InterFaceSubSection = {
     thing: '',
     section: '',
@@ -33,6 +37,8 @@ export class SubsectionComponent {
     }]
   };
 
+  promo = '';
+
   constructor(private subsectionService: SubsectionService,
               private httpService: HttpService,
               public globalParamsUser: GlobalParamsUser,
@@ -43,6 +49,20 @@ export class SubsectionComponent {
         this.getSubsection(params.id);
       }
     );
+  }
+
+  changeShowBuy(price, slug) {
+    this.buyModal = {
+      show: true,
+      price: price,
+      slug: slug
+    };
+  }
+
+  usePromotionalCode() {
+    if (this.promo !== '') {
+      this.buyModal.price = '20000';
+    }
   }
 
   getSubsection(slug) {

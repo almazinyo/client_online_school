@@ -62,17 +62,9 @@
         </ul>
 
         <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
-        <iframe
-          *ngIf="globalParamsUser.fio!==null"
-          [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+section.price+'&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio+'-'+section.slug)"
-          width="184"
-          height="36"
-          frameborder="0"
-          allowtransparency="true"
-          scrolling="no"
-        >
 
-        </iframe>
+        <div class="---button ---button--acent_orange" (click)="changeShowBuy(section.price,section.slug)">Купить</div>
+
         <a [routerLink]="'/work/'+section.slug" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>
     </div>
@@ -106,5 +98,30 @@
       <div class="---img ---img-2"><img lazyLoad="assets/imgs/course-in/1.png" alt="" class="---img-cover"></div>
     </div>
 
+  </div>
+</div>
+
+
+<div *ngIf="buyModal.show" class="---modal ---d-flex ---justify-content-center ---align-items-start">
+  <div class="---wrapper ---wrapper_hint ---text-center">
+
+    <div class="---wrapper__hint-content">
+      Использовать промокод
+      <input type="text" style="border: 1px solid black" [(ngModel)]="promo">
+      <div class="---button ---button--acent_orange" (click)="usePromotionalCode()">Использовать</div>
+
+      <iframe
+        [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+buyModal.price+'&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio+'-'+buyModal.slug)"
+        width="184"
+        height="36"
+        frameborder="0"
+        allowtransparency="true"
+        scrolling="no"
+      >
+
+      </iframe>
+    </div>
+
+    <div (click)="buyModal.show=false" class="---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs"></div>
   </div>
 </div>
