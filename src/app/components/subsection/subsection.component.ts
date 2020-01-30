@@ -59,7 +59,7 @@ export class SubsectionComponent {
       price: price,
       slug: slug,
       sale: 0,
-      new_price: ''
+      new_price: price
     };
   }
 
