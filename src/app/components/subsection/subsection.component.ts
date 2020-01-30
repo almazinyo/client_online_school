@@ -70,8 +70,9 @@ export class SubsectionComponent {
       price: this.buyModal.price,
       slug: this.buyModal.slug,
       promo: this.promo
-    }).then((data: string) => {
-        this.buyModal.price = data;
+    }).then((data: { price: string, percent: number }) => {
+        this.buyModal.price = data.price;
+        this.buyModal.sale = data.percent;
       },
       (error) => {
         console.log('Ошибка при получении информации о разделе: ', error);
