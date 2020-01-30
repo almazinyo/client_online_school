@@ -15,6 +15,7 @@ export class SubsectionComponent {
   buyModal = {
     show: false,
     price: '',
+    new_price: '',
     slug: '',
     sale: 0,
   };
@@ -57,7 +58,8 @@ export class SubsectionComponent {
       show: true,
       price: price,
       slug: slug,
-      sale: 0
+      sale: 0,
+      new_price: ''
     };
   }
 
@@ -70,8 +72,9 @@ export class SubsectionComponent {
       price: this.buyModal.price,
       slug: this.buyModal.slug,
       promo: this.promo
-    }).then((data: { price: string, percent: number }) => {
-        this.buyModal.price = data.price;
+    }).then((data: { old_price: string, new_price: string, percent: number }) => {
+        this.buyModal.price = data.old_price;
+        this.buyModal.new_price = data.new_price;
         this.buyModal.sale = data.percent;
       },
       (error) => {

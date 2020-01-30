@@ -63,7 +63,7 @@
 
         <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
 
-        <div class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,section.slug)">Купить</div>
+        <div *ngIf="globalParamsUser.fio!==null" class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,section.slug)">Купить</div>
 
         <a [routerLink]="'/work/'+section.slug" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>
@@ -109,6 +109,7 @@
       <div class="---d-flex ---flex-wrap ---justify-content-center">
         <div style="margin: 0 5px 10px;">Сумма: <span class="---font-600">{{buyModal.price}} р</span></div>
         <div style="margin: 0 5px 10px;">Скидка: <span class="---font-600">{{buyModal.sale}} %</span></div>
+        <div *ngIf="buyModal.new_price!==''" style="margin: 0 5px 10px;">Итого: <span class="---font-600">{{buyModal.new_price}} р</span></div>
       </div>
 
       <div class="---input-wrap">
