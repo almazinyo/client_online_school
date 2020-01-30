@@ -3030,6 +3030,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_http_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/http/http.service */ "./src/app/utils/http/http.service.ts");
 /* harmony import */ var _storage_global_params_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../storage/global-params-user */ "./src/app/storage/global-params-user.ts");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../message_alert/global-params-message */ "./src/app/components/message_alert/global-params-message.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3045,13 +3046,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SubsectionComponent = /** @class */ (function () {
-    function SubsectionComponent(subsectionService, httpService, globalParamsUser, sanitizer, activatedRoute) {
+    function SubsectionComponent(subsectionService, httpService, globalParamsUser, sanitizer, globalParamsMessage, activatedRoute) {
         var _this = this;
         this.subsectionService = subsectionService;
         this.httpService = httpService;
         this.globalParamsUser = globalParamsUser;
         this.sanitizer = sanitizer;
+        this.globalParamsMessage = globalParamsMessage;
         this.activatedRoute = activatedRoute;
         this.buyModal = {
             show: false,
@@ -3090,25 +3093,27 @@ var SubsectionComponent = /** @class */ (function () {
             price: price,
             slug: slug,
             sale: 0,
-            new_price: price
+            new_price: price,
         };
     };
     SubsectionComponent.prototype.usePromotionalCode = function () {
         var _this = this;
         if (this.promo !== '') {
-            this.buyModal.price = '20000';
+            this.subsectionService.usePromotionalCode({
+                price: this.buyModal.price,
+                slug: this.buyModal.slug,
+                promo: this.promo
+            }).then(function (data) {
+                _this.buyModal.price = data.old_price;
+                _this.buyModal.new_price = data.new_price;
+                _this.buyModal.sale = data.percent;
+                if (!data.is_valid) {
+                    _this.globalParamsMessage.data = { type: 'error', title: 'Неверно указан промо-код', body: '' };
+                }
+            }, function (error) {
+                console.log('Ошибка при получении информации о разделе: ', error);
+            });
         }
-        this.subsectionService.usePromotionalCode({
-            price: this.buyModal.price,
-            slug: this.buyModal.slug,
-            promo: this.promo
-        }).then(function (data) {
-            _this.buyModal.price = data.old_price;
-            _this.buyModal.new_price = data.new_price;
-            _this.buyModal.sale = data.percent;
-        }, function (error) {
-            console.log('Ошибка при получении информации о разделе: ', error);
-        });
     };
     SubsectionComponent.prototype.getSubsection = function (slug) {
         var _this = this;
@@ -3133,6 +3138,7 @@ var SubsectionComponent = /** @class */ (function () {
             _utils_http_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"],
             _storage_global_params_user__WEBPACK_IMPORTED_MODULE_4__["GlobalParamsUser"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"],
+            _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_6__["GlobalParamsMessage"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], SubsectionComponent);
     return SubsectionComponent;

@@ -4,6 +4,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {HttpService} from '../../utils/http/http.service';
 import {GlobalParamsUser} from '../../storage/global-params-user';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import {GlobalParamsMessage} from '../message_alert/global-params-message';
 
 
 @Component({
@@ -45,6 +46,7 @@ export class SubsectionComponent {
               private httpService: HttpService,
               public globalParamsUser: GlobalParamsUser,
               private sanitizer: DomSanitizer,
+              private globalParamsMessage: GlobalParamsMessage,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(
       (params: Params): void => {
@@ -59,7 +61,7 @@ export class SubsectionComponent {
       price: price,
       slug: slug,
       sale: 0,
-      new_price: price
+      new_price: price,
     };
   }
 
@@ -69,10 +71,14 @@ export class SubsectionComponent {
         price: this.buyModal.price,
         slug: this.buyModal.slug,
         promo: this.promo
-      }).then((data: { old_price: string, new_price: string, percent: number }) => {
+      }).then((data: { old_price: string, new_price: string, percent: number, is_valid: boolean }) => {
           this.buyModal.price = data.old_price;
           this.buyModal.new_price = data.new_price;
           this.buyModal.sale = data.percent;
+
+          if (! data.is_valid) {
+            this.globalParamsMessage.data = {type: 'error', title: 'Неверно указан промо-код', body: ''};
+          }
         },
         (error) => {
           console.log('Ошибка при получении информации о разделе: ', error);
