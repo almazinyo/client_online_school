@@ -65,21 +65,19 @@ export class SubsectionComponent {
 
   usePromotionalCode() {
     if (this.promo !== '') {
-      this.buyModal.price = '20000';
+      this.subsectionService.usePromotionalCode({
+        price: this.buyModal.price,
+        slug: this.buyModal.slug,
+        promo: this.promo
+      }).then((data: { old_price: string, new_price: string, percent: number }) => {
+          this.buyModal.price = data.old_price;
+          this.buyModal.new_price = data.new_price;
+          this.buyModal.sale = data.percent;
+        },
+        (error) => {
+          console.log('Ошибка при получении информации о разделе: ', error);
+        });
     }
-
-    this.subsectionService.usePromotionalCode({
-      price: this.buyModal.price,
-      slug: this.buyModal.slug,
-      promo: this.promo
-    }).then((data: { old_price: string, new_price: string, percent: number }) => {
-        this.buyModal.price = data.old_price;
-        this.buyModal.new_price = data.new_price;
-        this.buyModal.sale = data.percent;
-      },
-      (error) => {
-        console.log('Ошибка при получении информации о разделе: ', error);
-      });
   }
 
   getSubsection(slug) {
