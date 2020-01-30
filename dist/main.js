@@ -1761,7 +1761,7 @@ var GlobalParamsMessage = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"data.data.type\" id=\"---modal-text\" class=\"---modal ---d-flex ---align-items-start ---justify-content-center\">\n  <div class=\"---wrapper ---wrapper_padding ---text-center\">\n\n    <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" data-close-block=\".---modal\" (click)=\"clear()\"></i>\n\n    <div class=\"modal-body\">\n      <div class=\"---modal__title ---font-800\">{{data.data.title}}</div>\n\n      <p>{{data.data.body}}</p>\n\n      <div class=\"---button ---button--acent\" (click)=\"clear()\">Ок, понял</div>\n    </div>\n\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"data.data.type\" id=\"---modal-text\" class=\"---modal ---d-flex ---align-items-start ---justify-content-center\" style=\"    z-index: 9999999;\">\n  <div class=\"---wrapper ---wrapper_padding ---text-center\">\n\n    <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" data-close-block=\".---modal\" (click)=\"clear()\"></i>\n\n    <div class=\"modal-body\">\n      <div class=\"---modal__title ---font-800\">{{data.data.title}}</div>\n\n      <p>{{data.data.body}}</p>\n\n      <div class=\"---button ---button--acent\" (click)=\"clear()\">Ок, понял</div>\n    </div>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3104,7 +3104,6 @@ var SubsectionComponent = /** @class */ (function () {
                 slug: this.buyModal.slug,
                 promo: this.promo
             }).then(function (data) {
-                _this.buyModal.price = data.old_price;
                 _this.buyModal.new_price = data.new_price;
                 _this.buyModal.sale = data.percent;
                 if (!data.is_valid) {

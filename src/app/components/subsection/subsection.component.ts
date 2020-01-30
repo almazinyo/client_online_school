@@ -72,7 +72,6 @@ export class SubsectionComponent {
         slug: this.buyModal.slug,
         promo: this.promo
       }).then((data: { old_price: string, new_price: string, percent: number, is_valid: boolean }) => {
-          this.buyModal.price = data.old_price;
           this.buyModal.new_price = data.new_price;
           this.buyModal.sale = data.percent;
 
