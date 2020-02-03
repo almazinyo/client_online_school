@@ -1439,7 +1439,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"hiddenHints\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n\t<div class=\"---wrapper ---wrapper_hint ---text-center\">\t\t\n\t\t<img src=\"https://hb.bizmrg.com/kazanexpress/static/PopUp.png\" alt=\"\">\n\n\t\t<div class=\"---wrapper__hint-content\">\n\t\t\t<div class=\"h4 ---hint__title ---font-600\">Дарим подарки!</div>\n\t\t\t<p>\n\t\t\t\tВ преддверии волшебного праздника мы подготовили для тебя игру. На сайте и в приложении спрятано 10 символов Нового года. Найди их, чтобы получить уникальные промокоды и купить подарки еще выгоднее. Среди счастливчиков, которые нашли все 10 предметов, мы разыграем 10000₽ на шопинг в KazanExpress.\n\t\t\t</p>\n\t\t</div>\n\n\t\t<div (click)=\"hiddenHints=!hiddenHints\" class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n\t</div>\n</div>"
+module.exports = "<div *ngIf=\"hiddenHints && hints.length>0\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n  <div class=\"---wrapper ---wrapper_hint ---text-center\">\n    <img src=\"{{hints[currentHints].img}}\" alt=\"\">\n\n    <div class=\"---wrapper__hint-content\">\n      <div class=\"h4 ---hint__title ---font-600\">{{hints[currentHints].title}}</div>\n      <p>\n        {{hints[currentHints].desc}}\n      </p>\n    </div>\n\n    <div *ngIf=\"currentHints!==0\" (click)=\"prevHints()\">Назад</div>\n    <div *ngIf=\"currentHints+1<hints.length\" (click)=\"nextHints()\">Вперед</div>\n    <div (click)=\"hiddenHints=!hiddenHints\"\n         class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1455,6 +1455,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HintsComponent", function() { return HintsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
+/* harmony import */ var _hints_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hints.service */ "./src/app/components/hints/hints.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1466,11 +1467,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var HintsComponent = /** @class */ (function () {
-    function HintsComponent(sessionStorageService) {
+    function HintsComponent(sessionStorageService, hintsService) {
         var _this = this;
         this.sessionStorageService = sessionStorageService;
+        this.hintsService = hintsService;
         this.hiddenHints = false;
+        this.hints = [];
+        this.currentHints = 0;
         this.sessionStorageService.authenticated.subscribe(function (item) {
             var hints = localStorage.getItem('hints');
             if (hints === null && !item) {
@@ -1478,13 +1483,25 @@ var HintsComponent = /** @class */ (function () {
                 localStorage.setItem('hints', 'yes');
             }
         });
+        this.hintsService.getHints().then(function (data) {
+            _this.hints = data;
+        }, function (error) {
+            console.log('Ошибка при получении информации по блогам: ', error);
+        });
     }
+    HintsComponent.prototype.nextHints = function () {
+        this.currentHints++;
+    };
+    HintsComponent.prototype.prevHints = function () {
+        this.currentHints--;
+    };
     HintsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-hints',
             template: __webpack_require__(/*! ./hints.component.html */ "./src/app/components/hints/hints.component.html"),
         }),
-        __metadata("design:paramtypes", [_storage_session_storage_service__WEBPACK_IMPORTED_MODULE_1__["SessionStorageService"]])
+        __metadata("design:paramtypes", [_storage_session_storage_service__WEBPACK_IMPORTED_MODULE_1__["SessionStorageService"],
+            _hints_service__WEBPACK_IMPORTED_MODULE_2__["HintsService"]])
     ], HintsComponent);
     return HintsComponent;
 }());
@@ -1519,7 +1536,41 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var HintsService = /** @class */ (function () {
     function HintsService(httpService) {
         this.httpService = httpService;
+        this.hints = [
+            {
+                id: 1,
+                title: 'Дарим подарки!',
+                desc: 'В преддверии волшебного праздника мы подготовили для тебя игру. На сайте и в приложении спрятано 10 символов Нового года. Найди их, чтобы получить уникальные промокоды и купить подарки еще выгоднее. Среди счастливчиков, которые нашли все 10 предметов, мы разыграем 10000₽ на шопинг в KazanExpress.',
+                img: 'https://hb.bizmrg.com/kazanexpress/static/PopUp.png'
+            },
+            {
+                id: 1,
+                title: '2222Дарим подарки!',
+                desc: '2222В преддверии волшебного праздника мы подготовили для тебя игру. На сайте и в приложении спрятано 10 символов Нового года. Найди их, чтобы получить уникальные промокоды и купить подарки еще выгоднее. Среди счастливчиков, которые нашли все 10 предметов, мы разыграем 10000₽ на шопинг в KazanExpress.',
+                img: 'https://hb.bizmrg.com/kazanexpress/static/PopUp.png'
+            }
+        ];
     }
+    HintsService.prototype.getHints = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            /*if (this.hints.length === 0) {
+              this.httpService.prepareQuery('api/blog/details/')
+                .then((result: InterFaceHints[]) => {
+                    this.hints = result;
+                    resolve(result);
+                  },
+                  (error) => {
+                    console.log('Ошибка при получении детальной информации о блоге', error);
+                    reject();
+                  }
+                );
+            } else {
+              resolve(this.hints);
+            }*/
+            resolve(_this.hints);
+        });
+    };
     HintsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"]])
