@@ -13,6 +13,8 @@ import {GlobalParamsUser} from '../../storage/global-params-user';
 export class WorkComponent {
   @ViewChild('videoPlayer') videoplayer: ElementRef;
 
+  // индекс текущего теста
+  testIndex = 0;
   section: InterFaceWork = {
     background: '',
     created_at: '',
@@ -50,7 +52,6 @@ export class WorkComponent {
   answerTest: { id: string, answer: string, hint: boolean, points: string }[] = [];
   answer = '';
   countAnswer = 0;
-  showTest = false;
 
   showCheckImg = false;
   modalImg = '';
@@ -85,7 +86,6 @@ export class WorkComponent {
           this.teachers = data['subject']['teachers'][0];
           this.currentTest = this.test[0];
           this.countAnswer = 0;
-          this.showTest = this.test.length > 0;
 
           for (let i = 0; i < this.storage.length; i++) {
             if (this.storage[i].type === 'pdf') {
@@ -104,37 +104,34 @@ export class WorkComponent {
     }
   }
 
-  nextQuestion() {
-    this.currentTest = this.test[this.countAnswer + 1];
-    this.countAnswer++;
-    this.notPush = false;
-    this.answer = '';
-  }
+  answerCurrentTest() {
+    this.answer = this.answer.replace(',', '.');
+    this.test[this.testIndex].correct_answer = this.test[this.testIndex].correct_answer.replace(',', '.');
+    if (this.test[this.testIndex].correct_answer !== this.answer || this.answerTest[this.testIndex].answer !== '') {
 
-  nextQuestionAnswer() {
-    this.answerTest[this.countAnswer].answer = this.answer;
+      if (this.answerTest[this.testIndex].answer === '') {
+        this.globalParamsMessage.data = {
+          title: 'Неверный ответ',
+          body: 'Правильный ответ: ' + this.test[this.testIndex].correct_answer,
+          type: 'error'
+        };
+      } else {
+        this.globalParamsMessage.data = {
+          title: 'Вы уже ответили на этот вопрос',
+          body: '',
+          type: 'error'
+        };
+      }
 
-    if (this.currentTest.correct_answer !== this.answer) {
-      this.notPush = true;
-      this.globalParamsMessage.data = {
-        title: 'Неверный ответ',
-        body: 'Правильный ответ: ' + this.currentTest.correct_answer,
-        type: 'error'
-      };
-      this.answerTest[this.countAnswer].points = '0';
+      this.answerTest[this.testIndex].answer = this.answer;
     } else {
-      this.answerTest[this.countAnswer].points = this.answerTest[this.countAnswer].hint ? '0' : this.currentTest.bonus_points;
-      this.currentTest = this.test[this.countAnswer + 1];
-      this.countAnswer++;
-      this.notPush = false;
+      this.answerTest[this.testIndex].points = this.answerTest[this.testIndex].hint ? '0' : this.test[this.testIndex].bonus_points;
+      this.answerTest[this.testIndex].answer = this.answer;
       this.answer = '';
     }
   }
 
   sendAnswer() {
-    this.answerTest[this.countAnswer].answer = this.answer;
-    this.answerTest[this.countAnswer].points = this.answerTest[this.countAnswer].hint ? '0' : this.currentTest.bonus_points;
-
     this.workService.sendAnswer({
         section_id: this.lesson.section_id,
         lesson_id: this.lesson.id,
@@ -156,12 +153,11 @@ export class WorkComponent {
       });
   }
 
-
   checkImg(data, type = 'img') {
     if (type === 'img') {
       this.modalImg = 'http://api.examator.ru/images/question/' + data;
     } else {
-      this.answerTest[this.countAnswer].hint = true;
+      this.answerTest[this.testIndex].hint = true;
       this.modalImg = 'http://api.examator.ru/images/question/hint/' + data;
     }
     this.showCheckImg = true;
@@ -170,5 +166,15 @@ export class WorkComponent {
   toggleVideo(event: any) {
     this.showButton = !this.showButton;
     this.videoplayer.nativeElement.play();
+  }
+
+  prevTest() {
+    this.testIndex -= 1;
+    this.answer = '';
+  }
+
+  nextTest() {
+    this.testIndex += 1;
+    this.answer = '';
   }
 }

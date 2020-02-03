@@ -65,29 +65,32 @@
 
       <div *ngIf="!hiddenTest">
 
-        <div class="---block-title" *ngIf="showTest===true">Пройдите тест <span class="---acent">для завершения</span>
+        <div class="---block-title" *ngIf="test.length>0">Пройдите тест <span class="---acent">для завершения</span>
         </div>
 
 
-        <div class="---test-wrap ---d-flex ---flex-wrap" *ngIf="showTest===true">
+        <div class="---test-wrap ---d-flex ---flex-wrap" *ngIf="test.length>0">
           <div class="col-xl-5">
             <div class="---task">
               <div class="h3">Задание</div>
 
-              <div (click)="checkImg(currentTest.question)" class="---cursor-pointer">
-                <img src='http://api.examator.ru/images/question/{{currentTest.question}}' alt=""
+              <div (click)="checkImg(test[testIndex].question)" class="---cursor-pointer">
+                <img src='http://api.examator.ru/images/question/{{test[testIndex].question}}' alt=""
                      style="max-width: 100%;">
               </div>
 
               <div class="---button ---button--xs ---button--green ---cursor-pointer"
-                   (click)="checkImg(currentTest.hint,'hint')" *ngIf="currentTest.hint!==''">Подсказка
+                   (click)="checkImg(test[testIndex].hint,'hint')" *ngIf="test[testIndex].hint!==''">Подсказка
               </div>
+
+              <div class="---button ---button--xs ---button--green ---cursor-pointer" *ngIf="testIndex!=0" (click)="prevTest()"><</div>
+              <div class="---button ---button--xs ---button--green ---cursor-pointer" *ngIf="testIndex+1<test.length" (click)="nextTest()">></div>
             </div>
           </div>
 
           <div class="col-xl-7">
             <div class="---answers">
-              <div class="h3">Ваш ответ (вопрос {{countAnswer+1}} из {{test.length}})</div>
+              <div class="h3">Ваш ответ (вопрос {{testIndex+1}} из {{test.length}})</div>
 
               <div class="---answer ---is-active">
                 <div class="---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center">
@@ -95,13 +98,10 @@
                 </div>
               </div>
               <div class="---answer">
-                <div *ngIf="countAnswer+1!==test.length && !notPush" (click)="nextQuestionAnswer()"
+                <div *ngIf="countAnswer+1!==test.length && !notPush" (click)="answerCurrentTest()"
                      class="---button ---button--acent_orange ---cursor-pointer">Ответить
                 </div>
-                <div *ngIf="countAnswer+1!==test.length && notPush" (click)="nextQuestion()"
-                     class="---button ---button--acent_orange ---cursor-pointer">Перейти к следующему вопросу
-                </div>
-                <div *ngIf="countAnswer+1===test.length" (click)="sendAnswer()"
+                <div (click)="sendAnswer()"
                      class="---button ---button--acent_orange ---cursor-pointer">Завершить тест
                 </div>
               </div>
