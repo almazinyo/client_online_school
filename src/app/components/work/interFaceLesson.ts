@@ -3,4 +3,5 @@ interface InterFaceLesson {
   name: string;
   section_id: string;
   slug: string;
+  is_status: string;
 }

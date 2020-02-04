@@ -1,4 +1,4 @@
-<div class="---block-course-in">
+<div class="---block-course-in" *ngIf="lesson.is_status==='2'">
   <div class="---d-block ---lg-d-none">
     <a href="#" class="---button ---button--acent ---js-open" data-open-block=".---lesson-list" data-html-hidden="1">Список
       уроков</a>
@@ -63,7 +63,7 @@
 
       <div class="---devider"></div>
 
-      <div >
+      <div>
 
         <div class="---block-title" *ngIf="test.length>0">Пройдите тест <span class="---acent">для завершения</span>
         </div>
@@ -83,8 +83,12 @@
                    (click)="checkImg(test[testIndex].hint,'hint')" *ngIf="test[testIndex].hint!==''">Подсказка
               </div>
 
-              <div class="---button ---button--xs ---button--green ---cursor-pointer" *ngIf="testIndex!=0" (click)="prevTest()"><</div>
-              <div class="---button ---button--xs ---button--green ---cursor-pointer" *ngIf="testIndex+1<test.length" (click)="nextTest()">></div>
+              <div class="---button ---button--xs ---button--green ---cursor-pointer" *ngIf="testIndex!=0"
+                   (click)="prevTest()"><
+              </div>
+              <div class="---button ---button--xs ---button--green ---cursor-pointer" *ngIf="testIndex+1<test.length"
+                   (click)="nextTest()">>
+              </div>
             </div>
           </div>
 
@@ -120,10 +124,10 @@
           fill="#FFF"/>
       </svg>
 
-      <div class="---lessons" *ngIf="lesson!==''">
+      <div class="---lessons" *ngIf="section.allLessons.length>0">
         <div [ngClass]="{'---is-curent':lesson.slug===currentWork.slug,'---opacity':currentWork.is_status==='1'}"
              *ngFor="let currentWork of section.allLessons;let i = index"
-             (click)="getWorkCurrent(currentWork.is_status, section.slug+'/'+currentWork.slug)"
+             (click)="getWorkCurrent(section.slug+'/'+currentWork.slug)"
              class="---lesson ---cursor-pointer">
           {{i+1}}. {{currentWork.name}}
           <span *ngIf="currentWork.checked==='1'">

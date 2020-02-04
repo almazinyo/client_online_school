@@ -43,7 +43,7 @@ export class WorkComponent {
     }]
   };
 
-  lesson: InterFaceLesson = {id: '', name: '', section_id: '', slug: ''};
+  lesson: InterFaceLesson = {id: '', name: '', section_id: '', slug: '', is_status: ''};
   test: InterFaceTestWork[] = [{hint: '', id: '', lessons_id: '', question: '', correct_answer: '', bonus_points: ''}];
   storage: any = [];
   teachers: InterFaceTeachers = {name: ''};
@@ -70,38 +70,40 @@ export class WorkComponent {
     this.activatedRoute.params.subscribe(
       (params: Params): void => {
         this.params = params;
-        this.getWorkCurrent('2', params.id);
+        this.getWorkCurrent(params.id);
       }
     );
   }
 
-  getWorkCurrent(is_status, slug, slugLesson = '') {
-    if (is_status === '2') {
-      this.workService.getWork(slug, slugLesson).then((data: InterFaceWork) => {
-          this.section = data;
+  getWorkCurrent(slug, slugLesson = '') {
 
-          this.lesson = data['lessons'][0] || '';
-          this.test = data['lessons'].length > 0 ? data['lessons'][0]['quizzes'] : [];
-          this.storage = data['lessons'].length > 0 ? data['lessons'][0]['storageLessons'] : [];
-          this.teachers = data['subject']['teachers'][0];
-          this.currentTest = this.test[0];
-          this.countAnswer = 0;
+    console.log(1,slug)
+    console.log(2,slugLesson)
+    this.workService.getWork(slug, slugLesson).then((data: InterFaceWork) => {
+        console.log(2, data);
+        this.section = data;
 
-          for (let i = 0; i < this.storage.length; i++) {
-            if (this.storage[i].type === 'pdf') {
-              this.storage[i].url =
-                this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
-            }
+        this.lesson = data['lessons'][0] || '';
+        this.test = data['lessons'].length > 0 ? data['lessons'][0]['quizzes'] : [];
+        this.storage = data['lessons'].length > 0 ? data['lessons'][0]['storageLessons'] : [];
+        this.teachers = data['subject']['teachers'][0];
+        this.currentTest = this.test[0];
+        this.countAnswer = 0;
+
+        for (let i = 0; i < this.storage.length; i++) {
+          if (this.storage[i].type === 'pdf') {
+            this.storage[i].url =
+              this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
           }
+        }
 
-          for (let i = 0; i < this.test.length; i++) {
-            this.answerTest.push({id: this.test[i].id, answer: '', hint: false, points: '0'});
-          }
-        },
-        (error) => {
-          console.log('Ошибка при получении информации об уроке: ', error);
-        });
-    }
+        for (let i = 0; i < this.test.length; i++) {
+          this.answerTest.push({id: this.test[i].id, answer: '', hint: false, points: '0'});
+        }
+      },
+      (error) => {
+        console.log('Ошибка при получении информации об уроке: ', error);
+      });
   }
 
   answerCurrentTest() {
@@ -144,11 +146,11 @@ export class WorkComponent {
           body: 'Количество правильных ответов: ' + result.correct_answers + '. Количество неправильных ответов: ' + result.wrong_answers,
           type: 'error'
         };
-        this.getWorkCurrent('2', this.params.id);
+        this.getWorkCurrent(this.params.id);
       },
       (error) => {
         console.log('Ошибка при отправке тестов: ', error);
-        this.getWorkCurrent('2', this.params.id);
+        this.getWorkCurrent(this.params.id);
       });
   }
 
