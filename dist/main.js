@@ -2772,41 +2772,21 @@ var ReviewsService = /** @class */ (function () {
     }
     // получение списка активных полей
     ReviewsService.prototype.getReviews = function () {
+        var _this = this;
         return new Promise(function (resolve, reject) {
-            /*this.httpService.prepareQuery('api/get-section', data)
-              .then((result: any) => {
-                  this.coursesCurrent = result;
-                  resolve(result);
-                },
-                (error) => {
-                  console.log('Ошибка при получении списка разделов предмета', error);
-                  reject();
-                }
-              );*/
-            var result = [
-                {
-                    id: 1,
-                    author: 'Александр Баль',
-                    course: 'Курс математики',
-                    assessment: '5',
-                    text: 'Курс отличный - ничего лишнего - методички совпадают с излагаемым материалом - преподаватель старается разжевать на первый взгляд непростые темы, очень все достойно, - наконец то ушли от клик митинга - зум рулит.'
-                },
-                {
-                    id: 2,
-                    author: 'Петров Саша',
-                    course: 'Курс физики',
-                    assessment: '4',
-                    text: 'Нормальный курс'
-                },
-                {
-                    id: 3,
-                    author: 'Евгения',
-                    course: 'Курс химии',
-                    assessment: '5',
-                    text: 'Круто'
-                }
-            ];
-            resolve(result);
+            if (_this.reviews.length === 0) {
+                _this.httpService.prepareQuery('api/reviews', '')
+                    .then(function (result) {
+                    _this.reviews = result;
+                    resolve(result);
+                }, function (error) {
+                    console.log('Ошибка при получении списка отзывов', error);
+                    reject();
+                });
+            }
+            else {
+                resolve(_this.reviews);
+            }
         });
     };
     ReviewsService = __decorate([
@@ -3706,10 +3686,7 @@ var WorkComponent = /** @class */ (function () {
     WorkComponent.prototype.getWorkCurrent = function (slug, slugLesson) {
         var _this = this;
         if (slugLesson === void 0) { slugLesson = ''; }
-        console.log(1, slug);
-        console.log(2, slugLesson);
         this.workService.getWork(slug, slugLesson).then(function (data) {
-            console.log(2, data);
             _this.section = data;
             _this.lesson = data['lessons'][0] || '';
             _this.test = data['lessons'].length > 0 ? data['lessons'][0]['quizzes'] : [];
