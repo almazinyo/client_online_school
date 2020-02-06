@@ -63,7 +63,12 @@
 
       <div class="---devider"></div>
 
-      <div>
+      <div *ngIf="globalParamsUser.fio===null">
+        <div class="---block-title" *ngIf="test.length>0">Тест доступен только для <span class="---acent">зарегистрированных</span> пользователей
+        </div>
+      </div>
+
+      <div *ngIf="globalParamsUser.fio!==null">
 
         <div class="---block-title" *ngIf="test.length>0">Пройдите тест <span class="---acent">для завершения</span>
         </div>

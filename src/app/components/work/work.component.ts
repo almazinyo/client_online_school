@@ -126,6 +126,7 @@ export class WorkComponent {
     } else {
       this.answerTest[this.testIndex].points = this.answerTest[this.testIndex].hint ? '0' : this.test[this.testIndex].bonus_points;
       this.answerTest[this.testIndex].answer = this.answer;
+      this.testIndex++;
       this.answer = '';
     }
   }
