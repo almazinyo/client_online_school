@@ -1,16 +1,19 @@
 <div class="---block-reviews ---block-reviews--in">
 
-  <div class="---block-title">Отзывы студентов</div>
-  <div (click)="newReviews.show=true">Создать отзыв</div>
+  <div class="---block-title">Отзывы студентов - <span (click)="newReviews.show=true">Создать отзыв</span></div>
   <div class="---row">
     <div class="col-xl-6" *ngFor="let review of reviews">
       <div class="---item">
         <div class="---item-header ---pos-rel">
-          <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
-          <div class="---name">{{review.author}}</div>
-          <div class="---thumb">{{review.course}} / Оценка <b class="---font-800">{{review.assessment}}</b></div>
+          <a href="{{review.url_vk}}" target="_blank">
+          <img lazyLoad="{{review.img}}" alt="" class="---img">
+          </a>
+          <a href="{{review.url_vk}}" target="_blank">
+            <div class="---name">{{review.last_name}} {{review.first_name}}</div>
+          </a>
+          <div class="---thumb">Курс: {{review.subject_name}} / Оценка <b class="---font-800">{{review.rating}}</b></div>
         </div>
-        <p>{{review.text}}</p>
+        <p>{{review.description}}</p>
       </div>
     </div>
   </div>
@@ -30,11 +33,11 @@
       <br>
       <div class="---input-label">Выберите оценку</div>
       <select [(ngModel)]="newReviews.rating">
-        <option ngValue="1" >1</option>
-        <option ngValue="2" >2</option>
-        <option ngValue="3" >3</option>
-        <option ngValue="4" >4</option>
-        <option ngValue="5" >5</option>
+        <option ngValue="1">1</option>
+        <option ngValue="2">2</option>
+        <option ngValue="3">3</option>
+        <option ngValue="4">4</option>
+        <option ngValue="5">5</option>
       </select>
       <br>
       <div class="---input-label">Описание</div>

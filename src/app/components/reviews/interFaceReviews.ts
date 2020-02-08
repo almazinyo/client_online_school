@@ -1,6 +1,10 @@
 interface InterFaceReviews {
   author: string;
-  course: string;
-  assessment: string;
-  text: string;
+  subject_name: string;
+  rating: string;
+  description: string;
+  img: string;
+  url_vk: string;
+  first_name: string;
+  last_name: string;
 }
