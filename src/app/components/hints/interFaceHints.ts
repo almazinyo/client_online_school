@@ -1,6 +1,6 @@
 interface InterFaceHints {
   id: number;
-  title: string;
-  desc: string;
-  img: string;
+  name: string;
+  description: string;
+  img_name: string;
 }

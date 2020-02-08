@@ -1,11 +1,11 @@
 <div *ngIf="hiddenHints && hints.length>0" class="---modal ---d-flex ---justify-content-center ---align-items-start">
   <div class="---wrapper ---wrapper_hint ---text-center">
-    <img src="{{hints[currentHints].img}}" alt="">
+    <img src="{{hints[currentHints].img_name}}" alt="">
 
     <div class="---wrapper__hint-content">
-      <div class="h4 ---hint__title ---font-600">{{hints[currentHints].title}}</div>
+      <div class="h4 ---hint__title ---font-600">{{hints[currentHints].name}}</div>
       <p>
-        {{hints[currentHints].desc}}
+        {{hints[currentHints].description}}
       </p>
     </div>
 
