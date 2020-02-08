@@ -23,8 +23,8 @@ export class HintsService {
 
   getHints() {
     return new Promise((resolve, reject) => {
-      /*if (this.hints.length === 0) {
-        this.httpService.prepareQuery('api/blog/details/')
+      if (this.hints.length === 0) {
+        this.httpService.prepareQuery('api/main/hints/')
           .then((result: InterFaceHints[]) => {
               this.hints = result;
               resolve(result);
@@ -36,9 +36,7 @@ export class HintsService {
           );
       } else {
         resolve(this.hints);
-      }*/
-
-      resolve(this.hints);
+      }
     });
   }
 }
