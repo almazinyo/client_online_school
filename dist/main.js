@@ -2832,18 +2832,13 @@ var ReviewsService = /** @class */ (function () {
     ReviewsService.prototype.newReviews = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            if (_this.reviews.length === 0) {
-                _this.httpService.prepareQuery('api/reviews/create', data, true)
-                    .then(function () {
-                    resolve();
-                }, function (error) {
-                    console.log('Ошибка при создании отзыва', error);
-                    reject();
-                });
-            }
-            else {
-                resolve(_this.reviews);
-            }
+            _this.httpService.prepareQuery('api/reviews/create', data, true)
+                .then(function () {
+                resolve();
+            }, function (error) {
+                console.log('Ошибка при создании отзыва', error);
+                reject();
+            });
         });
     };
     ReviewsService = __decorate([

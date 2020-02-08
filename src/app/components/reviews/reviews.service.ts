@@ -31,19 +31,15 @@ export class ReviewsService {
   // добавление отзыва
   public newReviews(data) {
     return new Promise((resolve, reject) => {
-      if (this.reviews.length === 0) {
-        this.httpService.prepareQuery('api/reviews/create', data,true)
-          .then(() => {
-              resolve();
-            },
-            (error) => {
-              console.log('Ошибка при создании отзыва', error);
-              reject();
-            }
-          );
-      } else {
-        resolve(this.reviews);
-      }
+      this.httpService.prepareQuery('api/reviews/create', data, true)
+        .then(() => {
+            resolve();
+          },
+          (error) => {
+            console.log('Ошибка при создании отзыва', error);
+            reject();
+          }
+        );
     });
   }
 
