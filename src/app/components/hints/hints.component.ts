@@ -24,7 +24,6 @@ export class HintsComponent {
 
 
     this.hintsService.getHints().then((data: InterFaceHints[]) => {
-      console.log(1,data)
         this.hints = data;
       },
       (error) => {
