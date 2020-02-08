@@ -1439,7 +1439,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"hiddenHints && hints.length>0\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n  <div class=\"---wrapper ---wrapper_hint ---text-center\">\n    <img src=\"{{hints[currentHints].img}}\" alt=\"\">\n\n    <div class=\"---wrapper__hint-content\">\n      <div class=\"h4 ---hint__title ---font-600\">{{hints[currentHints].title}}</div>\n      <p>\n        {{hints[currentHints].desc}}\n      </p>\n    </div>\n\n    <div *ngIf=\"currentHints!==0\" (click)=\"prevHints()\">Назад</div>\n    <div *ngIf=\"currentHints+1<hints.length\" (click)=\"nextHints()\">Вперед</div>\n    <div (click)=\"hiddenHints=!hiddenHints\"\n         class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"hiddenHints && hints.length>0\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n  <div class=\"---wrapper ---wrapper_hint ---text-center\">\n    <img src=\"http://api.examator.ru/images/options/{{hints[currentHints].img_name}}\" alt=\"\">\n\n    <div class=\"---wrapper__hint-content\">\n      <div class=\"h4 ---hint__title ---font-600\">{{hints[currentHints].name}}</div>\n      <p>\n        {{hints[currentHints].description}}\n      </p>\n    </div>\n\n    <div *ngIf=\"currentHints!==0\" (click)=\"prevHints()\">Назад</div>\n    <div *ngIf=\"currentHints+1<hints.length\" (click)=\"nextHints()\">Вперед</div>\n    <div (click)=\"hiddenHints=!hiddenHints\"\n         class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1484,6 +1484,7 @@ var HintsComponent = /** @class */ (function () {
             }
         });
         this.hintsService.getHints().then(function (data) {
+            console.log(1, data);
             _this.hints = data;
         }, function (error) {
             console.log('Ошибка при получении информации по блогам: ', error);
@@ -1536,39 +1537,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var HintsService = /** @class */ (function () {
     function HintsService(httpService) {
         this.httpService = httpService;
-        this.hints = [
-            {
-                id: 1,
-                title: 'Дарим подарки!',
-                desc: 'В преддверии волшебного праздника мы подготовили для тебя игру. На сайте и в приложении спрятано 10 символов Нового года. Найди их, чтобы получить уникальные промокоды и купить подарки еще выгоднее. Среди счастливчиков, которые нашли все 10 предметов, мы разыграем 10000₽ на шопинг в KazanExpress.',
-                img: 'https://hb.bizmrg.com/kazanexpress/static/PopUp.png'
-            },
-            {
-                id: 1,
-                title: '2222Дарим подарки!',
-                desc: '2222В преддверии волшебного праздника мы подготовили для тебя игру. На сайте и в приложении спрятано 10 символов Нового года. Найди их, чтобы получить уникальные промокоды и купить подарки еще выгоднее. Среди счастливчиков, которые нашли все 10 предметов, мы разыграем 10000₽ на шопинг в KazanExpress.',
-                img: 'https://hb.bizmrg.com/kazanexpress/static/PopUp.png'
-            }
-        ];
+        this.hints = [];
     }
     HintsService.prototype.getHints = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            /*if (this.hints.length === 0) {
-              this.httpService.prepareQuery('api/blog/details/')
-                .then((result: InterFaceHints[]) => {
-                    this.hints = result;
-                    resolve(result);
-                  },
-                  (error) => {
-                    console.log('Ошибка при получении детальной информации о блоге', error);
+            if (_this.hints.length === 0) {
+                _this.httpService.prepareQuery('api/main/hints/')
+                    .then(function (result) {
+                    _this.hints = result.hints;
+                    resolve(_this.hints);
+                }, function (error) {
+                    console.log('Ошибка при получении подсказок', error);
                     reject();
-                  }
-                );
-            } else {
-              resolve(this.hints);
-            }*/
-            resolve(_this.hints);
+                });
+            }
+            else {
+                resolve(_this.hints);
+            }
         });
     };
     HintsService = __decorate([
@@ -2685,7 +2671,7 @@ var ProfilePromotionalCodeService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = " <div class=\"---block-reviews ---block-reviews--in\">\n\n   <div class=\"---block-title\">Отзывы студентов</div>\n\n   <div class=\"---row\" >\n     <div class=\"col-xl-6\"  *ngFor=\"let review of reviews\">\n       <div class=\"---item\">\n         <div class=\"---item-header ---pos-rel\">\n           <img lazyLoad=\"assets/imgs/users/2.svg\" alt=\"\" class=\"---img\">\n           <div class=\"---name\">{{review.author}}</div>\n           <div class=\"---thumb\">{{review.course}} / Оценка <b class=\"---font-800\">{{review.assessment}}</b></div>\n         </div>\n         <p>{{review.text}}</p>\n       </div>\n     </div>\n   </div>\n\n </div>\n<div class=\"---devider ---devider--sm\"></div>\n"
+module.exports = "<div class=\"---block-reviews ---block-reviews--in\">\n\n  <div class=\"---block-title\">Отзывы студентов</div>\n  <div (click)=\"newReviews.show=true\">Создать отзыв</div>\n  <div class=\"---row\">\n    <div class=\"col-xl-6\" *ngFor=\"let review of reviews\">\n      <div class=\"---item\">\n        <div class=\"---item-header ---pos-rel\">\n          <img lazyLoad=\"assets/imgs/users/2.svg\" alt=\"\" class=\"---img\">\n          <div class=\"---name\">{{review.author}}</div>\n          <div class=\"---thumb\">{{review.course}} / Оценка <b class=\"---font-800\">{{review.assessment}}</b></div>\n        </div>\n        <p>{{review.text}}</p>\n      </div>\n    </div>\n  </div>\n\n</div>\n<div class=\"---devider ---devider--sm\"></div>\n\n\n<div *ngIf=\"newReviews.show===true\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n  <div class=\"---wrapper ---wrapper_hint ---text-center\">\n\n    <div class=\"---wrapper__hint-content\">\n      <div class=\"---input-label\">Выберите предмет</div>\n      <select [(ngModel)]=\"newReviews.predmet\">\n        <option *ngFor=\"let currentMenu of menu\" [ngValue]=\"currentMenu\">{{currentMenu.title}}</option>\n      </select>\n      <br>\n      <div class=\"---input-label\">Выберите оценку</div>\n      <select [(ngModel)]=\"newReviews.rating\">\n        <option ngValue=\"1\" >1</option>\n        <option ngValue=\"2\" >2</option>\n        <option ngValue=\"3\" >3</option>\n        <option ngValue=\"4\" >4</option>\n        <option ngValue=\"5\" >5</option>\n      </select>\n      <br>\n      <div class=\"---input-label\">Описание</div>\n      <textarea [(ngModel)]=\"newReviews.description\"></textarea>\n    </div>\n\n    <div class=\"---button ---button--acent_orange ---button--xs\" (click)=\"createReviews()\" style=\"margin-top: 15px;\">\n      Отправить\n    </div>\n\n\n    <div (click)=\"newReviews.show=false\"\n         class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2702,6 +2688,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _reviews_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reviews.service */ "./src/app/components/reviews/reviews.service.ts");
 /* harmony import */ var _breadcrumbs_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../breadcrumbs/breadcrumbs.service */ "./src/app/components/breadcrumbs/breadcrumbs.service.ts");
+/* harmony import */ var _menu_menu_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../menu/menu.service */ "./src/app/components/menu/menu.service.ts");
+/* harmony import */ var _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../message_alert/global-params-message */ "./src/app/components/message_alert/global-params-message.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2714,25 +2702,76 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var ReviewsComponent = /** @class */ (function () {
-    function ReviewsComponent(reviewsService, breadcrumbsService) {
+    function ReviewsComponent(reviewsService, menuService, globalParamsMessage, breadcrumbsService) {
         var _this = this;
         this.reviewsService = reviewsService;
+        this.menuService = menuService;
+        this.globalParamsMessage = globalParamsMessage;
         this.breadcrumbsService = breadcrumbsService;
         this.reviews = [];
+        this.newReviews = {
+            show: false,
+            description: '',
+            rating: 0,
+            predmet: { slug: '' }
+        };
+        this.menu = [];
         this.breadcrumbsService.title = 'Отзывы';
+        this.menu = this.menuService.menu;
+        this.menuService.getMenuCheck.subscribe(function (item) {
+            _this.menu = _this.menuService.menu;
+        });
+        this.start();
+    }
+    ReviewsComponent.prototype.start = function () {
+        var _this = this;
         this.reviewsService.getReviews().then(function (data) {
             _this.reviews = data;
         }, function (error) {
             console.log('Ошибка при получении информации по отзывам: ', error);
         });
-    }
+    };
+    ReviewsComponent.prototype.createReviews = function () {
+        var _this = this;
+        if (this.newReviews.rating === 0) {
+            this.globalParamsMessage.data = { type: 'error', title: 'Необходимо указать рейтинг', body: '' };
+            return false;
+        }
+        if (this.newReviews.description === '') {
+            this.globalParamsMessage.data = { type: 'error', title: 'Необходимо указать описание', body: '' };
+            return false;
+        }
+        if (this.newReviews.predmet.slug === '') {
+            this.globalParamsMessage.data = { type: 'error', title: 'Необходимо указать предмет', body: '' };
+            return false;
+        }
+        this.reviewsService.newReviews({
+            rating: this.newReviews.rating,
+            description: this.newReviews.description,
+            slug: this.newReviews.predmet.slug,
+        }).then(function () {
+            _this.newReviews = {
+                show: false,
+                description: '',
+                rating: 0,
+                predmet: { slug: '' }
+            };
+            _this.start();
+        }, function (error) {
+            console.log('Ошибка при добавлении отзыва: ', error);
+        });
+    };
     ReviewsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-reviews',
             template: __webpack_require__(/*! ./reviews.component.html */ "./src/app/components/reviews/reviews.component.html"),
         }),
         __metadata("design:paramtypes", [_reviews_service__WEBPACK_IMPORTED_MODULE_1__["ReviewsService"],
+            _menu_menu_service__WEBPACK_IMPORTED_MODULE_3__["MenuService"],
+            _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_4__["GlobalParamsMessage"],
             _breadcrumbs_breadcrumbs_service__WEBPACK_IMPORTED_MODULE_2__["BreadcrumbsService"]])
     ], ReviewsComponent);
     return ReviewsComponent;
@@ -2781,6 +2820,24 @@ var ReviewsService = /** @class */ (function () {
                     resolve(result);
                 }, function (error) {
                     console.log('Ошибка при получении списка отзывов', error);
+                    reject();
+                });
+            }
+            else {
+                resolve(_this.reviews);
+            }
+        });
+    };
+    // добавление отзыва
+    ReviewsService.prototype.newReviews = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            if (_this.reviews.length === 0) {
+                _this.httpService.prepareQuery('api/reviews/create', data, true)
+                    .then(function () {
+                    resolve();
+                }, function (error) {
+                    console.log('Ошибка при создании отзыва', error);
                     reject();
                 });
             }
@@ -4337,7 +4394,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })

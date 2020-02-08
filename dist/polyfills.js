@@ -5776,7 +5776,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

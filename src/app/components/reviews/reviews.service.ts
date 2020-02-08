@@ -10,7 +10,6 @@ export class ReviewsService {
 
   // получение списка активных полей
   public getReviews() {
-
     return new Promise((resolve, reject) => {
       if (this.reviews.length === 0) {
         this.httpService.prepareQuery('api/reviews', '')
@@ -20,6 +19,25 @@ export class ReviewsService {
             },
             (error) => {
               console.log('Ошибка при получении списка отзывов', error);
+              reject();
+            }
+          );
+      } else {
+        resolve(this.reviews);
+      }
+    });
+  }
+
+  // добавление отзыва
+  public newReviews(data) {
+    return new Promise((resolve, reject) => {
+      if (this.reviews.length === 0) {
+        this.httpService.prepareQuery('api/reviews/create', data,true)
+          .then(() => {
+              resolve();
+            },
+            (error) => {
+              console.log('Ошибка при создании отзыва', error);
               reject();
             }
           );

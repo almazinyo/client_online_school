@@ -1,19 +1,52 @@
- <div class="---block-reviews ---block-reviews--in">
+<div class="---block-reviews ---block-reviews--in">
 
-   <div class="---block-title">Отзывы студентов</div>
+  <div class="---block-title">Отзывы студентов</div>
+  <div (click)="newReviews.show=true">Создать отзыв</div>
+  <div class="---row">
+    <div class="col-xl-6" *ngFor="let review of reviews">
+      <div class="---item">
+        <div class="---item-header ---pos-rel">
+          <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
+          <div class="---name">{{review.author}}</div>
+          <div class="---thumb">{{review.course}} / Оценка <b class="---font-800">{{review.assessment}}</b></div>
+        </div>
+        <p>{{review.text}}</p>
+      </div>
+    </div>
+  </div>
 
-   <div class="---row" >
-     <div class="col-xl-6"  *ngFor="let review of reviews">
-       <div class="---item">
-         <div class="---item-header ---pos-rel">
-           <img lazyLoad="assets/imgs/users/2.svg" alt="" class="---img">
-           <div class="---name">{{review.author}}</div>
-           <div class="---thumb">{{review.course}} / Оценка <b class="---font-800">{{review.assessment}}</b></div>
-         </div>
-         <p>{{review.text}}</p>
-       </div>
-     </div>
-   </div>
-
- </div>
+</div>
 <div class="---devider ---devider--sm"></div>
+
+
+<div *ngIf="newReviews.show===true" class="---modal ---d-flex ---justify-content-center ---align-items-start">
+  <div class="---wrapper ---wrapper_hint ---text-center">
+
+    <div class="---wrapper__hint-content">
+      <div class="---input-label">Выберите предмет</div>
+      <select [(ngModel)]="newReviews.predmet">
+        <option *ngFor="let currentMenu of menu" [ngValue]="currentMenu">{{currentMenu.title}}</option>
+      </select>
+      <br>
+      <div class="---input-label">Выберите оценку</div>
+      <select [(ngModel)]="newReviews.rating">
+        <option ngValue="1" >1</option>
+        <option ngValue="2" >2</option>
+        <option ngValue="3" >3</option>
+        <option ngValue="4" >4</option>
+        <option ngValue="5" >5</option>
+      </select>
+      <br>
+      <div class="---input-label">Описание</div>
+      <textarea [(ngModel)]="newReviews.description"></textarea>
+    </div>
+
+    <div class="---button ---button--acent_orange ---button--xs" (click)="createReviews()" style="margin-top: 15px;">
+      Отправить
+    </div>
+
+
+    <div (click)="newReviews.show=false"
+         class="---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs"></div>
+  </div>
+</div>
