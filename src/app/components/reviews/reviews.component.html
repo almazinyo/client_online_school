@@ -1,6 +1,12 @@
-<div class="---block-reviews ---block-reviews--in">
+<div class="---block-title ---d-flex ---flex-column ---md-flex-row ---align-items-start ---md-align-items-center ---justify-content-between">
+  Отзывы студентов
 
-  <div class="---block-title">Отзывы студентов - <span (click)="newReviews.show=true">Создать отзыв</span></div>
+  <span class="---cursor-pointer ---button ---button--acent_orange" (click)="newReviews.show=true">
+    Добавить отзыв
+  </span>
+</div>
+
+<div class="---block-reviews ---block-reviews--in">
   <div class="---row">
     <div class="col-xl-6" *ngFor="let review of reviews">
       <div class="---item">
@@ -23,28 +29,32 @@
 
 
 <div *ngIf="newReviews.show===true" class="---modal ---d-flex ---justify-content-center ---align-items-start">
-  <div class="---wrapper ---wrapper_hint ---text-center">
+  <div class="---wrapper ---wrapper_review ---text-center">
 
-    <div class="---wrapper__hint-content">
+    <div class="---input-wrap">
       <div class="---input-label">Выберите предмет</div>
-      <select [(ngModel)]="newReviews.predmet">
+      <select [(ngModel)]="newReviews.predmet" class="---select" style="background-color: #f1f5f7;">
         <option *ngFor="let currentMenu of menu" [ngValue]="currentMenu">{{currentMenu.title}}</option>
       </select>
-      <br>
+    </div>
+
+    <div class="---input-wrap">
       <div class="---input-label">Выберите оценку</div>
-      <select [(ngModel)]="newReviews.rating">
+      <select [(ngModel)]="newReviews.rating" class="---select" style="background-color: #f1f5f7;">
         <option ngValue="1">1</option>
         <option ngValue="2">2</option>
         <option ngValue="3">3</option>
         <option ngValue="4">4</option>
         <option ngValue="5">5</option>
       </select>
-      <br>
-      <div class="---input-label">Описание</div>
-      <textarea [(ngModel)]="newReviews.description"></textarea>
     </div>
 
-    <div class="---button ---button--acent_orange ---button--xs" (click)="createReviews()" style="margin-top: 15px;">
+    <div class="---input-wrap">
+      <div class="---input-label">Описание</div>
+      <textarea [(ngModel)]="newReviews.description" class="---input" style="background-color: #f1f5f7;" rows="6"></textarea>
+    </div>
+
+    <div class="---cursor-pointer ---button ---button--acent_orange" (click)="createReviews()">
       Отправить
     </div>
 
