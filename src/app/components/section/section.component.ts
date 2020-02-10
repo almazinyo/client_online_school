@@ -10,8 +10,7 @@ import {BreadcrumbsService} from '../breadcrumbs/breadcrumbs.service';
   templateUrl: './section.component.html',
 })
 export class SectionComponent implements OnInit {
-  sections: InterFaceSection[] = [];
-  tests: InterFaceTestWork[] = [];
+  sections: InterFaceSection = {title: '', sectionSubjects: []};
 
   constructor(private sectionService: SectionService,
               private subsectionService: SubsectionService,
@@ -26,31 +25,15 @@ export class SectionComponent implements OnInit {
     this.activatedRoute.params.subscribe(routeParams => {
       this.sectionService.getSection(routeParams.id).then((data: any) => {
           this.sections = data;
-          this.tests = data.tests;
         },
         (error) => {
           console.log('Ошибка при получении списка полей заявки: ', error);
-          this.sections = [];
-          this.tests = [];
+          this.sections = {title: '', sectionSubjects: []};
         });
     });
   }
 
-  /* // переход в разделы
-   getSubsection(param) {
-     if (param === '') {
-       return false;
-     }
-     this.subsectionService.courseCurrent = param;
-     this.router.navigate(['subsection']);
-   }
-
-   // переход на урок
-   getWork(param) {
-     if (param === '') {
-       return false;
-     }
-     this.workService.currentWork = param;
-     this.router.navigate(['work']);
-   }*/
+  getWork(data) {
+    this.router.navigate(['/work/' + data.slug + '/' + data.lessons[0].slug]);
+  }
 }

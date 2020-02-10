@@ -70,42 +70,14 @@ export class WorkComponent {
     this.activatedRoute.params.subscribe(
       (params: Params): void => {
         this.params = params;
-        this.getWorkCurrent(params.id);
+        this.getWorkCurrent(params.ss);
       }
     );
   }
 
-  getWorkCurrent(slug, slugLesson = '') {
+  getWorkCurrent(slug) {
 
-    this.workService.getWork(slug, slugLesson).then((data: InterFaceWork) => {
-        this.section = data;
-
-        this.lesson = data['lessons'][0] || '';
-        this.test = data['lessons'].length > 0 ? data['lessons'][0]['quizzes'] : [];
-        this.storage = data['lessons'].length > 0 ? data['lessons'][0]['storageLessons'] : [];
-        this.teachers = data['subject']['teachers'][0];
-        this.currentTest = this.test[0];
-        this.countAnswer = 0;
-
-        for (let i = 0; i < this.storage.length; i++) {
-          if (this.storage[i].type === 'pdf') {
-            this.storage[i].url =
-              this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
-          }
-        }
-
-        for (let i = 0; i < this.test.length; i++) {
-          this.answerTest.push({id: this.test[i].id, answer: '', hint: false, points: '0'});
-        }
-      },
-      (error) => {
-        console.log('Ошибка при получении информации об уроке: ', error);
-      });
-  }
-
-  getWorkCurrentValid(slug) {
-
-    this.workService.getWorkValid(slug).then((data: InterFaceWork) => {
+    this.workService.getWork(slug).then((data: InterFaceWork) => {
         this.section = data;
 
         this.lesson = data['lessons'][0] || '';

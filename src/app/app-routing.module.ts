@@ -32,7 +32,7 @@ const routes: Routes = [
     component: SubsectionComponent
   },
   {
-    path: 'work/:id',
+    path: 'work/:id/:ss',
     component: WorkComponent
   },
   {

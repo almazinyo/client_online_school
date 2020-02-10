@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {SubsectionService} from './subsection.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {HttpService} from '../../utils/http/http.service';
 import {GlobalParamsUser} from '../../storage/global-params-user';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
@@ -45,6 +45,7 @@ export class SubsectionComponent {
   constructor(private subsectionService: SubsectionService,
               private httpService: HttpService,
               public globalParamsUser: GlobalParamsUser,
+              private router: Router,
               private sanitizer: DomSanitizer,
               private globalParamsMessage: GlobalParamsMessage,
               private activatedRoute: ActivatedRoute) {
@@ -100,5 +101,9 @@ export class SubsectionComponent {
       (error) => {
         console.log('Ошибка при получении информации о разделе: ', error);
       });
+  }
+
+  getWork(data) {
+    this.router.navigate(['/work/' + data.slug + '/' + data.lessons[0].slug]);
   }
 }

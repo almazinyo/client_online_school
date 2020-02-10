@@ -94,7 +94,7 @@ var routes = [
         component: _components_subsection_subsection_component__WEBPACK_IMPORTED_MODULE_4__["SubsectionComponent"]
     },
     {
-        path: 'work/:id',
+        path: 'work/:id/:ss',
         component: _components_work_work_component__WEBPACK_IMPORTED_MODULE_5__["WorkComponent"]
     },
     {
@@ -2858,7 +2858,7 @@ var ReviewsService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-catalog\">\n  <div class=\"---course-wrap\">\n    <div class=\"---block-title\">Видео курсы по <span class=\"---acent ---font-800\">{{sections.title}}</span></div>\n    <div class=\"---course-list ---lessons-tabs\">\n      <div class=\"---subject\" *ngFor=\"let section of sections.sectionSubjects\">\n        <div [routerLink]=\"'/subsection/'+section.slug\" class=\"---course ---font-800 ---d-flex ---align-items-center ---cursor-pointer\"\n             [style.backgroundColor]=\"section.background\">\n          <span class=\"---play-button ---pos-rel\">\n            <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\"><path\n              fill=\"#ff8a65\"\n              d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/></svg>\n          </span>\n          <span class=\"---icon ---pos-rel\">\n            <img src=\"assets/imgs/icons/course.svg\" alt=\"\" class=\"---pos-abs\">\n          </span>\n\n          <span class=\"---text-wrap\">\n            <span class=\"---font-800\">{{section.name}}</span>\n            <span class=\"---course-count ---font-400 ---d-block\">{{section.short_description}}</span>\n          </span>\n        </div>\n\n        <div class=\"---d-inline-flex ---pos-rel\" [ngClass]=\"{'---lessons':section.sections.length>0}\">\n<!--          <div class=\"---lesson ---is-ended\" *ngFor=\"let subSection of section.sections\" style=\"background-color:#1f5af4\" [routerLink]=\"'/work/'+subSection.slug\">-->\n          <div class=\"---lesson\" *ngFor=\"let subSection of section.sections\" [routerLink]=\"'/work/'+subSection.slug\">\n            <span class=\"---icon ---y-pos-abs ---replaced-svg\">\n              <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 491.1 491.1\"><path d=\"M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z\"/></svg>\n            </span>\n            {{subSection.name}}\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider ---devider--sm\"></div>\n"
+module.exports = "<div class=\"---block-catalog\">\n  <div class=\"---course-wrap\">\n    <div class=\"---block-title\">Видео курсы по <span class=\"---acent ---font-800\">{{sections.title}}</span></div>\n    <div class=\"---course-list ---lessons-tabs\">\n      <div class=\"---subject\" *ngFor=\"let section of sections.sectionSubjects\">\n        <div [routerLink]=\"'/subsection/'+section.slug\" class=\"---course ---font-800 ---d-flex ---align-items-center ---cursor-pointer\"\n             [style.backgroundColor]=\"section.background\">\n          <span class=\"---play-button ---pos-rel\">\n            <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\"><path\n              fill=\"#ff8a65\"\n              d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/></svg>\n          </span>\n          <span class=\"---icon ---pos-rel\">\n            <img src=\"assets/imgs/icons/course.svg\" alt=\"\" class=\"---pos-abs\">\n          </span>\n\n          <span class=\"---text-wrap\">\n            <span class=\"---font-800\">{{section.name}}</span>\n            <span class=\"---course-count ---font-400 ---d-block\">{{section.short_description}}</span>\n          </span>\n        </div>\n\n        <div class=\"---d-inline-flex ---pos-rel\" [ngClass]=\"{'---lessons':section.sections.length>0}\">\n\n          <div class=\"---lesson\" *ngFor=\"let subSection of section.sections\" (click)=\"getWork(subSection)\" >\n            <span class=\"---icon ---y-pos-abs ---replaced-svg\">\n              <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 491.1 491.1\"><path d=\"M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z\"/></svg>\n            </span>\n            {{subSection.name}}\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"---devider ---devider--sm\"></div>\n"
 
 /***/ }),
 
@@ -2901,8 +2901,7 @@ var SectionComponent = /** @class */ (function () {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.breadcrumbsService = breadcrumbsService;
-        this.sections = [];
-        this.tests = [];
+        this.sections = { title: '', sectionSubjects: [] };
         this.breadcrumbsService.title = '';
     }
     SectionComponent.prototype.ngOnInit = function () {
@@ -2910,13 +2909,14 @@ var SectionComponent = /** @class */ (function () {
         this.activatedRoute.params.subscribe(function (routeParams) {
             _this.sectionService.getSection(routeParams.id).then(function (data) {
                 _this.sections = data;
-                _this.tests = data.tests;
             }, function (error) {
                 console.log('Ошибка при получении списка полей заявки: ', error);
-                _this.sections = [];
-                _this.tests = [];
+                _this.sections = { title: '', sectionSubjects: [] };
             });
         });
+    };
+    SectionComponent.prototype.getWork = function (data) {
+        this.router.navigate(['/work/' + data.slug + '/' + data.lessons[0].slug]);
     };
     SectionComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -3092,7 +3092,7 @@ var SectionService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-course-header ---pos-rel\">\n  <div class=\"---bg ---z-index-under\" style=\"background: #ec407a;\"></div>\n\n  <img lazyLoad=\"assets/imgs/course-in/bg/mechanic.svg\" alt=\"\" class=\"---bg-img ---z-index-under\">\n\n  <div class=\"---row\">\n\n    <div class=\"col-lg-8\">\n      <div class=\"---block-title\">\n        Курсы по {{subsection.subject.title}}\n        <div class=\"---font-800\">{{subsection.name}}</div>\n      </div>\n\n      <p>{{subsection.short_description}}</p>\n      <a [routerLink]=\"[]\" fragment=\"start_work\" class=\"---button ---button--acent_orange ---button--shadow\">Начать\n        учиться</a>\n    </div>\n\n  </div>\n\n  <img lazyLoad=\"{{subsection.img_path}}\" alt=\"\" class=\"---icon ---d-none ---sm-d-block\">\n</div>\n\n<div class=\"---block-courses\" id=\"courses-details\">\n  <div class=\"---free-course ---pos-rel ---d-flex ---align-items-center\">\n    <div>\n      <div class=\"---title\"><span class=\"---font-800\">3 урока бесплатно!</span> Попробуйте</div>\n      <p>Вы можете выбрать любой курс и пройти 3 урока бесплатно после <a href=\"#\">регитсрации</a></p>\n    </div>\n\n    <i class=\"---icon-font ---icon-arrow-down ---d-none ---xl-d-inline-flex\"></i>\n\n    <img lazyLoad=\"assets/imgs/illustrations/course-free.svg\" alt=\"\" class=\"---icon ---d-none ---md-d-block\">\n  </div>\n\n  <div id=\"start_work\" class=\"---block-title\">Выберите <span class=\"---acent\">курс</span></div>\n\n  <div class=\"---row\">\n    <div class=\"col-xs-6 col-lg-4 col-xl-3\" *ngFor=\"let section of subsection.sections\">\n      <div class=\"---course\">\n        <div class=\"---top\" [style.backgroundColor]=\"section.background\">\n          <div class=\"---d-flex\">\n            <div class=\"---play-button ---pos-rel\">\n              <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\">\n                <path fill=\"#ec407a\"\n                      d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/>\n              </svg>\n            </div>\n            <div class=\"---icon ---icon-font ---icon-menu-{{section.icon}}\"></div>\n          </div>\n\n          <div class=\"---title\">\n            {{section.name}}\n          </div>\n          <div class=\"---count\">{{section.sort_description}}</div>\n        </div>\n        <ul>\n          <li *ngFor=\"let lesson of section.lessons\">\n            <img lazyLoad=\"assets/imgs/icons/circle-check.svg\" alt=\"\" class=\"---y-pos-abs\">\n            {{lesson.name}}\n          </li>\n        </ul>\n\n        <div class=\"---price ---font-800 ---text-center\">{{section.price}} ₽</div>\n\n        <div *ngIf=\"globalParamsUser.fio!==null\" class=\"---button ---button--acent_orange ---cursor-pointer\" (click)=\"changeShowBuy(section.price,section.slug)\">Купить</div>\n\n        <a [routerLink]=\"'/work/'+section.slug\" class=\"---button ---button--acent_orange\">Начать беслатно</a>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"---free-course ---free-course--acent ---pos-rel\">\n    <div class=\"---title\">\n      <span class=\"---font-800 ---d-block ---xs-d-inline-block\">Все курсы по механике со скидкой 30%!</span>\n      <span class=\"---old-price\">4,200</span> - 3,300 ₽\n    </div>\n    <p>Покупая несколько курсов вы сильно экономите и получаете больше баллов</p>\n\n    <a href=\"#\" class=\"---button ---button--acent_orange\">Купить весе курсы</a>\n  </div>\n</div>\n\n<div class=\"---block-course-about\">\n  <div class=\"---row\">\n\n    <div class=\"col-xl-6\">\n      <div class=\"---block-title\" id=\"courses\">О курсах</div>\n      <div innerHTML=\"{{subsection.description}}\">\n\n      </div>\n    </div>\n\n    <div class=\"col-xl-6 ---d-none ---sm-d-flex ---justify-content-between ---xl-flex-row\">\n      <img lazyLoad=\"assets/imgs/illustrations/bg2.svg\" alt=\"\" class=\"---bg ---z-index-under ---d-none ---xl-d-block\">\n\n      <div class=\"---img ---img-1\"><img lazyLoad=\"assets/imgs/course-in/2.png\" alt=\"\" class=\"---img-cover\"></div>\n      <div class=\"---img ---img-2\"><img lazyLoad=\"assets/imgs/course-in/1.png\" alt=\"\" class=\"---img-cover\"></div>\n    </div>\n\n  </div>\n</div>\n\n\n<div *ngIf=\"buyModal.show\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n  <div class=\"---wrapper ---wrapper_hint ---text-center\">\n\n    <div class=\"---wrapper__hint-content\">\n      <div class=\"---d-flex ---flex-wrap ---justify-content-center\">\n        <div style=\"margin: 0 5px 10px;\">Сумма: <span class=\"---font-600\">{{buyModal.price}} р</span></div>\n        <div style=\"margin: 0 5px 10px;\">Скидка: <span class=\"---font-600\">{{buyModal.sale}} %</span></div>\n        <div *ngIf=\"buyModal.new_price!==''\" style=\"margin: 0 5px 10px;\">Итого: <span class=\"---font-600\">{{buyModal.new_price}} р</span></div>\n      </div>\n\n      <div class=\"---input-wrap\">\n        <div class=\"---input-label\">Использовать промокод</div>\n\n        <input type=\"text\" class=\"---input\" style=\"border: 1px solid rgba(0, 0, 0, .3); font-size: 14px; padding: 10px 20px 11px;\" [(ngModel)]=\"promo\">\n\n        <div class=\"---button ---button--acent_orange ---button--xs\" (click)=\"usePromotionalCode()\" style=\"margin-top: 15px;\">Использовать</div>\n      </div>\n\n      <iframe\n        [src]=\"sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+buyModal.new_price+'&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio+'-'+buyModal.slug)\"\n        width=\"184\"\n        height=\"36\"\n        frameborder=\"0\"\n        allowtransparency=\"true\"\n        scrolling=\"no\"\n      >\n\n      </iframe>\n    </div>\n\n    <div (click)=\"buyModal.show=false\" class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-course-header ---pos-rel\">\n  <div class=\"---bg ---z-index-under\" style=\"background: #ec407a;\"></div>\n\n  <img lazyLoad=\"assets/imgs/course-in/bg/mechanic.svg\" alt=\"\" class=\"---bg-img ---z-index-under\">\n\n  <div class=\"---row\">\n\n    <div class=\"col-lg-8\">\n      <div class=\"---block-title\">\n        Курсы по {{subsection.subject.title}}\n        <div class=\"---font-800\">{{subsection.name}}</div>\n      </div>\n\n      <p>{{subsection.short_description}}</p>\n      <a [routerLink]=\"[]\" fragment=\"start_work\" class=\"---button ---button--acent_orange ---button--shadow\">Начать\n        учиться</a>\n    </div>\n\n  </div>\n\n  <img lazyLoad=\"{{subsection.img_path}}\" alt=\"\" class=\"---icon ---d-none ---sm-d-block\">\n</div>\n\n<div class=\"---block-courses\" id=\"courses-details\">\n  <div class=\"---free-course ---pos-rel ---d-flex ---align-items-center\">\n    <div>\n      <div class=\"---title\"><span class=\"---font-800\">3 урока бесплатно!</span> Попробуйте</div>\n      <p>Вы можете выбрать любой курс и пройти 3 урока бесплатно после <a href=\"#\">регитсрации</a></p>\n    </div>\n\n    <i class=\"---icon-font ---icon-arrow-down ---d-none ---xl-d-inline-flex\"></i>\n\n    <img lazyLoad=\"assets/imgs/illustrations/course-free.svg\" alt=\"\" class=\"---icon ---d-none ---md-d-block\">\n  </div>\n\n  <div id=\"start_work\" class=\"---block-title\">Выберите <span class=\"---acent\">курс</span></div>\n\n  <div class=\"---row\">\n    <div class=\"col-xs-6 col-lg-4 col-xl-3\" *ngFor=\"let section of subsection.sections\">\n      <div class=\"---course\">\n        <div class=\"---top\" [style.backgroundColor]=\"section.background\">\n          <div class=\"---d-flex\">\n            <div class=\"---play-button ---pos-rel\">\n              <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\">\n                <path fill=\"#ec407a\"\n                      d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/>\n              </svg>\n            </div>\n            <div class=\"---icon ---icon-font ---icon-menu-{{section.icon}}\"></div>\n          </div>\n\n          <div class=\"---title\">\n            {{section.name}}\n          </div>\n          <div class=\"---count\">{{section.sort_description}}</div>\n        </div>\n        <ul>\n          <li *ngFor=\"let lesson of section.lessons\">\n            <img lazyLoad=\"assets/imgs/icons/circle-check.svg\" alt=\"\" class=\"---y-pos-abs\">\n            {{lesson.name}}\n          </li>\n        </ul>\n\n        <div class=\"---price ---font-800 ---text-center\">{{section.price}} ₽</div>\n\n        <div *ngIf=\"globalParamsUser.fio!==null\" class=\"---button ---button--acent_orange ---cursor-pointer\" (click)=\"changeShowBuy(section.price,section.slug)\">Купить</div>\n\n        <a (click)=\"getWork(section)\" class=\"---button ---button--acent_orange\">Начать беслатно</a>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"---free-course ---free-course--acent ---pos-rel\">\n    <div class=\"---title\">\n      <span class=\"---font-800 ---d-block ---xs-d-inline-block\">Все курсы по механике со скидкой 30%!</span>\n      <span class=\"---old-price\">4,200</span> - 3,300 ₽\n    </div>\n    <p>Покупая несколько курсов вы сильно экономите и получаете больше баллов</p>\n\n    <a href=\"#\" class=\"---button ---button--acent_orange\">Купить весе курсы</a>\n  </div>\n</div>\n\n<div class=\"---block-course-about\">\n  <div class=\"---row\">\n\n    <div class=\"col-xl-6\">\n      <div class=\"---block-title\" id=\"courses\">О курсах</div>\n      <div innerHTML=\"{{subsection.description}}\">\n\n      </div>\n    </div>\n\n    <div class=\"col-xl-6 ---d-none ---sm-d-flex ---justify-content-between ---xl-flex-row\">\n      <img lazyLoad=\"assets/imgs/illustrations/bg2.svg\" alt=\"\" class=\"---bg ---z-index-under ---d-none ---xl-d-block\">\n\n      <div class=\"---img ---img-1\"><img lazyLoad=\"assets/imgs/course-in/2.png\" alt=\"\" class=\"---img-cover\"></div>\n      <div class=\"---img ---img-2\"><img lazyLoad=\"assets/imgs/course-in/1.png\" alt=\"\" class=\"---img-cover\"></div>\n    </div>\n\n  </div>\n</div>\n\n\n<div *ngIf=\"buyModal.show\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n  <div class=\"---wrapper ---wrapper_hint ---text-center\">\n\n    <div class=\"---wrapper__hint-content\">\n      <div class=\"---d-flex ---flex-wrap ---justify-content-center\">\n        <div style=\"margin: 0 5px 10px;\">Сумма: <span class=\"---font-600\">{{buyModal.price}} р</span></div>\n        <div style=\"margin: 0 5px 10px;\">Скидка: <span class=\"---font-600\">{{buyModal.sale}} %</span></div>\n        <div *ngIf=\"buyModal.new_price!==''\" style=\"margin: 0 5px 10px;\">Итого: <span class=\"---font-600\">{{buyModal.new_price}} р</span></div>\n      </div>\n\n      <div class=\"---input-wrap\">\n        <div class=\"---input-label\">Использовать промокод</div>\n\n        <input type=\"text\" class=\"---input\" style=\"border: 1px solid rgba(0, 0, 0, .3); font-size: 14px; padding: 10px 20px 11px;\" [(ngModel)]=\"promo\">\n\n        <div class=\"---button ---button--acent_orange ---button--xs\" (click)=\"usePromotionalCode()\" style=\"margin-top: 15px;\">Использовать</div>\n      </div>\n\n      <iframe\n        [src]=\"sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+buyModal.new_price+'&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio+'-'+buyModal.slug)\"\n        width=\"184\"\n        height=\"36\"\n        frameborder=\"0\"\n        allowtransparency=\"true\"\n        scrolling=\"no\"\n      >\n\n      </iframe>\n    </div>\n\n    <div (click)=\"buyModal.show=false\" class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3130,11 +3130,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var SubsectionComponent = /** @class */ (function () {
-    function SubsectionComponent(subsectionService, httpService, globalParamsUser, sanitizer, globalParamsMessage, activatedRoute) {
+    function SubsectionComponent(subsectionService, httpService, globalParamsUser, router, sanitizer, globalParamsMessage, activatedRoute) {
         var _this = this;
         this.subsectionService = subsectionService;
         this.httpService = httpService;
         this.globalParamsUser = globalParamsUser;
+        this.router = router;
         this.sanitizer = sanitizer;
         this.globalParamsMessage = globalParamsMessage;
         this.activatedRoute = activatedRoute;
@@ -3210,6 +3211,9 @@ var SubsectionComponent = /** @class */ (function () {
             console.log('Ошибка при получении информации о разделе: ', error);
         });
     };
+    SubsectionComponent.prototype.getWork = function (data) {
+        this.router.navigate(['/work/' + data.slug + '/' + data.lessons[0].slug]);
+    };
     SubsectionComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-subsection',
@@ -3218,6 +3222,7 @@ var SubsectionComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_subsection_service__WEBPACK_IMPORTED_MODULE_1__["SubsectionService"],
             _utils_http_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"],
             _storage_global_params_user__WEBPACK_IMPORTED_MODULE_4__["GlobalParamsUser"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"],
             _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_6__["GlobalParamsMessage"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
@@ -3731,36 +3736,12 @@ var WorkComponent = /** @class */ (function () {
         this.showButton = true;
         this.activatedRoute.params.subscribe(function (params) {
             _this.params = params;
-            _this.getWorkCurrent(params.id);
+            _this.getWorkCurrent(params.ss);
         });
     }
-    WorkComponent.prototype.getWorkCurrent = function (slug, slugLesson) {
+    WorkComponent.prototype.getWorkCurrent = function (slug) {
         var _this = this;
-        if (slugLesson === void 0) { slugLesson = ''; }
-        this.workService.getWork(slug, slugLesson).then(function (data) {
-            _this.section = data;
-            _this.lesson = data['lessons'][0] || '';
-            _this.test = data['lessons'].length > 0 ? data['lessons'][0]['quizzes'] : [];
-            _this.storage = data['lessons'].length > 0 ? data['lessons'][0]['storageLessons'] : [];
-            _this.teachers = data['subject']['teachers'][0];
-            _this.currentTest = _this.test[0];
-            _this.countAnswer = 0;
-            for (var i = 0; i < _this.storage.length; i++) {
-                if (_this.storage[i].type === 'pdf') {
-                    _this.storage[i].url =
-                        _this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + _this.storage[i].name);
-                }
-            }
-            for (var i = 0; i < _this.test.length; i++) {
-                _this.answerTest.push({ id: _this.test[i].id, answer: '', hint: false, points: '0' });
-            }
-        }, function (error) {
-            console.log('Ошибка при получении информации об уроке: ', error);
-        });
-    };
-    WorkComponent.prototype.getWorkCurrentValid = function (slug) {
-        var _this = this;
-        this.workService.getWorkValid(slug).then(function (data) {
+        this.workService.getWork(slug).then(function (data) {
             _this.section = data;
             _this.lesson = data['lessons'][0] || '';
             _this.test = data['lessons'].length > 0 ? data['lessons'][0]['quizzes'] : [];
@@ -3925,23 +3906,7 @@ var WorkService = /** @class */ (function () {
         });
     };
     // получение списка активных полей
-    WorkService.prototype.getWork = function (slugSection, slugLesson) {
-        var _this = this;
-        if (slugLesson === void 0) { slugLesson = ''; }
-        return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/sections/details/' + slugSection + slugLesson)
-                .then(function (result) {
-                _this.coursesCurrent = result;
-                resolve(result);
-            }, function (error) {
-                console.log('Ошибка при получении информации по урокам', error);
-                // this.coursesCurrent = [];
-                reject();
-            });
-        });
-    };
-    // получение списка активных полей
-    WorkService.prototype.getWorkValid = function (slugSection) {
+    WorkService.prototype.getWork = function (slugSection) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.httpService.prepareQuery('api/sections/valid_lessons/', { slug_section: slugSection }, true)

@@ -65,7 +65,7 @@
 
         <div *ngIf="globalParamsUser.fio!==null" class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,section.slug)">Купить</div>
 
-        <a [routerLink]="'/work/'+section.slug" class="---button ---button--acent_orange">Начать беслатно</a>
+        <a (click)="getWork(section)" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>
     </div>
   </div>
