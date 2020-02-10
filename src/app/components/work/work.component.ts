@@ -70,14 +70,14 @@ export class WorkComponent {
     this.activatedRoute.params.subscribe(
       (params: Params): void => {
         this.params = params;
-        this.getWorkCurrent(params.id);
+        this.getWorkCurrent(params.id, params.ss);
       }
     );
   }
 
-  getWorkCurrent(slugSection) {
+  getWorkCurrent(slugSection, slugLesson) {
 
-    this.workService.getWork(slugSection).then((data: InterFaceWork) => {
+    this.workService.getWork(slugSection, slugLesson).then((data: InterFaceWork) => {
         this.section = data;
 
         this.lesson = data['lessons'][0] || '';
@@ -144,11 +144,10 @@ export class WorkComponent {
           body: 'Количество правильных ответов: ' + result.correct_answers + '. Количество неправильных ответов: ' + result.wrong_answers,
           type: 'error'
         };
-        this.getWorkCurrent(this.params.id);
       },
       (error) => {
         console.log('Ошибка при отправке тестов: ', error);
-        this.getWorkCurrent(this.params.id);
+
       });
   }
 

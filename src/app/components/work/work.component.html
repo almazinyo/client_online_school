@@ -64,7 +64,8 @@
       <div class="---devider"></div>
 
       <div *ngIf="globalParamsUser.fio===null">
-        <div class="---block-title" *ngIf="test.length>0">Тест доступен только для <span class="---acent">зарегистрированных</span> пользователей
+        <div class="---block-title" *ngIf="test.length>0">Тест доступен только для <span class="---acent">зарегистрированных</span>
+          пользователей
         </div>
       </div>
 
@@ -132,7 +133,7 @@
       <div class="---lessons" *ngIf="section.allLessons.length>0">
         <div [ngClass]="{'---is-curent':lesson.slug===currentWork.slug,'---opacity':currentWork.is_status==='1'}"
              *ngFor="let currentWork of section.allLessons;let i = index"
-             (click)="getWorkCurrentValid(section.slug)"
+             [routerLink]="'/work/'+section.slug+'/'+currentWork.slug"
              class="---lesson ---cursor-pointer">
           {{i+1}}. {{currentWork.name}} - {{currentWork.price}} р.
           <span *ngIf="currentWork.checked==='1'">
