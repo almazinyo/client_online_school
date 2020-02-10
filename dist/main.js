@@ -3736,12 +3736,12 @@ var WorkComponent = /** @class */ (function () {
         this.showButton = true;
         this.activatedRoute.params.subscribe(function (params) {
             _this.params = params;
-            _this.getWorkCurrent(params.ss);
+            _this.getWorkCurrent(params.id);
         });
     }
-    WorkComponent.prototype.getWorkCurrent = function (slug) {
+    WorkComponent.prototype.getWorkCurrent = function (slugSection) {
         var _this = this;
-        this.workService.getWork(slug).then(function (data) {
+        this.workService.getWork(slugSection).then(function (data) {
             _this.section = data;
             _this.lesson = data['lessons'][0] || '';
             _this.test = data['lessons'].length > 0 ? data['lessons'][0]['quizzes'] : [];
@@ -3909,7 +3909,7 @@ var WorkService = /** @class */ (function () {
     WorkService.prototype.getWork = function (slugSection) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/sections/valid_lessons/', { slug_section: slugSection }, true)
+            _this.httpService.prepareQuery('api/sections/valid-lessons', { slug_section: slugSection }, true)
                 .then(function (result) {
                 _this.coursesCurrent = result;
                 resolve(result);

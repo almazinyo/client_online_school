@@ -70,14 +70,14 @@ export class WorkComponent {
     this.activatedRoute.params.subscribe(
       (params: Params): void => {
         this.params = params;
-        this.getWorkCurrent(params.id, params.ss);
+        this.getWorkCurrent(params.id);
       }
     );
   }
 
-  getWorkCurrent(slugSection,slugLesson) {
+  getWorkCurrent(slugSection) {
 
-    this.workService.getWork(slugSection,slugLesson).then((data: InterFaceWork) => {
+    this.workService.getWork(slugSection).then((data: InterFaceWork) => {
         this.section = data;
 
         this.lesson = data['lessons'][0] || '';

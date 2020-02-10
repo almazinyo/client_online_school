@@ -34,7 +34,7 @@ export class WorkService {
   }
 
   // получение списка активных полей
-  public getWork(slugSection, slugLesson) {
+  public getWork(slugSection) {
 
     return new Promise((resolve, reject) => {
       this.httpService.prepareQuery('api/sections/valid-lessons', {slug_section: slugSection}, true)
