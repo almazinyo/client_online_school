@@ -3907,7 +3907,7 @@ var WorkService = /** @class */ (function () {
     WorkService.prototype.getWork = function (slugSection, slugLesson) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/sections/details/' + slugSection + '/' + slugLesson)
+            _this.httpService.prepareQuery('api/sections/details', { slugSection: slugSection, slugLesson: slugLesson }, true)
                 .then(function (result) {
                 _this.coursesCurrent = result;
                 resolve(result);

@@ -37,7 +37,7 @@ export class WorkService {
   public getWork(slugSection, slugLesson) {
 
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/sections/details/' + slugSection + '/' + slugLesson)
+      this.httpService.prepareQuery('api/sections/details', {slugSection: slugSection, slugLesson: slugLesson}, true)
         .then((result: InterFaceWork) => {
             this.coursesCurrent = result;
             resolve(result);
