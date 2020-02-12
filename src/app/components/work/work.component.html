@@ -7,7 +7,7 @@
   <div class="---course-theme ---font-800">{{section.name}}
 
     <iframe
-      *ngIf="globalParamsUser.fio!==null"
+      *ngIf="globalParamsUser.fio!==null && lesson.is_status==='1'"
       [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+section.price+'&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio+'-'+section.slug)"
       width="184"
       height="36"

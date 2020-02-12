@@ -22,6 +22,7 @@ export class WorkComponent {
     subject_id: '',
     id: '',
     is_status: '',
+    price: '',
     logo: '',
     name: '',
     quizzes: [],

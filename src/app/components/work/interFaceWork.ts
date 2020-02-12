@@ -6,6 +6,7 @@ interface InterFaceWork {
   id: string;
   is_status: string;
   logo: string;
+  price: string;
   name: string;
   quizzes: any;
   section: { id: string, subject_id: string, parent_id: number, name: string, slug: string };
