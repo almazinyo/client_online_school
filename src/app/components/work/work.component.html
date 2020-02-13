@@ -1,28 +1,37 @@
-<div class="---block-course-in" *ngIf="lesson.is_status==='2'">
+<div class="---block-course-in">
   <div class="---d-block ---lg-d-none">
     <a href="#" class="---button ---button--acent ---js-open" data-open-block=".---lesson-list" data-html-hidden="1">Список
       уроков</a>
   </div>
 
-  <div class="---course-theme ---font-800">{{section.name}}
-
-    <iframe
-      *ngIf="globalParamsUser.fio!==null && lesson.is_status==='1'"
-      [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+section.price+'&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio+'-'+section.slug)"
-      width="184"
-      height="36"
-      frameborder="0"
-      allowtransparency="true"
-      scrolling="no"
-    >
-
-    </iframe>
-  </div>
+  <div class="---course-theme ---font-800">{{section.name}}</div>
   <div class="---devider"></div>
 
   <div class="---row">
 
-    <div class="col-lg-9">
+    <div class="col-lg-9"  *ngIf="lesson.is_status!=='2'">
+      <div class="---course-name">{{lesson.name}}</div>
+
+      <div>
+        Данный урок платный.
+        <p>Необходимо авторизоваться и купить урок.
+        <p>
+        <p>
+          <iframe
+            *ngIf="globalParamsUser.fio!==null && lesson.is_status==='1'"
+            [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+section.price+'&successURL=http://dev.examator.ru&account=410013781874599&label='+globalParamsUser.fio+'-'+section.slug)"
+            width="184"
+            height="36"
+            frameborder="0"
+            allowtransparency="true"
+            scrolling="no"
+          >
+
+          </iframe>
+      </div>
+    </div>
+
+    <div class="col-lg-9"  *ngIf="lesson.is_status==='2'">
 
       <div class="---course-name">{{lesson.name}}</div>
 
@@ -135,7 +144,7 @@
              *ngFor="let currentWork of section.allLessons;let i = index"
              [routerLink]="'/work/'+section.slug+'/'+currentWork.slug"
              class="---lesson ---cursor-pointer">
-          {{i+1}}. {{currentWork.name}} - {{currentWork.price}} р.
+          {{i+1}}. {{currentWork.name}} <span *ngIf="currentWork.is_status!=='2'"> - {{currentWork.price}} р.</span>
           <span *ngIf="currentWork.checked==='1'">
               <svg class="---y-pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path
                 d="M16 0C7.164 0 0 7.164 0 16s7.164 16 16 16 16-7.164 16-16S24.836 0 16 0zm-2.48 23.383L6.158 16.02l2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828L13.52 23.383z"/></svg>
