@@ -5,6 +5,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {GlobalParamsMessage} from '../message_alert/global-params-message';
 import {GlobalParamsUser} from '../../storage/global-params-user';
+import {SubsectionService} from '../subsection/subsection.service';
 
 @Component({
   selector: 'app-work',
@@ -54,6 +55,8 @@ export class WorkComponent {
   answer = '';
   countAnswer = 0;
 
+  promo = '';
+
   showCheckImg = false;
   modalImg = '';
 
@@ -61,11 +64,20 @@ export class WorkComponent {
   showButton = true;
   params;
 
+  buyModal = {
+    show: false,
+    price: '',
+    new_price: '',
+    slug: '',
+    sale: 0,
+  };
+
   constructor(private workService: WorkService,
               private router: Router,
               private globalParamsMessage: GlobalParamsMessage,
               private activatedRoute: ActivatedRoute,
               public globalParamsUser: GlobalParamsUser,
+              public subsectionService: SubsectionService,
               public sanitizer: DomSanitizer) {
 
     this.activatedRoute.params.subscribe(
@@ -175,5 +187,35 @@ export class WorkComponent {
   nextTest() {
     this.testIndex += 1;
     this.answer = '';
+  }
+
+  changeShowBuy(price, slug) {
+    this.buyModal = {
+      show: true,
+      price: price,
+      slug: slug,
+      sale: 0,
+      new_price: price,
+    };
+  }
+
+  usePromotionalCode() {
+    if (this.promo !== '') {
+      this.subsectionService.usePromotionalCode({
+        price: this.buyModal.price,
+        slug: this.buyModal.slug,
+        promo: this.promo
+      }).then((data: { old_price: string, new_price: string, percent: number, is_valid: boolean }) => {
+          this.buyModal.new_price = data.new_price;
+          this.buyModal.sale = data.percent;
+
+          if (! data.is_valid) {
+            this.globalParamsMessage.data = {type: 'error', title: 'Неверно указан промо-код', body: ''};
+          }
+        },
+        (error) => {
+          console.log('Ошибка при получении информации о разделе: ', error);
+        });
+    }
   }
 }
