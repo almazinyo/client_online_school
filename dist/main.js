@@ -3277,7 +3277,7 @@ var SubsectionService = /** @class */ (function () {
     SubsectionService.prototype.getSubSection = function (slug) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/subjects/details/', { slug: slug }, true)
+            _this.httpService.prepareQuery('api/subjects/details/', { slugSection: slug }, true)
                 .then(function (result) {
                 resolve(result);
             }, function (error) {
@@ -4429,7 +4429,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/fox/www/online_school/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
