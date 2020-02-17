@@ -31,8 +31,11 @@ export class AuthComponent implements OnInit {
         console.log('Ошибка при получении информации на гавный экран: ', error);
       });
 
-    this.reviewsService.getReviews().then((data: InterFaceReviews[]) => {
-        this.reviews = data;
+    this.reviewsService.getReviews().then((datas: InterFaceReviews[]) => {
+        this.reviews = datas;
+
+        console.log(11,this.reviews);
+        console.log(22,this.reviews.length);
       },
       (error) => {
         console.log('Ошибка при получении информации по отзывам: ', error);
