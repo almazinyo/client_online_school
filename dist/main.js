@@ -3277,7 +3277,7 @@ var SubsectionService = /** @class */ (function () {
     SubsectionService.prototype.getSubSection = function (slug) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.httpService.prepareQuery('api/subjects/details/', { slugSection: slug }, true)
+            _this.httpService.prepareQuery('api/subjects/details/', { slug: slug })
                 .then(function (result) {
                 resolve(result);
             }, function (error) {
