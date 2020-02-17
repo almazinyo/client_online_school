@@ -3512,7 +3512,7 @@ var TeacherDetalisComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-teacher-list\">\n  <div class=\"---row\">\n\n    <div class=\"col-xs-6 col-md-4 col-lg-3\" *ngFor=\"let teacher of teachers\">\n      <div class=\"---teacher-item\">\n        <a routerLink=\"#\" (click)=\"getTeacher(teacher.slug)\" class=\"---img\">\n          <img src=\"http://api.examator.ru/images/teachers/small/pQsSnp2Pzp7Y1JDCm86xs8PYVZGnODCY.png\" alt=\"\"\n               class=\"---img-cover\">\n        </a>\n        <div class=\"---name\">{{teacher.name}}</div>\n        <div class=\"---subject\">{{teacher.position}}</div>\n        <a href=\"{{teacher.social_link}}\" target=\"_blank\" class=\"---insta\">insta\n          @{{teacher.social_link.replace(regex, '')}}</a>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n"
+module.exports = "<div class=\"---block-teacher-list\">\n  <div class=\"---row\">\n\n    <div class=\"col-xs-6 col-md-4 col-lg-3\" *ngFor=\"let teacher of teachers\">\n      <div class=\"---teacher-item\">\n        <a routerLink=\"#\" (click)=\"getTeacher(teacher.slug)\" class=\"---img\">\n          <img src=\"http://api.examator.ru/images/teachers/small/p{{teacher.img_name}}\" alt=\"\"\n               class=\"---img-cover\">\n        </a>\n        <div class=\"---name\">{{teacher.name}}</div>\n        <div class=\"---subject\">{{teacher.position}}</div>\n        <a href=\"{{teacher.social_link}}\" target=\"_blank\" class=\"---insta\">insta\n          @{{teacher.social_link.replace(regex, '')}}</a>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n"
 
 /***/ }),
 
