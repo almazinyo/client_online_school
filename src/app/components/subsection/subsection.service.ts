@@ -20,7 +20,7 @@ export class SubsectionService {
   // получение списка активных полей
   public getSubSection(slug) {
     return new Promise((resolve, reject) => {
-      this.httpService.prepareQuery('api/subjects/details/', {slug: slug} )
+      this.httpService.prepareQuery('api/sections/details/', {slugSection: slug}, true )
         .then((result: any) => {
             resolve(result);
           },
