@@ -63,7 +63,9 @@
 
         <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
 
-        <div *ngIf="globalParamsUser.fio!==null" class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,section.slug)">Купить</div>
+        <div *ngIf="globalParamsUser.fio!==null" class="---button ---button--acent_orange ---cursor-pointer"
+             (click)="changeShowBuy(section.price,section.slug)">Купить
+        </div>
 
         <a (click)="getWork(section)" class="---button ---button--acent_orange">Начать беслатно</a>
       </div>
@@ -72,8 +74,11 @@
 
   <div class="---free-course ---free-course--acent ---pos-rel">
     <div class="---title">
-      <span class="---font-800 ---d-block ---xs-d-inline-block">Все курсы по механике со скидкой 30%!</span>
-      <span class="---old-price">4,200</span> - 3,300 ₽
+      <span
+        class="---font-800 ---d-block ---xs-d-inline-block">Все курсы по механике со скидкой {{subsection.subject.stock}}
+        %!</span>
+      <span class="---old-price">{{subsection.subject.price}}</span>
+      - {{subsection.subject.price * subsection.subject.stock / 100}} ₽
     </div>
     <p>Покупая несколько курсов вы сильно экономите и получаете больше баллов</p>
 
@@ -109,15 +114,20 @@
       <div class="---d-flex ---flex-wrap ---justify-content-center">
         <div style="margin: 0 5px 10px;">Сумма: <span class="---font-600">{{buyModal.price}} р</span></div>
         <div style="margin: 0 5px 10px;">Скидка: <span class="---font-600">{{buyModal.sale}} %</span></div>
-        <div *ngIf="buyModal.new_price!==''" style="margin: 0 5px 10px;">Итого: <span class="---font-600">{{buyModal.new_price}} р</span></div>
+        <div *ngIf="buyModal.new_price!==''" style="margin: 0 5px 10px;">Итого: <span
+          class="---font-600">{{buyModal.new_price}} р</span></div>
       </div>
 
       <div class="---input-wrap">
         <div class="---input-label">Использовать промокод</div>
 
-        <input type="text" class="---input" style="border: 1px solid rgba(0, 0, 0, .3); font-size: 14px; padding: 10px 20px 11px;" [(ngModel)]="promo">
+        <input type="text" class="---input"
+               style="border: 1px solid rgba(0, 0, 0, .3); font-size: 14px; padding: 10px 20px 11px;"
+               [(ngModel)]="promo">
 
-        <div class="---button ---button--acent_orange ---button--xs" (click)="usePromotionalCode()" style="margin-top: 15px;">Использовать</div>
+        <div class="---button ---button--acent_orange ---button--xs" (click)="usePromotionalCode()"
+             style="margin-top: 15px;">Использовать
+        </div>
       </div>
 
       <iframe
@@ -132,6 +142,7 @@
       </iframe>
     </div>
 
-    <div (click)="buyModal.show=false" class="---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs"></div>
+    <div (click)="buyModal.show=false"
+         class="---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs"></div>
   </div>
 </div>
