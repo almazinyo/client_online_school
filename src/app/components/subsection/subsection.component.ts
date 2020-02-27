@@ -20,14 +20,16 @@ export class SubsectionComponent {
     slug: '',
     sale: 0,
   };
+
   subsection: InterFaceSubSection = {
     thing: '',
     section: '',
+    slug: '',
     name: '',
     img_path: '',
     short_description: '',
     description: '',
-    subject: {title: ''},
+    subject: {title: '', price: '', stock: ''},
     courses: [{
       background: '',
       name: '',
@@ -76,7 +78,7 @@ export class SubsectionComponent {
           this.buyModal.new_price = data.new_price;
           this.buyModal.sale = data.percent;
 
-          if (! data.is_valid) {
+          if (!data.is_valid) {
             this.globalParamsMessage.data = {type: 'error', title: 'Неверно указан промо-код', body: ''};
           }
         },
@@ -105,5 +107,15 @@ export class SubsectionComponent {
 
   getWork(data) {
     this.router.navigate(['/work/' + data.slug + '/' + data.lessons[0].slug]);
+  }
+
+  buyAll() {
+    this.buyModal = {
+      show: true,
+      price: this.subsection.subject.price,
+      slug: this.subsection.slug,
+      sale: parseInt(this.subsection.subject.stock, 10),
+      new_price: (parseInt(this.subsection.subject.price, 10) * parseInt(this.subsection.subject.stock, 10) / 100).toString(),
+    };
   }
 }
