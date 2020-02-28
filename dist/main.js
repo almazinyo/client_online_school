@@ -3218,6 +3218,10 @@ var SubsectionComponent = /** @class */ (function () {
         this.router.navigate(['/work/' + data.slug + '/' + data.lessons[0].slug]);
     };
     SubsectionComponent.prototype.buyAll = function () {
+        if (this.globalParamsUser.fio === null) {
+            this.globalParamsMessage.data = { type: 'error', title: 'Необходимо авторизоваться', body: '' };
+            return false;
+        }
         this.buyModal = {
             show: true,
             price: this.subsection.subject.price,

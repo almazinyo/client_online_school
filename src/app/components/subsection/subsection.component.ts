@@ -110,6 +110,10 @@ export class SubsectionComponent {
   }
 
   buyAll() {
+    if (this.globalParamsUser.fio === null) {
+      this.globalParamsMessage.data = {type: 'error', title: 'Необходимо авторизоваться', body: ''};
+      return false;
+    }
     this.buyModal = {
       show: true,
       price: this.subsection.subject.price,
