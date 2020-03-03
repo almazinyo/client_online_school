@@ -157,10 +157,11 @@ export class WorkComponent {
           body: 'Количество правильных ответов: ' + result.correct_answers + '. Количество неправильных ответов: ' + result.wrong_answers,
           type: 'error'
         };
+        this.answerTest = [];
       },
       (error) => {
         console.log('Ошибка при отправке тестов: ', error);
-
+        this.answerTest = [];
       });
   }
 

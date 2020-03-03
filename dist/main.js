@@ -3829,8 +3829,10 @@ var WorkComponent = /** @class */ (function () {
                 body: 'Количество правильных ответов: ' + result.correct_answers + '. Количество неправильных ответов: ' + result.wrong_answers,
                 type: 'error'
             };
+            _this.answerTest = [];
         }, function (error) {
             console.log('Ошибка при отправке тестов: ', error);
+            _this.answerTest = [];
         });
     };
     WorkComponent.prototype.checkImg = function (data, type) {
