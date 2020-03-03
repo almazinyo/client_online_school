@@ -108,7 +108,7 @@
                 </div>
               </div>
               <div class="---answer">
-                <div *ngIf="countAnswer+1!==test.length && !notPush" (click)="answerCurrentTest()"
+                <div *ngIf="countAnswer+1!==test.length" (click)="answerCurrentTest()"
                      class="---button ---button--acent_orange ---cursor-pointer">Ответить
                 </div>
                 <div (click)="sendAnswer()"
@@ -133,7 +133,7 @@
       <div class="---lessons" *ngIf="section.allLessons.length>0">
         <div [ngClass]="{'---is-curent':lesson.slug===currentWork.slug,'---opacity':currentWork.is_status==='1'}"
              *ngFor="let currentWork of section.allLessons;let i = index"
-             [routerLink]="'/work/'+section.slug+'/'+currentWork.slug"
+             (click)="changeLessons(section.slug,currentWork.slug)"
              class="---lesson ---cursor-pointer">
           {{i+1}}. {{currentWork.name}} <span *ngIf="currentWork.is_status!=='2'"></span>
           <span *ngIf="currentWork.checked==='1'">

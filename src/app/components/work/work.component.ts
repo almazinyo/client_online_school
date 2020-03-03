@@ -209,7 +209,7 @@ export class WorkComponent {
           this.buyModal.new_price = data.new_price;
           this.buyModal.sale = data.percent;
 
-          if (! data.is_valid) {
+          if (!data.is_valid) {
             this.globalParamsMessage.data = {type: 'error', title: 'Неверно указан промо-код', body: ''};
           }
         },
@@ -217,5 +217,10 @@ export class WorkComponent {
           console.log('Ошибка при получении информации о разделе: ', error);
         });
     }
+  }
+
+  changeLessons(section_slug, currentWork_slug) {
+    this.answerTest = [];
+    this.router.navigate(['work' + '/' + section_slug + '/' + currentWork_slug]);
   }
 }
