@@ -43,9 +43,8 @@ export class HeaderComponent {
 
   // переход на ссылку
   getSection(currentMenu) {
-    if (currentMenu.is_status !== '2') {
-      this.router.navigate(['/section/' + currentMenu.slug]);
-    }
+    this.subject.show = false;
+    this.router.navigate(['/section/' + currentMenu.slug]);
   }
 
   auth() {
