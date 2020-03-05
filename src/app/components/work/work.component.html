@@ -89,12 +89,10 @@
                    (click)="checkImg(test[testIndex].hint,'hint')" *ngIf="test[testIndex].hint!==''">Подсказка
               </div>
 
-              <div class="---button ---button--xs ---button--green ---cursor-pointer" *ngIf="testIndex!=0"
-                   (click)="prevTest()"><
-              </div>
-              <div class="---button ---button--xs ---button--green ---cursor-pointer" *ngIf="testIndex+1<test.length"
-                   (click)="nextTest()">>
-              </div>
+              <div class="---button ---button--xs ---button--green ---cursor-pointer" style="padding-left: 0 !important; padding-right: 0 !important; width: 32px !important;" *ngIf="testIndex!=0"
+                   (click)="prevTest()"><</div>
+              <div class="---button ---button--xs ---button--green ---cursor-pointer" style="padding-left: 0 !important; padding-right: 0 !important; width: 32px !important;" *ngIf="testIndex+1<test.length"
+                   (click)="nextTest()">></div>
             </div>
           </div>
 
