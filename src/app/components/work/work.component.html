@@ -13,12 +13,15 @@
       <div class="---course-name">{{lesson.name}}</div>
 
       <div>
-        Купить все уроки раздела {{section.name}} за {{section.price}} р.
-        <p>Необходимо авторизоваться и купить урок.
+        <br>
         <p>
-        <p>
-            <div *ngIf="globalParamsUser.fio!==null && lesson.is_status==='1'" class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,lesson.slug)">Купить</div>
-
+          Купить все уроки раздела {{section.name}} за {{section.price}} р.<br>
+          Необходимо авторизоваться и купить урок.
+        </p>
+        <br>
+        <div *ngIf="globalParamsUser.fio!==null && lesson.is_status==='1'" class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,lesson.slug)">
+          Купить
+        </div>
       </div>
     </div>
 
