@@ -98,7 +98,7 @@ export class SubsectionService {
   getPayment(price) {
     return new Promise((resolve, reject) => {
       const body = new URLSearchParams();
-      body.set('receiver', '410013781874599');
+      body.set('receiver', '41001820507850');
       body.set('label', 'test-test-label');
       body.set('operation_id', '1');
       body.set('operation-details', 'true');
