@@ -66,7 +66,7 @@
 
         <div *ngIf="globalParamsUser.fio===null" class="---price ---font-800 ---text-center">Необходимо авторизоваться</div>
 
-        <div *ngIf="globalParamsUser.fio!==null && section.is_bought==1"
+        <div *ngIf="globalParamsUser.fio!==null && section.is_status==1"
              class="---button ---button--acent_orange ---cursor-pointer"
              (click)="changeShowBuy(section.price,section.slug)">Купить
         </div>
