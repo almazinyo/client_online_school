@@ -12,7 +12,8 @@
       </div>
 
       <p>{{subsection.short_description}}</p>
-      <a href="https://vk.com/app5898182_-185278877#s=493523" target="_blank" fragment="start_work" class="---button ---button--acent_orange ---button--shadow">Начать
+      <a href="https://vk.com/app5898182_-185278877#s=493523" target="_blank" fragment="start_work"
+         class="---button ---button--acent_orange ---button--shadow">Начать
         учиться</a>
     </div>
 
@@ -61,21 +62,27 @@
           </li>
         </ul>
 
-        <div *ngIf="!section.is_bought" class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
+        <div *ngIf="section.is_status==1" class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
 
-        <div *ngIf="globalParamsUser.fio!==null && !section.is_bought" class="---button ---button--acent_orange ---cursor-pointer"
+        <div *ngIf="globalParamsUser.fio===null" class="---price ---font-800 ---text-center">Необходимо авторизоваться</div>
+
+        <div *ngIf="globalParamsUser.fio!==null && section.is_bought==1"
+             class="---button ---button--acent_orange ---cursor-pointer"
              (click)="changeShowBuy(section.price,section.slug)">Купить
         </div>
 
-        <a *ngIf="section.is_bought" (click)="getWork(section)" class="---button ---button--acent_orange">Начать</a>
+        <a *ngIf="section.is_status==2 || section.is_status==3" (click)="getWork(section)"
+           class="---button ---button--acent_orange">Начать</a>
       </div>
     </div>
   </div>
 
   <div class="---free-course ---free-course--acent ---pos-rel">
     <div class="---title">
-      <span class="---font-800 ---d-block ---xs-d-inline-block">Все курсы по {{subsection.name}} со скидкой {{subsection.subject.stock}}%!</span>
-      <span class="---old-price">{{subsection.subject.price}}</span> - {{subsection.subject.price * subsection.subject.stock / 100}} ₽
+      <span class="---font-800 ---d-block ---xs-d-inline-block">Все курсы по {{subsection.name}}
+        со скидкой {{subsection.subject.stock}}%!</span>
+      <span class="---old-price">{{subsection.subject.price}}</span>
+      - {{subsection.subject.price * subsection.subject.stock / 100}} ₽
     </div>
     <p>Покупая несколько курсов вы сильно экономите и получаете больше баллов</p>
 
