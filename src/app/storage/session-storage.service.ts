@@ -32,7 +32,7 @@ export class SessionStorageService {
     this.authenticated.emit(false);
     this.router.navigate(['/']);
     localStorage.removeItem('token');
-    this.cookieService.set('vk_app_7200615', '');
+    this.cookieService.delete('vk_app_7200615');
   }
 
 }
