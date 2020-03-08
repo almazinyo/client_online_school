@@ -4,4 +4,5 @@ interface InterFaceLesson {
   section_id: string;
   slug: string;
   is_status: string;
+  is_bought: boolean
 }

@@ -61,9 +61,9 @@
           </li>
         </ul>
 
-        <div class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
+        <div *ngIf="!section.is_bought" class="---price ---font-800 ---text-center">{{section.price}} ₽</div>
 
-        <div *ngIf="globalParamsUser.fio!==null" class="---button ---button--acent_orange ---cursor-pointer"
+        <div *ngIf="globalParamsUser.fio!==null && !section.is_bought" class="---button ---button--acent_orange ---cursor-pointer"
              (click)="changeShowBuy(section.price,section.slug)">Купить
         </div>
 

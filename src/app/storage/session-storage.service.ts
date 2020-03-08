@@ -1,6 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {GlobalParamsUser} from './global-params-user';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable()
 export class SessionStorageService {
@@ -8,7 +9,8 @@ export class SessionStorageService {
   data: '';
 
   constructor(private router: Router,
-              private globalParamsUser: GlobalParamsUser) {
+              private globalParamsUser: GlobalParamsUser,
+              private cookieService: CookieService) {
     this.change(this.tokenId !== '');
   }
 
@@ -30,6 +32,7 @@ export class SessionStorageService {
     this.authenticated.emit(false);
     this.router.navigate(['/']);
     localStorage.removeItem('token');
+    this.cookieService.set('vk_app_7200615', '');
   }
 
 }

@@ -45,7 +45,7 @@ export class WorkComponent {
     }]
   };
 
-  lesson: InterFaceLesson = {id: '', name: '', section_id: '', slug: '', is_status: ''};
+  lesson: InterFaceLesson = {id: '', name: '', section_id: '', slug: '', is_status: '', is_bought: false};
   test: InterFaceTestWork[] = [{hint: '', id: '', lessons_id: '', question: '', correct_answer: '', bonus_points: ''}];
   storage: any = [];
   teachers: InterFaceTeachers = {name: ''};

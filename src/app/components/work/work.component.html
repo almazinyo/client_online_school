@@ -9,7 +9,7 @@
 
   <div class="---row">
 
-    <div class="col-lg-9"  *ngIf="lesson.is_status!=='2'">
+    <div class="col-lg-9"  *ngIf="!lesson.is_bought">
       <div class="---course-name">{{lesson.name}}</div>
 
       <div>
@@ -25,7 +25,7 @@
       </div>
     </div>
 
-    <div class="col-lg-9"  *ngIf="lesson.is_status==='2'">
+    <div class="col-lg-9"  *ngIf="lesson.is_bought">
 
       <div class="---course-name">{{lesson.name}}</div>
 

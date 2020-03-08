@@ -40,7 +40,6 @@ export class HttpService {
   public prepareQueryYandex(url: string = 'noUrl', data: any = {}) {
     return new Promise((resolve, reject) => {
       this.sendPostQueryYandex(url, data).subscribe((result: { status: number, msg: string, session_id: string, data: string, code: string }) => {
-          console.log('HttpService Ответ получен: ', result);
           if (result.status === 200) {
             if (typeof result.data !== 'undefined') {
               resolve(result.data);
@@ -79,14 +78,11 @@ export class HttpService {
   }
 
   public prepareQuery(url: string = 'noUrl', data: any = {}, post = false) {
-    console.log('url:', url);
     if (Object.keys(data).length !== 0 && post) {
       data.token = this.sessionStorage.tokenId;
     } else {
       data = {token: this.sessionStorage.tokenId};
     }
-
-    console.log('Отправляем данные: ', data);
 
     if (Object.keys(data).length !== 0 && post) {
       data = JSON.stringify(data);
@@ -96,7 +92,6 @@ export class HttpService {
     return new Promise((resolve, reject) => {
 
       this.sendPostQuery(url, data, post).subscribe((result: { status: number, msg: string, session_id: string, data: string, code: string }) => {
-          console.log('HttpService Ответ получен: ', result);
           if (result.status === 200) {
             if (typeof result.data !== 'undefined') {
               /*let rez = atob(result.data);
