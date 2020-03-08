@@ -67,7 +67,7 @@
              (click)="changeShowBuy(section.price,section.slug)">Купить
         </div>
 
-        <a (click)="getWork(section)" class="---button ---button--acent_orange">Начать беслатно</a>
+        <a *ngIf="section.is_bought" (click)="getWork(section)" class="---button ---button--acent_orange">Начать</a>
       </div>
     </div>
   </div>
