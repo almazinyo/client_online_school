@@ -4183,7 +4183,7 @@ var SessionStorageService = /** @class */ (function () {
         this.authenticated.emit(false);
         this.router.navigate(['/']);
         localStorage.removeItem('token');
-        this.cookieService.delete('vk_app_7200615');
+        this.cookieService.deleteAll();
     };
     SessionStorageService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
