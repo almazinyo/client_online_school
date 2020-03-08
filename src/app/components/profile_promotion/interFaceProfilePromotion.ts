@@ -11,6 +11,9 @@ interface InterFaceProfilePromotion {
       id: number;
       name: string;
       img: string;
+      quizzes: {
+        bonus_points: string
+      }[]
     }[];
   }[];
 }

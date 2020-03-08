@@ -40,7 +40,7 @@
     <div class="---block-catalog">
       <div class="---course-wrap">
         <div class="---block-title">Карта вашего продвижения</div>
-        
+
         <div class="---course-list ---lessons-tabs" *ngFor="let lesson of lessons">
           <div class="h3 ---font-800" style="margin-bottom: 15px;">{{lesson.name}}</div>
 
@@ -52,16 +52,15 @@
               <span class="---icon ---pos-rel"><img alt="" class="---pos-abs" src="assets/imgs/icons/course.svg"></span>
               <span class="---text-wrap">
                 <span class="---font-800">{{section.name}}</span>
-                <span class="---course-count ---font-400 ---d-block">{{section.short_description}}</span>
               </span>
             </div>
 
             <div class="---d-inline-flex ---pos-rel ---lessons">
-              <div class="---lesson" *ngFor="let subSection of section.lessons">
+              <div class="---lesson"  [style.backgroundColor]="section.background" *ngFor="let subSection of section.lessons">
                 <span class="---icon ---y-pos-abs ---replaced-svg">
                   <svg class="---pos-abs" viewBox="0 0 491.1 491.1" xmlns="http://www.w3.org/2000/svg"><path d="M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z"></path></svg>
                 </span>
-                {{subSection.name}}
+                {{subSection.name}} <p>({{subSection.quizzes[0].bonus_points}}) баллов</p>
               </div>
             </div>
           </div>
