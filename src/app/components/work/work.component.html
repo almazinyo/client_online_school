@@ -79,7 +79,7 @@
 
 
         <div class="---test-wrap ---d-flex ---flex-wrap" *ngIf="test.length>0">
-          <div class="col-xl-5">
+          <div class="col-xl-5" *ngIf="test.length!==testIndex">
             <div class="---task">
               <div class="h3">Задание</div>
 
@@ -101,15 +101,15 @@
 
           <div class="col-xl-7">
             <div class="---answers">
-              <div class="h3">Ваш ответ (вопрос {{testIndex+1}} из {{test.length}})</div>
+              <div *ngIf="test.length!==testIndex" class="h3">Ваш ответ (вопрос {{testIndex+1}} из {{test.length}})</div>
 
-              <div class="---answer ---is-active">
+              <div class="---answer ---is-active" *ngIf="test.length!==testIndex">
                 <div class="---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center">
                   <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
                 </div>
               </div>
               <div class="---answer">
-                <div *ngIf="countAnswer+1!==test.length" (click)="answerCurrentTest()"
+                <div *ngIf="test.length!==testIndex" (click)="answerCurrentTest()"
                      class="---button ---button--acent_orange ---cursor-pointer">Ответить
                 </div>
                 <div (click)="sendAnswer()"

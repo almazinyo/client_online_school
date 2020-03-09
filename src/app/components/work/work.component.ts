@@ -120,7 +120,6 @@ export class WorkComponent {
     this.answer = this.answer.replace(',', '.');
     this.test[this.testIndex].correct_answer = this.test[this.testIndex].correct_answer.replace(',', '.');
     if (this.test[this.testIndex].correct_answer !== this.answer || this.answerTest[this.testIndex].answer !== '') {
-
       if (this.answerTest[this.testIndex].answer === '') {
         this.globalParamsMessage.data = {
           title: 'Неверный ответ',
@@ -139,7 +138,8 @@ export class WorkComponent {
     } else {
       this.answerTest[this.testIndex].points = this.answerTest[this.testIndex].hint ? '0' : this.test[this.testIndex].bonus_points;
       this.answerTest[this.testIndex].answer = this.answer;
-      this.testIndex++;
+
+        this.testIndex++;
       this.answer = '';
     }
   }
@@ -222,6 +222,8 @@ export class WorkComponent {
 
   changeLessons(section_slug, currentWork_slug) {
     this.answerTest = [];
+    this.testIndex = 0;
+    this.answer = '';
     this.router.navigate(['work' + '/' + section_slug + '/' + currentWork_slug]);
   }
 }
