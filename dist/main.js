@@ -1438,7 +1438,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"hiddenHints && hints.length>0\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n  <div class=\"---wrapper ---wrapper_hint ---text-center\">\n    <img src=\"http://api.examator.ru/images/options/{{hints[currentHints].img_name}}\" alt=\"\">\n\n    <div class=\"---wrapper__hint-content\">\n      <div class=\"h4 ---hint__title ---font-600\">{{hints[currentHints].name}}</div>\n      <p>\n        {{hints[currentHints].description}}\n      </p>\n    </div>\n\n    <div *ngIf=\"currentHints!==0\" (click)=\"prevHints()\">Назад</div>\n    <div class=\"---button ---button--acent\" *ngIf=\"currentHints+1<hints.length\" (click)=\"nextHints()\">Вперед</div>\n    <div (click)=\"hiddenHints=!hiddenHints\"\n         class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n  </div>\n</div>\n"
+module.exports = "<div *ngIf=\"hiddenHints && hints.length>0\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n  <div class=\"---wrapper ---wrapper_hint ---text-center\">\n    <img src=\"http://api.examator.ru/images/options/{{hints[currentHints].img_name}}\" alt=\"\">\n\n    <div class=\"---wrapper__hint-content\">\n      <div class=\"h4 ---hint__title ---font-600\">{{hints[currentHints].name}}</div>\n      <p>\n        {{hints[currentHints].description}}\n      </p>\n    </div>\n\n    <div class=\"---button ---button--acent\"  style=\"margin-top: 10px;   margin-bottom: 35px;\"  *ngIf=\"currentHints!==0\" (click)=\"prevHints()\">Назад</div>\n    <div class=\"---button ---button--acent\"  style=\"margin-top: 10px;   margin-bottom: 35px;\"  *ngIf=\"currentHints+1<hints.length\" (click)=\"nextHints()\">Вперед</div>\n    <div (click)=\"hiddenHints=!hiddenHints\"\n         class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -4448,7 +4448,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /www/online_school/client_online_school/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /var/www/html/angular/client_online_school/src/main.ts */"./src/main.ts");
 
 
 /***/ })
