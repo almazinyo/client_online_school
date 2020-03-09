@@ -9,8 +9,8 @@
       </p>
     </div>
 
-    <div class="---button ---button--acent"  style="margin-top: 10px;   margin-bottom: 35px;"  *ngIf="currentHints!==0" (click)="prevHints()">Назад</div>
-    <div class="---button ---button--acent"  style="margin-top: 10px;   margin-bottom: 35px;"  *ngIf="currentHints+1<hints.length" (click)="nextHints()">Вперед</div>
+    <div class="---button ---button--acent" style="margin-top: 10px; margin-bottom: 35px;"  *ngIf="currentHints!==0" (click)="prevHints()">Назад</div>
+    <div class="---button ---button--acent" style="margin-top: 10px; margin-bottom: 35px;"  *ngIf="currentHints+1<hints.length" (click)="nextHints()">Вперед</div>
     <div (click)="hiddenHints=!hiddenHints"
          class="---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs"></div>
   </div>
