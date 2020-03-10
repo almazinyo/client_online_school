@@ -142,6 +142,8 @@ export class WorkComponent {
       this.testIndex++;
       this.answer = '';
     }
+
+    console.log(this.answerTest);
   }
 
   sendAnswer() {
@@ -158,10 +160,14 @@ export class WorkComponent {
           type: 'error'
         };
         this.answerTest = [];
+        this.testIndex = 0;
+        this.answer = '';
       },
       (error) => {
         console.log('Ошибка при отправке тестов: ', error);
         this.answerTest = [];
+        this.testIndex = 0;
+        this.answer = '';
       });
   }
 
@@ -222,6 +228,8 @@ export class WorkComponent {
 
   changeLessons(section_slug, currentWork_slug) {
     this.answerTest = [];
+    this.testIndex = 0;
+    this.answer = '';
     this.router.navigate(['work' + '/' + section_slug + '/' + currentWork_slug]);
   }
 }
