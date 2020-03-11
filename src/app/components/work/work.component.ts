@@ -72,6 +72,8 @@ export class WorkComponent {
     sale: 0,
   };
 
+  showBtnSend = false;
+
   constructor(private workService: WorkService,
               private router: Router,
               private globalParamsMessage: GlobalParamsMessage,
@@ -127,6 +129,10 @@ export class WorkComponent {
           body: 'Правильный ответ: ' + this.test[this.testIndex].correct_answer,
           type: 'error'
         };
+
+        if (this.testIndex + 1 === this.test.length) {
+          this.showBtnSend = true;
+        }
       } else {
         this.globalParamsMessage.data = {
           title: 'Вы уже ответили на этот вопрос',
@@ -139,11 +145,14 @@ export class WorkComponent {
     } else {
       this.answerTest[this.testIndex].points = this.answerTest[this.testIndex].hint ? '0' : this.test[this.testIndex].bonus_points;
       this.answerTest[this.testIndex].answer = this.answer;
-      this.testIndex++;
+      if (this.testIndex + 1 === this.test.length) {
+        this.showBtnSend = true;
+      } else {
+        this.testIndex++;
+      }
+
       this.answer = '';
     }
-
-    console.log(this.answerTest);
   }
 
   sendAnswer() {
@@ -159,15 +168,21 @@ export class WorkComponent {
           body: 'Количество правильных ответов: ' + result.correct_answers + '. Количество неправильных ответов: ' + result.wrong_answers,
           type: 'error'
         };
-        this.answerTest = [];
+        for (let i = 0; i < this.test.length; i++) {
+          this.answerTest.push({id: this.test[i].id, answer: '', hint: false, points: '0'});
+        }
         this.testIndex = 0;
         this.answer = '';
+        this.showBtnSend = false;
       },
       (error) => {
         console.log('Ошибка при отправке тестов: ', error);
-        this.answerTest = [];
+        for (let i = 0; i < this.test.length; i++) {
+          this.answerTest.push({id: this.test[i].id, answer: '', hint: false, points: '0'});
+        }
         this.testIndex = 0;
         this.answer = '';
+        this.showBtnSend = false;
       });
   }
 
@@ -229,6 +244,7 @@ export class WorkComponent {
   changeLessons(section_slug, currentWork_slug) {
     this.answerTest = [];
     this.testIndex = 0;
+    this.showBtnSend = false;
     this.answer = '';
     this.router.navigate(['work' + '/' + section_slug + '/' + currentWork_slug]);
   }

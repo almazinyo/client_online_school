@@ -19,7 +19,7 @@
           Необходимо авторизоваться и купить урок.
         </p>
         <br>
-        <div *ngIf="globalParamsUser.fio!==null && lesson.is_status==='1'" class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,lesson.slug)">
+        <div *ngIf="globalParamsUser.fio!==null && lesson.is_status==='1'" class="---button ---button--acent_orange ---cursor-pointer" (click)="changeShowBuy(section.price,section.slug)">
           Купить
         </div>
       </div>
@@ -79,7 +79,7 @@
 
 
         <div class="---test-wrap ---d-flex ---flex-wrap" *ngIf="test.length>0">
-          <div class="col-xl-5" *ngIf="test.length!=testIndex">
+          <div class="col-xl-5">
             <div class="---task">
               <div class="h3">Задание</div>
 
@@ -89,7 +89,7 @@
               </div>
 
               <div class="---button ---button--xs ---button--green ---cursor-pointer"
-                   (click)="checkImg(test[testIndex].hint,'hint')" *ngIf="test[testIndex].hint!==''">Подсказка
+                   (click)="checkImg(test[testIndex].hint,'hint')" *ngIf="test[testIndex] && test[testIndex].hint!==''">Подсказка
               </div>
 
               <div class="---button ---button--xs ---button--green ---cursor-pointer" style="padding-left: 0 !important; padding-right: 0 !important; width: 32px !important;" *ngIf="testIndex!=0"
@@ -101,18 +101,18 @@
 
           <div class="col-xl-7">
             <div class="---answers">
-              <div *ngIf="test.length!=testIndex" class="h3">Ваш ответ (вопрос {{testIndex+1}} из {{test.length}})</div>
+              <div class="h3">Ваш ответ (вопрос {{testIndex+1}} из {{test.length}})</div>
 
-              <div *ngIf="test.length!=testIndex" class="---answer ---is-active">
+              <div *ngIf="test.length!=testIndex && !showBtnSend" class="---answer ---is-active">
                 <div class="---input-wrap ---_indicator ---pos-rel ---d-flex ---align-items-center">
                   <input [(ngModel)]="answer" class="---input" placeholder="Впишите ответ">
                 </div>
               </div>
               <div class="---answer">
-                <div *ngIf="test.length!=testIndex" (click)="answerCurrentTest()"
+                <div *ngIf="test.length!=testIndex && !showBtnSend" (click)="answerCurrentTest()"
                      class="---button ---button--acent_orange ---cursor-pointer">Ответить
                 </div>
-                <div *ngIf="test.length==testIndex" (click)="sendAnswer()"
+                <div *ngIf="showBtnSend" (click)="sendAnswer()"
                      class="---button ---button--acent_orange ---cursor-pointer">Завершить тест
                 </div>
               </div>
