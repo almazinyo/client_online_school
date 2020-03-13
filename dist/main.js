@@ -4244,6 +4244,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var js_base64__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! js-base64 */ "./node_modules/js-base64/base64.js");
 /* harmony import */ var js_base64__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(js_base64__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../storage/session-storage.service */ "./src/app/storage/session-storage.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4260,10 +4261,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var HttpService = /** @class */ (function () {
-    function HttpService(http, globalParamsMessage, sessionStorage) {
+    function HttpService(http, globalParamsMessage, cookieService, sessionStorage) {
         this.http = http;
         this.globalParamsMessage = globalParamsMessage;
+        this.cookieService = cookieService;
         this.sessionStorage = sessionStorage;
     }
     HttpService_1 = HttpService;
@@ -4340,7 +4343,10 @@ var HttpService = /** @class */ (function () {
         if (url === void 0) { url = 'noUrl'; }
         if (data === void 0) { data = {}; }
         if (post === void 0) { post = false; }
-        console.log(1, data);
+        var cookie = this.cookieService.get('vk_app_7200615') || '';
+        if (cookie === '') {
+            this.sessionStorage.tokenId = '';
+        }
         if (Object.keys(data).length !== 0 && post) {
             data.token = this.sessionStorage.tokenId;
         }
@@ -4406,6 +4412,7 @@ var HttpService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
             _components_message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_4__["GlobalParamsMessage"],
+            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
             _storage_session_storage_service__WEBPACK_IMPORTED_MODULE_6__["SessionStorageService"]])
     ], HttpService);
     return HttpService;
