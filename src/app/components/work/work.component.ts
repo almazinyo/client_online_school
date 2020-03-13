@@ -153,9 +153,12 @@ export class WorkComponent {
 
       this.answer = '';
     }
+
+    console.log(111, this.answerTest);
   }
 
   sendAnswer() {
+    console.log(222, this.answerTest);
     this.workService.sendAnswer({
         section_id: this.lesson.section_id,
         lesson_id: this.lesson.id,
@@ -168,6 +171,8 @@ export class WorkComponent {
           body: 'Количество правильных ответов: ' + result.correct_answers + '. Количество неправильных ответов: ' + result.wrong_answers,
           type: 'error'
         };
+
+        this.answerTest = [];
         for (let i = 0; i < this.test.length; i++) {
           this.answerTest.push({id: this.test[i].id, answer: '', hint: false, points: '0'});
         }
@@ -177,6 +182,7 @@ export class WorkComponent {
       },
       (error) => {
         console.log('Ошибка при отправке тестов: ', error);
+        this.answerTest = [];
         for (let i = 0; i < this.test.length; i++) {
           this.answerTest.push({id: this.test[i].id, answer: '', hint: false, points: '0'});
         }
