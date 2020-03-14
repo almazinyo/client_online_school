@@ -12,6 +12,8 @@ export class ProfilePromotionComponent {
     this.profilePromotionService.getPromotion().then((data: InterFaceProfilePromotion[]) => {
         this.lessons = data;
 
+        console.log(1,this.lessons)
+
       },
       (error) => {
         console.log('Ошибка при получении информации о продвижении: ', error);

@@ -5,6 +5,7 @@ import {catchError} from 'rxjs/internal/operators';
 import {GlobalParamsMessage} from '../../components/message_alert/global-params-message';
 import {Base64} from 'js-base64';
 import {SessionStorageService} from '../../storage/session-storage.service';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable()
 export class HttpService {
@@ -34,6 +35,7 @@ export class HttpService {
 
   constructor(private http: HttpClient,
               private  globalParamsMessage: GlobalParamsMessage,
+              private cookieService: CookieService,
               private sessionStorage: SessionStorageService) {
   }
 
@@ -78,6 +80,12 @@ export class HttpService {
   }
 
   public prepareQuery(url: string = 'noUrl', data: any = {}, post = false) {
+    const cookie = this.cookieService.get('vk_app_7200615') || '';
+
+    if (cookie === '') {
+      this.sessionStorage.tokenId = '';
+    }
+
     if (Object.keys(data).length !== 0 && post) {
       data.token = this.sessionStorage.tokenId;
     } else {
