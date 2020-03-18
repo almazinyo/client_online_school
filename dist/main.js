@@ -4344,9 +4344,6 @@ var HttpService = /** @class */ (function () {
         if (data === void 0) { data = {}; }
         if (post === void 0) { post = false; }
         var cookie = this.cookieService.get('vk_app_7200615') || '';
-        if (cookie === '') {
-            this.sessionStorage.tokenId = '';
-        }
         if (Object.keys(data).length !== 0 && post) {
             data.token = this.sessionStorage.tokenId;
         }
