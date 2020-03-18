@@ -10,28 +10,26 @@
         <div class="---course-list ---lessons-tabs">
           <div class="---subject" *ngFor="let section of lessons">
             <div class="---course ---font-800 ---d-flex ---align-items-center ---cursor-pointer" [style.backgroundColor]="section.background">
-          <span class="---play-button ---pos-rel">
-            <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path
-              fill="#ff8a65"
-              d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
-          </span>
+              <span class="---play-button ---pos-rel">
+                <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.861 163.861"><path fill="#ff8a65" d="M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z"/></svg>
+              </span>
               <span class="---icon ---pos-rel">
-            <img src="assets/imgs/icons/course.svg" alt="" class="---pos-abs">
-          </span>
+              <img src="assets/imgs/icons/course.svg" alt="" class="---pos-abs">
+              </span>
 
               <span class="---text-wrap">
-            <span class="---font-800">{{section.name}}</span>
-          </span>
+                <span class="---font-800">{{section.name}}</span>
+              </span>
             </div>
 
             <div class="---d-inline-flex ---pos-rel" [ngClass]="{'---lessons':section.sectionSubjects.length>0}">
-
               <div class="---lesson" *ngFor="let subSection of section.sectionSubjects" [style.backgroundColor]="section.background">
-            <span class="---icon ---y-pos-abs ---replaced-svg">
-              <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.1 491.1"><path d="M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z"/></svg>
-            </span>
+                <span class="---icon ---y-pos-abs ---replaced-svg">
+                  <svg class="---pos-abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.1 491.1"><path d="M379.25 282.85l-192.8 192.8c-20.6 20.6-54 20.6-74.6 0s-20.6-54 0-74.6l155.5-155.5-155.5-155.5c-20.6-20.6-20.6-54 0-74.6s54-20.6 74.6 0l192.8 192.8c20.6 20.6 20.6 54 0 74.6z"/></svg>
+                </span>
+                
                 {{subSection.name}}
-                баллы ({{subSection.bonus_points}})
+                <div class="---points">баллы ({{subSection.bonus_points}})</div>
               </div>
             </div>
           </div>

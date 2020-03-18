@@ -48,6 +48,7 @@
     <a routerLink="/reviews" class="---button ---button--border_bg ---button--color-acent">Все отзывы</a>
   </div>
 
+  <div class="---row">
     <div class="col-xl-6" *ngFor="let review of reviews">
       <div class="---item">
         <div class="---item-header ---pos-rel">
@@ -62,4 +63,5 @@
         <p>{{review.description}}</p>
       </div>
     </div>
+  </div>
 </div>
