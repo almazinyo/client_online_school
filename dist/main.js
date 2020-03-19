@@ -4210,7 +4210,7 @@ var SessionStorageService = /** @class */ (function () {
         this.globalParamsUser.fio = '';
         this.authenticated.emit(false);
         localStorage.removeItem('token');
-        this.cookieService.set('vk_app_7200615', '', 0);
+        this.cookieService.set('vk_app_7200615', '', 1, '/', '.dev.examator.ru');
     };
     SessionStorageService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
