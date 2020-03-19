@@ -4344,11 +4344,11 @@ var HttpService = /** @class */ (function () {
         if (data === void 0) { data = {}; }
         if (post === void 0) { post = false; }
         var cookie = this.cookieService.get('vk_app_7200615') || '';
-        if (Object.keys(data).length !== 0 && post) {
-            data.token = this.sessionStorage.tokenId;
+        if (typeof data !== 'object') {
+            data = { token: '' };
         }
-        else {
-            data = { token: this.sessionStorage.tokenId };
+        if (cookie !== '') {
+            data.token = this.sessionStorage.tokenId;
         }
         if (Object.keys(data).length !== 0 && post) {
             data = JSON.stringify(data);

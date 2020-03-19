@@ -81,11 +81,12 @@ export class HttpService {
 
   public prepareQuery(url: string = 'noUrl', data: any = {}, post = false) {
     const cookie = this.cookieService.get('vk_app_7200615') || '';
+    if (typeof data !== 'object') {
+      data = {token: ''};
+    }
 
-    if (Object.keys(data).length !== 0 && post) {
+    if (cookie !== '') {
       data.token = this.sessionStorage.tokenId;
-    } else {
-      data = {token: this.sessionStorage.tokenId};
     }
 
     if (Object.keys(data).length !== 0 && post) {
@@ -94,7 +95,6 @@ export class HttpService {
     }
 
     return new Promise((resolve, reject) => {
-
       this.sendPostQuery(url, data, post).subscribe((result: { status: number, msg: string, session_id: string, data: string, code: string }) => {
           if (result.status === 200) {
             if (typeof result.data !== 'undefined') {
