@@ -85,9 +85,12 @@ export class HttpService {
       data = {token: ''};
     }
 
+    console.log('cookie: ', cookie);
     if (cookie !== '') {
       data.token = this.sessionStorage.tokenId;
     }
+
+    console.log('data:', data);
 
     if (Object.keys(data).length !== 0 && post) {
       data = JSON.stringify(data);

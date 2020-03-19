@@ -4347,9 +4347,11 @@ var HttpService = /** @class */ (function () {
         if (typeof data !== 'object') {
             data = { token: '' };
         }
+        console.log('cookie: ', cookie);
         if (cookie !== '') {
             data.token = this.sessionStorage.tokenId;
         }
+        console.log('data:', data);
         if (Object.keys(data).length !== 0 && post) {
             data = JSON.stringify(data);
             data = js_base64__WEBPACK_IMPORTED_MODULE_5__["Base64"].encode(data);
