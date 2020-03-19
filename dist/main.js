@@ -4206,9 +4206,9 @@ var SessionStorageService = /** @class */ (function () {
         this.authenticated.emit(data);
     };
     SessionStorageService.prototype.exit = function () {
+        this.router.navigate(['/']);
         this.globalParamsUser.fio = '';
         this.authenticated.emit(false);
-        this.router.navigate(['/']);
         localStorage.removeItem('token');
         this.cookieService.deleteAll();
     };

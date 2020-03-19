@@ -28,9 +28,9 @@ export class SessionStorageService {
   }
 
   exit() {
+    this.router.navigate(['/']);
     this.globalParamsUser.fio = '';
     this.authenticated.emit(false);
-    this.router.navigate(['/']);
     localStorage.removeItem('token');
     this.cookieService.deleteAll();
   }
