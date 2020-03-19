@@ -32,7 +32,7 @@ export class SessionStorageService {
     this.globalParamsUser.fio = '';
     this.authenticated.emit(false);
     localStorage.removeItem('token');
-    this.cookieService.deleteAll();
+    this.cookieService.set('vk_app_7200615', '', 0);
   }
 
 }
