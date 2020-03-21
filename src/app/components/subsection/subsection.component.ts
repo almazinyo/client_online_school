@@ -5,6 +5,7 @@ import {HttpService} from '../../utils/http/http.service';
 import {GlobalParamsUser} from '../../storage/global-params-user';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {GlobalParamsMessage} from '../message_alert/global-params-message';
+import {MenuService} from '../menu/menu.service';
 
 
 @Component({
@@ -43,10 +44,21 @@ export class SubsectionComponent {
   };
 
   promo = '';
+  buttons = [{'name': 'Выбрать бесплатный урок', 'slug': '#'}, {'name': 'Учителя', 'slug': '/teacher'}, {
+    'name': 'Отзывы',
+    'slug': '/reviews'
+  }, {'name': 'Блог', 'slug': '/blog'}, {
+    'name': ' Начать учиться ',
+    'slug': 'https://vk.com/app5898182_-185278877#s=493523'
+  }, {'name': ' Запись на пробный курс ', 'slug': 'https://vk.com/app5898182_-185278877#s=493523'}, {
+    'name': 'Купить все курсы',
+    'slug': '#'
+  }];
 
   constructor(private subsectionService: SubsectionService,
               private httpService: HttpService,
               public globalParamsUser: GlobalParamsUser,
+              public menuService: MenuService,
               private router: Router,
               private sanitizer: DomSanitizer,
               private globalParamsMessage: GlobalParamsMessage,
@@ -56,6 +68,13 @@ export class SubsectionComponent {
         this.getSubsection(params.id);
       }
     );
+
+    this.menuService.getButtons().then((data: any) => {
+        this.buttons = data;
+      },
+      (error) => {
+        console.log('Ошибка при получении кнопок: ', error);
+      });
   }
 
   changeShowBuy(price, slug) {

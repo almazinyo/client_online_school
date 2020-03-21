@@ -85,7 +85,6 @@ export class HttpService {
       data = {token: ''};
     }
 
-    console.log('cookie: ', cookie);
     if (cookie !== '') {
       data.token = this.sessionStorage.tokenId;
     }
@@ -104,6 +103,7 @@ export class HttpService {
               /*let rez = atob(result.data);
               rez = JSON.parse(rez);
               console.log('Результат ответа: ', rez);*/
+              console.log('Результат:', result.data)
               resolve(result.data);
             } else {
               resolve(result);

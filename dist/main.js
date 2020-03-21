@@ -1134,7 +1134,7 @@ var CallbackService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-have-questions\">\n  <div class=\"---row\">\n\n    <div class=\"col-lg-7\">\n      <div class=\"---block-title\">\n        Остались вопросы?<br>\n        <b class=\"---font-800\">\n          Запишись на бесплатный<br>\n          пробный курс!\n        </b>\n      </div>\n      <a\n        href=\"https://vk.com/app5898182_-185278877#s=493523\"\n        target=\"_blank\"\n        class=\"---button ---button--acent_orange\">\n        Запись на пробный курс\n      </a>\n    </div>\n\n    <div class=\"col-lg-5 ---d-none ---sm-d-block\">\n      <div class=\"---illustration-wrap ---pos-rel ---bg ---z-index-under ---text-right\">\n        <img lazyLoad=\"assets/imgs/illustrations/1.svg\" alt=\"\" class=\"---img ---z-index-over\">\n        <img lazyLoad=\"assets/imgs/illustrations/bg1.svg\" alt=\"\" class=\"---bg ---z-index-under\">\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---layout-footer\">\n\n  <app-social-link></app-social-link>\n\n<!--  <div class=\"-&#45;&#45;row -&#45;&#45;xl-flex-nowrap -&#45;&#45;nav-blocks\"-->\n<!--       *ngFor=\"let footerMenu of footers\">-->\n\n<!--    <div class=\"-&#45;&#45;block col-6 col-xs-4 col-xl-auto\">-->\n<!--      <div class=\"-&#45;&#45;title -&#45;&#45;font-800\">{{footerMenu.title}}</div>-->\n<!--      <nav *ngFor=\"let subject of footerMenu.sectionSubjects\" [ngClass]=\"{'opacity-5':footerMenu.is_status==='2'}\">-->\n<!--        <a (click)=\"getSection(subject)\" *ngIf=\"subject.parent_id==='0'\" class=\"-&#45;&#45;cursor-pointer\">{{subject.name}}</a>-->\n<!--      </nav>-->\n<!--    </div>-->\n<!--  </div>-->\n\n  <div class=\"---footer ---d-flex ---flex-column ---sm-flex-row\">\n    <div class=\"---copy\">© 2019 Ekzamator. All Rights Reserved.</div>\n\n    <a href=\"#\" class=\"---conf\">Политика конфиденциальности</a>\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"---block-have-questions\">\n  <div class=\"---row\">\n\n    <div class=\"col-lg-7\">\n      <div class=\"---block-title\">\n        Остались вопросы?<br>\n        <b class=\"---font-800\">\n          Запишись на бесплатный<br>\n          пробный курс!\n        </b>\n      </div>\n      <a\n        href=\"https://vk.com/app5898182_-185278877#s=493523\"\n        target=\"_blank\"\n        class=\"---button ---button--acent_orange\">\n        {{buttons[5].name}}\n      </a>\n    </div>\n\n    <div class=\"col-lg-5 ---d-none ---sm-d-block\">\n      <div class=\"---illustration-wrap ---pos-rel ---bg ---z-index-under ---text-right\">\n        <img lazyLoad=\"assets/imgs/illustrations/1.svg\" alt=\"\" class=\"---img ---z-index-over\">\n        <img lazyLoad=\"assets/imgs/illustrations/bg1.svg\" alt=\"\" class=\"---bg ---z-index-under\">\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<div class=\"---devider\"></div>\n\n<div class=\"---layout-footer\">\n\n  <app-social-link></app-social-link>\n\n<!--  <div class=\"-&#45;&#45;row -&#45;&#45;xl-flex-nowrap -&#45;&#45;nav-blocks\"-->\n<!--       *ngFor=\"let footerMenu of footers\">-->\n\n<!--    <div class=\"-&#45;&#45;block col-6 col-xs-4 col-xl-auto\">-->\n<!--      <div class=\"-&#45;&#45;title -&#45;&#45;font-800\">{{footerMenu.title}}</div>-->\n<!--      <nav *ngFor=\"let subject of footerMenu.sectionSubjects\" [ngClass]=\"{'opacity-5':footerMenu.is_status==='2'}\">-->\n<!--        <a (click)=\"getSection(subject)\" *ngIf=\"subject.parent_id==='0'\" class=\"-&#45;&#45;cursor-pointer\">{{subject.name}}</a>-->\n<!--      </nav>-->\n<!--    </div>-->\n<!--  </div>-->\n\n  <div class=\"---footer ---d-flex ---flex-column ---sm-flex-row\">\n    <div class=\"---copy\">© 2019 Ekzamator. All Rights Reserved.</div>\n\n    <a href=\"#\" class=\"---conf\">Политика конфиденциальности</a>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1169,8 +1169,23 @@ var FooterComponent = /** @class */ (function () {
         this.router = router;
         this.menuService = menuService;
         this.footers = [];
+        this.buttons = [{ 'name': 'Выбрать бесплатный урок', 'slug': '#' }, { 'name': 'Учителя', 'slug': '/teacher' }, {
+                'name': 'Отзывы',
+                'slug': '/reviews'
+            }, { 'name': 'Блог', 'slug': '/blog' }, {
+                'name': ' Начать учиться ',
+                'slug': 'https://vk.com/app5898182_-185278877#s=493523'
+            }, { 'name': ' Запись на пробный курс ', 'slug': 'https://vk.com/app5898182_-185278877#s=493523' }, {
+                'name': 'Купить все курсы',
+                'slug': '#'
+            }];
         this.menuService.getMenuCheck.subscribe(function (item) {
             _this.footers = _this.menuService.menu;
+        });
+        this.menuService.getButtons().then(function (data) {
+            _this.buttons = data;
+        }, function (error) {
+            console.log('Ошибка при получении кнопок: ', error);
         });
     }
     // переход на ссылку
@@ -1332,7 +1347,7 @@ var SocialLinkService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header class=\"---layout-header ---d-flex\">\n  <div class=\"---container\">\n    <div class=\"---row\">\n\n      <a routerLink=\"/\"\n         class=\"---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end\">\n        <img src=\"assets/imgs/logo.svg\">\n        <span class=\"---bg ---z-index-under\"></span>\n      </a>\n\n      <div class=\"---content ---d-flex ---justify-content-between ---align-items-center\">\n        <img lazyLoad=\"assets/imgs/logo-text.svg\" alt=\"\" class=\"---logo-text ---d-none ---xl-d-block\">\n\n        <div class=\"---d-flex\">\n          <a href=\"#\" class=\"---button ---button--acent_orange ---d-inline-flex ---lg-d-none ---js-open\"\n             data-open-block=\".---main-menu\" data-html-hidden=\"1\">\n            <img src=\"assets/imgs/icons/main-menu.svg\" alt=\"\">\n            <span>Меню</span>\n          </a>\n\n          <div class=\"---subject ---pos-rel ---z-index-over ---lg-d-none ---xxl-d-block\">\n            <a href=\"#\" class=\"---button ---button--acent\">\n              <img src=\"assets/imgs/icons/menu.svg\" alt=\"\">\n              <span>Предметы</span>\n            </a>\n\n            <div class=\"---subject-list ---font-600 ---z-index-under\">\n              <div *ngFor=\"let currentMenu of menu\" [ngClass]=\"{'---inactive':currentMenu.is_status==='2'}\"\n                   (click)=\"getSection(currentMenu)\">{{currentMenu.title}}\n              </div>\n            </div>\n\n          </div>\n        </div>\n\n        <nav class=\"---d-none ---lg-d-flex\">\n          <a (click)=\"subject.show=true\" class=\"---cursor-pointer ---acent ---font-600\">Выбрать бесплатный урок</a>\n          <a routerLink='teacher'>Учителя</a>\n\n          <a routerLink='reviews'>Отзывы</a>\n          <a routerLink='blog'>Блог</a>\n        </nav>\n\n        <div class=\"---btns ---d-flex\">\n          <button *ngIf=\"!checkAuth\" (click)=\"auth()\" class=\"---button ---button--border_bg\">Войти</button>\n          <a *ngIf=\"checkAuth\" routerLink='profile-details' class=\"---button ---button--border_bg\">Профиль</a>\n          <a\n            href=\"https://vk.com/app5898182_-185278877#s=493523\"\n            target=\"_blank\"\n            class=\"---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn\">\n            Начать учиться\n          </a>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</header>\n\n\n<div *ngIf=\"subject.show\"\n     class=\"---modal ---justify-content-center ---align-items-start ---is-visible ---d-flex\">\n  <div class=\"---wrapper ---wrapper_free-courses\">\n    <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" (click)=\"subject.show=false\"\n       data-close-block=\".---modal\"></i>\n\n    <div class=\"---block-subjects ---row ---row--sm\">\n      <div class=\"col-xs-6 spec-block-lesson\" *ngFor=\"let item of menu\">\n        <div (click)=\"getSection(item)\"\n             [ngClass]=\"{'opacity-5':item.is_status==='2'}\"\n             class=\"---cursor-pointer ---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start\"\n             [style.backgroundColor]=\"item.color\">\n          <div class=\"---item__icon ---pos-rel\">\n            <i class=\"---icon-font ---pos-abs\" [ngClass]=\"'---icon-menu-'+item.icon\"></i>\n          </div>\n          <div>\n            <div class=\"---item__title\">{{item.title}}</div>\n            <!--<div class=\"---item__thumb\">56 курсов / 28 вебинаров</div>-->\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<header class=\"---layout-header ---d-flex\">\n  <div class=\"---container\">\n    <div class=\"---row\">\n\n      <a routerLink=\"/\"\n         class=\"---logo ---pos-rel ---z-index-over ---d-flex ---align-items-center ---justify-content-end\">\n        <img src=\"assets/imgs/logo.svg\">\n        <span class=\"---bg ---z-index-under\"></span>\n      </a>\n\n      <div class=\"---content ---d-flex ---justify-content-between ---align-items-center\">\n        <img lazyLoad=\"assets/imgs/logo-text.svg\" alt=\"\" class=\"---logo-text ---d-none ---xl-d-block\">\n\n        <div class=\"---d-flex\">\n          <a href=\"#\" class=\"---button ---button--acent_orange ---d-inline-flex ---lg-d-none ---js-open\"\n             data-open-block=\".---main-menu\" data-html-hidden=\"1\">\n            <img src=\"assets/imgs/icons/main-menu.svg\" alt=\"\">\n            <span>Меню</span>\n          </a>\n\n          <div class=\"---subject ---pos-rel ---z-index-over ---lg-d-none ---xxl-d-block\">\n            <a href=\"#\" class=\"---button ---button--acent\">\n              <img src=\"assets/imgs/icons/menu.svg\" alt=\"\">\n              <span>Предметы</span>\n            </a>\n\n            <div class=\"---subject-list ---font-600 ---z-index-under\">\n              <div *ngFor=\"let currentMenu of menu\" [ngClass]=\"{'---inactive':currentMenu.is_status==='2'}\"\n                   (click)=\"getSection(currentMenu)\">{{currentMenu.title}}\n              </div>\n            </div>\n\n          </div>\n        </div>\n\n        <nav class=\"---d-none ---lg-d-flex\">\n          <a (click)=\"subject.show=true\" class=\"---cursor-pointer ---acent ---font-600\">{{buttons[0].name}}</a>\n          <a routerLink='teacher'>{{buttons[1].name}}</a>\n\n          <a routerLink='reviews'>{{buttons[2].name}}</a>\n          <a routerLink='blog'>{{buttons[3].name}}</a>\n        </nav>\n\n        <div class=\"---btns ---d-flex\">\n          <button *ngIf=\"!checkAuth\" (click)=\"auth()\" class=\"---button ---button--border_bg\">Войти</button>\n          <a *ngIf=\"checkAuth\" routerLink='profile-details' class=\"---button ---button--border_bg\">Профиль</a>\n          <a\n            href=\"https://vk.com/app5898182_-185278877#s=493523\"\n            target=\"_blank\"\n            class=\"---d-none ---pos-rel ---md-d-inline-flex ---button ---button--acent_orange ---start-learn\">\n            Начать учиться\n          </a>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</header>\n\n\n<div *ngIf=\"subject.show\"\n     class=\"---modal ---justify-content-center ---align-items-start ---is-visible ---d-flex\">\n  <div class=\"---wrapper ---wrapper_free-courses\">\n    <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" (click)=\"subject.show=false\"\n       data-close-block=\".---modal\"></i>\n\n    <div class=\"---block-subjects ---row ---row--sm\">\n      <div class=\"col-xs-6 spec-block-lesson\" *ngFor=\"let item of menu\">\n        <div (click)=\"getSection(item)\"\n             [ngClass]=\"{'opacity-5':item.is_status==='2'}\"\n             class=\"---cursor-pointer ---item  ---d-flex ---flex-row ---align-items-center ---md-flex-column ---md-align-items-start\"\n             [style.backgroundColor]=\"item.color\">\n          <div class=\"---item__icon ---pos-rel\">\n            <i class=\"---icon-font ---pos-abs\" [ngClass]=\"'---icon-menu-'+item.icon\"></i>\n          </div>\n          <div>\n            <div class=\"---item__title\">{{item.title}}</div>\n            <!--<div class=\"---item__thumb\">56 курсов / 28 вебинаров</div>-->\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1389,9 +1404,24 @@ var HeaderComponent = /** @class */ (function () {
             show: false,
             data: true
         };
+        this.buttons = [{ 'name': 'Выбрать бесплатный урок', 'slug': '#' }, { 'name': 'Учителя', 'slug': '/teacher' }, {
+                'name': 'Отзывы',
+                'slug': '/reviews'
+            }, { 'name': 'Блог', 'slug': '/blog' }, {
+                'name': ' Начать учиться ',
+                'slug': 'https://vk.com/app5898182_-185278877#s=493523'
+            }, { 'name': ' Запись на пробный курс ', 'slug': 'https://vk.com/app5898182_-185278877#s=493523' }, {
+                'name': 'Купить все курсы',
+                'slug': '#'
+            }];
         this.menu = this.menuService.menu;
         this.menuService.getMenuCheck.subscribe(function (item) {
             _this.menu = _this.menuService.menu;
+        });
+        this.menuService.getButtons().then(function (data) {
+            _this.buttons = data;
+        }, function (error) {
+            console.log('Ошибка при получении кнопок: ', error);
         });
         this.sessionStorageService.authenticated.subscribe(function (item) {
             _this.fio = _this.globalParamsUser.fio;
@@ -1720,6 +1750,7 @@ var MenuService = /** @class */ (function () {
         this.httpService = httpService;
         this.getMenuCheck = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"](false);
         this.menu = [];
+        this.buttons = [];
     }
     // получение списка активных полей
     MenuService.prototype.getMenu = function () {
@@ -1739,6 +1770,25 @@ var MenuService = /** @class */ (function () {
             else {
                 _this.getMenuCheck.emit(true);
                 resolve(_this.menu);
+            }
+        });
+    };
+    // получение списка активных полей
+    MenuService.prototype.getButtons = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            if (_this.buttons.length === 0) {
+                _this.httpService.prepareQuery('api/main/menu', {})
+                    .then(function (result) {
+                    _this.buttons = result;
+                    resolve(result);
+                }, function (error) {
+                    console.log('Ошибка при получении списка кнопок', error);
+                    reject();
+                });
+            }
+            else {
+                resolve(_this.buttons);
             }
         });
     };
@@ -3091,7 +3141,7 @@ var SectionService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-course-header ---pos-rel\">\n  <div class=\"---bg ---z-index-under\" style=\"background: #ec407a;\"></div>\n\n  <img lazyLoad=\"assets/imgs/course-in/bg/mechanic.svg\" alt=\"\" class=\"---bg-img ---z-index-under\">\n\n  <div class=\"---row\">\n\n    <div class=\"col-lg-8\">\n      <div class=\"---block-title\">\n        Курсы по {{subsection.subject.title}}\n        <div class=\"---font-800\">{{subsection.name}}</div>\n      </div>\n\n      <p>{{subsection.short_description}}</p>\n      <a href=\"https://vk.com/app5898182_-185278877#s=493523\" target=\"_blank\" fragment=\"start_work\"\n         class=\"---button ---button--acent_orange ---button--shadow\">Начать\n        учиться</a>\n    </div>\n\n  </div>\n\n  <img lazyLoad=\"{{subsection.img_path}}\" alt=\"\" class=\"---icon ---d-none ---sm-d-block\">\n</div>\n\n<div class=\"---block-courses\" id=\"courses-details\">\n  <div class=\"---free-course ---pos-rel ---d-flex ---align-items-center\">\n    <div>\n      <div class=\"---title\"><span class=\"---font-800\">3 урока бесплатно!</span> Попробуйте</div>\n      <p>Вы можете выбрать любой курс и пройти 3 урока бесплатно после <a href=\"#\">регитсрации</a></p>\n    </div>\n\n    <i class=\"---icon-font ---icon-arrow-down ---d-none ---xl-d-inline-flex\"></i>\n\n    <img lazyLoad=\"assets/imgs/illustrations/course-free.svg\" alt=\"\" class=\"---icon ---d-none ---md-d-block\">\n  </div>\n\n  <div id=\"start_work\" class=\"---block-title\">Выберите <span class=\"---acent\">курс</span></div>\n\n  <div class=\"---row\">\n    <div class=\"col-xs-6 col-lg-4 col-xl-3\" *ngFor=\"let section of subsection.sections\">\n      <div class=\"---course\">\n        <div class=\"---top\" [style.backgroundColor]=\"section.background\">\n          <div class=\"---d-flex\">\n            <div class=\"---play-button ---pos-rel\">\n              <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\">\n                <path fill=\"#ec407a\"\n                      d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/>\n              </svg>\n            </div>\n            <div class=\"---icon ---icon-font ---icon-menu-{{section.icon}}\"></div>\n          </div>\n\n          <div class=\"---title\">\n            {{section.name}}\n          </div>\n          <div class=\"---count\">{{section.sort_description}}</div>\n        </div>\n        <ul>\n          <li *ngFor=\"let lesson of section.lessons\">\n            <img lazyLoad=\"assets/imgs/icons/circle-check.svg\" alt=\"\" class=\"---y-pos-abs\">\n            {{lesson.name}}\n          </li>\n        </ul>\n\n        <div *ngIf=\"section.is_status==1\" class=\"---price ---font-800 ---text-center\">{{section.price}} ₽</div>\n\n        <div *ngIf=\"globalParamsUser.fio===null\" class=\"---auth-require ---text-center ---cursor-pointer\">Необходимо авторизоваться</div>\n\n        <div *ngIf=\"globalParamsUser.fio!==null && section.is_status==1\"\n             class=\"---button ---button--acent_orange ---cursor-pointer\"\n             (click)=\"changeShowBuy(section.price,section.slug)\">Купить\n        </div>\n\n        <a *ngIf=\"section.is_status==2 || section.is_status==3\" (click)=\"getWork(section)\"\n           class=\"---button ---button--acent_orange\">Начать</a>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"---free-course ---free-course--acent ---pos-rel\">\n    <div class=\"---title\">\n      <span class=\"---font-800 ---d-block ---xs-d-inline-block\">Все курсы по {{subsection.name}}\n        со скидкой {{subsection.subject.stock}}%!</span>\n      <span class=\"---old-price\">{{subsection.subject.price}}</span>\n      - {{subsection.subject.price * subsection.subject.stock / 100}} ₽\n    </div>\n    <p>Покупая несколько курсов вы сильно экономите и получаете больше баллов</p>\n\n    <div (click)=\"buyAll()\" class=\"---button ---button--acent_orange\">Купить все курсы</div>\n  </div>\n</div>\n\n<div class=\"---block-course-about\">\n  <div class=\"---row\">\n\n    <div class=\"col-xl-6\">\n      <div class=\"---block-title\" id=\"courses\">О курсах</div>\n      <div innerHTML=\"{{subsection.description}}\">\n\n      </div>\n    </div>\n\n    <div class=\"col-xl-6 ---d-none ---sm-d-flex ---justify-content-between ---xl-flex-row\">\n      <img lazyLoad=\"assets/imgs/illustrations/bg2.svg\" alt=\"\" class=\"---bg ---z-index-under ---d-none ---xl-d-block\">\n\n      <div class=\"---img ---img-1\"><img lazyLoad=\"assets/imgs/course-in/2.png\" alt=\"\" class=\"---img-cover\"></div>\n      <div class=\"---img ---img-2\"><img lazyLoad=\"assets/imgs/course-in/1.png\" alt=\"\" class=\"---img-cover\"></div>\n    </div>\n\n  </div>\n</div>\n\n\n<div *ngIf=\"buyModal.show\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n  <div class=\"---wrapper ---wrapper_hint ---text-center\">\n\n    <div class=\"---wrapper__hint-content\">\n      <div class=\"---d-flex ---flex-wrap ---justify-content-center\">\n        <div style=\"margin: 0 5px 10px;\">Сумма: <span class=\"---font-600\">{{buyModal.price}} р</span></div>\n        <div style=\"margin: 0 5px 10px;\">Скидка: <span class=\"---font-600\">{{buyModal.sale}} %</span></div>\n        <div *ngIf=\"buyModal.new_price!==''\" style=\"margin: 0 5px 10px;\">Итого: <span\n          class=\"---font-600\">{{buyModal.new_price}} р</span></div>\n      </div>\n\n      <iframe\n        [src]=\"sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+buyModal.new_price+'&successURL=http://dev.examator.ru&account=41001820507850&label='+globalParamsUser.fio+'-'+buyModal.slug)\"\n        width=\"184\"\n        height=\"36\"\n        frameborder=\"0\"\n        allowtransparency=\"true\"\n        scrolling=\"no\"\n      >\n\n      </iframe>\n    </div>\n\n    <div (click)=\"buyModal.show=false\"\n         class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-course-header ---pos-rel\">\n  <div class=\"---bg ---z-index-under\" style=\"background: #ec407a;\"></div>\n\n  <img lazyLoad=\"assets/imgs/course-in/bg/mechanic.svg\" alt=\"\" class=\"---bg-img ---z-index-under\">\n\n  <div class=\"---row\">\n\n    <div class=\"col-lg-8\">\n      <div class=\"---block-title\">\n        Курсы по {{subsection.subject.title}}\n        <div class=\"---font-800\">{{subsection.name}}</div>\n      </div>\n\n      <p>{{subsection.short_description}}</p>\n      <a href=\"https://vk.com/app5898182_-185278877#s=493523\" target=\"_blank\" fragment=\"start_work\"\n         class=\"---button ---button--acent_orange ---button--shadow\">{{buttons[4].name}}</a>\n    </div>\n\n  </div>\n\n  <img lazyLoad=\"{{subsection.img_path}}\" alt=\"\" class=\"---icon ---d-none ---sm-d-block\">\n</div>\n\n<div class=\"---block-courses\" id=\"courses-details\">\n  <div class=\"---free-course ---pos-rel ---d-flex ---align-items-center\">\n    <div>\n      <div class=\"---title\"><span class=\"---font-800\">3 урока бесплатно!</span> Попробуйте</div>\n      <p>Вы можете выбрать любой курс и пройти 3 урока бесплатно после <a href=\"#\">регитсрации</a></p>\n    </div>\n\n    <i class=\"---icon-font ---icon-arrow-down ---d-none ---xl-d-inline-flex\"></i>\n\n    <img lazyLoad=\"assets/imgs/illustrations/course-free.svg\" alt=\"\" class=\"---icon ---d-none ---md-d-block\">\n  </div>\n\n  <div id=\"start_work\" class=\"---block-title\">Выберите <span class=\"---acent\">курс</span></div>\n\n  <div class=\"---row\">\n    <div class=\"col-xs-6 col-lg-4 col-xl-3\" *ngFor=\"let section of subsection.sections\">\n      <div class=\"---course\">\n        <div class=\"---top\" [style.backgroundColor]=\"section.background\">\n          <div class=\"---d-flex\">\n            <div class=\"---play-button ---pos-rel\">\n              <svg class=\"---pos-abs\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 163.861 163.861\">\n                <path fill=\"#ec407a\"\n                      d=\"M34.857 3.613C20.084-4.861 8.107 2.081 8.107 19.106v125.637c0 17.042 11.977 23.975 26.75 15.509L144.67 97.275c14.778-8.477 14.778-22.211 0-30.686L34.857 3.613z\"/>\n              </svg>\n            </div>\n            <div class=\"---icon ---icon-font ---icon-menu-{{section.icon}}\"></div>\n          </div>\n\n          <div class=\"---title\">\n            {{section.name}}\n          </div>\n          <div class=\"---count\">{{section.sort_description}}</div>\n        </div>\n        <ul>\n          <li *ngFor=\"let lesson of section.lessons\">\n            <img lazyLoad=\"assets/imgs/icons/circle-check.svg\" alt=\"\" class=\"---y-pos-abs\">\n            {{lesson.name}}\n          </li>\n        </ul>\n\n        <div *ngIf=\"section.is_status==1\" class=\"---price ---font-800 ---text-center\">{{section.price}} ₽</div>\n\n        <div *ngIf=\"globalParamsUser.fio===null\" class=\"---auth-require ---text-center ---cursor-pointer\">Необходимо авторизоваться</div>\n\n        <div *ngIf=\"globalParamsUser.fio!==null && section.is_status==1\"\n             class=\"---button ---button--acent_orange ---cursor-pointer\"\n             (click)=\"changeShowBuy(section.price,section.slug)\">Купить\n        </div>\n\n        <a *ngIf=\"section.is_status==2 || section.is_status==3\" (click)=\"getWork(section)\"\n           class=\"---button ---button--acent_orange\">Начать</a>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"---free-course ---free-course--acent ---pos-rel\">\n    <div class=\"---title\">\n      <span class=\"---font-800 ---d-block ---xs-d-inline-block\">Все курсы по {{subsection.name}}\n        со скидкой {{subsection.subject.stock}}%!</span>\n      <span class=\"---old-price\">{{subsection.subject.price}}</span>\n      - {{subsection.subject.price * subsection.subject.stock / 100}} ₽\n    </div>\n    <p>Покупая несколько курсов вы сильно экономите и получаете больше баллов</p>\n\n    <div (click)=\"buyAll()\" class=\"---button ---button--acent_orange\">{{buttons[6].name}}</div>\n  </div>\n</div>\n\n<div class=\"---block-course-about\">\n  <div class=\"---row\">\n\n    <div class=\"col-xl-6\">\n      <div class=\"---block-title\" id=\"courses\">О курсах</div>\n      <div innerHTML=\"{{subsection.description}}\">\n\n      </div>\n    </div>\n\n    <div class=\"col-xl-6 ---d-none ---sm-d-flex ---justify-content-between ---xl-flex-row\">\n      <img lazyLoad=\"assets/imgs/illustrations/bg2.svg\" alt=\"\" class=\"---bg ---z-index-under ---d-none ---xl-d-block\">\n\n      <div class=\"---img ---img-1\"><img lazyLoad=\"assets/imgs/course-in/2.png\" alt=\"\" class=\"---img-cover\"></div>\n      <div class=\"---img ---img-2\"><img lazyLoad=\"assets/imgs/course-in/1.png\" alt=\"\" class=\"---img-cover\"></div>\n    </div>\n\n  </div>\n</div>\n\n\n<div *ngIf=\"buyModal.show\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n  <div class=\"---wrapper ---wrapper_hint ---text-center\">\n\n    <div class=\"---wrapper__hint-content\">\n      <div class=\"---d-flex ---flex-wrap ---justify-content-center\">\n        <div style=\"margin: 0 5px 10px;\">Сумма: <span class=\"---font-600\">{{buyModal.price}} р</span></div>\n        <div style=\"margin: 0 5px 10px;\">Скидка: <span class=\"---font-600\">{{buyModal.sale}} %</span></div>\n        <div *ngIf=\"buyModal.new_price!==''\" style=\"margin: 0 5px 10px;\">Итого: <span\n          class=\"---font-600\">{{buyModal.new_price}} р</span></div>\n      </div>\n\n      <iframe\n        [src]=\"sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+buyModal.new_price+'&successURL=http://dev.examator.ru&account=41001820507850&label='+globalParamsUser.fio+'-'+buyModal.slug)\"\n        width=\"184\"\n        height=\"36\"\n        frameborder=\"0\"\n        allowtransparency=\"true\"\n        scrolling=\"no\"\n      >\n\n      </iframe>\n    </div>\n\n    <div (click)=\"buyModal.show=false\"\n         class=\"---cursor-pointer ---icon-close ---icon-font ---icon-close ---x-pos-abs\"></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3112,6 +3162,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _storage_global_params_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../storage/global-params-user */ "./src/app/storage/global-params-user.ts");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../message_alert/global-params-message */ "./src/app/components/message_alert/global-params-message.ts");
+/* harmony import */ var _menu_menu_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../menu/menu.service */ "./src/app/components/menu/menu.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3128,12 +3179,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SubsectionComponent = /** @class */ (function () {
-    function SubsectionComponent(subsectionService, httpService, globalParamsUser, router, sanitizer, globalParamsMessage, activatedRoute) {
+    function SubsectionComponent(subsectionService, httpService, globalParamsUser, menuService, router, sanitizer, globalParamsMessage, activatedRoute) {
         var _this = this;
         this.subsectionService = subsectionService;
         this.httpService = httpService;
         this.globalParamsUser = globalParamsUser;
+        this.menuService = menuService;
         this.router = router;
         this.sanitizer = sanitizer;
         this.globalParamsMessage = globalParamsMessage;
@@ -3166,8 +3219,23 @@ var SubsectionComponent = /** @class */ (function () {
                 }]
         };
         this.promo = '';
+        this.buttons = [{ 'name': 'Выбрать бесплатный урок', 'slug': '#' }, { 'name': 'Учителя', 'slug': '/teacher' }, {
+                'name': 'Отзывы',
+                'slug': '/reviews'
+            }, { 'name': 'Блог', 'slug': '/blog' }, {
+                'name': ' Начать учиться ',
+                'slug': 'https://vk.com/app5898182_-185278877#s=493523'
+            }, { 'name': ' Запись на пробный курс ', 'slug': 'https://vk.com/app5898182_-185278877#s=493523' }, {
+                'name': 'Купить все курсы',
+                'slug': '#'
+            }];
         this.activatedRoute.params.subscribe(function (params) {
             _this.getSubsection(params.id);
+        });
+        this.menuService.getButtons().then(function (data) {
+            _this.buttons = data;
+        }, function (error) {
+            console.log('Ошибка при получении кнопок: ', error);
         });
     }
     SubsectionComponent.prototype.changeShowBuy = function (price, slug) {
@@ -3235,6 +3303,7 @@ var SubsectionComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_subsection_service__WEBPACK_IMPORTED_MODULE_1__["SubsectionService"],
             _utils_http_http_service__WEBPACK_IMPORTED_MODULE_3__["HttpService"],
             _storage_global_params_user__WEBPACK_IMPORTED_MODULE_4__["GlobalParamsUser"],
+            _menu_menu_service__WEBPACK_IMPORTED_MODULE_7__["MenuService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"],
             _message_alert_global_params_message__WEBPACK_IMPORTED_MODULE_6__["GlobalParamsMessage"],
@@ -4347,7 +4416,6 @@ var HttpService = /** @class */ (function () {
         if (typeof data !== 'object') {
             data = { token: '' };
         }
-        console.log('cookie: ', cookie);
         if (cookie !== '') {
             data.token = this.sessionStorage.tokenId;
         }
@@ -4363,6 +4431,7 @@ var HttpService = /** @class */ (function () {
                         /*let rez = atob(result.data);
                         rez = JSON.parse(rez);
                         console.log('Результат ответа: ', rez);*/
+                        console.log('Результат:', result.data);
                         resolve(result.data);
                     }
                     else {

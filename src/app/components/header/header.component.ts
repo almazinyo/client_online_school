@@ -19,6 +19,16 @@ export class HeaderComponent {
     show: false,
     data: true
   };
+  buttons = [{'name': 'Выбрать бесплатный урок', 'slug': '#'}, {'name': 'Учителя', 'slug': '/teacher'}, {
+    'name': 'Отзывы',
+    'slug': '/reviews'
+  }, {'name': 'Блог', 'slug': '/blog'}, {
+    'name': ' Начать учиться ',
+    'slug': 'https://vk.com/app5898182_-185278877#s=493523'
+  }, {'name': ' Запись на пробный курс ', 'slug': 'https://vk.com/app5898182_-185278877#s=493523'}, {
+    'name': 'Купить все курсы',
+    'slug': '#'
+  }];
 
   constructor(private sectionService: SectionService,
               private router: Router,
@@ -33,6 +43,13 @@ export class HeaderComponent {
     this.menuService.getMenuCheck.subscribe(item => {
       this.menu = this.menuService.menu;
     });
+
+    this.menuService.getButtons().then((data: any) => {
+        this.buttons = data;
+      },
+      (error) => {
+        console.log('Ошибка при получении кнопок: ', error);
+      });
 
 
     this.sessionStorageService.authenticated.subscribe(item => {
