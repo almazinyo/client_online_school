@@ -30,6 +30,9 @@ export class SubsectionComponent {
     img_path: '',
     short_description: '',
     description: '',
+    price: '',
+    stock: '',
+    stock_description: '',
     subject: {title: '', price: '', stock: ''},
     courses: [{
       background: '',

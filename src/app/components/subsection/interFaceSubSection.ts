@@ -2,10 +2,13 @@ interface InterFaceSubSection {
   thing: string;
   section: string;
   name: string;
-  slug: string,
+  slug: string;
   img_path: string;
   description: string;
   short_description: string;
+  price: string;
+  stock: string;
+  stock_description: string;
   subject: { title: string, price: string, stock: string };
   courses: [{
     background: string;

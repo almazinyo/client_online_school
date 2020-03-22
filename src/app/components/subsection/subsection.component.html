@@ -80,10 +80,10 @@
     <div class="---title">
       <span class="---font-800 ---d-block ---xs-d-inline-block">Все курсы по {{subsection.name}}
         со скидкой {{subsection.subject.stock}}%!</span>
-      <span class="---old-price">{{subsection.subject.price}}</span>
-      - {{subsection.subject.price * subsection.subject.stock / 100}} ₽
+      <span class="---old-price">{{subsection.price }}</span>
+      - {{subsection.price * subsection.stock / 100}} ₽
     </div>
-    <p>Покупая несколько курсов вы сильно экономите и получаете больше баллов</p>
+    <p>{{subsection.stock_description}}</p>
 
     <div (click)="buyAll()" class="---button ---button--acent_orange">{{buttons[6].name}}</div>
   </div>
