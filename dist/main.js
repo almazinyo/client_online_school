@@ -23,6 +23,89 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/Directive/text.directive.ts":
+/*!*********************************************!*\
+  !*** ./src/app/Directive/text.directive.ts ***!
+  \*********************************************/
+/*! exports provided: TextCopyDirective, TEXT_COPY_DIRECTIVES */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TextCopyDirective", function() { return TextCopyDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TEXT_COPY_DIRECTIVES", function() { return TEXT_COPY_DIRECTIVES; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TextCopyDirective = /** @class */ (function () {
+    function TextCopyDirective() {
+    }
+    // The HostListener will listen to click events and run the below function, the HostListener supports other standard events such as mouseenter, mouseleave etc.
+    TextCopyDirective.prototype.copyText = function () {
+        // We need to create a dummy textarea with the text to be copied in the DOM
+        var textArea = document.createElement('textarea');
+        // Hide the textarea from actually showing
+        textArea.style.position = 'fixed';
+        textArea.style.top = '-999px';
+        textArea.style.left = '-999px';
+        textArea.style.width = '2em';
+        textArea.style.height = '2em';
+        textArea.style.padding = '0';
+        textArea.style.border = 'none';
+        textArea.style.outline = 'none';
+        textArea.style.boxShadow = 'none';
+        textArea.style.background = 'transparent';
+        // Set the texarea's content to our value defined in our [text-copy] attribute
+        textArea.value = this.text;
+        document.body.appendChild(textArea);
+        // This will select the textarea
+        textArea.select();
+        try {
+            // Most modern browsers support execCommand('copy'|'cut'|'paste'), if it doesn't it should throw an error
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            // Let the user know the text has been copied, e.g toast, alert etc.
+            console.log(msg);
+        }
+        catch (err) {
+            // Tell the user copying is not supported and give alternative, e.g alert window with the text to copy
+            console.log('unable to copy');
+        }
+        // Finally we remove the textarea from the DOM
+        document.body.removeChild(textArea);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('text-copy'),
+        __metadata("design:type", String)
+    ], TextCopyDirective.prototype, "text", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"])('click'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], TextCopyDirective.prototype, "copyText", null);
+    TextCopyDirective = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+            selector: '[text-copy]'
+        }),
+        __metadata("design:paramtypes", [])
+    ], TextCopyDirective);
+    return TextCopyDirective;
+}());
+
+var TEXT_COPY_DIRECTIVES = [TextCopyDirective];
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -324,12 +407,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng2_page_scroll__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ng2-page-scroll */ "./node_modules/ng2-page-scroll/ng2-page-scroll.js");
 /* harmony import */ var _components_hints_hints_service__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./components/hints/hints.service */ "./src/app/components/hints/hints.service.ts");
 /* harmony import */ var _components_hints_hints_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./components/hints/hints.component */ "./src/app/components/hints/hints.component.ts");
+/* harmony import */ var _Directive_text_directive__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./Directive/text.directive */ "./src/app/Directive/text.directive.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -430,7 +515,8 @@ var AppModule = /** @class */ (function () {
                 _components_modal_auth_modal_auth_component__WEBPACK_IMPORTED_MODULE_56__["ModalAuthComponent"],
                 _components_footer_social_link_social_link_component__WEBPACK_IMPORTED_MODULE_57__["SocialLinkComponent"],
                 _components_profile_pay_profile_pay_component__WEBPACK_IMPORTED_MODULE_61__["ProfilePayComponent"],
-                _components_hints_hints_component__WEBPACK_IMPORTED_MODULE_64__["HintsComponent"]
+                _components_hints_hints_component__WEBPACK_IMPORTED_MODULE_64__["HintsComponent"],
+                _Directive_text_directive__WEBPACK_IMPORTED_MODULE_65__["TextCopyDirective"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -2555,7 +2641,6 @@ var ProfilePromotionComponent = /** @class */ (function () {
         this.lessons = [];
         this.profilePromotionService.getPromotion().then(function (data) {
             _this.lessons = data;
-            console.log(1, _this.lessons);
         }, function (error) {
             console.log('Ошибка при получении информации о продвижении: ', error);
         });
@@ -2632,7 +2717,7 @@ var ProfilePromotionService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-profile ---d-flex\">\n  <app-profile-menu></app-profile-menu>\n  <div class=\"---rside ---pos-rel\">\n    <app-breadcrumbs></app-breadcrumbs>\n    <div class=\"---block-title ---block-title--sm\">Скидки по промокодам</div>\n\n    <div class=\"---devider\"></div>\n\n    <p>\n      Отправьте промокод другу и получите <span class=\"---font-600\">500 баллов</span> на покупку курсов!\n    </p>\n\n    <div class=\"---acent-block ---promocode-block\">\n      <div class=\"---title\">Ваш промокод</div>\n\n      <div class=\"---d-flex ---flex-wrap ---align-items-center\">\n        <div class=\"---code ---font-600\" id=\"foo\">8877 6879 7891</div>\n      </div>\n    </div>\n\n    <div class=\"---devider\"></div>\n\n    <div class=\"---enter-code-wrap\">\n\n      <div class=\"---block-title ---block-title--sm\">У вас есть промокод?</div>\n      <p>\n        Введите в поле для активации\n      </p>\n      <div class=\"---d-flex ---flex-wrap\">\n        <input class=\"---input ---enter-code-input\" placeholder=\"8997 6448 7882\">\n        <button class=\"---button ---button--acent_orange\">Активировать</button>\n      </div>\n\n    </div>\n\n    <div class=\"---devider\"></div>\n\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-profile ---d-flex\">\n  <app-profile-menu></app-profile-menu>\n  <div class=\"---rside ---pos-rel\">\n    <app-breadcrumbs></app-breadcrumbs>\n    <div class=\"---block-title ---block-title--sm\">Скидки по промокодам</div>\n\n    <div class=\"---devider\"></div>\n\n    <p>\n      Отправьте промокод другу и получите <span class=\"---font-600\">500 баллов</span> на покупку курсов!\n    </p>\n\n    <div class=\"---acent-block ---promocode-block\">\n      <div class=\"---title\">Ваш промокод</div>\n\n      <div class=\"---d-flex ---flex-wrap ---align-items-center\">\n        <div class=\"---code ---font-600\" id=\"foo\">{{promotionCode}}</div>\n        <button [text-copy]=\"promotionCode\" class=\"---button ---button--border_white\">Копировать</button>\n      </div>\n    </div>\n\n    <div class=\"---devider\"></div>\n\n    <div class=\"---enter-code-wrap\">\n\n      <div class=\"---block-title ---block-title--sm\">У вас есть промокод?</div>\n      <p>\n        Введите в поле для активации\n      </p>\n      <div class=\"---d-flex ---flex-wrap\">\n        <input class=\"---input ---enter-code-input\" placeholder=\"8997 6448 7882\">\n        <button class=\"---button ---button--acent_orange\">Активировать</button>\n      </div>\n\n    </div>\n\n    <div class=\"---devider\"></div>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2661,7 +2746,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var ProfilePromotionalCodeComponent = /** @class */ (function () {
     function ProfilePromotionalCodeComponent(profilePromotionalCodeService) {
+        var _this = this;
         this.profilePromotionalCodeService = profilePromotionalCodeService;
+        this.promotionCode = '';
+        this.profilePromotionalCodeService.getPromotionCode().then(function (data) {
+            _this.promotionCode = data;
+        }, function (error) {
+            console.log('Ошибка при получении промокода: ', error);
+        });
     }
     ProfilePromotionalCodeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2688,6 +2780,7 @@ var ProfilePromotionalCodeComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePromotionalCodeService", function() { return ProfilePromotionalCodeService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/http/http.service */ "./src/app/utils/http/http.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2698,12 +2791,30 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var ProfilePromotionalCodeService = /** @class */ (function () {
-    function ProfilePromotionalCodeService() {
+    function ProfilePromotionalCodeService(httpService) {
+        this.httpService = httpService;
     }
+    // получение информации по промокоду
+    ProfilePromotionalCodeService.prototype.getPromotionCode = function () {
+        return new Promise(function (resolve, reject) {
+            var result = '887768797891';
+            resolve(result);
+            /*this.httpService.prepareQuery('api/users/promo-code', {}, true)
+              .then((result) => {
+                  resolve(result);
+                },
+                (error) => {
+                  console.log('Ошибка при получении информации о продвижении', error);
+                  reject();
+                }
+              );*/
+        });
+    };
     ProfilePromotionalCodeService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_utils_http_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"]])
     ], ProfilePromotionalCodeService);
     return ProfilePromotionalCodeService;
 }());

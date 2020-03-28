@@ -63,6 +63,7 @@ import {ProfilePayComponent} from './components/profile_pay/profile_pay.componen
 import {Ng2PageScrollModule} from 'ng2-page-scroll';
 import {HintsService} from './components/hints/hints.service';
 import {HintsComponent} from './components/hints/hints.component';
+import {TextCopyDirective} from './Directive/text.directive';
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 
 @NgModule({
@@ -95,7 +96,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
     ModalAuthComponent,
     SocialLinkComponent,
     ProfilePayComponent,
-    HintsComponent
+    HintsComponent,
+    TextCopyDirective
   ],
   imports: [
     BrowserModule,
