@@ -10,9 +10,7 @@ export class ProfilePromotionalCodeService {
   // получение информации по промокоду
   getPromotionCode() {
     return new Promise((resolve, reject) => {
-      const result = '887768797891';
-      resolve(result);
-      /*this.httpService.prepareQuery('api/users/promo-code', {}, true)
+      this.httpService.prepareQuery('api/users/promo-code', {}, true)
         .then((result) => {
             resolve(result);
           },
@@ -20,7 +18,7 @@ export class ProfilePromotionalCodeService {
             console.log('Ошибка при получении информации о продвижении', error);
             reject();
           }
-        );*/
+        );
     });
   }
 }
