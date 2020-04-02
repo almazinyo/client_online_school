@@ -110,7 +110,7 @@ export class SubsectionService {
       body.set('comment', 'Платеж  за  урока ... ');
       body.set('message', 'Платеж  за  урока ... ');
       body.set('codepro', 'true');
-      body.set('successURL', 'http://dev.examator.ru/');
+      body.set('successURL', 'http://examator.ru/');
       body.set('paymentType', 'payment-shop');
 
       this.httpService.prepareQueryYandex('https://money.yandex.ru/quickpay/confirm.xml', body)
