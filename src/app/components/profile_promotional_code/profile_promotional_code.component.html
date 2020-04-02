@@ -6,34 +6,39 @@
 
     <div class="---devider"></div>
 
-    <p>
-      Отправьте промокод другу и получите <span class="---font-600">{{promotionCode.percent}} %</span> на покупку курсов!
-    </p>
-
-    <div class="---acent-block ---promocode-block">
-      <div class="---title">Ваш промокод</div>
-
-      <div class="---d-flex ---flex-wrap ---align-items-center">
-        <div class="---code ---font-600" id="foo">{{promotionCode.key}}</div>
-        <button [text-copy]="promotionCode" class="---button ---button--border_white">Копировать</button>
-      </div>
-    </div>
-
-    <div class="---devider"></div>
-
-    <div class="---enter-code-wrap">
-
-      <div class="---block-title ---block-title--sm">У вас есть промокод?</div>
+    <div *ngIf="promotionCode.percent!==''">
       <p>
-        Введите в поле для активации
+        Отправьте промокод другу и получите <span class="---font-600">{{promotionCode.percent}} %</span> на покупку
+        курсов!
       </p>
-      <div class="---d-flex ---flex-wrap">
-        <input class="---input ---enter-code-input" placeholder="8997 6448 7882">
-        <button class="---button ---button--acent_orange">Активировать</button>
+
+      <div class="---acent-block ---promocode-block">
+        <div class="---title">Ваш промокод</div>
+
+        <div class="---d-flex ---flex-wrap ---align-items-center">
+          <div class="---code ---font-600" id="foo">{{promotionCode.key}}</div>
+          <button [text-copy]="promotionCode" class="---button ---button--border_white">Копировать</button>
+        </div>
       </div>
 
-    </div>
+      <div class="---devider"></div>
 
+      <div class="---enter-code-wrap">
+
+        <div class="---block-title ---block-title--sm">У вас есть промокод?</div>
+        <p>
+          Введите в поле для активации
+        </p>
+        <div class="---d-flex ---flex-wrap">
+          <input class="---input ---enter-code-input" placeholder="8997 6448 7882">
+          <button class="---button ---button--acent_orange">Активировать</button>
+        </div>
+
+      </div>
+    </div>
+    <div *ngIf="promotionCode.percent===''">
+      <p>Обратитесь к администратору для получения промокаода</p>
+    </div>
     <div class="---devider"></div>
 
   </div>
