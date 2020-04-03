@@ -47,6 +47,7 @@ export class TextCopyDirective {
       const msg = successful ? 'successful' : 'unsuccessful';
       // Let the user know the text has been copied, e.g toast, alert etc.
       console.log(msg);
+
     } catch (err) {
       // Tell the user copying is not supported and give alternative, e.g alert window with the text to copy
       console.log('unable to copy');

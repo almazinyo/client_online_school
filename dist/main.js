@@ -2717,7 +2717,7 @@ var ProfilePromotionService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"---block-profile ---d-flex\">\n  <app-profile-menu></app-profile-menu>\n  <div class=\"---rside ---pos-rel\">\n    <app-breadcrumbs></app-breadcrumbs>\n    <div class=\"---block-title ---block-title--sm\">Скидки по промокодам</div>\n\n    <div class=\"---devider\"></div>\n\n    <div *ngIf=\"promotionCode.percent!==''\">\n      <p>\n        Отправьте промокод другу и получите <span class=\"---font-600\">{{promotionCode.percent}} %</span> на покупку\n        курсов!\n      </p>\n\n      <div class=\"---acent-block ---promocode-block\">\n        <div class=\"---title\">Ваш промокод</div>\n\n        <div class=\"---d-flex ---flex-wrap ---align-items-center\">\n          <div class=\"---code ---font-600\" id=\"foo\">{{promotionCode.key}}</div>\n          <button [text-copy]=\"promotionCode.key\" class=\"---button ---button--border_white\">Копировать</button>\n        </div>\n      </div>\n\n      <div class=\"---devider\"></div>\n\n      <div class=\"---enter-code-wrap\">\n\n        <div class=\"---block-title ---block-title--sm\">У вас есть промокод?</div>\n        <p>\n          Введите в поле для активации\n        </p>\n        <div class=\"---d-flex ---flex-wrap\">\n          <input class=\"---input ---enter-code-input\" placeholder=\"8997 6448 7882\">\n          <button class=\"---button ---button--acent_orange\">Активировать</button>\n        </div>\n\n      </div>\n    </div>\n    <div *ngIf=\"promotionCode.percent===''\">\n      <p>Обратитесь к администратору для получения промокаода</p>\n    </div>\n    <div class=\"---devider\"></div>\n\n  </div>\n</div>\n"
+module.exports = "<div class=\"---block-profile ---d-flex\">\n  <app-profile-menu></app-profile-menu>\n  <div class=\"---rside ---pos-rel\">\n    <app-breadcrumbs></app-breadcrumbs>\n    <div class=\"---block-title ---block-title--sm\">Скидки по промокодам</div>\n\n    <div class=\"---devider\"></div>\n\n    <div *ngIf=\"promotionCode.percent!==''\">\n      <p>\n        Отправьте промокод другу и получите <span class=\"---font-600\">{{promotionCode.percent}} %</span> на покупку\n        курсов!\n      </p>\n\n      <div class=\"---acent-block ---promocode-block\">\n        <div class=\"---title\">Ваш промокод</div>\n\n        <div class=\"---d-flex ---flex-wrap ---align-items-center\">\n          <div class=\"---code ---font-600\" id=\"foo\">{{promotionCode.key}}</div>\n          <button [text-copy]=\"promotionCode.key\" (click)=\"showP()\" class=\"---button ---button--border_white\">Копировать</button>\n          <div *ngIf=\"showPCheck===true\" style=\"background: #fff;color: #000;padding: 10px;font-size: 12px;border-radius: 8px;margin-left: 20px;\">Скопировано</div>\n        </div>\n      </div>\n\n      <div class=\"---devider\"></div>\n\n      <div class=\"---enter-code-wrap\">\n\n        <div class=\"---block-title ---block-title--sm\">У вас есть промокод?</div>\n        <p>\n          Введите в поле для активации\n        </p>\n        <div class=\"---d-flex ---flex-wrap\">\n          <input class=\"---input ---enter-code-input\" placeholder=\"8997 6448 7882\">\n          <button class=\"---button ---button--acent_orange\">Активировать</button>\n        </div>\n\n      </div>\n    </div>\n    <div *ngIf=\"promotionCode.percent===''\">\n      <p>Обратитесь к администратору для получения промокаода</p>\n    </div>\n    <div class=\"---devider\"></div>\n\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2752,12 +2752,18 @@ var ProfilePromotionalCodeComponent = /** @class */ (function () {
             percent: '',
             key: ''
         };
+        this.showPCheck = false;
         this.profilePromotionalCodeService.getPromotionCode().then(function (data) {
             _this.promotionCode = data;
         }, function (error) {
             console.log('Ошибка при получении промокода: ', error);
         });
     }
+    ProfilePromotionalCodeComponent.prototype.showP = function () {
+        var _this = this;
+        this.showPCheck = true;
+        setTimeout(function () { return _this.showPCheck = false; }, 2000);
+    };
     ProfilePromotionalCodeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-profile-promotional-code',

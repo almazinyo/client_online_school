@@ -10,6 +10,7 @@ export class ProfilePromotionalCodeComponent {
     percent: '',
     key: ''
   };
+  showPCheck = false;
 
   constructor(private profilePromotionalCodeService: ProfilePromotionalCodeService) {
     this.profilePromotionalCodeService.getPromotionCode().then((data: any) => {
@@ -18,5 +19,11 @@ export class ProfilePromotionalCodeComponent {
       (error) => {
         console.log('Ошибка при получении промокода: ', error);
       });
+  }
+
+  showP() {
+    this.showPCheck = true;
+
+    setTimeout(() => this.showPCheck = false, 2000);
   }
 }

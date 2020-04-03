@@ -17,7 +17,8 @@
 
         <div class="---d-flex ---flex-wrap ---align-items-center">
           <div class="---code ---font-600" id="foo">{{promotionCode.key}}</div>
-          <button [text-copy]="promotionCode.key" class="---button ---button--border_white">Копировать</button>
+          <button [text-copy]="promotionCode.key" (click)="showP()" class="---button ---button--border_white">Копировать</button>
+          <div *ngIf="showPCheck===true" style="background: #fff;color: #000;padding: 10px;font-size: 12px;border-radius: 8px;margin-left: 20px;">Скопировано</div>
         </div>
       </div>
 
