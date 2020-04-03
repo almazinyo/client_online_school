@@ -138,10 +138,10 @@ export class SubsectionComponent {
     }
     this.buyModal = {
       show: true,
-      price: this.subsection.subject.price,
+      price: this.subsection.price,
       slug: this.subsection.slug,
       sale: parseInt(this.subsection.subject.stock, 10),
-      new_price: (parseInt(this.subsection.subject.price, 10) - ((parseInt(this.subsection.subject.price, 10) * parseInt(this.subsection.subject.stock, 10) / 100))).toString(),
+      new_price: (parseInt(this.subsection.price, 10) - ((parseInt(this.subsection.price, 10) * parseInt(this.subsection.subject.stock, 10) / 100))).toString(),
     };
   }
 }
