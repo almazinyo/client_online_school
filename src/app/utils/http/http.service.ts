@@ -137,7 +137,7 @@ export class HttpService {
     if (post) {
       // return this.http.post('http://localhost:8005/' + api  , request, {headers: headers})
 
-      let url = 'http://api.examator.ru/' + api;
+      let url = 'https://api.examator.ru/' + api;
 
       if (api.includes('http')) {
         url = api;
@@ -150,7 +150,7 @@ export class HttpService {
     }
 
     // return this.http.get('http://localhost:8005/' + api, {headers: headers}).pipe(
-    return this.http.get('http://api.examator.ru/' + api, {headers: headers}).pipe(
+    return this.http.get('https://api.examator.ru/' + api, {headers: headers}).pipe(
       catchError(HttpService.handlerError)
     );
   }
