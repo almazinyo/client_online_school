@@ -38,7 +38,7 @@
         </div>
         <span *ngFor="let currentWork of storage">
           <video #videoPlayer class="---pos-rel ---img-cover" controls *ngIf="currentWork.type==='video'">
-            <source src="http://api.examator.ru/images/lessons/{{currentWork.name}}"
+            <source src="https://api.examator.ru/images/lessons/{{currentWork.name}}"
                     type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
           </video>
         </span>
@@ -82,7 +82,7 @@
               <div class="h3">Задание</div>
 
               <div (click)="checkImg(test[testIndex].question)" class="---cursor-pointer">
-                <img src='http://api.examator.ru/images/question/{{test[testIndex].question}}' alt=""
+                <img src='https://api.examator.ru/images/question/{{test[testIndex].question}}' alt=""
                      style="max-width: 100%;">
               </div>
 
@@ -178,7 +178,7 @@
       </div>
 
       <iframe
-        [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+buyModal.new_price+'&successURL=http://examator.ru&account=41001820507850&label='+globalParamsUser.fio+'-'+buyModal.slug)"
+        [src]="sanitizer.bypassSecurityTrustResourceUrl('https://money.yandex.ru/quickpay/shop-widget?targets=Examator&any-card-payment-type=on&default-sum='+buyModal.new_price+'&successURL=https://examator.ru&account=41001820507850&label='+globalParamsUser.fio+'-'+buyModal.slug)"
         width="184"
         height="36"
         frameborder="0"
