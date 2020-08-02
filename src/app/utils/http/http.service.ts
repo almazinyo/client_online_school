@@ -89,8 +89,6 @@ export class HttpService {
       data.token = this.sessionStorage.tokenId;
     }
 
-    console.log('data:', data);
-
     if (Object.keys(data).length !== 0 && post) {
       data = JSON.stringify(data);
       data = Base64.encode(data);
@@ -103,7 +101,6 @@ export class HttpService {
               /*let rez = atob(result.data);
               rez = JSON.parse(rez);
               console.log('Результат ответа: ', rez);*/
-              console.log('Результат:', result.data)
               resolve(result.data);
             } else {
               resolve(result);

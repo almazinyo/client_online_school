@@ -105,7 +105,7 @@ export class WorkComponent {
         for (let i = 0; i < this.storage.length; i++) {
           if (this.storage[i].type === 'pdf') {
             this.storage[i].url =
-              this.sanitizer.bypassSecurityTrustResourceUrl('http://api.examator.ru/images/lessons/' + this.storage[i].name);
+              this.sanitizer.bypassSecurityTrustResourceUrl('https://api.examator.ru/images/lessons/' + this.storage[i].name);
           }
         }
 
@@ -153,12 +153,9 @@ export class WorkComponent {
 
       this.answer = '';
     }
-
-    console.log(111, this.answerTest);
   }
 
   sendAnswer() {
-    console.log(222, this.answerTest);
     this.workService.sendAnswer({
         section_id: this.lesson.section_id,
         lesson_id: this.lesson.id,
@@ -194,10 +191,10 @@ export class WorkComponent {
 
   checkImg(data, type = 'img') {
     if (type === 'img') {
-      this.modalImg = 'http://api.examator.ru/images/question/' + data;
+      this.modalImg = 'https://api.examator.ru/images/question/' + data;
     } else {
       this.answerTest[this.testIndex].hint = true;
-      this.modalImg = 'http://api.examator.ru/images/question/hint/' + data;
+      this.modalImg = 'https://api.examator.ru/images/question/hint/' + data;
     }
     this.showCheckImg = true;
   }
