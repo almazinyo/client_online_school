@@ -74,6 +74,8 @@ export class WorkComponent {
 
   showBtnSend = false;
 
+  showMenu = false;
+
   constructor(private workService: WorkService,
               private router: Router,
               private globalParamsMessage: GlobalParamsMessage,
@@ -245,6 +247,7 @@ export class WorkComponent {
   }
 
   changeLessons(section_slug, currentWork_slug) {
+    this.showMenu = false;
     this.answerTest = [];
     this.testIndex = 0;
     this.showBtnSend = false;
