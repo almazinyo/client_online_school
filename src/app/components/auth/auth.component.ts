@@ -25,13 +25,11 @@ export class AuthComponent implements OnInit {
               private reviewsService: ReviewsService,
               private menuService: MenuService) {
 
-    console.log(1, this.router.url);
+    //console.log(1, this.router.url);
 
     if (this.router.url !== '/' && this.router.url !== '') {
       const code = this.router.url.split('=')[1];
-      console.log(3, code);
-
-      this.http.get(`https://oauth.vk.com/access_token?client_id=7200615&client_secret=LMdG6Z403NdoknGG7PY1&redirect_uri=https://examator.ru/&code=${code}`).subscribe((data) => console.log(2, data));
+      //console.log(3, code);
     }
 
 
