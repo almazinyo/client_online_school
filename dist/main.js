@@ -631,6 +631,7 @@ var AuthComponent = /** @class */ (function () {
         this.reviews = [];
         if (this.router.url !== '/' && this.router.url !== '') {
             this.cookieService.set('vk_app_7200615', this.router.url);
+            this.router.navigate(['/']);
         }
         this.authService.getData().then(function (data) {
             _this.data = data.mainSection;

@@ -29,6 +29,7 @@ export class AuthComponent implements OnInit {
 
     if (this.router.url !== '/' && this.router.url !== '') {
       this.cookieService.set('vk_app_7200615',  this.router.url);
+      this.router.navigate(['/']);
     }
 
     this.authService.getData().then((data: { mainSection: InterFaceMain[] }) => {
