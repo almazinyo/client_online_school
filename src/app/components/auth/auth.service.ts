@@ -57,8 +57,6 @@ export class AuthService {
 
       const cookie = this.cookieService.get('vk_app_7200615') || '';
 
-      console.log(1, cookie);
-
       if (cookie !== '') {
         this.httpService.prepareQuery('api/main/init/', {data: cookie}, true)
           .then((result: { token: string, username: string }) => {
