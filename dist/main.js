@@ -597,6 +597,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _reviews_reviews_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../reviews/reviews.service */ "./src/app/components/reviews/reviews.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -613,9 +614,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AuthComponent = /** @class */ (function () {
-    function AuthComponent(authService, globalParamsMessage, router, http, reviewsService, menuService) {
-        //console.log(1, this.router.url);
+    function AuthComponent(authService, globalParamsMessage, router, http, reviewsService, menuService, cookieService) {
         var _this = this;
         this.authService = authService;
         this.globalParamsMessage = globalParamsMessage;
@@ -623,13 +624,13 @@ var AuthComponent = /** @class */ (function () {
         this.http = http;
         this.reviewsService = reviewsService;
         this.menuService = menuService;
+        this.cookieService = cookieService;
         this.fragment = '';
         this.data = [];
         this.menu = [];
         this.reviews = [];
         if (this.router.url !== '/' && this.router.url !== '') {
-            var code = this.router.url.split('=')[1];
-            //console.log(3, code);
+            this.cookieService.set('vk_app_7200615', this.router.url);
         }
         this.authService.getData().then(function (data) {
             _this.data = data.mainSection;
@@ -665,7 +666,8 @@ var AuthComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClient"],
             _reviews_reviews_service__WEBPACK_IMPORTED_MODULE_5__["ReviewsService"],
-            _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"]])
+            _menu_menu_service__WEBPACK_IMPORTED_MODULE_2__["MenuService"],
+            ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]])
     ], AuthComponent);
     return AuthComponent;
 }());

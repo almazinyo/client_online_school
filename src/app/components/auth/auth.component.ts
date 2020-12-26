@@ -5,6 +5,7 @@ import {GlobalParamsMessage} from '../message_alert/global-params-message';
 import {Router} from '@angular/router';
 import {ReviewsService} from '../reviews/reviews.service';
 import {HttpClient} from '@angular/common/http';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-client',
@@ -23,15 +24,12 @@ export class AuthComponent implements OnInit {
               private router: Router,
               private http: HttpClient,
               private reviewsService: ReviewsService,
-              private menuService: MenuService) {
-
-    //console.log(1, this.router.url);
+              private menuService: MenuService,
+              private cookieService: CookieService) {
 
     if (this.router.url !== '/' && this.router.url !== '') {
-      const code = this.router.url.split('=')[1];
-      //console.log(3, code);
+      this.cookieService.set('vk_app_7200615',  this.router.url);
     }
-
 
     this.authService.getData().then((data: { mainSection: InterFaceMain[] }) => {
         this.data = data.mainSection;
