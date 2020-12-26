@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {ReviewsService} from '../reviews/reviews.service';
 import {HttpClient} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
+import {SessionStorageService} from '../../storage/session-storage.service';
 
 @Component({
   selector: 'app-client',
@@ -25,11 +26,18 @@ export class AuthComponent implements OnInit {
               private http: HttpClient,
               private reviewsService: ReviewsService,
               private menuService: MenuService,
+              private sessionStorageService: SessionStorageService,
               private cookieService: CookieService) {
 
     if (this.router.url !== '/' && this.router.url !== '') {
       this.cookieService.set('vk_app_7200615',  this.router.url);
       this.router.navigate(['/']);
+
+      this.authService.getInit().then(() => {
+        },
+        (error) => {
+          console.log('Ошибка при получении информации о клиенте: ', error);
+        });
     }
 
     this.authService.getData().then((data: { mainSection: InterFaceMain[] }) => {
