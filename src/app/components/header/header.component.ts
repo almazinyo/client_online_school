@@ -65,10 +65,11 @@ export class HeaderComponent {
   }
 
   auth() {
-    const s = document.createElement('script');
+    /*const s = document.createElement('script');
     s.type = 'text/javascript';
     s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/site/auth?authclient=vkontakte\',onAuth: function(){window.location.href = \'http://examator.ru/profile-details\';}})';
     this.elementRef.nativeElement.appendChild(s);
+    */
     this.globalParamsAuth.showModalAuth = true;
   }
 }

@@ -1539,10 +1539,11 @@ var HeaderComponent = /** @class */ (function () {
         this.router.navigate(['/section/' + currentMenu.slug]);
     };
     HeaderComponent.prototype.auth = function () {
-        var s = document.createElement('script');
+        /*const s = document.createElement('script');
         s.type = 'text/javascript';
         s.innerText = 'VK.init({apiId: 7200615});VK.Widgets.Auth(\'vk_auth\', {\'authUrl\': \'/site/auth?authclient=vkontakte\',onAuth: function(){window.location.href = \'http://examator.ru/profile-details\';}})';
         this.elementRef.nativeElement.appendChild(s);
+        */
         this.globalParamsAuth.showModalAuth = true;
     };
     HeaderComponent = __decorate([
@@ -2023,7 +2024,7 @@ module.exports = "#modal-alert {\n  position: absolute;\n  top: 50%;\n  left: 50
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div *ngIf=\"globalParamsAuth.showModalAuth\" id=\"-&#45;&#45;modal-login\"\n     class=\"-&#45;&#45;modal -&#45;&#45;justify-content-center -&#45;&#45;align-items-start -&#45;&#45;is-visible\">\n  <div class=\"-&#45;&#45;wrapper\">\n    <i class=\"-&#45;&#45;js-close -&#45;&#45;icon-close -&#45;&#45;icon-font -&#45;&#45;icon-close -&#45;&#45;x-pos-abs\" (click)=\"close()\"\n       data-close-block=\".-&#45;&#45;modal\"></i>\n    <div id=\"vk_auth\"></div>\n  </div>\n</div>-->\n\n\n<div *ngIf=\"globalParamsAuth.showModalAuth\" id=\"---modal-login\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n    <div class=\"---wrapper\">\n\n        <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" data-close-block=\".---modal\" (click)=\"close()\"></i>\n\n        <img src=\"/assets/imgs/icons/modals/login.svg\" alt=\"\" class=\"---icon\">\n\n        <div class=\"---text-center\">\n            <div class=\"---modal__title\">\n                <span class=\"---font-800\">Зарегистрируйтесь</span><br> что бы начать<br> проходить крусы\n              <a href=\"https://oauth.vk.com/authorize?client_id=7200615&display=page&redirect_uri=https://examator.ru/&scope=offline&response_type=token&v=5.126&state=123456\">Войти</a>\n            </div>\n\n            <p>Вход выполняется через соц.сети</p>\n        </div>\n\n      <div id=\"vk_auth\"></div>\n    </div>\n</div>\n"
+module.exports = "<!--<div *ngIf=\"globalParamsAuth.showModalAuth\" id=\"-&#45;&#45;modal-login\"\n     class=\"-&#45;&#45;modal -&#45;&#45;justify-content-center -&#45;&#45;align-items-start -&#45;&#45;is-visible\">\n  <div class=\"-&#45;&#45;wrapper\">\n    <i class=\"-&#45;&#45;js-close -&#45;&#45;icon-close -&#45;&#45;icon-font -&#45;&#45;icon-close -&#45;&#45;x-pos-abs\" (click)=\"close()\"\n       data-close-block=\".-&#45;&#45;modal\"></i>\n    <div id=\"vk_auth\"></div>\n  </div>\n</div>-->\n\n\n<div *ngIf=\"globalParamsAuth.showModalAuth\" id=\"---modal-login\" class=\"---modal ---d-flex ---justify-content-center ---align-items-start\">\n    <div class=\"---wrapper\">\n\n        <i class=\"---js-close ---icon-close ---icon-font ---icon-close ---x-pos-abs\" data-close-block=\".---modal\" (click)=\"close()\"></i>\n\n        <img src=\"/assets/imgs/icons/modals/login.svg\" alt=\"\" class=\"---icon\">\n\n        <div class=\"---text-center\">\n            <div class=\"---modal__title\">\n                <span class=\"---font-800\">Зарегистрируйтесь</span><br> что бы начать<br> проходить крусы\n            </div>\n\n          <p><a style=\"text-decoration: underline;\" href=\"https://oauth.vk.com/authorize?client_id=7200615&display=page&redirect_uri=https://examator.ru/&scope=offline&response_type=token&v=5.126&state=123456\">Выполнить вход через ВКонтакте</a></p>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
