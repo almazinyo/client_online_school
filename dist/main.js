@@ -752,7 +752,6 @@ var AuthService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             var cookie = _this.cookieService.get('vk_app_7200615') || '';
-            console.log(1, cookie);
             if (cookie !== '') {
                 _this.httpService.prepareQuery('api/main/init/', { data: cookie }, true)
                     .then(function (result) {
@@ -4410,7 +4409,7 @@ var SessionStorageService = /** @class */ (function () {
         this.globalParamsUser.fio = '';
         this.authenticated.emit(false);
         localStorage.removeItem('token');
-        this.cookieService.set('vk_app_7200615', '', 1, '/', '.examator.ru');
+        this.cookieService.delete('vk_app_7200615');
     };
     SessionStorageService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
