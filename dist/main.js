@@ -752,6 +752,7 @@ var AuthService = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             var cookie = _this.cookieService.get('vk_app_7200615') || '';
+            console.log(1, cookie);
             if (cookie !== '') {
                 _this.httpService.prepareQuery('api/main/init/', { data: cookie }, true)
                     .then(function (result) {
